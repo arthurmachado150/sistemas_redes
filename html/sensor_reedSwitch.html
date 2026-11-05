@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+    <title>Sistemas de Redes</title>
+</head>
+
+<body>
+    <header>
+        <h1><img class="logo_senai_tamanho" src="../img/logo_senai.jpg" alt="Logo SENAI" width="200px"></h1>
+
+        <nav>
+            <!-- Checkbox invisível e Ícone do Sanduíche -->
+            <input type="checkbox" id="menu-toggle">
+            <label for="menu-toggle" class="menu-icon">&#9776;</label>
+
+            <!-- Lista de links do menu -->
+            <ul class="menu-links">
+                <li><a href="../index.html">Introdução</a></li>
+                <li><a href="./clp.html">Controlador Lógico Programável</a></li>
+                <li><a href="./ihm.html">Interface Homem-Máquina</a></li>
+                <li><a href="./equipamentos_processo.html">Equipamentos da Bancada Processos</a></li>
+                <li><a href="./fundamentos_pneumatica.html">Pneumática</a></li>
+                <li><a href="./driver.html">Driver de Comunicação</a></li>
+                <li><a href="./painel_eletrico.html">Painéis Elétricos</a></li>
+                <li><a href="./sensor_reedSwitch.html">Sensor Reed Switch</a></li>
+                <li><a href="./piramide_automacao.html">Pirâmide de Automação</a></li>
+                <li><a href="./design_thinking_e_metodologia_scrum.html">Design Thinking & Scrum</a></li>
+                <li><a href="./trello.html">Trello</a></li>
+                <li><a href="./contatos.html">Contatos</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- CONTEÚDO CENTRALIZADO -->
+    <main>
+        <h1>Sensor Reed Switch</h1>
+
+        <!-- 1 -->
+        <section>
+            <h2>Introdução e Definição do Sensor</h2>
+            <section class="section_diferente">
+                <p class="frase_espacamento">O <strong>Reed Switch</strong> (ou interruptor de lâminas magnéticas) é um sensor eletromecânico utilizado para detectar a presença de campos magnéticos. Em sistemas automatizados, como a Bancada de Processos SMART 4.0, este dispositivo desempenha a função fundamental de sensor de fim de curso sem contato para cilindros pneumáticos, garantindo a detecção precisa das posições avançada e recuada dos eixos mecânicos.</p>
+                <ul>
+                    <li><strong>Módulo:</strong> Pneumática & CLP</li>
+                    <li><strong>Atuador:</strong> Eixo Z Pneumático</li>
+                    <li><strong>Controlador:</strong> Siemens S7-1200</li>
+                </ul>
+                <section class="section_diferente_02">
+                    <h4>Princípio de Funcionamento</h4>
+                    <p>Consiste em duas lâminas ferromagnéticas flexíveis (bulbos de reed) hermeticamente seladas dentro de uma cápsula de vidro preenchida com gás inerte. Quando um campo magnético externo (ímã do êmbolo pneumático) se aproxima, as lâminas são magnetizadas com polaridades opostas, atraindo-se fisicamente e fechando o circuito elétrico.</p>
+                </section>
+            </section>
+            <img class="imagem_tres" src="../img/sensor_reedswitch.png" alt="">
+        </section>
+
+        <!-- 2 -->
+        <section>
+            <h2>Arquitetura Interna e Modos de Operação</h2>
+            <section class="section_diferente">
+                <h3>Contatos Abertos vs. Fechados por Atração Magnética</h3>
+                <section class="section_diferente_02">
+                    <h4>Estado Normal (Sem Ímã)</h4>
+                    <p>Na ausência de campo magnético, as lâminas metálicas permanecem separadas por sua elasticidade natural. O circuito encontra-se em estado <strong>Normalmente Aberto (NA)</strong>, sem condução de corrente para o CLP.</p>
+                </section>
+                <section class="section_diferente_02">
+                    <h4>Estado Comutado (Com Ímã)</h4>
+                    <p>A aproximação do pistão pneumático com anel magnético induz polos opostos nas pontas das lâminas. A força de atração supera a rigidez mecânica, unindo as pontas e enviando sinal <strong>24 Vcc</strong> ao CLP.</p>
+                </section>
+            </section>
+        </section>
+
+        <!-- 3 -->
+        <section>
+            <h2>Integração na Bancada de Processos SMART 4.0</h2>
+            <section class="section_diferente">
+                <h3>Posição dos Sensores</h3>
+                <p>Na estrutura industrial da Bancada de Processos, os sensores Reed Switch estão montados diretamente no corpo de alumínio do <strong>Atuador Pneumático do Eixo Z</strong> (item 5 da bancada). Eles identificam as posições limite de movimentação do manipulador responsável pela gravação das lâminas.</p>
+            </section>
+            <section class="section_diferente">
+                <h3>Mapeamento das Entradas Digitais do CLP (Siemens S7-1200)</h3>
+                <p class="frase_espacamento">Os sinais gerados pelos sensores Reed Switch entram no CLP através do cartão de entradas discretas configurado no TIA Portal:</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Elemento Mecânico</th>
+                            <th>Sensor Instalado</th>
+                            <th>Canal CLP</th>
+                            <th>Endereço do Software</th>
+                            <th>Função no Processo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="td_negrito">Eixo Z Avançado</td>
+                            <td>Reed Switch Pos. Baixa</td>
+                            <td class="td_centro">Ia2</td>
+                            <td class="td_centro">%I0.2</td>
+                            <td>Confirma cilindro estendido para gravação</td>
+                        </tr>
+                        <tr>
+                            <td class="td_negrito">Eixo Z Recuado</td>
+                            <td>Reed Switch Pos. Alta</td>
+                            <td class="td_centro">Ia3</td>
+                            <td class="td_centro">%I0.3</td>
+                            <td>Confirma cilindro recolhido para transporte</td>
+                        </tr>
+                        <tr>
+                            <td class="td_negrito">Vacuostato Manipulador</td>
+                            <td>Sensor de Pressão Magn.</td>
+                            <td class="td_centro">Ia4</td>
+                            <td class="td_centro">%I0.4</td>
+                            <td>Confirma pega da lâmina por vácuo</td>
+                        </tr>
+                        <tr>
+                            <td class="td_negrito">Botão Start</td>
+                            <td>Botão Pulsador NA</td>
+                            <td class="td_centro">Ia7</td>
+                            <td class="td_centro">%I0.7</td>
+                            <td>Inicia o ciclo de automação</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+        </section>
+
+        <!-- 4 -->
+        <section>
+            <h2>Vantagens e Comparativo Industrial</h2>
+            <section class="section_diferente">
+                <p class="frase_espacamento">A escolha do sensor Reed Switch para a bancada didática e aplicação industrial baseia-se em fatores técnicos essenciais para a confiabilidade da automação:</p>
+                <ul>
+                    <li><strong>Vedação Hermética:</strong> Por ser lacrado em ampolas de vidro, os contatos são imunes à poeira, umidade e óleos de lubrificação pneumática.</li>
+                    <li><strong>Consumo Zero em Repouso:</strong> Por ser um componente passivo, não consome energia elétrica enquanto aguarda o acionamento.</li>
+                    <li><strong>Custo-Benefício Integrado:</strong> Instalação direta nas ranhuras do perfil extrudado de cilindros ISO/VDMA sem necessidade de suportes complexos.</li>
+                </ul>
+            </section>
+            <section class="section_diferente">
+                <h3>Conclusão Técnica</h3>
+                <p>O Reed Switch atua como a interface primária de realimentação (<em>feedback</em>) de posição para o algoritmo do CLP S7-1200. Sem a sinalização confiável dos endereços <strong>%I0.2</strong> e <strong>%I0.3</strong>, as sequências de movimentação lógica do Eixo Z e acionamento das válvulas solenoides não podem prosseguir com segurança.</p>
+            </section>
+        </section>
+    </main>
+
+    <!-- RODAPÉ -->
+    <footer>
+        <p>by Arthur Furtado Machado, Felipe Roberto Cardoso e Gabriel Mafra Alves de Gois &trade; &copy;</p>
+    </footer>
+
+</body>
+
+</html>

@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+    <title>Sistemas de Redes</title>
+</head>
+
+<body>
+    <header>
+        <h1><img class="logo_senai_tamanho" src="../img/logo_senai.jpg" alt="Logo SENAI" width="200px"></h1>
+
+        <nav>
+            <!-- Checkbox invisível e Ícone do Sanduíche -->
+            <input type="checkbox" id="menu-toggle">
+            <label for="menu-toggle" class="menu-icon">&#9776;</label>
+
+            <!-- Lista de links do menu -->
+            <ul class="menu-links">
+                <li><a href="../index.html">Introdução</a></li>
+                <li><a href="./clp.html">Controlador Lógico Programável</a></li>
+                <li><a href="./ihm.html">Interface Homem-Máquina</a></li>
+                <li><a href="./equipamentos_processo.html">Equipamentos da Bancada Processos</a></li>
+                <li><a href="./fundamentos_pneumatica.html">Pneumática</a></li>
+                <li><a href="./driver.html">Driver de Comunicação</a></li>
+                <li><a href="./painel_eletrico.html">Painéis Elétricos</a></li>
+                <li><a href="./sensor_reedSwitch.html">Sensor Reed Switch</a></li>
+                <li><a href="./piramide_automacao.html">Pirâmide de Automação</a></li>
+                <li><a href="./design_thinking_e_metodologia_scrum.html">Design Thinking & Scrum</a></li>
+                <li><a href="./trello.html">Trello</a></li>
+                <li><a href="./contatos.html">Contatos</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- CONTEÚDO CENTRALIZADO -->
+    <main>
+        <h1>IHM - Interface Homem-Máquina</h1>
+
+        <section>
+            <!-- 1 -->
+            <section class="section_diferente">
+                <h2 class="h2_diferente">O que é IHM?</h2>
+                <img class="imagem_tres" src="../img/tela_ihm.png" width="1000px">
+                <p class="frase_espacamento_dois">A Interface Homem-Máquina (IHM) é um dispositivo ou sistema que permite a interação entre um operador e uma máquina ou processo industrial. Por meio de uma tela, o usuário consegue visualizar informações, acompanhar o funcionamento dos equipamentos e enviar comandos para controlar determinadas operações.</p>
+                <p>As IHMs são muito utilizadas em indústrias para facilitar o monitoramento e o controle de máquinas, tornando a operação mais prática, organizada e eficiente.</p>
+            </section>
+
+            <!-- 2 -->
+            <section class="section_diferente">
+                <h2 class="h2_diferente">Para que serve?</h2>
+                <p class="frase_espacamento"><strong>A IHM serve para facilitar a comunicação entre o operador e os sistemas automatizados. Suas principais funções são:</strong></p>
+                <ul>
+                    <li><strong>Monitoramento:</strong> Visualizar o estado de máquinas e equipamentos.</li>
+                    <li><strong>Visualização de dados:</strong> Acompanhar temperaturas, pressões, níveis e velocidades.</li>
+                    <li><strong>Configuração:</strong> Ajustar parâmetros de funcionamento.</li>
+                    <li><strong>Comando:</strong> Iniciar, parar e controlar operações autorizadas.</li>
+                    <li><strong>Alarmes:</strong> Informar falhas e condições anormais.</li>
+                    <li><strong>Acompanhamento:</strong> Consultar informações e, quando disponível, históricos de operação.</li>
+                </ul>
+            </section>
+
+            <!-- 3 -->
+            <section class="section_diferente">
+                <h2 class="h2_diferente">Como funciona uma IHM?</h2>
+                <p class="frase_espacamento_dois">O funcionamento ocorre por meio da troca de informações entre os equipamentos. A IHM apresenta os dados recebidos do controlador e envia comandos que podem ser processados pelo CLP.</p>
+                <p class="frase_espacamento_dois">Por exemplo, ao pressionar o botão de partida na tela, a IHM envia um comando ao CLP. Se as condições de funcionamento e segurança forem atendidas, o controlador aciona o equipamento correspondente.</p>
+                <ul>
+                    <li><strong>Operador:</strong> Interage com os botões e as telas.</li>
+                    <li><strong>IHM:</strong> Exibe dados e recebe comandos.</li>
+                    <li><strong>CLP:</strong> Executa a lógica de controle da máquina.</li>
+                    <li><strong>Sensores e atuadores:</strong> Detectam condições e executam ações físicas.</li>
+                </ul>
+            </section>
+
+            <!-- 4 -->
+            <section class="section_diferente">
+                <h2 class="h2_diferente">Principais componentes</h2>
+                <ul>
+                    <li><strong>Tela de visualização:</strong> Permite visualizar informações do processo e interagir com botões, indicadores, gráficos e menus.</li>
+                    <li><strong>Processador e memória:</strong> Executam o sistema da interface e armazenam o projeto, as telas e as configurações necessárias.</li>
+                    <li><strong>Interfaces de comunicação:</strong> Permitem a troca de dados com CLPs e outros equipamentos compatíveis.</li>
+                    <li><strong>Alimentação elétrica:</strong> Fornece a energia necessária ao funcionamento da interface, frequentemente em 24 V em corrente contínua nos modelos industriais.</li>
+                </ul>
+            </section>
+
+            <!-- 5 -->
+            <section class="section_diferente">
+                <h2 class="h2_diferente">Tipos de IHM</h2>
+                <ul>
+                    <li><strong>IHM básica:</strong> Possui recursos simples de visualização e comando. É utilizada em máquinas que não exigem interfaces muito elaboradas.</li>
+                    <li><strong>IHM gráfica:</strong> Apresenta telas coloridas, animações, indicadores, gráficos e botões virtuais para facilitar a operação.</li>
+                    <li><strong>IHM baseada em computador:</strong> Utiliza um computador industrial ou sistema computacional para apresentar interfaces mais complexas e lidar com maior volume de informações.</li>
+                </ul>
+            </section>
+
+            <!-- 6 -->
+            <section class="section_diferente">
+                <h2 class="h2_diferente">Comunicação entre IHM e CLP</h2>
+                <p class="frase_espacamento_dois">A comunicação entre a IHM e o CLP permite que o operador visualize o processo e envie comandos ao controlador. Algumas tecnologias e protocolos utilizados são:</p>
+                <ul>
+                    <li><strong>Ethernet Industrial:</strong> Comunicação por rede Ethernet em ambientes industriais.</li>
+                    <li><strong>Modbus TCP:</strong> Protocolo de comunicação industrial baseado em TCP/IP.</li>
+                    <li><strong>Modbus RTU:</strong> Protocolo frequentemente utilizado em comunicação serial.</li>
+                    <li><strong>PROFINET:</strong> Tecnologia de comunicação baseada em Ethernet.</li>
+                    <li><strong>OPC UA:</strong> Padrão para troca de dados entre sistemas de automação.</li>
+                </ul>
+                <p>A tecnologia utilizada depende dos equipamentos, dos protocolos compatíveis e dos requisitos da aplicação.</p>
+            </section>
+
+            <!-- 7 (NOVA) -->
+            <section class="section_diferente">
+                <h2 class="h2_diferente">Aplicações industriais</h2>
+                <ul>
+                    <li><strong>Linhas de produção:</strong> Controle operacional e acompanhamento do estado das máquinas durante a fabricação.</li>
+                    <li><strong>Tratamento de água:</strong> Visualização de níveis de reservatórios, estados de bombas e informações de processo.</li>
+                    <li><strong>Indústria alimentícia:</strong> Monitoramento de máquinas de envase, embalagem e processamento.</li>
+                    <li><strong>Sistemas de bombeamento:</strong> Acompanhamento do funcionamento de bombas, pressões e condições operacionais.</li>
+                </ul>
+            </section>
+
+            <!-- 8 -->
+            <section class="section_diferente">
+                <h2 class="h2_diferente">Vantagens da utilização de IHM</h2>
+                <ul>
+                    <li><strong>Facilidade de operação:</strong> Reúne comandos e informações em uma única interface.</li>
+                    <li><strong>Monitoramento em tempo real:</strong> Permite acompanhar variáveis e estados atualizados do processo.</li>
+                    <li><strong>Identificação de falhas:</strong> Apresenta alarmes e mensagens que ajudam o operador a reconhecer problemas.</li>
+                    <li><strong>Organização:</strong> Centraliza informações relevantes para a operação.</li>
+                    <li><strong>Agilidade:</strong> Facilita a execução de comandos e a alteração de parâmetros autorizados.</li>
+                    <li><strong>Eficiência operacional:</strong> Pode ajudar a reduzir erros de operação e o tempo necessário para identificar problemas.</li>
+                </ul>
+            </section>
+
+            <!-- 9 -->
+            <section class="section_diferente">
+                <h2 class="h2_diferente">Exemplo prático de utilização</h2>
+                <p class="frase_espacamento_dois">Imagine um reservatório de água automatizado com um sensor de nível, uma bomba e um CLP.</p>
+                <p class="frase_espacamento_dois">A IHM pode exibir o nível do reservatório em porcentagem, indicar se a bomba está ligada e apresentar alarmes quando o nível atingir condições predefinidas.</p>
+                <p>O operador também pode ter acesso a comandos de partida e parada, conforme as permissões e as condições de segurança do sistema. O CLP executa a lógica de controle, enquanto a IHM oferece uma forma visual de acompanhar e interagir com o processo.</p>
+            </section>
+
+            <!-- 10 (NOVA) -->
+            <section class="section_diferente">
+                <h2 class="h2_diferente">Diferença entre IHM e SCADA</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Característica</th>
+                            <th>IHM</th>
+                            <th>SCADA</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="td_negrito">Objetivo principal</td>
+                            <td>Interação entre operador e máquina ou processo.</td>
+                            <td>Supervisão e aquisição de dados de processos.</td>
+                        </tr>
+                        <tr>
+                            <td class="td_negrito">Utilização comum</td>
+                            <td>Operação de uma máquina ou célula industrial.</td>
+                            <td>Supervisão de processos e equipamentos distribuídos.</td>
+                        </tr>
+                        <tr>
+                            <td class="td_negrito">Interface</td>
+                            <td>Geralmente local e dedicada.</td>
+                            <td>Geralmente executada em computadores ou servidores.</td>
+                        </tr>
+                        <tr>
+                            <td class="td_negrito">Recursos</td>
+                            <td>Comandos, indicadores, parâmetros e alarmes.</td>
+                            <td>Supervisão, históricos, alarmes e relatórios, conforme o sistema.</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p style="margin-top: 15px;">Os dois sistemas podem trabalhar juntos. Uma IHM pode controlar e monitorar uma máquina, enquanto um SCADA supervisiona diversas máquinas e processos em uma instalação.</p>
+            </section>
+
+            <!-- NOVA: IHM NA BANCADA -->
+            <section class="section_diferente">
+                <h2 class="h2_diferente">A IHM na Bancada Processo</h2>
+                <p class="frase_espacamento">Na Bancada de Processos SMART 4.0, a IHM é uma Siemens SIMATIC KTP700 Basic Touch de 7 polegadas (modelo 6AV2123-2GB03-0AX0), instalada no painel frontal ao lado das botoeiras físicas. O programa da IHM se chama "Estação de Processo" e mostra, em todas as telas, o logotipo Smart 4.0, a data e a hora. O operador navega por quatro telas:</p>
+
+                <section class="section_diferente_02">
+                    <h4>Tela Inicial</h4>
+                    <p class="frase_espacamento_dois">É a tela de entrada, com três ícones grandes: <strong>Diagnóstico</strong>, <strong>Configurações</strong> e <strong>Manual</strong>. Cada um leva à tela correspondente.</p>
+                    <img class="imagem_tres" src="../img/Tela_IHM_inicial.jpg" alt="Tela inicial da IHM da bancada">
+                </section>
+
+                <section class="section_diferente_02">
+                    <h4>Tela de Diagnóstico</h4>
+                    <p class="frase_espacamento_dois">Mostra o estado dos sinais da bancada em duas colunas. Em <strong>Entradas</strong> aparecem o botão de emergência, o Eixo Z avançado e recuado, os sensores de vácuo do manipulador e da mesa, o comutador do painel (AUT) e os botões verde e vermelho. Em <strong>Saídas</strong> aparecem o avanço do Eixo Z, o vácuo do manipulador e da mesa, os motores das esteiras 1 e 2 e o status do processo. Cada item tem um indicador que muda de cor conforme o sinal.</p>
+                    <img class="imagem_tres" src="../img/Tela_IHM_diagnosticos.jpg" alt="Tela de diagnóstico da IHM da bancada">
+                </section>
+
+                <section class="section_diferente_02">
+                    <h4>Tela de Configurações</h4>
+                    <p class="frase_espacamento_dois">Reúne as <strong>posições dos eixos X e Y</strong>, em milímetros, de cada ponto de trabalho: lâminas 1 a 6, mesa, caneta no meio da mesa e depósitos 1 a 3. Há botões para calcular as posições a partir da lâmina 6 e da mesa e para salvar. Também tem o controle por JOG (menos e mais) de cada eixo, com a posição atual, e os botões Vácuo Manipulador, Vácuo Mesa e Avança Eixo Z. As funções só são permitidas se o comutador estiver na posição Manual.</p>
+                    <img class="imagem_tres" src="../img/Tela_IHM_configuracao.jpg" alt="Tela de configurações da IHM da bancada">
+                </section>
+
+                <section class="section_diferente_02">
+                    <h4>Tela Manual</h4>
+                    <p class="frase_espacamento_dois">Permite comandar a bancada manualmente. À esquerda ficam as <strong>saídas digitais</strong>: Avança Eixo Z, Vácuo Manipulador, Vácuo Mesa, Motor Esteira 1, Motor Esteira 2 e Status Processo. À direita ficam os controles dos atuadores elétricos, o <strong>Elétrico Horizontal (Eixo X)</strong> e o <strong>Elétrico Transversal (Eixo Y)</strong>, cada um com a posição atual, JOG menos e mais e os botões Home, Reset e Servo. Também só funciona com o comutador na posição Manual.</p>
+                    <img class="imagem_tres" src="../img/Tela_IHM_manual.jpg" alt="Tela manual da IHM da bancada">
+                </section>
+
+                <p style="margin-top: 15px;">Assim como no exemplo do reservatório, quem executa a lógica é o CLP: a IHM envia os comandos e o controlador só movimenta os atuadores se as condições do processo e de segurança forem atendidas. Na <a href="./piramide_automacao.html">Pirâmide de Automação</a>, a IHM está no Nível 3 (Supervisão).</p>
+            </section>
+
+            <!-- 11 -->
+            <section class="section_diferente">
+                <h2 class="h2_diferente">Cuidados e segurança</h2>
+                <p class="frase_espacamento_dois">A utilização de uma IHM exige atenção à configuração dos comandos, ao controle de acesso e à comunicação com os equipamentos industriais.</p>
+                <ul>
+                    <li>Configurar permissões para os operadores.</li>
+                    <li>Exibir alarmes de forma clara.</li>
+                    <li>Evitar comandos que possam gerar condições inseguras.</li>
+                    <li>Implementar intertravamentos e funções de segurança apropriadas no sistema de controle.</li>
+                    <li>Manter os equipamentos e os programas atualizados conforme as orientações dos fabricantes.</li>
+                </ul>
+                <p><strong>Importante:</strong> Uma IHM comum não substitui dispositivos e sistemas de segurança industrial certificados.</p>
+            </section>
+        </section>
+    </main>
+
+    <!-- RODAPÉ -->
+    <footer>
+        <p>by Arthur Furtado Machado, Felipe Roberto Cardoso e Gabriel Mafra Alves de Gois &trade; &copy;</p>
+    </footer>
+
+</body>
+
+</html>

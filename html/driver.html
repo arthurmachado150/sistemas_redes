@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+    <title>Sistemas de Redes</title>
+</head>
+
+<body>
+    <header>
+        <h1><img class="logo_senai_tamanho" src="../img/logo_senai.jpg" alt="Logo SENAI" width="200px"></h1>
+
+        <nav>
+            <!-- Checkbox invisível e Ícone do Sanduíche -->
+            <input type="checkbox" id="menu-toggle">
+            <label for="menu-toggle" class="menu-icon">&#9776;</label>
+
+            <!-- Lista de links do menu -->
+            <ul class="menu-links">
+                <li><a href="../index.html">Introdução</a></li>
+                <li><a href="./clp.html">Controlador Lógico Programável</a></li>
+                <li><a href="./ihm.html">Interface Homem-Máquina</a></li>
+                <li><a href="./equipamentos_processo.html">Equipamentos da Bancada Processos</a></li>
+                <li><a href="./fundamentos_pneumatica.html">Pneumática</a></li>
+                <li><a href="./driver.html">Driver de Comunicação</a></li>
+                <li><a href="./painel_eletrico.html">Painéis Elétricos</a></li>
+                <li><a href="./sensor_reedSwitch.html">Sensor Reed Switch</a></li>
+                <li><a href="./piramide_automacao.html">Pirâmide de Automação</a></li>
+                <li><a href="./design_thinking_e_metodologia_scrum.html">Design Thinking & Scrum</a></li>
+                <li><a href="./trello.html">Trello</a></li>
+                <li><a href="./contatos.html">Contatos</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- CONTEÚDO CENTRALIZADO -->
+    <main>
+        <h1>Driver de Comunicação e Redes Industriais</h1>
+
+        <!-- 1. REDES INDUSTRIAIS -->
+        <section>
+            <h2>Redes Industriais</h2>
+            <section class="section_diferente">
+                <h3>O que é uma rede industrial?</h3>
+                <p class="frase_espacamento">Uma rede industrial é o meio pelo qual os equipamentos de automação trocam dados entre si: sensores, CLPs, drives, IHMs, sistemas supervisórios e, nos níveis mais altos da <a href="./piramide_automacao.html">Pirâmide de Automação</a>, os sistemas de gestão. Diferente de uma rede de escritório, ela precisa ser robusta contra ruído e responder em tempos previsíveis.</p>
+                <p class="frase_espacamento_dois">Na maioria das redes, a comunicação segue o modelo de pergunta e resposta: um equipamento <strong>pede</strong> o dado (mestre ou cliente) e outro <strong>responde</strong> (escravo ou servidor). É assim que o supervisório lê e escreve variáveis dentro do CLP.</p>
+            </section>
+        
+            <img class="imagem_um" src="../img/rede_comunicacao.jpg" alt="">
+            <small class="centralizar_fonte">Fonte: <a href="https://bxlyplc.com/pt/blogs/news/plc-communication-problems">bxlyplc</a></small><br>
+
+            <section class="section_diferente">
+                <h3>Principais redes e protocolos</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Protocolo / Rede</th>
+                            <th>Meio físico</th>
+                            <th>Característica</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="td_negrito">Ethernet Industrial / PROFINET</td>
+                            <td>Cabo Ethernet (RJ-45)</td>
+                            <td>Comunicação por rede Ethernet em ambiente industrial; o PROFINET é a tecnologia Siemens baseada em Ethernet.</td>
+                        </tr>
+                        <tr>
+                            <td class="td_negrito">ISO sobre TCP (S7-TCP/IP)</td>
+                            <td>Ethernet (TCP/IP)</td>
+                            <td>Permite acessar CLPs Siemens diretamente pela porta Ethernet da CPU. <strong>É o usado na bancada.</strong></td>
+                        </tr>
+                        <tr>
+                            <td class="td_negrito">Modbus TCP</td>
+                            <td>Ethernet (TCP/IP)</td>
+                            <td>Protocolo industrial aberto e muito difundido.</td>
+                        </tr>
+                        <tr>
+                            <td class="td_negrito">Modbus RTU</td>
+                            <td>Serial (RS-232 / RS-485)</td>
+                            <td>Protocolo frequentemente usado em comunicação serial.</td>
+                        </tr>
+                        <tr>
+                            <td class="td_negrito">PPI e MPI</td>
+                            <td>Serial</td>
+                            <td>Protocolos Siemens mais antigos: PPI para a linha S7-200 e MPI para S7-300 e S7-400.</td>
+                        </tr>
+                        <tr>
+                            <td class="td_negrito">OPC UA e MQTT</td>
+                            <td>Ethernet (TCP/IP)</td>
+                            <td>Padrões de troca de dados voltados à integração com sistemas de TI, nuvem e MES/ERP (Indústria 4.0).</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+        </section>
+
+        <!-- 2. DRIVER DE COMUNICAÇÃO -->
+        <section>
+            <h2>Driver de Comunicação</h2>
+            <section class="section_diferente">
+                <h3>O que é e como funciona</h3>
+                <p class="frase_espacamento">O driver é o "tradutor" entre o sistema supervisório e o equipamento de campo. O supervisório não conhece o protocolo de cada fabricante; quem conhece é o driver. Ele monta os pedidos de leitura e escrita, envia pela rede e entrega as respostas ao supervisório.</p>
+                <p class="frase_espacamento"><strong>Caminho dos dados:</strong> Supervisório (Elipse E3) &rarr; Driver de comunicação &rarr; Rede Ethernet &rarr; CLP</p>
+                <section class="section_diferente_02">
+                    <h4>Tag</h4>
+                    <p>Variável do supervisório ligada a um endereço dentro do CLP. Ler ou escrever na tag é ler ou escrever naquele endereço.</p>
+                </section>
+                <section class="section_diferente_02">
+                    <h4>Varredura (Scan)</h4>
+                    <p>Intervalo, em milissegundos, com que o driver atualiza cada tag. Quanto menor, mais rápida a atualização e maior o tráfego na rede.</p>
+                </section>
+                <section class="section_diferente_02">
+                    <h4>Leitura e escrita</h4>
+                    <p>Cada tag pode ser configurada para apenas ler o valor do CLP (monitorar) ou também escrever nele (enviar comandos).</p>
+                </section>
+            </section>
+        </section>
+
+        <!-- 3. DRIVER MPROT -->
+        <section>
+            <h2>O Driver Siemens MProt</h2>
+            <section class="section_diferente">
+                <h3>Visão geral</h3>
+                <p class="frase_espacamento">O MProt é o driver da Elipse Software que se comunica com CLPs Siemens (S7-200, S7-300, S7-400 e S7-1200) e VIPA Speed7. O nome "M-Prot" vem de "multiprotocolo": um único driver atende vários protocolos Siemens.</p>
+                <ul>
+                    <li><strong>Arquivo:</strong> MProt.dll</li>
+                    <li><strong>Protocolos:</strong> PPI e MPI (serial), MPI encapsulado em Ethernet e ISO sobre TCP.</li>
+                    <li><strong>Dependência:</strong> biblioteca IOKit versão 2.0 ou superior.</li>
+                    <li><strong>Versão da documentação consultada:</strong> 4.0.38 (27/04/2026).</li>
+                </ul>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Protocolo</th>
+                            <th>Equipamento</th>
+                            <th>Como conecta</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="td_negrito">PPI</td>
+                            <td>S7-200</td>
+                            <td>Cabo conversor RS232-PPI/MPI.</td>
+                        </tr>
+                        <tr>
+                            <td class="td_negrito">MPI</td>
+                            <td>S7-300 e S7-400</td>
+                            <td>Cabo conversor RS232-PPI/MPI.</td>
+                        </tr>
+                        <tr>
+                            <td class="td_negrito">ISO/TCP (ISOTCP)</td>
+                            <td>S7-300 e S7-400 (com cartão Ethernet CP) e <strong>S7-1200</strong></td>
+                            <td>Pela rede Ethernet; no S7-1200, diretamente na porta Ethernet da CPU.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+        </section>
+
+        <!-- 4. CONFIGURAÇÃO DO DRIVER -->
+        <section>
+            <h2>Configurando o Driver para o S7-1200</h2>
+            <section class="section_diferente">
+                <h3>Janela de configuração do driver</h3>
+                <p class="frase_espacamento">No Elipse E3 (versão 2.0 ou superior), a janela é aberta pelo botão <strong>Configurar o driver</strong>, na barra de ferramentas do driver. Para o S7-1200, as configurações são:</p>
+                <section class="section_diferente_02">
+                    <h4>Aba MProt</h4>
+                    <ol>
+                        <li><strong>Network:</strong> selecionar <strong>ISOTCP</strong>.</li>
+                        <li><strong>Use default TSAPs:</strong> desmarcar.</li>
+                        <li><strong>Source TSAP (hex):</strong> 0100.</li>
+                        <li><strong>Connection type:</strong> PG.</li>
+                        <li><strong>Rack:</strong> 0.</li>
+                        <li><strong>Slot:</strong> 1.</li>
+                    </ol>
+                </section>
+                <section class="section_diferente_02">
+                    <h4>Aba Setup</h4>
+                    <ul>
+                        <li><strong>Physical Layer:</strong> Ethernet.</li>
+                        <li><strong>Timeout:</strong> tempo máximo de espera da camada física (a tela vem com 1000 ms).</li>
+                        <li><strong>Connection management:</strong> modo automático, com nova tentativa de conexão a cada alguns segundos caso a conexão falhe.</li>
+                    </ul>
+                </section>
+                <section class="section_diferente_02">
+                    <h4>Aba Ethernet</h4>
+                    <ul>
+                        <li><strong>Transport:</strong> TCP/IP.</li>
+                        <li><strong>Main IP:</strong> endereço IP do CLP da bancada (10.78.49.20).</li>
+                        <li><strong>Port:</strong> 102, que é a porta padrão do ISO sobre TCP (a tela vem com 502, que é a porta do Modbus TCP).</li>
+                    </ul>
+                </section>
+                <p class="frase_espacamento_dois"><strong>Regra para ISOTCP:</strong> em todas as tags, o parâmetro N1 (endereço do equipamento) e o <em>Default Slave Address</em> devem ficar em 0.</p>
+                <p><strong>Lado do CLP:</strong> além do driver, a CPU precisa permitir esse acesso externo. No S7-1200, isso exige habilitar a opção <em>Permit access with PUT/GET</em> nas propriedades da CPU e usar blocos de dados com acesso padrão (não otimizado), para que cada variável tenha um endereço (offset) fixo. Esse requisito é do S7-1200, não consta na documentação do MProt.</p>
+            </section>
+
+            <section class="section_diferente">
+                <h3>Configurando as tags (N1 a N4)</h3>
+                <p class="frase_espacamento">Cada tag é endereçada por quatro parâmetros numéricos:</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Parâmetro</th>
+                            <th>Significado</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="td_negrito">N1</td>
+                            <td>Endereço do equipamento (0 em ISOTCP).</td>
+                        </tr>
+                        <tr>
+                            <td class="td_negrito">N2</td>
+                            <td>Tipo de dado e área de dados, pela fórmula <strong>N2 = Tipo &times; 100 + Área</strong>.</td>
+                        </tr>
+                        <tr>
+                            <td class="td_negrito">N3</td>
+                            <td>Número do bloco de dados (DB), quando a área é DB. Caso contrário, 0.</td>
+                        </tr>
+                        <tr>
+                            <td class="td_negrito">N4</td>
+                            <td>Endereço (offset) dentro da área ou do DB.</td>
+                        </tr>
+                    </tbody>
+                </table> <br>
+                
+                <section class="section_diferente_02">
+                    <h4>Códigos de tipo de dado (os mais usados)</h4>
+                    <ul>
+                        <li><strong>1:</strong> BOOL</li>
+                        <li><strong>2:</strong> BYTE (8 bits sem sinal)</li>
+                        <li><strong>3:</strong> WORD (16 bits sem sinal)</li>
+                        <li><strong>4:</strong> INT (16 bits com sinal)</li>
+                        <li><strong>5:</strong> DWORD (32 bits sem sinal)</li>
+                        <li><strong>6:</strong> DINT (32 bits com sinal)</li>
+                        <li><strong>7:</strong> REAL (32 bits, ponto flutuante)</li>
+                        <li><strong>8:</strong> STRING</li>
+                    </ul>
+                </section>
+                <section class="section_diferente_02">
+                    <h4>Códigos de área de dados</h4>
+                    <ul>
+                        <li><strong>6:</strong> I (entradas digitais)</li>
+                        <li><strong>7:</strong> Q (saídas digitais)</li>
+                        <li><strong>8:</strong> M (memória)</li>
+                        <li><strong>9:</strong> V (bloco de dados, DB)</li>
+                    </ul>
+                </section>
+                <p class="frase_espacamento_dois">As tags também podem ser configuradas pelo campo <strong>Item</strong>, em forma de texto, no formato <code>[Dispositivo:]DB&lt;número&gt;:&lt;Tipo&gt;&lt;Endereço&gt;</code>. Exemplo: <code>DB1:DW20</code> lê uma Word a partir do endereço 20 do DB1. Para strings: <code>DB&lt;número&gt;:DBS&lt;Endereço&gt;[tamanho]</code>.</p>
+            </section>
+        </section>
+
+        <!-- 5. NA BANCADA -->
+        <section>
+            <h2>O Driver na Bancada Processo</h2>
+            <section class="section_diferente">
+                <h3>Arquitetura da comunicação</h3>
+                <p class="frase_espacamento">Na bancada, o supervisório <strong>Elipse E3</strong> (com as telas TelaInicial, TelaMenu, TelaProcesso e TelaHistorico) se comunica com o <strong>CLP Siemens S7-1200</strong> (CPU 1215C DC/DC/DC, projeto "processo" no TIA Portal) pela rede Ethernet da bancada, usando o driver MProt em modo ISOTCP. Na Pirâmide de Automação, essa é a ligação entre o Nível 3 (supervisão) e o Nível 2 (controle).</p>
+                <p class="frase_espacamento"><strong>Caminho dos dados:</strong> Telas do Elipse E3 &rarr; Driver MProt (ISOTCP) &rarr; Ethernet (switch de 5 portas) &rarr; CLP S7-1200 &rarr; bloco de dados DB6</p>
+                <p>Toda a troca é feita por um único bloco de dados do CLP, o <strong>DB6 "Supervisório"</strong>, que fica na pasta de comunicação do programa. O CLP escreve nele o estado do processo e o supervisório lê esses valores; também pode escrever nele para enviar comandos.</p>
+            </section>
+
+            <section class="section_diferente">
+                <h3>Endereçamento da rede da bancada</h3>
+                <p class="frase_espacamento">Para dois equipamentos conversarem em uma rede Ethernet, cada um precisa de um <strong>endereço IP</strong>, que o localiza na rede, e possui um <strong>endereço MAC</strong>, um identificador gravado de fábrica na placa de rede. Na bancada, todos os equipamentos com rede ficam na mesma faixa de endereços, 10.78.49.x:</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Equipamento</th>
+                            <th>Endereço IP</th>
+                            <th>Endereço MAC</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="td_negrito">CLP</td>
+                            <td class="td_centro">10.78.49.20</td>
+                            <td class="td_centro">4C-E7-05-12-27-44</td>
+                        </tr>
+                        <tr>
+                            <td class="td_negrito">IHM</td>
+                            <td class="td_centro">10.78.49.21</td>
+                            <td class="td_centro">8C-F3-19-EF-D7-D8</td>
+                        </tr>
+                        <tr>
+                            <td class="td_negrito">drv_eixo_x</td>
+                            <td class="td_centro">10.78.49.22</td>
+                            <td class="td_centro">00-23-C6-44-65-35</td>
+                        </tr>
+                        <tr>
+                            <td class="td_negrito">drv_eixo_y</td>
+                            <td class="td_centro">10.78.49.23</td>
+                            <td class="td_centro">00-23-C6-44-65-38</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p style="margin-top: 15px;">O driver MProt se conecta ao <strong>CLP</strong>, por isso o IP 10.78.49.20 é o valor do campo Main IP na aba Ethernet. A IHM e os drives dos atuadores também ficam na rede: a IHM troca dados com o CLP, e os drives (<em>drv_eixo_x</em> e <em>drv_eixo_y</em>) recebem os comandos de movimento dos eixos X e Y. Não confunda: os drives são equipamentos físicos que controlam os atuadores elétricos, e o driver de comunicação é o software do supervisório.</p>
+            </section>
+
+            <section class="section_diferente">
+                <h3>Lado do CLP: o DB6 no TIA Portal</h3>
+                <p class="frase_espacamento_dois">No programa do CLP, o DB6 "Supervisório" é criado com acesso padrão, de modo que cada variável tem um endereço (offset) fixo dentro do bloco. É esse endereço que o driver usa para ler e escrever. O bloco guarda:</p>
+                <ul>
+                    <li><strong>xBancadaHabilitada:</strong> variável booleana que indica se a bancada está habilitada (valor inicial verdadeiro).</li>
+                    <li><strong>Entradas e Saidas:</strong> estruturas com as entradas e saídas digitais do processo.</li>
+                    <li><strong>PosicaoAtuadorEixoX e PosicaoAtuadorEixoY:</strong> posição dos atuadores elétricos, em Real.</li>
+                    <li><strong>StatusEstacao:</strong> texto (String de 14 caracteres) com o status da estação.</li>
+                    <li><strong>OPatual:</strong> valor inteiro com a OP atual.</li>
+                </ul>
+            </section>
+
+            <section class="section_diferente">
+                <h3>Lado do supervisório: as tags do driver</h3>
+                <p class="frase_espacamento">Cada variável do DB6 tem uma tag correspondente no objeto <strong>DriverProcesso</strong> do Elipse. Todas usam varredura de 1000 ms (1 segundo), com leitura e escrita habilitadas e sem escala.</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Variável no DB6</th>
+                            <th>Tipo no CLP</th>
+                            <th>Offset</th>
+                            <th>Tag no Elipse</th>
+                            <th>N2</th>
+                            <th>N3</th>
+                            <th>N4</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="td_negrito">xBancadaHabilitada</td>
+                            <td class="td_centro">Bool</td>
+                            <td class="td_centro">0.0</td>
+                            <td>xBancadaHabilitada</td>
+                            <td class="td_centro">209</td>
+                            <td class="td_centro">6</td>
+                            <td class="td_centro">0</td>
+                        </tr>
+                        <tr>
+                            <td class="td_negrito">Entradas</td>
+                            <td class="td_centro">Struct</td>
+                            <td class="td_centro">2.0</td>
+                            <td>EntradasDigitais</td>
+                            <td class="td_centro">209</td>
+                            <td class="td_centro">6</td>
+                            <td class="td_centro">2</td>
+                        </tr>
+                        <tr>
+                            <td class="td_negrito">Saidas</td>
+                            <td class="td_centro">Struct</td>
+                            <td class="td_centro">4.0</td>
+                            <td>SaidasDigitais</td>
+                            <td class="td_centro">209</td>
+                            <td class="td_centro">6</td>
+                            <td class="td_centro">4</td>
+                        </tr>
+                        <tr>
+                            <td class="td_negrito">PosicaoAtuadorEixoX</td>
+                            <td class="td_centro">Real</td>
+                            <td class="td_centro">6.0</td>
+                            <td>PosicaoAtuadorEixoX</td>
+                            <td class="td_centro">709</td>
+                            <td class="td_centro">6</td>
+                            <td class="td_centro">6</td>
+                        </tr>
+                        <tr>
+                            <td class="td_negrito">PosicaoAtuadorEixoY</td>
+                            <td class="td_centro">Real</td>
+                            <td class="td_centro">10.0</td>
+                            <td>PosicaoAtuadorEixoY</td>
+                            <td class="td_centro">709</td>
+                            <td class="td_centro">6</td>
+                            <td class="td_centro">10</td>
+                        </tr>
+                        <tr>
+                            <td class="td_negrito">StatusEstacao</td>
+                            <td class="td_centro">String[14]</td>
+                            <td class="td_centro">14.0</td>
+                            <td>StatusEstacao</td>
+                            <td class="td_centro" colspan="3">Item: <code>1:DB6:DBS14[14]</code></td>
+                        </tr>
+                        <tr>
+                            <td class="td_negrito">OPatual</td>
+                            <td class="td_centro">Int</td>
+                            <td class="td_centro">30.0</td>
+                            <td>OPatual</td>
+                            <td class="td_centro">409</td>
+                            <td class="td_centro">6</td>
+                            <td class="td_centro">30</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p style="margin-top: 15px;">Na tabela, N1 é 0 em todas as tags, como exige o ISOTCP. A tag <strong>StatusEstacao</strong> usa o formato de texto no campo Item em vez dos parâmetros numéricos, porque é uma string.</p>
+            </section>
+
+            <section class="section_diferente">
+                <h3>Como ler a configuração: exemplo</h3>
+                <section class="section_diferente_02">
+                    <h4>Tag EntradasDigitais: N1 = 0, N2 = 209, N3 = 6, N4 = 2</h4>
+                    <ul>
+                        <li><strong>N2 = 209:</strong> 2 &times; 100 + 9, ou seja, tipo <strong>BYTE</strong> (2) na área <strong>DB</strong> (9).</li>
+                        <li><strong>N3 = 6:</strong> o bloco de dados é o <strong>DB6</strong>.</li>
+                        <li><strong>N4 = 2:</strong> começa no <strong>offset 2</strong>, onde está a estrutura Entradas no DB6.</li>
+                    </ul>
+                </section>
+                <section class="section_diferente_02">
+                    <h4>Tag PosicaoAtuadorEixoX: N1 = 0, N2 = 709, N3 = 6, N4 = 6</h4>
+                    <ul>
+                        <li><strong>N2 = 709:</strong> 7 &times; 100 + 9, ou seja, tipo <strong>REAL</strong> (7) na área <strong>DB</strong> (9).</li>
+                        <li><strong>N3 = 6:</strong> DB6.</li>
+                        <li><strong>N4 = 6:</strong> offset 6, onde está a posição do eixo X.</li>
+                    </ul>
+                </section>
+                <p>Repare que a string StatusEstacao ocupa 16 bytes no CLP (14 caracteres mais 2 bytes de controle do S7). Por isso a variável seguinte, OPatual, começa no offset 30.</p>
+            </section>
+        </section>
+    </main>
+
+    <!-- RODAPÉ -->
+    <footer>
+        <p>by Arthur Furtado Machado, Felipe Roberto Cardoso e Gabriel Mafra Alves de Gois &trade; &copy;</p>
+    </footer>
+
+</body>
+
+</html>
