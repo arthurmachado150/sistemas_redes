@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+    <title>Modbus RTU | Sistemas de Redes</title>
+</head>
+
+<body>
+    <header>
+        <h1><img class="logo_senai_tamanho" src="../img/logo_senai.jpg" alt="" width="200px"></h1>
+        <nav>
+            <input type="checkbox" id="menu-toggle">
+            <label for="menu-toggle" class="menu-icon">&#9776;</label>
+            <ul class="menu-links">
+                <li><a href="../index.html">Introdução</a></li>
+                <li><a href="./redes_corporativas_locais.html">Redes Corporativas / Locais</a></li>
+                <li><a href="./redes_e_protocolos_industriais.html">Redes e Protocolos Industriais</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1>3. MODBUS RTU (MODBUS SOBRE LINHA SERIAL)</h1>
+
+        <section class="section-h2">
+            <h2>3.1 ESTRUTURA FÍSICA E CABEAMENTO</h2>
+            <section class="section-h3">
+                <h3>3.1.1 MODBUS RTU NA AUTOMAÇÃO INDUSTRIAL</h3>
+                <p>O Modbus RTU é um modo de transmissão do protocolo Modbus utilizado em linhas de comunicação serial. É aplicado na troca de dados entre controladores, instrumentos de medição, inversores de frequência, módulos remotos de entrada e saída, medidores de energia e outros equipamentos de automação.</p>
+                <p>A comunicação serial Modbus utiliza normalmente uma arquitetura Mestre-Escravo (Master-Slave), também descrita em implementações mais recentes como Cliente-Servidor. Um dispositivo mestre inicia as solicitações e os dispositivos escravos respondem quando são endereçados. O Modbus RTU não utiliza Ethernet ou endereços IP para transportar as mensagens.</p>
+            </section>
+
+            <section class="section-h3">
+                <h3>3.1.2 MEIOS FÍSICOS E CABOS ADOTADOS</h3>
+                <section class="section-h4">
+                    <h4>3.1.2.1 INTERFACE RS-485 (PADRÃO MAIS UTILIZADO)</h4>
+                    <p>A interface física mais comum para Modbus RTU é a RS-485 de dois fios, em configuração multiponto. Ela utiliza um par trançado balanceado para transmitir dados de forma diferencial e, normalmente, um terceiro condutor de referência comum. A comunicação em dois fios é half-duplex: os dispositivos compartilham o mesmo par e somente um transmissor pode enviar dados por vez.</p>
+                    <ul>
+                        <li><strong>Par trançado balanceado:</strong> utilizado para os sinais diferenciais D0 e D1 (também identificados por fabricantes como A/B, D-/D+ ou nomes equivalentes). A identificação dos terminais deve ser conferida no manual do equipamento, pois a nomenclatura pode variar entre fabricantes.</li>
+                        <li><strong>Condutor comum:</strong> interliga a referência de sinal dos equipamentos, conforme as recomendações da interface RS-485 e do fabricante.</li>
+                        <li><strong>Cabo blindado:</strong> recomendado em instalações industriais para reduzir a interferência eletromagnética captada pelo cabeamento serial.</li>
+                    </ul>
+                </section>
+
+                <section class="section-h4">
+                    <h4>3.1.2.2 INTERFACE RS-485 DE QUATRO FIOS E RS-232</h4>
+                    <ul>
+                        <li><strong>RS-485 de quatro fios:</strong> utiliza um par balanceado para transmissão e outro para recepção, permitindo comunicação em sentidos separados quando os equipamentos oferecem essa opção. Não é a configuração mais comum do Modbus RTU.</li>
+                        <li><strong>RS-232:</strong> pode ser utilizada em ligações ponto a ponto de curta distância, normalmente entre um controlador e um único dispositivo. A especificação Modbus Serial Line indica seu uso para interligações curtas, tipicamente inferiores a 20 metros.</li>
+                    </ul>
+                </section>
+            </section>
+
+            <section class="section-h3">
+                <h3>3.1.3 CONECTORES PADRONIZADOS E IDENTIFICAÇÃO</h3>
+                <p>O Modbus RTU não determina um único conector mecânico obrigatório para todos os equipamentos. A interface física e a disposição dos terminais podem variar conforme o fabricante e o modelo do dispositivo.</p>
+                <ul>
+                    <li><strong>Bornes de parafuso:</strong> muito utilizados em PLCs, inversores, medidores e módulos industriais, permitindo ligação direta dos fios D0, D1 e comum.</li>
+                    <li><strong>RJ45:</strong> pode ser utilizado por determinados fabricantes para transportar sinais seriais RS-485. Nesse caso, não significa que a comunicação seja Ethernet; a pinagem deve ser confirmada no manual do equipamento.</li>
+                    <li><strong>D-Sub de 9 pinos (DB9):</strong> conector encontrado em equipamentos seriais, conversores e interfaces de comunicação, conforme a implementação do fabricante.</li>
+                    <li><strong>Conectores específicos:</strong> alguns equipamentos utilizam mini-DIN ou outros conectores próprios, cuja pinagem deve ser consultada na documentação técnica.</li>
+                </ul>
+            </section>
+
+            <section class="section-h3">
+                <h3>3.1.4 TOPOLOGIAS SUPORTADAS NA LINHA SERIAL</h3>
+                <section class="section-h4">
+                    <h4>3.1.4.1 TOPOLOGIA EM BARRAMENTO LINEAR</h4>
+                    <p>A topologia recomendada para RS-485 Modbus é um barramento principal (trunk), ao longo do qual os dispositivos são conectados diretamente ou por derivações curtas. A ligação em sequência, conhecida como daisy chain, facilita a manutenção da impedância do cabo e reduz reflexões do sinal.</p>
+                </section>
+
+                <section class="section-h4">
+                    <h4>3.1.4.2 TERMINAÇÃO E DERIVAÇÕES</h4>
+                    <p>As duas extremidades físicas do barramento devem receber resistores de terminação compatíveis com a impedância do cabo. Não se deve instalar mais de duas terminações no mesmo par balanceado, nem colocar resistores de terminação nas derivações. As derivações devem ser curtas; o guia Modbus Serial Line recomenda que não ultrapassem 20 metros nas condições descritas pela especificação.</p>
+                </section>
+
+                <section class="section-h4">
+                    <h4>3.1.4.3 QUANTIDADE DE DISPOSITIVOS</h4>
+                    <p>A especificação Modbus Serial Line autoriza normalmente até 32 dispositivos em um segmento RS-485 sem repetidor. Um número maior pode ser possível conforme a carga elétrica (Unit Load) das interfaces, a polarização e os dados do fabricante. Repetidores podem ser utilizados para dividir a rede em segmentos adicionais.</p>
+                </section>
+            </section>
+        </section>
+
+        <section class="section-h2">
+            <h2>3.2 INTERFACE ELÉTRICA E TRANSMISSÃO DE SINAIS</h2>
+            <section class="section-h3">
+                <h3>3.2.1 SINALIZAÇÃO E NÍVEIS NA COMUNICAÇÃO MODBUS RTU</h3>
+                <p>Na configuração RS-485 de dois fios, os dados são transmitidos por sinalização diferencial em um par balanceado. O receptor interpreta a diferença de tensão entre os condutores, o que proporciona maior imunidade a interferências comuns do que uma transmissão não balanceada em condutor único. A comunicação é serial assíncrona, com caracteres enviados em sequência.</p>
+
+                <section class="section-h4">
+                    <h4>3.2.1.1 FORMATO DOS CARACTERES</h4>
+                    <ul>
+                        <li><strong>Bit de início (Start):</strong> indica o começo de um caractere serial.</li>
+                        <li><strong>Bits de dados:</strong> o modo RTU utiliza oito bits de dados por caractere, transmitidos com o bit menos significativo primeiro.</li>
+                        <li><strong>Paridade:</strong> a paridade par é o padrão requerido no guia de implementação, embora muitos equipamentos também permitam configurar paridade ímpar ou ausência de paridade.</li>
+                        <li><strong>Bit(s) de parada (Stop):</strong> indica(m) o término do caractere. Quando a paridade não é utilizada, o formato deve manter o comprimento de caractere exigido pela implementação, normalmente com dois bits de parada.</li>
+                    </ul>
+                </section>
+
+                <section class="section-h4">
+                    <h4>3.2.1.2 MODOS DE TRANSMISSÃO SERIAL</h4>
+                    <p>O Modbus Serial Line possui os modos RTU e ASCII. No modo RTU, os dados são transmitidos em formato binário compacto, favorecendo a eficiência da comunicação. O modo ASCII utiliza caracteres ASCII e um mecanismo de verificação diferente, mas não corresponde ao modo tratado neste capítulo.</p>
+                </section>
+            </section>
+
+            <section class="section-h3">
+                <h3>3.2.2 ALIMENTAÇÃO PELO BARRAMENTO E ENERGIA DOS EQUIPAMENTOS</h3>
+                <p>O Modbus RTU sobre RS-485 não exige que a alimentação dos dispositivos seja fornecida pelo par de comunicação. Os equipamentos normalmente recebem energia por fonte própria ou por circuitos de alimentação separados, frequentemente em 24 Vcc nos sistemas industriais.</p>
+                <ul>
+                    <li><strong>Alimentação independente:</strong> é a configuração mais comum, com fontes locais ou barramentos de 24 Vcc distribuídos no painel ou na máquina.</li>
+                    <li><strong>Circuito auxiliar:</strong> a especificação serial permite que fabricantes implementem circuitos adicionais de alimentação, mas isso não faz parte da transmissão de dados obrigatória do Modbus RTU e deve ser verificado na documentação do equipamento.</li>
+                </ul>
+            </section>
+
+            <section class="section-h3">
+                <h3>3.2.3 ISOLAÇÃO E PROTEÇÃO CONTRA RUÍDOS</h3>
+                <section class="section-h4">
+                    <h4>3.2.3.1 BLINDAGEM E ATERRAMENTO</h4>
+                    <ul>
+                        <li><strong>Cabo blindado:</strong> o guia Modbus Serial Line recomenda cabo blindado, com a blindagem conectada ao aterramento de proteção em uma extremidade do cabo, conforme a instalação recomendada.</li>
+                        <li><strong>Referência comum:</strong> o condutor comum do sistema RS-485 deve ser tratado de forma adequada e conectado ao aterramento de proteção preferencialmente em um único ponto do barramento, para reduzir correntes indesejadas.</li>
+                        <li><strong>Separação física:</strong> os cabos de comunicação devem ser instalados afastados de cabos de potência, motores, contatores e inversores de frequência sempre que possível.</li>
+                    </ul>
+                </section>
+
+                <section class="section-h4">
+                    <h4>3.2.3.2 TERMINAÇÃO E POLARIZAÇÃO DO BARRAMENTO</h4>
+                    <p>Os resistores de terminação são instalados nas extremidades do barramento para reduzir reflexões do sinal. Em redes sem atividade, o par RS-485 pode ficar sem um nível definido, ficando mais suscetível a ruídos. Quando necessário e conforme a especificação dos dispositivos, utiliza-se polarização (bias) por resistores pull-up e pull-down em um único ponto do barramento. A terminação e a polarização devem ser dimensionadas para a impedância do cabo e para a quantidade de dispositivos conectados.</p>
+                </section>
+
+                <section class="section-h4">
+                    <h4>3.2.3.3 ISOLAÇÃO GALVÂNICA</h4>
+                    <p>Em ambientes com diferenças de potencial entre painéis ou com maior exposição a surtos e ruídos, podem ser utilizados conversores ou interfaces RS-485 com isolação galvânica. Essa proteção depende do projeto e dos equipamentos instalados; não é uma propriedade obrigatória de todo dispositivo Modbus RTU.</p>
+                </section>
+            </section>
+        </section>
+
+        <section class="section-h2">
+            <h2>3.3 PROTOCOLO DE ENLACE E ACESSO AO MEIO (MAC)</h2>
+            <p>O Modbus RTU organiza a troca de mensagens por meio de uma arquitetura serial Mestre-Escravo. Diferentemente de uma rede Ethernet, não utiliza endereços MAC, quadros Ethernet ou endereços IP. O controle da comunicação ocorre por endereços de estação e pela sequência de solicitações e respostas no barramento serial.</p>
+
+            <section class="section-h3">
+                <h3>3.3.1 MÉTODO DE ACESSO AO MEIO</h3>
+                <section class="section-h4">
+                    <h4>3.3.1.1 COMUNICAÇÃO MESTRE-ESCRAVO</h4>
+                    <p>O mestre controla o acesso ao barramento e inicia as transações. Ele envia uma solicitação para um endereço de escravo, informa o código da função e os dados necessários. O escravo endereçado processa a solicitação e envia uma resposta. Os demais escravos permanecem em espera e não iniciam transmissões por conta própria.</p>
+                    <ul>
+                        <li><strong>Solicitação:</strong> o mestre envia um quadro contendo o endereço do dispositivo de destino, o código da função e os dados da operação.</li>
+                        <li><strong>Resposta:</strong> o escravo endereçado retorna os dados solicitados ou uma resposta de exceção quando a operação não pode ser executada.</li>
+                        <li><strong>Broadcast:</strong> o endereço 0 pode ser utilizado para enviar uma solicitação a todos os escravos. Como não há resposta individual ao broadcast, o mestre não recebe uma confirmação de cada dispositivo.</li>
+                        <li><strong>Prevenção de colisões:</strong> como existe um mestre que coordena as solicitações, os escravos não devem transmitir simultaneamente sem terem sido solicitados, reduzindo a possibilidade de colisões no barramento.</li>
+                    </ul>
+                </section>
+            </section>
+
+            <section class="section-h3">
+                <h3>3.3.2 ESTRUTURA DO QUADRO E MENSAGEM MODBUS RTU</h3>
+                <p>O quadro Modbus RTU possui estrutura binária e tamanho máximo de 256 bytes. Ele é composto por endereço do escravo, código da função, campo de dados e verificação CRC-16. A separação entre quadros é identificada por um intervalo de silêncio no barramento, e não por caracteres especiais de início ou fim.</p>
+
+                <section class="section-h4">
+                    <h4>3.3.2.1 CAMPOS DO QUADRO RTU</h4>
+                    <ul>
+                        <li><strong>Endereço do escravo (1 byte):</strong> identifica o dispositivo destinatário. Os endereços individuais usuais vão de 1 a 247; o endereço 0 é reservado para broadcast.</li>
+                        <li><strong>Código da função (1 byte):</strong> informa a operação solicitada, como leitura de registradores, leitura de estados ou escrita de valores.</li>
+                        <li><strong>Dados (0 a 252 bytes):</strong> contêm endereços de registradores, quantidade de pontos, valores ou outros parâmetros associados à função utilizada.</li>
+                        <li><strong>CRC-16 (2 bytes):</strong> campo de verificação de erro aplicado ao quadro inteiro. O byte menos significativo do CRC é transmitido primeiro, seguido pelo byte mais significativo.</li>
+                    </ul>
+                </section>
+
+                <section class="section-h4">
+                    <h4>3.3.2.2 DELIMITAÇÃO E TEMPORIZAÇÃO DOS QUADROS</h4>
+                    <p>No modo RTU, o início e o fim de cada quadro são identificados por intervalos de silêncio no barramento. A especificação estabelece um intervalo mínimo de 3,5 tempos de caractere entre quadros consecutivos. Uma pausa superior a 1,5 tempo de caractere entre caracteres de um mesmo quadro faz com que a mensagem seja considerada incompleta e descartada pelo receptor. Esses intervalos dependem do baud rate e da configuração serial.</p>
+                </section>
+
+                <section class="section-h4">
+                    <h4>3.3.2.3 VERIFICAÇÃO DE ERROS</h4>
+                    <p>O CRC-16 permite ao receptor verificar se os bits do quadro foram alterados durante a transmissão. O receptor recalcula o valor de CRC a partir dos bytes recebidos e compara o resultado com os dois bytes presentes no final da mensagem. Quando há divergência, o quadro é considerado inválido e não deve ser processado como uma solicitação correta. A paridade, quando habilitada, também permite detectar alguns erros em cada caractere serial, mas não substitui a verificação CRC do quadro.</p>
+                </section>
+            </section>
+        </section>
+
+        <section class="section-h2">
+            <h2>3.4 PARÂMETROS OPERACIONAIS E DESEMPENHO</h2>
+            <section class="section-h3">
+                <h3>3.4.1 TAXA DE TRANSMISSÃO (BAUD RATE / BIT RATE)</h3>
+                <p>O Modbus RTU utiliza taxas seriais configuradas em bits por segundo (bps ou bit/s). O guia Modbus Serial Line indica 9.600 bps e 19.200 bps como taxas obrigatórias de implementação, sendo 19.200 bps o valor padrão recomendado quando disponível. Outras taxas podem ser suportadas conforme o equipamento.</p>
+                <ul>
+                    <li><strong>9.600 bps:</strong> taxa comum em redes seriais industriais, principalmente em instalações com maior extensão de cabo ou dispositivos legados.</li>
+                    <li><strong>19.200 bps:</strong> taxa padrão recomendada no guia de implementação para dispositivos compatíveis.</li>
+                    <li><strong>Outras taxas:</strong> valores como 1.200, 2.400, 4.800, 38.400, 56.000 e 115.200 bps podem ser implementados como opções, mas devem ser compatíveis em todos os dispositivos da linha.</li>
+                </ul>
+                <p>Todos os dispositivos de uma mesma linha serial devem utilizar parâmetros de comunicação compatíveis, incluindo baud rate, quantidade de bits, paridade e bits de parada. Taxas maiores podem reduzir o tempo de transmissão das mensagens, mas normalmente exigem atenção maior à qualidade do cabo, às derivações, à terminação e às condições elétricas da rede.</p>
+            </section>
+
+            <section class="section-h3">
+                <h3>3.4.2 DISTÂNCIA MÁXIMA DO SEGMENTO</h3>
+                <p>A distância máxima de uma linha RS-485 depende do baud rate, da bitola do cabo, da capacitância, da impedância característica, da quantidade de cargas conectadas e da configuração de dois ou quatro fios. O guia Modbus Serial Line indica até 1.000 metros para uma linha RS-485 com baud rate máximo de 9.600 e cabo AWG 26 ou mais espesso, nas condições especificadas.</p>
+                <ul>
+                    <li><strong>Derivações:</strong> devem ser curtas para evitar reflexões e degradação do sinal. O guia recomenda derivações de até 20 metros nas condições descritas pela especificação.</li>
+                    <li><strong>Repetidores:</strong> podem ser utilizados para dividir o barramento em segmentos adicionais e ampliar a quantidade de dispositivos ou a extensão total, respeitando os limites do equipamento.</li>
+                    <li><strong>RS-232:</strong> é destinada a conexões ponto a ponto de curta distância, tipicamente inferiores a 20 metros, não sendo adequada para barramentos multiponto extensos.</li>
+                </ul>
+            </section>
+
+            <section class="section-h3">
+                <h3>3.4.3 DETERMINISMO E TEMPO DE CICLO</h3>
+                <p><strong>Classificação:</strong> o Modbus RTU é determinístico de forma condicionada: pode ter um ciclo previsível quando a rede está corretamente dimensionada e configurada, mas não garante tempo real estrito em qualquer situação.</p>
+                <p><strong>Justificativa:</strong> o mestre consulta os escravos sequencialmente. O tempo total do ciclo depende do baud rate, do número de dispositivos, do tamanho das solicitações e respostas, dos intervalos de silêncio entre quadros e do tempo de processamento de cada escravo.</p>
+                <p><strong>Limitações:</strong> se um dispositivo demora para responder ou não responde, o mestre pode aguardar o timeout configurado antes de seguir para a próxima transação. Isso aumenta o tempo de ciclo e pode torná-lo variável.</p>
+            </section>
+
+            <section class="section-h3">
+                <h3>3.4.4 NÍVEL NA PIRÂMIDE DA AUTOMAÇÃO</h3>
+                <p><strong>Classificação:</strong> atua principalmente nos níveis 1 e 2, conectando instrumentos, medidores, inversores, módulos de entrada e saída e outros dispositivos seriais a PLCs e controladores. Sensores e instrumentos do nível 0 podem ser integrados indiretamente por meio desses dispositivos.</p>
+                <p><strong>Justificativa:</strong> o Modbus RTU é utilizado para ler variáveis de processo e enviar comandos entre equipamentos de campo e controladores. Também pode transportar dados para sistemas de supervisão por meio de gateways ou servidores seriais, mas não é normalmente utilizado como rede principal de integração corporativa.</p>
+            </section>
+        </section>
+    </main>
+
+    <footer>
+        <p>by Arthur Furtado Machado &trade; &copy;</p>
+    </footer>
+
+</body>
+
+</html>

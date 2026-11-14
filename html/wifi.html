@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/style.css">
-    <title>Mundo Senai - Bancada Processo | Design Thinking & Scrum</title>
+    <title>Wi-Fi (IEEE 802.11) | Sistemas de Redes</title>
 </head>
 
 <body>
@@ -13,229 +13,281 @@
         <h1><img class="logo_senai_tamanho" src="../img/logo_senai.jpg" alt="" width="200px"></h1>
 
         <nav>
-            <!-- Checkbox invisível e Ícone do Sanduíche -->
             <input type="checkbox" id="menu-toggle">
             <label for="menu-toggle" class="menu-icon">&#9776;</label>
-
-            <!-- Lista de links do menu -->
             <ul class="menu-links">
                 <li><a href="../index.html">Introdução</a></li>
-                <li><a href="./redes_corporativas_locais.html">Redes Corporativas / Locais </a></li>
-                <li><a href="./ihm.html">Interface Homem-Máquina</a></li>
+                <li><a href="./redes_corporativas_locais.html">Redes Corporativas / Locais</a></li>
+                <li><a href="./redes_e_protocolos_industriais.html">Redes e Protocolos Industriais</a></li>
             </ul>
         </nav>
     </header>
 
-    <!-- CONTEÚDO CENTRALIZADO -->
     <main>
-        <h1>Redes Corporativas / Locais </h1>
+        <h1>2. WI-FI (PADRÕES IEEE 802.11)</h1>
 
-        <section>
-            <h2>Design Thinking</h2>
-            <section class="section_diferente">
-                <h3>Abordagem e Imersão</h3>
-                <p class="frase_espacamento">O Design Thinking é uma filosofia e conjunto de práticas focadas na inovação centrada no ser humano. Seu modelo conceitual é estruturado pelo <strong>Duplo Diamante</strong>, que alterna deliberadamente entre fases de <strong>divergência</strong> (ampliar opções e perspectivas) e <strong>convergência</strong> (sintetizar, priorizar e decidir) para garantir a tríade de sucesso: Desejabilidade (humana), Viabilidade (negócio) e Exequibilidade (técnica).</p>
+        <section class="section-h2">
+            <h2>2.1 ESTRUTURA FÍSICA E CABEAMENTO</h2>
+            <section class="section-h3">
+                <h3>2.1.1 WI-FI EM REDES LOCAIS CORPORATIVAS (WLAN)</h3>
+                <p>O Wi-Fi é uma tecnologia de comunicação sem fio baseada na família de padrões IEEE 802.11, utilizada para conectar computadores, dispositivos móveis e equipamentos compatíveis a uma rede local sem a necessidade de um cabo de dados entre cada cliente e o ponto de acesso. Essas redes são denominadas WLAN (Wireless Local Area Network).</p>
+                <p>Em ambientes corporativos e industriais, os pontos de acesso (Access Points - APs) formam a infraestrutura de comunicação por rádio. Normalmente, eles são conectados à rede principal por Ethernet, permitindo que os dispositivos sem fio acessem servidores, sistemas de supervisão e outros recursos da rede. A cobertura pode ser formada por um ou vários pontos de acesso, de acordo com o tamanho e as características do local.</p>
+            </section>
 
-                    <img class="imagem_um" src="../img/duplo_diamante.png" alt="Duplo diamante">
-                <section class="section_diferente_02">
-                    <h4>Fase 1: Empatia (Imersão e Pesquisa Qualitativa)</h4>
-                    <p class="frase_espacamento"><strong>Mapear o contexto real do usuário, desarmando suposições e identificando dores latentes.</strong></p>
-                    <ul>
-                        <li><strong>Shadowing (Observação Sombra):</strong> Acompanhar a rotina dos usuários em seu ambiente real sem interferir no fluxo de trabalho.</li>
-                        <li><strong>Entrevistas em Profundidade:</strong> Conversas semiestruturadas focadas em relatos históricos ("Conte-me sobre a última vez que...").</li>
-                        <li><strong>Desk Research & Benchmark:</strong> Análise de tendências de mercado, dados secundários e soluções concorrentes existentes.</li>
-                        <li><strong>Mapa de Empatia:</strong> Quadro analítico para registrar: O que o usuário diz, pensa, faz e sente, além de suas dores e aspirações.</li>
-                    </ul>
+            <section class="section-h3">
+                <h3>2.1.2 MEIOS DE TRANSMISSÃO E FAIXAS DE FREQUÊNCIA ADOTADAS</h3>
+                <section class="section-h4">
+                <h4>2.1.2.1 MEIO FÍSICO E ANTENAS</h4>
+                <p>O meio de transmissão do Wi-Fi é o espaço livre, por onde se propagam ondas eletromagnéticas de radiofrequência (RF). Portanto, o enlace entre o ponto de acesso e os dispositivos clientes não utiliza par trançado ou fibra óptica para transportar os dados pelo ar. As antenas convertem os sinais elétricos de radiofrequência em ondas eletromagnéticas e realizam o processo inverso na recepção.</p>
+                <ul>
+                    <li><strong>Antenas internas:</strong> ficam integradas ao equipamento e são comuns em notebooks, smartphones, roteadores domésticos e pontos de acesso corporativos.</li>
+                    <li><strong>Antenas externas:</strong> podem ser conectadas ao equipamento por cabos coaxiais e permitem selecionar modelos omnidirecionais ou direcionais, conforme a área que se deseja atender.</li>
+                    <li><strong>Infraestrutura de acesso:</strong> os pontos de acesso são geralmente ligados a switches por cabeamento Ethernet, que transporta o tráfego entre a WLAN e a rede cabeada.</li>
+                </ul>
+
                 </section>
-                <section class="section_diferente_02">
-                    <h4>Fase 2: Definição (Síntese e Delimitação)</h4>
-                    <p class="frase_espacamento"><strong>Filtrar os dados brutos obtidos na imersão para transformar observações isoladas em insights acionáveis.</strong></p>
-                    <ul>
-                        <li><strong>Personas:</strong> Construção de arquétipos comportamentais representativos com metas, frustrações e motivações reais.</li>
-                        <li><strong>Jornada do Usuário (User Journey Map):</strong> Mapeamento cronológico dos pontos de contato, níveis de satisfação e gargalos operacionais.</li>
-                        <li><strong>Declaração do Problema & HMW (How Might We):</strong> Reenquadramento de dores em oportunidades formulando perguntas provocativas (ex.: "Como poderíamos simplificar a aprovação de crédito para clientes sem histórico bancário?").</li>
-                    </ul>
+                <section class="section-h4">
+                <h4>2.1.2.2 FAIXAS DE FREQUÊNCIA UTILIZADAS</h4>
+                <p>Os equipamentos Wi-Fi operam em faixas de radiofrequência definidas e autorizadas pelas regulamentações de cada país. As faixas mais utilizadas pelas gerações atuais são:</p>
+                <ul>
+                    <li><strong>2,4 GHz:</strong> apresenta, em geral, maior alcance e melhor propagação através de obstáculos do que as faixas mais altas. Entretanto, possui menos canais disponíveis e costuma sofrer maior interferência de outras redes e dispositivos que compartilham essa faixa.</li>
+                    <li><strong>5 GHz:</strong> oferece mais canais e maior possibilidade de uso de canais largos, favorecendo taxas de transmissão elevadas. Seu sinal tende a sofrer maior atenuação por obstáculos do que o sinal em 2,4 GHz.</li>
+                    <li><strong>6 GHz:</strong> amplia a quantidade de espectro disponível para equipamentos compatíveis com Wi-Fi 6E e Wi-Fi 7, permitindo mais canais e menor competição com dispositivos Wi-Fi legados. Sua utilização depende da regulamentação e da disponibilidade da faixa em cada país.</li>
+                </ul>
+                <p>A escolha da faixa depende do alcance necessário, da quantidade de dispositivos, da interferência presente e da capacidade dos pontos de acesso e clientes. As três faixas não são necessariamente suportadas por todos os equipamentos.</p>
                 </section>
             </section>
-            <section class="section_diferente">
-                <h3>Ideação, Prototipação e Validação</h3>
-                <section class="section_diferente_02">
-                    <h4>Fase 3: Ideação (Geração de Soluções)</h4>
-                    <p class="frase_espacamento"><strong>Explorar a maior quantidade e variedade possível de propostas sem julgamento ou crítica prematura.</strong></p>
-                    <ul>
-                        <li><strong>Brainstorming Estruturado:</strong> Sessões de ideação com regras claras (adiar julgamento, incentivar ideias ousadas, construir sobre a ideia do outro).</li>
-                        <li><strong>Crazy Eights:</strong> Método de esboço rápido individual onde cada participante desenha 8 variações de ideias em 8 minutos.</li>
-                        <li><strong>Técnica SCAMPER:</strong> Provocações mentais baseadas em Substituir, Combinar, Adaptar, Modificar, Propor outro uso, Eliminar e Reorganizar.</li>
-                        <li><strong>Matriz Esforço x Valor:</strong> Filtro convergente para selecionar propostas de maior impacto no usuário, considerando valor e esforço.</li>
-                    </ul>
+
+            <section class="section-h3">
+                <h3>2.1.3 CONECTORES PADRONIZADOS E IDENTIFICAÇÃO</h3>
+                <p>Como a comunicação entre o ponto de acesso e os clientes ocorre por radiofrequência, não existe um conector de dados físico entre esses dispositivos equivalente ao RJ45 utilizado na Ethernet. Os conectores aparecem principalmente na ligação das antenas e na conexão do ponto de acesso à infraestrutura cabeada.</p>
+                <section class="section-h4">
+                <h4>2.1.3.1 CONEXÕES DE RÁDIO E ANTENAS</h4>
+                <ul>
+                    <li><strong>Antenas integradas:</strong> não utilizam um conector externo visível, pois são instaladas dentro do próprio equipamento.</li>
+                    <li><strong>SMA e RP-SMA:</strong> conectores coaxiais utilizados em determinados roteadores e pontos de acesso com antenas removíveis. A escolha depende do fabricante e do modelo; não são conectores universais definidos pelo padrão IEEE 802.11.</li>
+                    <li><strong>N-type:</strong> conector coaxial rosqueado encontrado em algumas instalações com antenas externas, especialmente em enlaces e equipamentos destinados a ambientes externos.</li>
+                </ul>
+
                 </section>
-                <section class="section_diferente_02">
-                    <h4>Fase 4: Prototipação (Materialização de Hipóteses)</h4>
-                    <p class="frase_espacamento"><strong>Transformar conceitos abstratos em artefatos tangíveis para testar premissas com o menor custo possível.</strong></p>
-                    <ul>
-                        <li><strong>Baixa Fidelidade:</strong> Protótipos em papel (paper prototypes), storyboards e encenações de serviços (roleplaying).</li>
-                        <li><strong>Média Fidelidade:</strong> Wireframes clicáveis e fluxos de navegação interativos criados em ferramentas digitais (Figma, Miro).</li>
-                        <li><strong>Mágico de Oz (Wizard of Oz):</strong> Simulação em que a interface parece automatizada, mas funções ainda não implementadas são executadas manualmente nos bastidores para testar a experiência antes de desenvolver a automação.</li>
-                    </ul>
-                </section>
-                <section class="section_diferente_02">
-                    <h4>Fase 5: Teste e Iteração (Validação com Usuários)</h4>
-                    <p class="frase_espacamento"><strong>Colocar o protótipo nas mãos dos usuários finais para observar o uso real e refinar a solução.</strong></p>
-                    <ul>
-                        <li><strong>Testes de Usabilidade Moderados:</strong> Execução de cenários de tarefas enquanto o usuário externaliza seus raciocínios (Think-Aloud Protocol).</li>
-                        <li><strong>Matriz de Feedback:</strong> Grade quadripartida para compilar registros: O que funcionou, O que precisa ser ajustado, Dúvidas surgidas e Novas ideias.</li>
-                    </ul>
+                <section class="section-h4">
+                <h4>2.1.3.2 CONEXÃO DO PONTO DE ACESSO À REDE CABEADA</h4>
+                <ul>
+                    <li><strong>RJ45 (8P8C):</strong> conector normalmente utilizado na porta Ethernet do ponto de acesso para ligação ao switch da rede local. A categoria do cabo e a velocidade da porta devem ser compatíveis com a capacidade do equipamento.</li>
+                    <li><strong>SFP/SFP+:</strong> switches de distribuição e equipamentos apropriados podem utilizar módulos ópticos para conexões por fibra, dependendo do projeto. Essa interface pertence ao enlace cabeado, e não à transmissão Wi-Fi, e não é uma conexão de rádio do ponto de acesso.</li>
+                    <li><strong>Conector de alimentação CC:</strong> alguns equipamentos utilizam uma fonte externa conectada a uma entrada de corrente contínua quando não recebem energia por PoE.</li>
+                </ul>
                 </section>
             </section>
-            <section class="section_diferente">
-                <h3>A Ponte: Traduzindo Descobertas em Backlog</h3>
-                <p class="frase_espacamento"><strong>Da Validação para a Engenharia:</strong> Os testes de usabilidade geram aprendizados e evidências para revisar hipóteses e priorizar itens do <strong>Product Backlog</strong>, que podem ser descritos como <strong>Histórias de Usuário (User Stories)</strong>. A validação reduz incertezas, mas não comprova definitivamente a solução.</p>
-                <section class="section_diferente_02">
-                    <h4>Critérios opcionais de prontidão (Definition of Ready - DoR)</h4>
-                    <p class="frase_espacamento">A DoR é uma prática opcional, não uma exigência do Scrum Guide. A equipe pode combinar critérios úteis para esclarecer itens antes do planejamento, sem criar uma barreira obrigatória para a Sprint Planning.</p>
-                    <ul>
-                        <li><strong>Estrutura da User Story:</strong> "Como [perfil de persona], quero [funcionalidade ou necessidade identificada] para que [benefício esperado]."</li>
-                        <li><strong>Critérios de Aceitação Claros:</strong> Regras de negócio e condições testáveis definidas com a participação do Product Owner.</li>
-                    </ul>
+
+            <section class="section-h3">
+                <h3>2.1.4 TOPOLOGIAS SUPORTADAS EM REDES WI-FI</h3>
+                <section class="section-h4">
+                <h4>2.1.4.1 MODO DE INFRAESTRUTURA (BSS) - ORGANIZAÇÃO COM PONTO DE ACESSO</h4>
+                <p>No modo de infraestrutura, os dispositivos clientes se comunicam por meio de um ponto de acesso. O conjunto formado pelo AP e pelas estações associadas é denominado BSS (Basic Service Set). Essa é a organização predominante em redes corporativas e domésticas, pois permite centralizar a autenticação, o controle de acesso e a ligação com a rede cabeada.</p>
+
+                </section>
+                <section class="section-h4">
+                <h4>2.1.4.2 CONJUNTO ESTENDIDO (ESS) - COBERTURA COM VÁRIOS PONTOS DE ACESSO</h4>
+                <p>Um ESS (Extended Service Set) reúne dois ou mais BSS interligados por um sistema de distribuição, normalmente a infraestrutura Ethernet da empresa. Essa arquitetura amplia a cobertura e permite que um dispositivo se movimente entre áreas atendidas por diferentes pontos de acesso. O processo de roaming depende da compatibilidade dos equipamentos e das configurações da rede.</p>
+
+                </section>
+                <section class="section-h4">
+                <h4>2.1.4.3 TOPOLOGIA MESH E COMUNICAÇÃO AD HOC</h4>
+                <ul>
+                    <li><strong>Rede Mesh:</strong> utiliza vários pontos de acesso ou nós sem fio interligados, permitindo encaminhar dados entre diferentes pontos e ampliar a cobertura. A implementação pode seguir o padrão IEEE 802.11s ou soluções específicas dos fabricantes.</li>
+                    <li><strong>Modo Ad Hoc (IBSS):</strong> permite que estações sem fio se comuniquem diretamente, sem depender de um ponto de acesso central. É uma configuração de uso mais restrito em comparação ao modo de infraestrutura.</li>
+                </ul>
                 </section>
             </section>
         </section>
 
-        <section>
-            <h2>Framework Scrum</h2>
-            <section class="section_diferente">
-                <h3> Gestão e Entrega Ágil</h3>
-                <p class="frase_espacamento">O Scrum é um framework leve projetado para gerar valor por meio de soluções adaptativas para problemas complexos. É fundamentado no <strong>empirismo</strong> (conhecimento vem da experiência e tomada de decisão baseada em fatos) e no pensamento <strong>Lean</strong> (eliminação de desperdícios).</p>
+        <section class="section-h2">
+            <h2>2.2 INTERFACE ELÉTRICA E TRANSMISSÃO DE SINAIS</h2>
+            <section class="section-h3">
+                <h3>2.2.1 SINALIZAÇÃO E NÍVEIS NA COMUNICAÇÃO WI-FI</h3>
+                <p>A transmissão Wi-Fi utiliza sinais de radiofrequência modulados digitalmente. Diferentemente de uma interface cabeada baseada em níveis de tensão medidos nos condutores, a comunicação pelo ar é caracterizada por frequência, potência do sinal, largura do canal, modulação e relação sinal-ruído. A potência recebida é normalmente expressa em dBm, enquanto a largura do canal é expressa em MHz.</p>
 
-                <img class="imagem_tres" src="../img/framework_scrum.jpg" alt="">
+                <section class="section-h4">
+                <h4>2.2.1.1 TÉCNICAS DE MODULAÇÃO E CODIFICAÇÃO</h4>
+                <ul>
+                    <li><strong>DSSS (Direct Sequence Spread Spectrum):</strong> técnica de espalhamento espectral utilizada em versões antigas do IEEE 802.11, especialmente nas primeiras implementações e no padrão 802.11b.</li>
+                    <li><strong>CCK (Complementary Code Keying):</strong> método de modulação empregado pelo padrão 802.11b para aumentar a taxa de transmissão na faixa de 2,4 GHz.</li>
+                    <li><strong>OFDM (Orthogonal Frequency Division Multiplexing):</strong> divide o canal em diversas subportadoras ortogonais, permitindo transmitir dados de forma eficiente e reduzindo os efeitos de determinadas condições de propagação multipercurso.</li>
+                    <li><strong>OFDMA (Orthogonal Frequency Division Multiple Access):</strong> utilizado nos padrões mais recentes, especialmente no Wi-Fi 6, divide o canal em unidades de recursos que podem ser atribuídas a diferentes dispositivos, tornando o uso do espectro mais eficiente.</li>
+                    <li><strong>QAM (Quadrature Amplitude Modulation):</strong> combina variações de amplitude e fase para representar símbolos com vários bits. Modulações de ordem mais alta transportam mais bits por símbolo, mas exigem melhor qualidade de sinal.</li>
+                </ul>
 
-                <section class="section_diferente_02">
-                    <h4>Product Backlog & Sprint Backlog (Transparência)</h4>
-                    <p>O Product Backlog e o Sprint Backlog tornam visíveis todo o trabalho planejado, prioridades e pendências do produto para a equipe e os envolvidos.</p>
                 </section>
-                <section class="section_diferente_02">
-                    <h4>Sprint Planning & Inspeção</h4>
-                    <p>Avaliação detalhada dos itens do Product Backlog durante o planejamento para estruturar a meta e alinhar o progresso rumo ao objetivo da Sprint.</p>
-                </section>
-                <section class="section_diferente_02">
-                    <h4>Product Increment (Adaptação)</h4>
-                    <p>Ajuste e evolução contínua do produto através do incremento entregue a cada ciclo, permitindo feedback imediato e reorientação do projeto.</p>
+                <section class="section-h4">
+                <h4>2.2.1.2 TECNOLOGIAS DE ANTENAS E TRANSMISSÃO</h4>
+                <ul>
+                    <li><strong>MIMO (Multiple Input Multiple Output):</strong> utiliza múltiplas antenas de transmissão e recepção para aumentar a capacidade do enlace e melhorar a robustez da comunicação.</li>
+                    <li><strong>MU-MIMO (Multi-User MIMO):</strong> permite que o ponto de acesso atenda vários dispositivos utilizando múltiplos fluxos espaciais, de acordo com as capacidades do padrão e dos equipamentos.</li>
+                    <li><strong>Beamforming:</strong> ajusta a transmissão de modo a concentrar melhor a energia do sinal em direção ao dispositivo cliente, podendo melhorar a qualidade da conexão.</li>
+                    <li><strong>MLO (Multi-Link Operation):</strong> recurso do Wi-Fi 7 que permite estabelecer comunicação por mais de um enlace ou faixa de frequência compatível, podendo reduzir congestionamentos e melhorar desempenho e latência.</li>
+                </ul>
                 </section>
             </section>
-            <section class="section_diferente">
-                <h3>Cargos</h3>
-                <section class="section_diferente_product_owner">
-                    <h4 class="h4_product_owner">Product Owner (PO)</h4>
-                    <p>Maximiza o valor do produto. Gerencia o Product Backlog, ordena prioridades e expressa claramente os itens para o time.</p>
-                </section>
-                <section class="section_diferente_scrum_master">
-                    <h4 class="h4_scrum_master">Scrum Master</h4>
-                    <p>Líder servidor que garante a eficácia do time, remove impedimentos organizacionais e facilita a aplicação do framework.</p>
-                </section>
-                <section class="section_diferente_developers">
-                    <h4 class="h4_developers">Developers (Time)</h4>
-                    <p>Profissionais multidisciplinares comprometidos em criar qualquer aspecto de um incremento usável a cada Sprint.</p>
-                </section>
+
+            <section class="section-h3">
+                <h3>2.2.2 ALIMENTAÇÃO PELO BARRAMENTO E ENERGIA DOS EQUIPAMENTOS</h3>
+                <p>O padrão IEEE 802.11 define a comunicação sem fio, mas não estabelece que a energia elétrica seja fornecida pelo próprio sinal de radiofrequência. Por isso, os dispositivos clientes normalmente utilizam bateria ou fonte de alimentação própria, enquanto os pontos de acesso recebem energia por uma fonte CC local ou por uma infraestrutura cabeada.</p>
+                <ul>
+                    <li><strong>PoE (Power over Ethernet):</strong> é uma solução comum para alimentar pontos de acesso por meio do mesmo cabo Ethernet utilizado para transportar os dados até o switch. A energia é fornecida pela infraestrutura cabeada conforme padrões IEEE 802.3, como 802.3af, 802.3at e 802.3bt; não é transmitida pelo sinal Wi-Fi.</li>
+                    <li><strong>Alimentação local:</strong> quando o equipamento não suporta PoE ou quando o projeto utiliza alimentação independente, é empregada uma fonte adequada ao modelo do ponto de acesso.</li>
+                </ul>
             </section>
-            <section class="section_diferente">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Evento</th>
-                            <th>Duração máxima</th>
-                            <th>Artefato e compromisso</th>
-                            <th>Propósito principal</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td class="td_negrito">Sprint Planning</td>
-                            <td>Até 8 horas</td>
-                            <td>Sprint Backlog (Meta da Sprint)</td>
-                            <td>Planejar o trabalho a ser executado, definindo o valor e o plano de ação da Sprint.</td>
-                        </tr>
-                        <tr>
-                            <td class="td_negrito">Daily Scrum</td>
-                            <td>15 minutos</td>
-                            <td>Progresso rumo à Meta da Sprint</td>
-                            <td>Inspecionar o progresso e adaptar o plano diário de trabalho dos Developers.</td>
-                        </tr>
-                        <tr>
-                            <td class="td_negrito">Sprint Review</td>
-                            <td>Até 4 horas</td>
-                            <td>Incremento (Definição de Pronto)</td>
-                            <td>Inspecionar o resultado com stakeholders e adaptar o Product Backlog. A Definição de Pronto é o compromisso associado ao Incremento.</td>
-                        </tr>
-                        <tr>
-                            <td class="td_negrito">Sprint Retrospective</td>
-                            <td>Até 3 horas</td>
-                            <td>Ações de melhoria</td>
-                            <td>Inspecionar pessoas, relações, processos e ferramentas e planejar melhorias para a próxima Sprint.</td>
-                        </tr>
-                    </tbody>
-                </table>
+
+            <section class="section-h3">
+                <h3>2.2.3 ISOLAÇÃO E PROTEÇÃO CONTRA RUÍDOS NA COMUNICAÇÃO WI-FI</h3>
+                <p>Como o meio de transmissão é o ar, a rede Wi-Fi não utiliza blindagem metálica no enlace de rádio da mesma forma que um cabo UTP/STP. A qualidade do sinal depende da potência recebida, da relação sinal-ruído, da interferência de outras transmissões e das condições físicas do ambiente.</p>
+
+                <section class="section-h4">
+                <h4>2.2.3.1 INTERFERÊNCIAS ELETROMAGNÉTICAS E DE RADIOFREQUÊNCIA</h4>
+                <ul>
+                    <li><strong>Interferência de co-canal:</strong> ocorre quando redes próximas utilizam o mesmo canal, disputando o tempo de transmissão e reduzindo a capacidade disponível.</li>
+                    <li><strong>Interferência de canais adjacentes:</strong> pode ocorrer quando redes utilizam canais sobrepostos ou muito próximos, prejudicando a recepção.</li>
+                    <li><strong>Obstáculos e atenuação:</strong> paredes, concreto, estruturas metálicas, máquinas e líquidos podem reduzir a intensidade do sinal. A atenuação depende da composição, espessura e posição do obstáculo.</li>
+                    <li><strong>Multipercurso (Multipath):</strong> ocorre quando o sinal chega ao receptor por diferentes caminhos após reflexões em paredes, estruturas e objetos. Isso pode alterar a qualidade da recepção; tecnologias modernas utilizam OFDM e múltiplas antenas para lidar melhor com esses efeitos.</li>
+                </ul>
+
+                </section>
+                <section class="section-h4">
+                <h4>2.2.3.2 TÉCNICAS DE MITIGAÇÃO E PROTEÇÃO</h4>
+                <ul>
+                    <li><strong>Planejamento de canais:</strong> selecionar canais adequados e evitar sobreposição desnecessária entre pontos de acesso próximos.</li>
+                    <li><strong>Posicionamento dos pontos de acesso:</strong> instalar os equipamentos em locais que reduzam obstáculos e proporcionem cobertura adequada à área de utilização.</li>
+                    <li><strong>Ajuste de potência e antenas:</strong> configurar a potência de transmissão e o tipo de antena conforme o projeto de cobertura, respeitando os limites regulatórios.</li>
+                    <li><strong>Proteção da infraestrutura cabeada:</strong> o trecho Ethernet que conecta o ponto de acesso ao switch deve utilizar cabeamento, aterramento e proteção contra surtos compatíveis com o ambiente. Essa proteção se aplica ao enlace cabeado e não substitui o planejamento de radiofrequência.</li>
+                </ul>
+                <p>Em ambientes industriais, a presença de motores, inversores, estruturas metálicas e equipamentos de rádio exige análise do local e, quando necessário, levantamento de cobertura e interferência (site survey). Mecanismos de segurança como WPA2 e WPA3 protegem a autenticação e a confidencialidade dos dados, mas não eliminam interferências eletromagnéticas.</p>
+                </section>
             </section>
         </section>
 
-        <section>
-            <h2>Arquitetura Integrada</h2>
-            <section class="section_diferente">
-                <h3>O Modelo Dual-Track Agile</h3>
-                <section class="section_diferente_02">
-                    <h4>Esteira de Discovery (Design Thinking)</h4>
-                    <ul>
-                        <li><strong>Objetivo:</strong> Pesquisa, prototipação e validação contínua.</li>
-                        <li><strong>Foco:</strong> Reduzir riscos de utilidade e usabilidade continuamente.</li>
-                        <li><strong>Ritmo:</strong> Em paralelo e em interação com as Sprints.</li>
-                    </ul>
+        <section class="section-h2">
+            <h2>2.3 PROTOCOLO DE ENLACE E ACESSO AO MEIO (MAC)</h2>
+            <p>A camada de enlace do IEEE 802.11 organiza a comunicação entre as estações sem fio, realiza o endereçamento MAC e controla o acesso ao canal de rádio. Como vários dispositivos compartilham o mesmo meio, o protocolo precisa coordenar as transmissões para reduzir colisões e permitir a entrega confiável dos quadros.</p>
+
+            <section class="section-h3">
+                <h3>2.3.1 MÉTODO DE ACESSO AO MEIO NA REDE WI-FI</h3>
+                <section class="section-h4">
+                <h4>2.3.1.1 CSMA/CA - ACESSO MÚLTIPLO COM PREVENÇÃO DE COLISÕES</h4>
+                <p>O método básico de acesso ao meio do Wi-Fi é o CSMA/CA (Carrier Sense Multiple Access with Collision Avoidance). Antes de transmitir, a estação verifica se o canal está livre. Como não é possível detectar colisões no ar da mesma forma que no Ethernet half-duplex tradicional, o protocolo utiliza espera aleatória, confirmação de recebimento e, em determinadas situações, reserva do meio.</p>
+                <ul>
+                    <li><strong>Verificação do canal:</strong> a estação realiza a escuta física e verifica se o meio está ocupado antes de iniciar a transmissão.</li>
+                    <li><strong>Backoff aleatório:</strong> quando o canal fica disponível, a estação aguarda um intervalo aleatório definido pelo mecanismo de contenção. Isso reduz a probabilidade de várias estações começarem a transmitir ao mesmo tempo.</li>
+                    <li><strong>Confirmação ACK:</strong> após receber corretamente um quadro unicast que exige confirmação, o destinatário transmite um quadro ACK. Se a confirmação não chegar, o transmissor poderá realizar uma retransmissão.</li>
+                    <li><strong>RTS/CTS:</strong> opcionalmente, a estação pode enviar Request to Send (RTS) e receber Clear to Send (CTS), reservando o meio por um período informado. Esse mecanismo pode reduzir problemas causados por nós ocultos, mas adiciona sobrecarga e não é usado em todas as transmissões.</li>
+                </ul>
+
                 </section>
-                <section class="section_diferente_02">
-                    <h4>Esteira de Delivery (Scrum Sprints)</h4>
-                    <ul>
-                        <li><strong>Objetivo:</strong> Engenharia, testes e implantação.</li>
-                        <li><strong>Foco:</strong> Construir incrementos estáveis, escaláveis e funcionais.</li>
-                        <li><strong>Ritmo:</strong> Sprints fixas de até 1 mês (comumente 2 a 4 semanas).</li>
-                    </ul>
+                <section class="section-h4">
+                <h4>2.3.1.2 PRIORIZAÇÃO E COMPARTILHAMENTO DO CANAL</h4>
+                <p>O Wi-Fi também possui mecanismos de qualidade de serviço (QoS), como o EDCA, que organizam o acesso ao meio em categorias de prioridade, favorecendo tipos de tráfego como voz e vídeo. No Wi-Fi 6, o OFDMA permite dividir recursos do canal para atender diferentes estações em uma mesma oportunidade de transmissão. Mesmo com esses recursos, o meio continua compartilhado e sujeito às condições do ambiente de rádio.</p>
                 </section>
             </section>
-            <section class="section_diferente">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Dimensão</th>
-                            <th>Design Thinking (Problem & Solution Space)</th>
-                            <th>Scrum (Execution Space)</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td class="td_negrito">Pergunta Central</td>
-                            <td>"Estamos construindo o produto certo para o usuário?"</td>
-                            <td>"Estamos construindo o produto da forma mais eficiente?"</td>
-                        </tr>
-                        <tr>
-                            <td class="td_negrito">Natureza do Trabalho</td>
-                            <td>Exploratória, não linear, investigativa e iterativa.</td>
-                            <td>Estruturada, incremental, com prazos e entregáveis claros.</td>
-                        </tr>
-                        <tr>
-                            <td class="td_negrito">Acompanhamento</td>
-                            <td>Aprendizado validado e satisfação nos testes de conceito.</td>
-                            <td>Progresso rumo aos objetivos, valor entregue e qualidade do incremento.</td>
-                        </tr>
-                    </tbody>
-                </table>
+
+            <section class="section-h3">
+                <h3>2.3.2 ESTRUTURA DO QUADRO E MENSAGEM IEEE 802.11</h3>
+                <p>As informações transmitidas pela rede Wi-Fi são organizadas em quadros MAC. A estrutura varia conforme a categoria e a finalidade do quadro, mas os quadros de dados normalmente contêm campos de controle, duração, endereçamento, sequência, carga útil e verificação de erros. O início da transmissão é identificado pelo preâmbulo da camada física (PLCP), que auxilia a sincronização do receptor. O encerramento é determinado pelas informações de comprimento e temporização da sinalização física, e não por um caractere específico de fim dentro do quadro MAC. O campo FCS fica ao final do quadro e é utilizado para a verificação de erros.</p>
+
+                <section class="section-h4">
+                <h4>2.3.2.1 CAMPOS PRINCIPAIS DO QUADRO MAC</h4>
+                <ul>
+                    <li><strong>Frame Control:</strong> identifica o tipo e o subtipo do quadro e informa características de controle da comunicação.</li>
+                    <li><strong>Duration/ID:</strong> indica a duração de reserva do meio ou apresenta informações de identificação, conforme o tipo de quadro.</li>
+                    <li><strong>Address:</strong> contém os endereços MAC necessários à comunicação. Dependendo da topologia e do caminho dos dados, o quadro pode possuir três ou quatro campos de endereço.</li>
+                    <li><strong>Sequence Control:</strong> auxilia na identificação da sequência dos quadros e no controle de fragmentação e retransmissões.</li>
+                    <li><strong>QoS Control:</strong> campo presente em quadros compatíveis com QoS, utilizado para identificar a categoria de tráfego e outras informações de controle.</li>
+                    <li><strong>Frame Body (Payload):</strong> transporta os dados de gerenciamento ou os dados úteis da comunicação, dependendo da categoria do quadro.</li>
+                    <li><strong>FCS (Frame Check Sequence):</strong> campo utilizado para verificar a integridade do quadro recebido por meio de uma sequência de verificação baseada em CRC.</li>
+                </ul>
+
+                </section>
+                <section class="section-h4">
+                <h4>2.3.2.2 CATEGORIAS DE QUADROS E VERIFICAÇÃO DE ERROS</h4>
+                <ul>
+                    <li><strong>Quadros de gerenciamento (Management Frames):</strong> utilizados para descoberta de redes, autenticação, associação, desassociação e manutenção da conexão. Exemplos: Beacon, Probe Request, Probe Response e Association.</li>
+                    <li><strong>Quadros de controle (Control Frames):</strong> auxiliam na coordenação do acesso ao meio e na confirmação de transmissões. Exemplos: ACK, RTS e CTS.</li>
+                    <li><strong>Quadros de dados (Data Frames):</strong> transportam os dados das aplicações e os pacotes provenientes das camadas superiores.</li>
+                    <li><strong>FCS e CRC:</strong> o receptor recalcula a verificação de integridade e compara o resultado com o valor recebido. Se houver erro, o quadro é descartado e, quando aplicável, uma retransmissão pode ocorrer.</li>
+                </ul>
+                </section>
             </section>
         </section>
 
+        <section class="section-h2">
+            <h2>2.4 PARÂMETROS OPERACIONAIS E DESEMPENHO</h2>
+            <section class="section-h3">
+                <h3>2.4.1 TAXA DE TRANSMISSÃO (BANDWIDTH / BIT RATE / BAUD RATE)</h3>
+                <p>O desempenho de uma rede Wi-Fi é influenciado pela largura do canal, pela modulação, pela quantidade de fluxos espaciais, pela distância, pela interferência e pela quantidade de estações que compartilham o meio. As taxas divulgadas pelos fabricantes normalmente representam valores máximos teóricos da camada física (PHY), e não a velocidade útil garantida para uma aplicação.</p>
+
+                <section class="section-h4">
+                <h4>2.4.1.1 DIFERENCIAÇÃO DOS CONCEITOS TÉCNICOS</h4>
+                <ul>
+                    <li><strong>Largura do Canal (Channel Bandwidth):</strong> medida em Megahertz (MHz), representa a faixa de frequência ocupada pelo canal de rádio. Os canais Wi-Fi podem utilizar larguras como 20, 40, 80, 160 e, no Wi-Fi 7, até 320 MHz em condições compatíveis.</li>
+                    <li><strong>Taxa de Bits (Bit Rate):</strong> medida em Mbps ou Gbps, representa a quantidade de bits transmitidos por segundo. A taxa real de dados úteis é inferior à taxa física devido aos cabeçalhos, confirmações, contenção e retransmissões.</li>
+                    <li><strong>Taxa de Símbolos (Baud Rate):</strong> medida em símbolos por segundo, representa a quantidade de símbolos transmitidos por segundo. Como cada símbolo pode representar vários bits dependendo da modulação, a taxa de bits não é necessariamente igual à taxa de símbolos.</li>
+                </ul>
+
+                </section>
+                <section class="section-h4">
+                <h4>2.4.1.2 VELOCIDADES TEÓRICAS DOS PRINCIPAIS PADRÕES WI-FI</h4>
+                <p>A família IEEE 802.11 evoluiu em diferentes gerações, aumentando as taxas teóricas, a eficiência e a capacidade de atender vários dispositivos. Entre os principais padrões estão:</p>
+                <ul>
+                    <li><strong>IEEE 802.11b:</strong> opera na faixa de 2,4 GHz e alcança taxa teórica de até 11 Mbps.</li>
+                    <li><strong>IEEE 802.11a:</strong> opera na faixa de 5 GHz e alcança taxa teórica de até 54 Mbps.</li>
+                    <li><strong>IEEE 802.11g:</strong> opera na faixa de 2,4 GHz e alcança taxa teórica de até 54 Mbps.</li>
+                    <li><strong>IEEE 802.11n (Wi-Fi 4):</strong> pode operar em 2,4 GHz e 5 GHz, utiliza MIMO e alcança até 600 Mbps em sua configuração máxima teórica.</li>
+                    <li><strong>IEEE 802.11ac (Wi-Fi 5):</strong> opera na faixa de 5 GHz e pode alcançar aproximadamente 6,9 Gbps em sua configuração máxima teórica, utilizando canais largos e múltiplos fluxos espaciais.</li>
+                    <li><strong>IEEE 802.11ax (Wi-Fi 6):</strong> opera em 2,4 GHz e 5 GHz, utiliza OFDMA e MU-MIMO e apresenta taxa teórica máxima de até 9,6 Gbps.</li>
+                    <li><strong>Wi-Fi 6E:</strong> corresponde à extensão do Wi-Fi 6 para a faixa de 6 GHz, quando autorizada e disponível no país. Não é uma geração PHY independente do IEEE 802.11ax.</li>
+                    <li><strong>IEEE 802.11be (Wi-Fi 7):</strong> opera em 2,4 GHz, 5 GHz e 6 GHz, introduz canais de até 320 MHz na faixa compatível e recursos como MLO. As taxas máximas teóricas divulgadas podem chegar a aproximadamente 46 Gbps, conforme a configuração do equipamento.</li>
+                </ul>
+                <p>Os valores são máximos teóricos e dependem da largura do canal, da modulação, do número de antenas e dos fluxos espaciais. A velocidade efetivamente obtida pelos usuários é menor e varia conforme a qualidade do sinal e a quantidade de dispositivos ativos.</p>
+                </section>
+            </section>
+
+            <section class="section-h3">
+                <h3>2.4.2 DISTÂNCIA MÁXIMA E COBERTURA DA REDE WI-FI</h3>
+                <p>O IEEE 802.11 não estabelece uma distância máxima única e universal para a comunicação Wi-Fi, como ocorre com determinados limites de segmentos de cabeamento Ethernet. O alcance depende do orçamento do enlace de rádio, da potência permitida, do ganho e posicionamento das antenas, da sensibilidade dos receptores, da faixa utilizada e das características do ambiente.</p>
+
+                <section class="section-h4">
+                <h4>2.4.2.1 FATORES QUE INFLUENCIAM O ALCANCE</h4>
+                <ul>
+                    <li><strong>Frequência utilizada:</strong> a faixa de 2,4 GHz geralmente apresenta melhor propagação e maior alcance que 5 GHz. As faixas de 5 GHz e 6 GHz podem oferecer maior capacidade, mas tendem a sofrer mais atenuação em determinadas condições.</li>
+                    <li><strong>Obstáculos físicos:</strong> paredes, concreto, estruturas metálicas, portas corta-fogo e máquinas podem reduzir a intensidade do sinal e limitar a cobertura.</li>
+                    <li><strong>Potência e antenas:</strong> a potência de transmissão, o ganho, o padrão de irradiação e a orientação das antenas influenciam a distância e a qualidade do enlace, respeitando os limites regulatórios.</li>
+                    <li><strong>Interferência e quantidade de dispositivos:</strong> redes próximas e muitos clientes compartilhando o mesmo canal podem reduzir a capacidade disponível, mesmo quando ainda existe sinal suficiente para conexão.</li>
+                </ul>
+
+                </section>
+                <section class="section-h4">
+                <h4>2.4.2.2 AMPLIAÇÃO DA COBERTURA</h4>
+                <p>Para atender áreas maiores, podem ser instalados pontos de acesso adicionais conectados à infraestrutura cabeada ou organizados em uma arquitetura Mesh. O posicionamento deve considerar a sobreposição necessária entre áreas de cobertura, os canais utilizados e os requisitos de roaming. Em ambientes industriais, recomenda-se realizar um levantamento de cobertura no local, pois estruturas e equipamentos podem causar zonas de sombra e variações de sinal.</p>
+                </section>
+            </section>
+
+            <section class="section-h3">
+                <h3>2.4.3 DETERMINISMO E TEMPO DE CICLO</h3>
+                <p><strong>Classificação:</strong> o Wi-Fi convencional é considerado uma rede não determinística para aplicações que exigem tempo real estrito.</p>
+                <p><strong>Justificativa:</strong> o acesso ao canal depende da contenção entre estações, do tempo de backoff, das confirmações e de possíveis retransmissões. Interferências, mobilidade, variações de sinal e congestionamento também podem alterar a latência e o tempo de entrega dos dados. Padrões mais recentes, como o Wi-Fi 7, incluem melhorias para reduzir latência e variação de atraso, mas isso não representa uma garantia universal de tempo de ciclo rígido para controle industrial crítico.</p>
+            </section>
+
+            <section class="section-h3">
+                <h3>2.4.4 NÍVEL NA PIRÂMIDE DA AUTOMAÇÃO</h3>
+                <p><strong>Classificação:</strong> atua principalmente nos níveis de Supervisão e Controle de Operação (Nível 2) e de Gerenciamento da Produção (Nível 3), podendo também servir de acesso à integração corporativa e IIoT, conforme a arquitetura adotada.</p>
+                <p><strong>Justificativa:</strong> o Wi-Fi é adequado para conectar notebooks de manutenção, tablets de operação, terminais móveis, IHMs e dispositivos de monitoramento aos sistemas de supervisão e às redes corporativas. Embora possa transportar dados de equipamentos de campo, não é normalmente a primeira escolha para malhas de controle que exigem comunicação determinística e tempo de resposta rigoroso. Sua aplicação nos níveis superiores depende dos recursos e das políticas de segurança da rede.</p>
+            </section>
+        </section>
     </main>
 
-    <!-- RODAPÉ -->
     <footer>
-        <p>by Arthur Furtado Machado, Felipe Roberto Cardoso e Gabriel Mafra Alves de Gois &trade; &copy;</p>
+        <p>by Arthur Furtado Machado &trade; &copy;</p>
     </footer>
 
 </body>
 
 </html>
-

@@ -5,237 +5,300 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/style.css">
-    <title>Mundo Senai - Bancada Processo | Design Thinking & Scrum</title>
+    <title>Fibra Óptica | Sistemas de Redes</title>
 </head>
 
 <body>
     <header>
         <h1><img class="logo_senai_tamanho" src="../img/logo_senai.jpg" alt="" width="200px"></h1>
-
         <nav>
-            <!-- Checkbox invisível e Ícone do Sanduíche -->
             <input type="checkbox" id="menu-toggle">
             <label for="menu-toggle" class="menu-icon">&#9776;</label>
-
-            <!-- Lista de links do menu -->
             <ul class="menu-links">
                 <li><a href="../index.html">Introdução</a></li>
-                <li><a href="./redes_corporativas_locais.html">Redes Corporativas / Locais </a></li>
-                <li><a href="./ihm.html">Interface Homem-Máquina</a></li>
+                <li><a href="./redes_corporativas_locais.html">Redes Corporativas / Locais</a></li>
+                <li><a href="./redes_e_protocolos_industriais.html">Redes e Protocolos Industriais</a></li>
             </ul>
         </nav>
     </header>
 
-    <!-- CONTEÚDO CENTRALIZADO -->
     <main>
-        <h1>Redes Corporativas / Locais </h1>
+        <h1>3. FIBRA ÓPTICA (SISTEMAS MULTIMODO E MONOMODO)</h1>
 
-        <section>
-            <h2>Design Thinking</h2>
-            <section class="section_diferente">
-                <h3>Abordagem e Imersão</h3>
-                <p class="frase_espacamento">O Design Thinking é uma filosofia e conjunto de práticas focadas na inovação centrada no ser humano. Seu modelo conceitual é estruturado pelo <strong>Duplo Diamante</strong>, que alterna deliberadamente entre fases de <strong>divergência</strong> (ampliar opções e perspectivas) e <strong>convergência</strong> (sintetizar, priorizar e decidir) para garantir a tríade de sucesso: Desejabilidade (humana), Viabilidade (negócio) e Exequibilidade (técnica).</p>
+        <section class="section-h2">
+            <h2>3.1 ESTRUTURA FÍSICA E CABEAMENTO</h2>
+            <section class="section-h3">
+                <h3>3.1.1 FIBRA ÓPTICA EM REDES CORPORATIVAS E LOCAIS (LAN)</h3>
+                <p>A fibra óptica é um meio físico de transmissão que transporta informações por meio de pulsos de luz conduzidos por filamentos de vidro, geralmente à base de sílica. É utilizada em redes locais, backbones corporativos, data centers e interligações entre prédios, especialmente quando são necessárias altas taxas de transmissão, baixa atenuação e imunidade a interferências eletromagnéticas.</p>
+                <p>A fibra não transmite sinais elétricos pelos seus filamentos. Em cada extremidade, um transceptor óptico converte os sinais elétricos do equipamento em sinais luminosos e realiza a conversão inversa na recepção. A construção básica possui um núcleo (core), por onde a luz se propaga, uma casca óptica (cladding), que mantém a luz confinada, revestimentos de proteção e a capa externa do cabo.</p>
+            </section>
 
-                    <img class="imagem_um" src="../img/duplo_diamante.png" alt="Duplo diamante">
-                <section class="section_diferente_02">
-                    <h4>Fase 1: Empatia (Imersão e Pesquisa Qualitativa)</h4>
-                    <p class="frase_espacamento"><strong>Mapear o contexto real do usuário, desarmando suposições e identificando dores latentes.</strong></p>
-                    <ul>
-                        <li><strong>Shadowing (Observação Sombra):</strong> Acompanhar a rotina dos usuários em seu ambiente real sem interferir no fluxo de trabalho.</li>
-                        <li><strong>Entrevistas em Profundidade:</strong> Conversas semiestruturadas focadas em relatos históricos ("Conte-me sobre a última vez que...").</li>
-                        <li><strong>Desk Research & Benchmark:</strong> Análise de tendências de mercado, dados secundários e soluções concorrentes existentes.</li>
-                        <li><strong>Mapa de Empatia:</strong> Quadro analítico para registrar: O que o usuário diz, pensa, faz e sente, além de suas dores e aspirações.</li>
-                    </ul>
+            <section class="section-h3">
+                <h3>3.1.2 MEIOS FÍSICOS E TIPOS DE FIBRA ADOTADOS</h3>
+                <p>As fibras utilizadas em redes de comunicação são classificadas principalmente em multimodo (MMF - Multi-Mode Fiber) e monomodo (SMF - Single-Mode Fiber). A diferença está nas dimensões do núcleo e na quantidade de modos de propagação da luz, o que influencia a largura de banda, a distância do enlace e o tipo de transceptor necessário.</p>
+
+                <section class="section-h4">
+                <h4>3.1.2.1 FIBRA MULTIMODO (MMF - OM1, OM2, OM3, OM4 E OM5)</h4>
+                <p>A fibra multimodo possui um núcleo relativamente maior, normalmente de 50 µm ou 62,5 µm, permitindo que a luz se propague por vários caminhos ou modos. É indicada principalmente para enlaces de curta e média distância, como interligações dentro de edifícios, salas de servidores e data centers.</p>
+                <ul>
+                    <li><strong>OM1:</strong> normalmente possui núcleo de 62,5/125 µm. É uma categoria mais antiga, encontrada em instalações legadas e com menor capacidade de transmissão em altas velocidades e distâncias.</li>
+                    <li><strong>OM2:</strong> utiliza núcleo de 50/125 µm e oferece desempenho superior ao OM1, mas é menos indicada para novas instalações de altíssima velocidade quando comparada às categorias otimizadas a laser.</li>
+                    <li><strong>OM3:</strong> fibra multimodo otimizada para laser, com núcleo de 50/125 µm. É amplamente utilizada em enlaces de 10 Gbps e também pode atender aplicações de 40 Gbps e 100 Gbps em distâncias menores.</li>
+                    <li><strong>OM4:</strong> mantém núcleo de 50/125 µm, mas apresenta maior largura de banda modal que a OM3, permitindo alcançar distâncias maiores em determinadas aplicações de alta velocidade.</li>
+                    <li><strong>OM5:</strong> fibra multimodo de banda larga, desenvolvida para operar em múltiplos comprimentos de onda na região utilizada por sistemas multimodo. Pode ser empregada em arquiteturas de transmissão por múltiplos comprimentos de onda, desde que os transceptores sejam compatíveis.</li>
+                </ul>
+                <p>Nas fibras multimodo, os diferentes caminhos percorridos pela luz podem fazer com que os pulsos cheguem em instantes distintos ao receptor. Esse efeito é conhecido como dispersão modal e limita a relação entre velocidade e distância. Em geral, as fibras OM3, OM4 e OM5 são utilizadas com fontes ópticas a laser, especialmente VCSEL, em torno de 850 nm.</p>
+
                 </section>
-                <section class="section_diferente_02">
-                    <h4>Fase 2: Definição (Síntese e Delimitação)</h4>
-                    <p class="frase_espacamento"><strong>Filtrar os dados brutos obtidos na imersão para transformar observações isoladas em insights acionáveis.</strong></p>
-                    <ul>
-                        <li><strong>Personas:</strong> Construção de arquétipos comportamentais representativos com metas, frustrações e motivações reais.</li>
-                        <li><strong>Jornada do Usuário (User Journey Map):</strong> Mapeamento cronológico dos pontos de contato, níveis de satisfação e gargalos operacionais.</li>
-                        <li><strong>Declaração do Problema & HMW (How Might We):</strong> Reenquadramento de dores em oportunidades formulando perguntas provocativas (ex.: "Como poderíamos simplificar a aprovação de crédito para clientes sem histórico bancário?").</li>
-                    </ul>
+                <section class="section-h4">
+                <h4>3.1.2.2 FIBRA MONOMODO (SMF - OS1 E OS2)</h4>
+                <p>A fibra monomodo possui um núcleo muito menor, aproximadamente 9 µm, com revestimento óptico de 125 µm. Sua dimensão permite a propagação predominante de um único modo de luz, reduzindo a dispersão modal e possibilitando enlaces de maior distância e alta capacidade de transmissão.</p>
+                <ul>
+                    <li><strong>OS1:</strong> categoria de fibra monomodo normalmente associada a cabos para instalações internas, com construção adequada a esse ambiente.</li>
+                    <li><strong>OS2:</strong> categoria de fibra monomodo de baixa atenuação, utilizada em instalações internas e externas, sendo comum em backbones de campus, interligações entre prédios, redes metropolitanas e enlaces de longa distância.</li>
+                </ul>
+                <p>A fibra monomodo opera com fontes ópticas a laser e utiliza frequentemente comprimentos de onda próximos de 1310 nm e 1550 nm. A escolha entre OS1 e OS2, assim como o alcance final, deve considerar a especificação do cabo, o transceptor e as perdas acumuladas no enlace.</p>
+
+                </section>
+                <section class="section-h4">
+                <h4>3.1.2.3 CONSTRUÇÃO E APLICAÇÃO DOS CABOS ÓPTICOS</h4>
+                <ul>
+                    <li><strong>Cabo tight-buffered (buffer justo):</strong> possui proteção individual mais próxima da fibra e é comum em instalações internas, racks e distribuições dentro de edifícios.</li>
+                    <li><strong>Cabo loose-tube (tubo loose):</strong> acomoda as fibras em tubos com espaço interno, geralmente com proteção contra umidade, sendo utilizado em instalações externas e percursos mais longos.</li>
+                    <li><strong>Cabo dielétrico:</strong> utiliza materiais não metálicos em seus elementos estruturais, sendo adequado a trajetos nos quais se deseja evitar condução elétrica pelo cabo.</li>
+                    <li><strong>Cabo armado:</strong> possui proteção mecânica adicional, podendo incluir elementos metálicos ou dielétricos, conforme o projeto e o ambiente de instalação.</li>
+                    <li><strong>Cabo simplex e duplex:</strong> o simplex possui uma fibra, enquanto o duplex reúne duas fibras, frequentemente utilizadas para transmitir e receber dados em sentidos opostos.</li>
+                </ul>
                 </section>
             </section>
-            <section class="section_diferente">
-                <h3>Ideação, Prototipação e Validação</h3>
-                <section class="section_diferente_02">
-                    <h4>Fase 3: Ideação (Geração de Soluções)</h4>
-                    <p class="frase_espacamento"><strong>Explorar a maior quantidade e variedade possível de propostas sem julgamento ou crítica prematura.</strong></p>
-                    <ul>
-                        <li><strong>Brainstorming Estruturado:</strong> Sessões de ideação com regras claras (adiar julgamento, incentivar ideias ousadas, construir sobre a ideia do outro).</li>
-                        <li><strong>Crazy Eights:</strong> Método de esboço rápido individual onde cada participante desenha 8 variações de ideias em 8 minutos.</li>
-                        <li><strong>Técnica SCAMPER:</strong> Provocações mentais baseadas em Substituir, Combinar, Adaptar, Modificar, Propor outro uso, Eliminar e Reorganizar.</li>
-                        <li><strong>Matriz Esforço x Valor:</strong> Filtro convergente para selecionar propostas de maior impacto no usuário, considerando valor e esforço.</li>
-                    </ul>
+
+            <section class="section-h3">
+                <h3>3.1.3 CONECTORES PADRONIZADOS E IDENTIFICAÇÃO</h3>
+                <p>Os conectores ópticos realizam o alinhamento físico entre as fibras do cabo e as interfaces dos equipamentos. A escolha deve considerar o tipo de fibra (multimodo ou monomodo), o formato do conector, o polimento da extremidade, a quantidade de fibras e a compatibilidade com o transceptor.</p>
+                <section class="section-h4">
+                <h4>3.1.3.1 PRINCIPAIS CONECTORES ÓPTICOS</h4>
+                <ul>
+                    <li><strong>LC (Lucent Connector):</strong> conector compacto, muito utilizado em módulos SFP e SFP+ e em painéis de distribuição. Pode ser encontrado em versões simplex ou duplex.</li>
+                    <li><strong>SC (Subscriber Connector):</strong> conector de encaixe do tipo push-pull, com corpo maior que o LC. É utilizado em distribuidores ópticos, redes locais e algumas instalações de telecomunicações.</li>
+                    <li><strong>ST (Straight Tip):</strong> conector com acoplamento por baioneta, encontrado principalmente em instalações multimodo mais antigas.</li>
+                    <li><strong>FC (Ferrule Connector):</strong> conector com acoplamento rosqueado, utilizado em algumas aplicações de telecomunicações, instrumentação e enlaces que exigem conexão firme.</li>
+                    <li><strong>MPO/MTP (Multi-Fiber Push-On):</strong> conector multifibras que reúne várias fibras em uma única interface. É utilizado em cabeamentos de alta densidade e em conexões ópticas paralelas de data centers.</li>
+                </ul>
+                <p>Os conectores também podem apresentar diferentes tipos de polimento, como UPC (Ultra Physical Contact) e APC (Angled Physical Contact). As versões APC possuem extremidade angulada para reduzir reflexões em aplicações compatíveis. Conectores com polimentos diferentes não devem ser acoplados entre si, pois isso pode provocar perdas e prejudicar a conexão.</p>
+
                 </section>
-                <section class="section_diferente_02">
-                    <h4>Fase 4: Prototipação (Materialização de Hipóteses)</h4>
-                    <p class="frase_espacamento"><strong>Transformar conceitos abstratos em artefatos tangíveis para testar premissas com o menor custo possível.</strong></p>
-                    <ul>
-                        <li><strong>Baixa Fidelidade:</strong> Protótipos em papel (paper prototypes), storyboards e encenações de serviços (roleplaying).</li>
-                        <li><strong>Média Fidelidade:</strong> Wireframes clicáveis e fluxos de navegação interativos criados em ferramentas digitais (Figma, Miro).</li>
-                        <li><strong>Mágico de Oz (Wizard of Oz):</strong> Simulação em que a interface parece automatizada, mas funções ainda não implementadas são executadas manualmente nos bastidores para testar a experiência antes de desenvolver a automação.</li>
-                    </ul>
-                </section>
-                <section class="section_diferente_02">
-                    <h4>Fase 5: Teste e Iteração (Validação com Usuários)</h4>
-                    <p class="frase_espacamento"><strong>Colocar o protótipo nas mãos dos usuários finais para observar o uso real e refinar a solução.</strong></p>
-                    <ul>
-                        <li><strong>Testes de Usabilidade Moderados:</strong> Execução de cenários de tarefas enquanto o usuário externaliza seus raciocínios (Think-Aloud Protocol).</li>
-                        <li><strong>Matriz de Feedback:</strong> Grade quadripartida para compilar registros: O que funcionou, O que precisa ser ajustado, Dúvidas surgidas e Novas ideias.</li>
-                    </ul>
+                <section class="section-h4">
+                <h4>3.1.3.2 TRANSCEPTORES E INTERFACES ÓPTICAS</h4>
+                <ul>
+                    <li><strong>SFP (Small Form-Factor Pluggable):</strong> módulo transceptor removível utilizado em diversas portas Gigabit Ethernet, disponível em versões para fibra multimodo ou monomodo.</li>
+                    <li><strong>SFP+:</strong> formato de transceptor muito utilizado em enlaces de 10 Gigabit Ethernet, com opções como SR para multimodo e LR ou ER para monomodo.</li>
+                    <li><strong>QSFP e QSFP28:</strong> formatos de transceptores utilizados em equipamentos de maior capacidade, incluindo aplicações de 40 Gbps e 100 Gbps, conforme o padrão e o modelo.</li>
+                    <li><strong>Compatibilidade óptica:</strong> o transceptor deve ser compatível com a velocidade, o tipo de fibra, o comprimento de onda, o conector e a distância do enlace. Os módulos nas duas extremidades também devem ser compatíveis entre si.</li>
+                </ul>
                 </section>
             </section>
-            <section class="section_diferente">
-                <h3>A Ponte: Traduzindo Descobertas em Backlog</h3>
-                <p class="frase_espacamento"><strong>Da Validação para a Engenharia:</strong> Os testes de usabilidade geram aprendizados e evidências para revisar hipóteses e priorizar itens do <strong>Product Backlog</strong>, que podem ser descritos como <strong>Histórias de Usuário (User Stories)</strong>. A validação reduz incertezas, mas não comprova definitivamente a solução.</p>
-                <section class="section_diferente_02">
-                    <h4>Critérios opcionais de prontidão (Definition of Ready - DoR)</h4>
-                    <p class="frase_espacamento">A DoR é uma prática opcional, não uma exigência do Scrum Guide. A equipe pode combinar critérios úteis para esclarecer itens antes do planejamento, sem criar uma barreira obrigatória para a Sprint Planning.</p>
-                    <ul>
-                        <li><strong>Estrutura da User Story:</strong> "Como [perfil de persona], quero [funcionalidade ou necessidade identificada] para que [benefício esperado]."</li>
-                        <li><strong>Critérios de Aceitação Claros:</strong> Regras de negócio e condições testáveis definidas com a participação do Product Owner.</li>
-                    </ul>
+
+            <section class="section-h3">
+                <h3>3.1.4 TOPOLOGIAS SUPORTADAS EM REDES DE FIBRA ÓPTICA</h3>
+                <p>A fibra óptica é um meio físico e não determina, sozinha, a topologia lógica da rede. A organização depende dos switches, conversores, divisores ópticos e protocolos utilizados na instalação.</p>
+                <section class="section-h4">
+                <h4>3.1.4.1 PONTO A PONTO E ESTRELA</h4>
+                <ul>
+                    <li><strong>Ponto a ponto:</strong> estabelece um enlace direto entre dois equipamentos, como dois switches ou um switch e um servidor. É uma configuração comum em enlaces ópticos dedicados.</li>
+                    <li><strong>Estrela:</strong> vários equipamentos são conectados a um switch central por enlaces ópticos independentes, facilitando o gerenciamento e o isolamento de falhas em cada conexão.</li>
+                    <li><strong>Árvore ou estrela estendida:</strong> interliga switches de acesso a equipamentos de distribuição e ao núcleo da rede, sendo utilizada em backbones de edifícios, campi e ambientes corporativos.</li>
+                </ul>
+
+                </section>
+                <section class="section-h4">
+                <h4>3.1.4.2 ANEL, MALHA E DISTRIBUIÇÃO ÓPTICA PASSIVA</h4>
+                <ul>
+                    <li><strong>Anel:</strong> os equipamentos são interligados em circuito fechado, permitindo caminhos alternativos em arquiteturas que utilizam protocolos de redundância e recuperação de falhas.</li>
+                    <li><strong>Malha (Mesh):</strong> estabelece múltiplos caminhos entre os equipamentos principais, aumentando a redundância e a disponibilidade da infraestrutura.</li>
+                    <li><strong>Árvore óptica passiva (PON):</strong> utiliza divisores ópticos passivos para distribuir o sinal de uma fibra de alimentação para várias ramificações. O controle da comunicação depende dos equipamentos e do padrão PON utilizado.</li>
+                </ul>
                 </section>
             </section>
         </section>
 
-        <section>
-            <h2>Framework Scrum</h2>
-            <section class="section_diferente">
-                <h3> Gestão e Entrega Ágil</h3>
-                <p class="frase_espacamento">O Scrum é um framework leve projetado para gerar valor por meio de soluções adaptativas para problemas complexos. É fundamentado no <strong>empirismo</strong> (conhecimento vem da experiência e tomada de decisão baseada em fatos) e no pensamento <strong>Lean</strong> (eliminação de desperdícios).</p>
+        <section class="section-h2">
+            <h2>3.2 INTERFACE ELÉTRICA E TRANSMISSÃO DE SINAIS</h2>
+            <section class="section-h3">
+                <h3>3.2.1 SINALIZAÇÃO E NÍVEIS NA TRANSMISSÃO ÓPTICA</h3>
+                <p>Na fibra óptica, as informações são transportadas por variações controladas da luz, e não por níveis de tensão nos condutores. O transceptor transmissor recebe os dados elétricos do equipamento e os converte em sinais luminosos. Na outra extremidade, um fotodetector, normalmente um fotodiodo, converte a luz recebida novamente em sinal elétrico.</p>
+                <section class="section-h4">
+                <h4>3.2.1.1 FONTES DE LUZ E COMPRIMENTOS DE ONDA</h4>
+                <ul>
+                    <li><strong>LED:</strong> fonte de luz utilizada em sistemas ópticos antigos e em algumas aplicações de menor velocidade, especialmente em fibras multimodo legadas.</li>
+                    <li><strong>VCSEL (Vertical-Cavity Surface-Emitting Laser):</strong> laser frequentemente utilizado em enlaces multimodo de curta distância, especialmente em torno de 850 nm.</li>
+                    <li><strong>Laser para fibra monomodo:</strong> fontes como lasers DFB são utilizadas em transceptores monomodo, com comprimentos de onda comuns próximos de 1310 nm e 1550 nm.</li>
+                    <li><strong>Comprimento de onda:</strong> representa a faixa espectral da luz utilizada na transmissão e deve ser compatível com a fibra e com os transceptores nas duas extremidades.</li>
+                </ul>
 
-                <img class="imagem_tres" src="../img/framework_scrum.jpg" alt="">
-
-                <section class="section_diferente_02">
-                    <h4>Product Backlog & Sprint Backlog (Transparência)</h4>
-                    <p>O Product Backlog e o Sprint Backlog tornam visíveis todo o trabalho planejado, prioridades e pendências do produto para a equipe e os envolvidos.</p>
                 </section>
-                <section class="section_diferente_02">
-                    <h4>Sprint Planning & Inspeção</h4>
-                    <p>Avaliação detalhada dos itens do Product Backlog durante o planejamento para estruturar a meta e alinhar o progresso rumo ao objetivo da Sprint.</p>
-                </section>
-                <section class="section_diferente_02">
-                    <h4>Product Increment (Adaptação)</h4>
-                    <p>Ajuste e evolução contínua do produto através do incremento entregue a cada ciclo, permitindo feedback imediato e reorientação do projeto.</p>
+                <section class="section-h4">
+                <h4>3.2.1.2 CODIFICAÇÃO E MULTIPLEXAÇÃO ÓPTICA</h4>
+                <ul>
+                    <li><strong>NRZ (Non-Return-to-Zero):</strong> forma de codificação em que os níveis do sinal representam os bits transmitidos, sendo utilizada em diversas interfaces ópticas tradicionais.</li>
+                    <li><strong>OOK (On-Off Keying):</strong> forma de modulação por intensidade na qual a presença ou ausência de luz representa estados diferentes do sinal digital.</li>
+                    <li><strong>PAM-4 (Pulse Amplitude Modulation com quatro níveis):</strong> utiliza quatro níveis de amplitude para representar dois bits por símbolo. É empregada em determinadas interfaces ópticas de alta velocidade, de acordo com o padrão do transceptor.</li>
+                    <li><strong>WDM (Wavelength Division Multiplexing):</strong> permite transmitir diferentes canais de dados em comprimentos de onda distintos pela mesma fibra. CWDM e DWDM são variações utilizadas para ampliar a capacidade dos enlaces, principalmente em sistemas monomodo.</li>
+                </ul>
+                <p>A técnica de codificação, a modulação e a quantidade de comprimentos de onda dependem da interface óptica utilizada. Portanto, não existe uma única codificação aplicável a todos os sistemas multimodo e monomodo.</p>
                 </section>
             </section>
-            <section class="section_diferente">
-                <h3>Cargos</h3>
-                <section class="section_diferente_product_owner">
-                    <h4 class="h4_product_owner">Product Owner (PO)</h4>
-                    <p>Maximiza o valor do produto. Gerencia o Product Backlog, ordena prioridades e expressa claramente os itens para o time.</p>
-                </section>
-                <section class="section_diferente_scrum_master">
-                    <h4 class="h4_scrum_master">Scrum Master</h4>
-                    <p>Líder servidor que garante a eficácia do time, remove impedimentos organizacionais e facilita a aplicação do framework.</p>
-                </section>
-                <section class="section_diferente_developers">
-                    <h4 class="h4_developers">Developers (Time)</h4>
-                    <p>Profissionais multidisciplinares comprometidos em criar qualquer aspecto de um incremento usável a cada Sprint.</p>
-                </section>
+
+            <section class="section-h3">
+                <h3>3.2.2 ALIMENTAÇÃO PELO BARRAMENTO E ENERGIA DOS EQUIPAMENTOS</h3>
+                <p>A fibra óptica convencional transmite dados por meio de luz e não conduz energia elétrica pelos filamentos de vidro. Assim, não fornece alimentação aos equipamentos conectados pelo mesmo meio físico. Switches, roteadores, conversores e demais dispositivos ativos necessitam de fontes de alimentação próprias ou de outra infraestrutura elétrica.</p>
+                <ul>
+                    <li><strong>Alimentação local:</strong> é realizada por fontes CC ou CA apropriadas ao equipamento, como switches e conversores ópticos instalados em racks ou painéis.</li>
+                    <li><strong>PoE (Power over Ethernet):</strong> pode ser utilizado em um trecho de cobre conectado ao equipamento óptico, mas a energia não é transportada pela fibra. Por exemplo, um switch com porta óptica pode alimentar por PoE um dispositivo conectado a uma porta Ethernet de cobre.</li>
+                    <li><strong>Power over Fiber:</strong> existem soluções específicas que transportam energia por luz, porém são aplicações especializadas e não correspondem à alimentação convencional das redes Ethernet ópticas corporativas.</li>
+                </ul>
             </section>
-            <section class="section_diferente">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Evento</th>
-                            <th>Duração máxima</th>
-                            <th>Artefato e compromisso</th>
-                            <th>Propósito principal</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td class="td_negrito">Sprint Planning</td>
-                            <td>Até 8 horas</td>
-                            <td>Sprint Backlog (Meta da Sprint)</td>
-                            <td>Planejar o trabalho a ser executado, definindo o valor e o plano de ação da Sprint.</td>
-                        </tr>
-                        <tr>
-                            <td class="td_negrito">Daily Scrum</td>
-                            <td>15 minutos</td>
-                            <td>Progresso rumo à Meta da Sprint</td>
-                            <td>Inspecionar o progresso e adaptar o plano diário de trabalho dos Developers.</td>
-                        </tr>
-                        <tr>
-                            <td class="td_negrito">Sprint Review</td>
-                            <td>Até 4 horas</td>
-                            <td>Incremento (Definição de Pronto)</td>
-                            <td>Inspecionar o resultado com stakeholders e adaptar o Product Backlog. A Definição de Pronto é o compromisso associado ao Incremento.</td>
-                        </tr>
-                        <tr>
-                            <td class="td_negrito">Sprint Retrospective</td>
-                            <td>Até 3 horas</td>
-                            <td>Ações de melhoria</td>
-                            <td>Inspecionar pessoas, relações, processos e ferramentas e planejar melhorias para a próxima Sprint.</td>
-                        </tr>
-                    </tbody>
-                </table>
+
+            <section class="section-h3">
+                <h3>3.2.3 ISOLAÇÃO E PROTEÇÃO CONTRA RUÍDOS</h3>
+                <p>Como a fibra óptica é formada por materiais dielétricos, o enlace óptico não conduz corrente elétrica e não é afetado por interferências eletromagnéticas da mesma maneira que os cabos metálicos. Essa característica é importante em ambientes industriais, próximos a motores, inversores de frequência, transformadores e cabos de potência.</p>
+                <section class="section-h4">
+                <h4>3.2.3.1 IMUNIDADE ELETROMAGNÉTICA E ISOLAÇÃO GALVÂNICA</h4>
+                <ul>
+                    <li><strong>Imunidade a EMI e RFI:</strong> os filamentos ópticos não captam interferência eletromagnética ou de radiofrequência como os condutores metálicos, mantendo a transmissão de dados protegida desse tipo de ruído.</li>
+                    <li><strong>Isolação galvânica:</strong> como não existe continuidade elétrica entre as extremidades pelo filamento óptico, a fibra evita a circulação de correntes de terra e diferenças de potencial entre equipamentos interligados.</li>
+                    <li><strong>Proteção contra surtos:</strong> o trecho óptico não conduz surtos elétricos entre as extremidades; entretanto, as fontes, os switches, os conversores e outros equipamentos eletrônicos continuam exigindo proteção elétrica adequada.</li>
+                </ul>
+
+                </section>
+                <section class="section-h4">
+                <h4>3.2.3.2 PROTEÇÃO MECÂNICA, INSTALAÇÃO E ÁREAS CLASSIFICADAS</h4>
+                <ul>
+                    <li><strong>Raio de curvatura:</strong> a fibra deve respeitar o raio mínimo de curvatura indicado pelo fabricante. Dobras excessivas podem aumentar a atenuação ou danificar o filamento.</li>
+                    <li><strong>Tração e esmagamento:</strong> esforços mecânicos, esmagamento e instalação inadequada podem provocar perdas ou rompimento da fibra. O cabo deve possuir construção adequada ao percurso e ao ambiente.</li>
+                    <li><strong>Limpeza dos conectores:</strong> poeira, óleo e resíduos nas faces ópticas podem aumentar a perda de inserção e prejudicar a comunicação. As extremidades devem ser protegidas e mantidas limpas com procedimentos e materiais apropriados.</li>
+                    <li><strong>Áreas classificadas:</strong> a ausência de condução elétrica no filamento não significa que qualquer equipamento óptico seja automaticamente adequado a atmosferas explosivas. Equipamentos que emitem radiação óptica devem ser avaliados conforme as exigências aplicáveis, incluindo a IEC 60079-28:2025, além dos requisitos de instalação e proteção do local.</li>
+                </ul>
+                </section>
             </section>
         </section>
 
-        <section>
-            <h2>Arquitetura Integrada</h2>
-            <section class="section_diferente">
-                <h3>O Modelo Dual-Track Agile</h3>
-                <section class="section_diferente_02">
-                    <h4>Esteira de Discovery (Design Thinking)</h4>
-                    <ul>
-                        <li><strong>Objetivo:</strong> Pesquisa, prototipação e validação contínua.</li>
-                        <li><strong>Foco:</strong> Reduzir riscos de utilidade e usabilidade continuamente.</li>
-                        <li><strong>Ritmo:</strong> Em paralelo e em interação com as Sprints.</li>
-                    </ul>
+        <section class="section-h2">
+            <h2>3.3 PROTOCOLO DE ENLACE E ACESSO AO MEIO (MAC)</h2>
+            <p>A fibra óptica, por si só, não define um protocolo de enlace nem um método de acesso ao meio. Ela é o meio físico utilizado para transportar os sinais. Em redes corporativas, uma aplicação muito comum é a Ethernet sobre fibra óptica; nesse caso, o controle de acesso ao meio e a estrutura dos quadros seguem o padrão IEEE 802.3.</p>
+
+            <section class="section-h3">
+                <h3>3.3.1 MÉTODO DE ACESSO AO MEIO EM ETHERNET SOBRE FIBRA</h3>
+                <section class="section-h4">
+                <h4>3.3.1.1 OPERAÇÃO FULL-DUPLEX EM ENLACES COMUTADOS</h4>
+                <ul>
+                    <li><strong>Comunicação ponto a ponto:</strong> em uma rede Ethernet com switches, cada enlace óptico normalmente conecta duas portas específicas, sem compartilhar o mesmo segmento com vários equipamentos finais.</li>
+                    <li><strong>Transmissão simultânea:</strong> em enlaces duplex convencionais, uma fibra é utilizada para transmissão (TX) e outra para recepção (RX), permitindo comunicação Full-Duplex.</li>
+                    <li><strong>Ausência de colisões:</strong> em enlaces Ethernet Full-Duplex comutados, não há disputa pelo meio nem utilização do CSMA/CD. O switch encaminha os quadros e organiza o tráfego recebido em suas filas internas.</li>
+                    <li><strong>Enlace bidirecional por uma fibra:</strong> alguns transceptores BiDi utilizam comprimentos de onda diferentes para transmitir e receber pela mesma fibra, desde que os módulos das duas extremidades sejam complementares e compatíveis.</li>
+                </ul>
+
                 </section>
-                <section class="section_diferente_02">
-                    <h4>Esteira de Delivery (Scrum Sprints)</h4>
-                    <ul>
-                        <li><strong>Objetivo:</strong> Engenharia, testes e implantação.</li>
-                        <li><strong>Foco:</strong> Construir incrementos estáveis, escaláveis e funcionais.</li>
-                        <li><strong>Ritmo:</strong> Sprints fixas de até 1 mês (comumente 2 a 4 semanas).</li>
-                    </ul>
+                <section class="section-h4">
+                <h4>3.3.1.2 OUTRAS ARQUITETURAS DE ACESSO</h4>
+                <p>Em redes ópticas passivas (PON), a comunicação entre o equipamento central (OLT) e as unidades dos usuários (ONU/ONT) utiliza mecanismos próprios de organização do tráfego. No sentido de subida, a OLT coordena as transmissões das unidades por meio de concessões de tempo, evitando que todas transmitam simultaneamente. Esse funcionamento pertence ao sistema PON e não deve ser confundido com uma característica universal da fibra óptica.</p>
                 </section>
             </section>
-            <section class="section_diferente">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Dimensão</th>
-                            <th>Design Thinking (Problem & Solution Space)</th>
-                            <th>Scrum (Execution Space)</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td class="td_negrito">Pergunta Central</td>
-                            <td>"Estamos construindo o produto certo para o usuário?"</td>
-                            <td>"Estamos construindo o produto da forma mais eficiente?"</td>
-                        </tr>
-                        <tr>
-                            <td class="td_negrito">Natureza do Trabalho</td>
-                            <td>Exploratória, não linear, investigativa e iterativa.</td>
-                            <td>Estruturada, incremental, com prazos e entregáveis claros.</td>
-                        </tr>
-                        <tr>
-                            <td class="td_negrito">Acompanhamento</td>
-                            <td>Aprendizado validado e satisfação nos testes de conceito.</td>
-                            <td>Progresso rumo aos objetivos, valor entregue e qualidade do incremento.</td>
-                        </tr>
-                    </tbody>
-                </table>
+
+            <section class="section-h3">
+                <h3>3.3.2 ESTRUTURA DO QUADRO E MENSAGEM EM ETHERNET SOBRE FIBRA</h3>
+                <p>Quando a fibra é utilizada para transportar Ethernet, o quadro de dados mantém a estrutura definida pelo IEEE 802.3. A camada física e os transceptores realizam a conversão e a transmissão óptica, mas o formato do quadro Ethernet permanece essencialmente o mesmo utilizado em outros meios físicos compatíveis.</p>
+                <section class="section-h4">
+                <h4>3.3.2.1 CAMPOS PRINCIPAIS DO QUADRO ETHERNET</h4>
+                <ul>
+                    <li><strong>Preâmbulo (7 bytes):</strong> sequência utilizada para auxiliar a sincronização entre o transmissor e o receptor antes do início do quadro.</li>
+                    <li><strong>SFD - Start Frame Delimiter (1 byte):</strong> indica o início do quadro Ethernet propriamente dito.</li>
+                    <li><strong>Endereço MAC de destino (6 bytes):</strong> identifica a interface de rede para a qual o quadro é enviado.</li>
+                    <li><strong>Endereço MAC de origem (6 bytes):</strong> identifica a interface de rede que originou o quadro.</li>
+                    <li><strong>Tipo/Comprimento (2 bytes):</strong> identifica o protocolo encapsulado ou, conforme o valor, o comprimento dos dados.</li>
+                    <li><strong>Payload (dados úteis):</strong> transporta as informações das camadas superiores. Em um quadro Ethernet tradicional, o campo de dados pode conter de 46 a 1500 bytes, sem considerar extensões específicas.</li>
+                    <li><strong>FCS (4 bytes):</strong> campo localizado no final do quadro e utilizado na verificação de integridade por CRC-32.</li>
+                </ul>
+
+                </section>
+                <section class="section-h4">
+                <h4>3.3.2.2 VERIFICAÇÃO DE ERROS</h4>
+                <p>O campo FCS utiliza o algoritmo CRC-32 (Cyclic Redundancy Check) para detectar erros ocorridos durante a transmissão. O equipamento receptor realiza o cálculo sobre o quadro recebido e compara o resultado com o valor informado no FCS. Quando identifica divergência, o quadro é descartado; a retransmissão, quando necessária, depende das camadas e dos protocolos envolvidos.</p>
+                </section>
             </section>
         </section>
 
+        <section class="section-h2">
+            <h2>3.4 PARÂMETROS OPERACIONAIS E DESEMPENHO</h2>
+            <section class="section-h3">
+                <h3>3.4.1 TAXA DE TRANSMISSÃO (BANDWIDTH / BIT RATE / BAUD RATE)</h3>
+                <p>A fibra óptica oferece grande capacidade de transmissão, mas não possui uma velocidade única definida apenas pelo tipo de filamento. A taxa efetiva depende dos transceptores, do padrão de comunicação, da codificação, da quantidade de canais ópticos e das características do enlace.</p>
+
+                <section class="section-h4">
+                <h4>3.4.1.1 DIFERENCIAÇÃO DOS CONCEITOS TÉCNICOS</h4>
+                <ul>
+                    <li><strong>Largura de banda óptica:</strong> representa a capacidade de transmissão do sistema. Em fibras multimodo, a largura de banda modal costuma ser especificada em MHz·km; em sistemas monomodo, o desempenho depende principalmente da fibra, da dispersão, da janela de operação e dos transceptores.</li>
+                    <li><strong>Taxa de bits (Bit Rate):</strong> medida em Mbps ou Gbps, representa a quantidade de bits transmitidos por segundo. É a velocidade nominal indicada para a interface de comunicação.</li>
+                    <li><strong>Taxa de símbolos (Baud Rate):</strong> representa a quantidade de símbolos transmitidos por segundo. Cada símbolo pode representar um ou mais bits, conforme a codificação ou modulação utilizada.</li>
+                </ul>
+
+                </section>
+                <section class="section-h4">
+                <h4>3.4.1.2 VELOCIDADES COMUNS EM INTERFACES ETHERNET ÓPTICAS</h4>
+                <ul>
+                    <li><strong>Gigabit Ethernet (1 Gbps):</strong> exemplos incluem 1000BASE-SX, normalmente utilizado em fibra multimodo, e 1000BASE-LX, utilizado principalmente em fibra monomodo.</li>
+                    <li><strong>10 Gigabit Ethernet (10 Gbps):</strong> utiliza interfaces como 10GBASE-SR em fibra multimodo e 10GBASE-LR ou 10GBASE-ER em fibra monomodo.</li>
+                    <li><strong>40 Gigabit Ethernet (40 Gbps):</strong> pode utilizar interfaces ópticas paralelas, como 40GBASE-SR4 em fibra multimodo, ou interfaces de longo alcance em fibra monomodo.</li>
+                    <li><strong>100 Gigabit Ethernet (100 Gbps):</strong> pode utilizar interfaces como 100GBASE-SR4 em fibra multimodo e 100GBASE-LR4 ou 100GBASE-ER4 em fibra monomodo.</li>
+                </ul>
+                <p>Essas taxas representam exemplos de interfaces Ethernet ópticas. A compatibilidade e o desempenho dependem do padrão específico, dos transceptores e da infraestrutura instalada. A fibra, isoladamente, não determina a velocidade final da rede.</p>
+                </section>
+            </section>
+
+            <section class="section-h3">
+                <h3>3.4.2 DISTÂNCIA MÁXIMA DOS ENLACES ÓPTICOS</h3>
+                <p>Diferentemente de um limite único válido para todos os cabos, a distância máxima de um enlace óptico depende da categoria da fibra, da velocidade, do comprimento de onda, do transceptor e do orçamento de potência óptica. Emendas, conectores, painéis e perdas no percurso também influenciam o alcance.</p>
+
+                <section class="section-h4">
+                <h4>3.4.2.1 DISTÂNCIAS EM FIBRA MULTIMODO (MMF)</h4>
+                <ul>
+                    <li><strong>1000BASE-SX (1 Gbps):</strong> pode alcançar cerca de 550 metros em fibra multimodo de 50 µm tradicional e distâncias menores em fibras antigas de 62,5 µm; com fibras otimizadas a laser, alguns módulos suportam até 1 km.</li>
+                    <li><strong>10GBASE-SR (10 Gbps):</strong> alcança até 300 metros em OM3 e até 400 metros em OM4 ou OM5, conforme as especificações do enlace.</li>
+                    <li><strong>40GBASE-SR4 (40 Gbps):</strong> apresenta alcances típicos de até 100 metros em OM3 e 150 metros em OM4/OM5.</li>
+                    <li><strong>100GBASE-SR4 (100 Gbps):</strong> pode alcançar aproximadamente 100 metros em OM3 e 150 metros em OM4/OM5, conforme os requisitos de canal e transceptor.</li>
+                </ul>
+
+                </section>
+                <section class="section-h4">
+                <h4>3.4.2.2 DISTÂNCIAS EM FIBRA MONOMODO (SMF)</h4>
+                <ul>
+                    <li><strong>1000BASE-LX (1 Gbps):</strong> é uma interface de longo alcance que pode operar em fibra monomodo por vários quilômetros; o limite depende da especificação do módulo utilizado.</li>
+                    <li><strong>10GBASE-LR (10 Gbps):</strong> utiliza fibra monomodo e possui alcance nominal de até 10 quilômetros.</li>
+                    <li><strong>10GBASE-ER (10 Gbps):</strong> utiliza fibra monomodo e pode alcançar até 40 quilômetros com transceptores compatíveis.</li>
+                    <li><strong>100GBASE-LR4 (100 Gbps):</strong> é uma opção monomodo para enlaces de até 10 quilômetros.</li>
+                    <li><strong>100GBASE-ER4 (100 Gbps):</strong> é utilizada em enlaces monomodo de maior alcance, podendo chegar a 40 quilômetros em condições compatíveis com a especificação.</li>
+                </ul>
+                <p>Os valores são referências de aplicações Ethernet conhecidas e não representam um alcance garantido para qualquer instalação. O projeto deve verificar a ficha técnica dos módulos, a atenuação total do percurso, a quantidade de emendas e conectores, a dispersão e o orçamento de potência óptica.</p>
+                </section>
+            </section>
+
+            <section class="section-h3">
+                <h3>3.4.3 DETERMINISMO E TEMPO DE CICLO</h3>
+                <p><strong>Classificação:</strong> a fibra óptica, isoladamente, não é determinística nem não determinística, pois é apenas o meio físico de transmissão.</p>
+                <p><strong>Justificativa:</strong> o determinismo depende do protocolo, dos equipamentos e do mecanismo de controle da comunicação. Em Ethernet convencional sobre fibra, a operação Full-Duplex elimina colisões no enlace, mas o congestionamento e as filas dos switches ainda podem produzir atrasos variáveis. Tecnologias como TSN (Time-Sensitive Networking), quando suportadas e configuradas em toda a rede, podem oferecer recursos de sincronização, priorização e controle de latência.</p>
+            </section>
+
+            <section class="section-h3">
+                <h3>3.4.4 NÍVEL NA PIRÂMIDE DA AUTOMAÇÃO</h3>
+                <p><strong>Classificação:</strong> a fibra óptica não pertence a um nível fixo da pirâmide, pois é um meio físico que pode transportar diferentes protocolos. Em redes corporativas, atua principalmente nos backbones de supervisão, gerenciamento e integração, podendo interligar os níveis 2, 3, 4 e 5 conforme a arquitetura.</p>
+                <p><strong>Justificativa:</strong> é utilizada para conectar switches de salas técnicas, prédios, centros de controle e data centers, transportando informações de supervisórios, servidores, sistemas de produção e plataformas de integração. Em redes industriais, também pode interligar switches de células e áreas de processo quando os protocolos e equipamentos suportam interfaces ópticas. A fibra, por si só, não executa o controle de sensores e atuadores.</p>
+            </section>
+        </section>
     </main>
 
-    <!-- RODAPÉ -->
     <footer>
-        <p>by Arthur Furtado Machado, Felipe Roberto Cardoso e Gabriel Mafra Alves de Gois &trade; &copy;</p>
+        <p>by Arthur Furtado Machado &trade; &copy;</p>
     </footer>
 
 </body>
 
 </html>
-

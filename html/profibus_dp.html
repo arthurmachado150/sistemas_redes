@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+    <title>PROFIBUS DP | Sistemas de Redes</title>
+</head>
+
+<body>
+    <header>
+        <h1><img class="logo_senai_tamanho" src="../img/logo_senai.jpg" alt="" width="200px"></h1>
+        <nav>
+            <input type="checkbox" id="menu-toggle">
+            <label for="menu-toggle" class="menu-icon">&#9776;</label>
+            <ul class="menu-links">
+                <li><a href="../index.html">Introdução</a></li>
+                <li><a href="./redes_corporativas_locais.html">Redes Corporativas / Locais</a></li>
+                <li><a href="./redes_e_protocolos_industriais.html">Redes e Protocolos Industriais</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1>4. PROFIBUS DP (DECENTRALIZED PERIPHERALS)</h1>
+
+        <section class="section-h2">
+            <h2>4.1 ESTRUTURA FÍSICA E CABEAMENTO</h2>
+            <section class="section-h3">
+                <h3>4.1.1 PROFIBUS DP NA AUTOMAÇÃO INDUSTRIAL</h3>
+                <p>O PROFIBUS DP (Decentralized Peripherals) é uma rede de comunicação industrial desenvolvida para conectar controladores, módulos de entradas e saídas remotas, acionamentos, válvulas, sensores e outros dispositivos de campo. Seu objetivo é permitir a troca rápida e organizada de dados entre o controlador e os equipamentos distribuídos pela máquina ou instalação.</p>
+                <p>O controlador normalmente atua como mestre da comunicação cíclica, enquanto os dispositivos periféricos atuam como escravos. O mestre envia os dados de saída e solicita os dados de entrada, permitindo atualizar o estado do processo. Também existem serviços de parametrização, diagnóstico e comunicação acíclica, conforme a versão DP-V0, DP-V1 ou DP-V2 suportada pelos equipamentos.</p>
+            </section>
+
+            <section class="section-h3">
+                <h3>4.1.2 MEIOS FÍSICOS E CABOS ADOTADOS</h3>
+                <p>A implementação mais comum do PROFIBUS DP utiliza a interface elétrica RS-485, com um cabo de cobre formado por um par trançado e blindado. Também podem ser utilizados meios ópticos, por meio de módulos e repetidores apropriados, para aumentar a distância, melhorar a imunidade a interferências e interligar áreas separadas.</p>
+
+                <section class="section-h4">
+                    <h4>4.1.2.1 CABEAMENTO DE COBRE (RS-485)</h4>
+                    <ul>
+                        <li><strong>Cabo tipo A:</strong> é o cabo recomendado para instalações PROFIBUS DP. Possui par trançado, blindagem e características elétricas controladas para permitir a comunicação diferencial em taxas de até 12 Mbit/s.</li>
+                        <li><strong>Blindagem:</strong> normalmente utiliza malha ou folha metálica envolvendo o par, com continuidade ao longo do segmento. A blindagem reduz a influência de interferências eletromagnéticas presentes em ambientes industriais.</li>
+                        <li><strong>Impedância e terminação:</strong> o cabo deve respeitar a impedância característica definida para a rede, e cada segmento RS-485 deve possuir terminação ativa nas duas extremidades físicas. Derivações longas e terminações adicionais devem ser evitadas.</li>
+                    </ul>
+                    <p>A transmissão ocorre por dois condutores de dados, identificados tradicionalmente como A e B, e não deve ser confundida com a alimentação dos dispositivos. O cabo de comunicação não fornece, por si só, a energia necessária aos sensores, módulos e acionamentos, que normalmente recebem alimentação separada.</p>
+                </section>
+
+                <section class="section-h4">
+                    <h4>4.1.2.2 CABEAMENTO POR FIBRA ÓPTICA</h4>
+                    <ul>
+                        <li><strong>Fibra multimodo:</strong> utilizada em enlaces ópticos industriais de curta e média distância, conforme o transceptor e o tipo de fibra instalados.</li>
+                        <li><strong>Fibra monomodo:</strong> indicada para enlaces ópticos de maior alcance, quando a distância e o orçamento óptico exigirem esse tipo de meio.</li>
+                        <li><strong>Módulos ópticos PROFIBUS:</strong> convertem os sinais elétricos RS-485 em sinais ópticos e permitem construir enlaces ponto a ponto, em estrela ou em anel, dependendo dos equipamentos utilizados.</li>
+                    </ul>
+                    <p>A fibra óptica é especialmente útil em percursos sujeitos a altos níveis de interferência eletromagnética, em interligações entre prédios ou em locais com diferenças de potencial de aterramento. A distância alcançada depende do tipo de fibra, do módulo óptico, da taxa de transmissão e das perdas em conectores e emendas.</p>
+                </section>
+            </section>
+
+            <section class="section-h3">
+                <h3>4.1.3 CONECTORES PADRONIZADOS E IDENTIFICAÇÃO</h3>
+                <ul>
+                    <li><strong>D-Sub de 9 pinos (DB9):</strong> conector muito utilizado em controladores, placas de comunicação e dispositivos PROFIBUS DP. Alguns modelos incorporam terminação e conexão para diagnóstico.</li>
+                    <li><strong>M12 codificado B:</strong> conector circular industrial utilizado em determinados equipamentos e cabos PROFIBUS, oferecendo conexão rosqueada e maior retenção mecânica.</li>
+                    <li><strong>Bornes e terminais:</strong> alguns dispositivos e repetidores utilizam terminais para conexão direta do par de dados e da blindagem, conforme o projeto do equipamento.</li>
+                    <li><strong>Conectores ópticos:</strong> as interfaces de fibra podem utilizar conectores ST/BFOC, SC ou outros formatos definidos pelo módulo óptico. O tipo deve corresponder ao transceptor instalado.</li>
+                </ul>
+            </section>
+
+            <section class="section-h3">
+                <h3>4.1.4 TOPOLOGIAS SUPORTADAS NO PROFIBUS DP</h3>
+                <section class="section-h4">
+                    <h4>4.1.4.1 TOPOLOGIA EM BARRAMENTO LINEAR</h4>
+                    <p>É a topologia mais comum para o meio físico RS-485. Os dispositivos são conectados ao mesmo segmento de cabo, com terminação ativa nas duas extremidades. O comprimento das derivações deve ser controlado, principalmente em taxas elevadas, para evitar reflexões e deformações do sinal.</p>
+                </section>
+
+                <section class="section-h4">
+                    <h4>4.1.4.2 TOPOLOGIAS EM ESTRELA, ÁRVORE E ANEL ÓPTICO</h4>
+                    <p>Com repetidores e módulos de ligação por fibra óptica, é possível dividir a rede em segmentos e adotar topologias em estrela, árvore ou anel. Essas configurações facilitam a distribuição física da rede e podem oferecer caminhos redundantes, desde que os equipamentos e os mecanismos de diagnóstico e recuperação sejam compatíveis.</p>
+                </section>
+            </section>
+        </section>
+
+        <section class="section-h2">
+            <h2>4.2 INTERFACE ELÉTRICA E TRANSMISSÃO DE SINAIS</h2>
+            <section class="section-h3">
+                <h3>4.2.1 SINALIZAÇÃO E NÍVEIS NA INTERFACE RS-485</h3>
+                <p>Na versão elétrica mais comum do PROFIBUS DP, os dados são transmitidos por sinalização diferencial balanceada conforme a interface RS-485. O receptor interpreta a diferença de tensão entre os condutores A e B, em vez de medir cada fio em relação ao terra. Essa característica melhora a rejeição a ruídos que afetam os dois condutores de maneira semelhante.</p>
+                <ul>
+                    <li><strong>Codificação:</strong> a transmissão serial utiliza caracteres assíncronos com bits de início, dados, paridade e parada. O protocolo organiza esses caracteres em telegramas PROFIBUS.</li>
+                    <li><strong>Taxa configurada:</strong> todos os dispositivos de um mesmo segmento elétrico devem operar com a mesma taxa de transmissão, definida durante a configuração da rede.</li>
+                    <li><strong>Terminação ativa:</strong> mantém as condições elétricas apropriadas nas extremidades do segmento e ajuda a evitar reflexões que podem provocar erros de comunicação.</li>
+                </ul>
+            </section>
+
+            <section class="section-h3">
+                <h3>4.2.2 ALIMENTAÇÃO PELO BARRAMENTO</h3>
+                <p>O PROFIBUS DP convencional não utiliza o par de dados RS-485 para alimentar os dispositivos. Controladores, módulos remotos, sensores, atuadores e repetidores recebem energia por fontes e circuitos próprios, normalmente em corrente contínua, conforme os requisitos de cada equipamento.</p>
+            </section>
+
+            <section class="section-h3">
+                <h3>4.2.3 ISOLAÇÃO E PROTEÇÃO CONTRA RUÍDOS</h3>
+                <ul>
+                    <li><strong>Blindagem do cabo:</strong> utilizar cabo PROFIBUS apropriado, mantendo a continuidade da blindagem e empregando conectores e caixas de passagem compatíveis.</li>
+                    <li><strong>Aterramento e equipotencialização:</strong> planejar a ligação da blindagem e a equipotencialização da instalação conforme as orientações do fabricante e as normas aplicáveis, evitando correntes indesejadas e laços de terra.</li>
+                    <li><strong>Separação de potência:</strong> evitar a instalação paralela prolongada junto a cabos de motores, inversores e alimentação de potência. Quando o cruzamento for necessário, deve ser realizado de forma planejada.</li>
+                    <li><strong>Isolação galvânica:</strong> interfaces isoladas e repetidores apropriados podem reduzir a propagação de diferenças de potencial e proteger os equipamentos conectados.</li>
+                    <li><strong>Fibra óptica:</strong> oferece isolamento elétrico entre segmentos e imunidade do próprio meio óptico a interferências eletromagnéticas.</li>
+                </ul>
+                <p>O PROFIBUS DP também possui variantes especiais para ambientes classificados, como soluções RS-485-IS. A aplicação em área explosiva exige equipamentos certificados e projeto específico; não se deve considerar que qualquer instalação RS-485 convencional seja intrinsecamente segura.</p>
+            </section>
+        </section>
+
+        <section class="section-h2">
+            <h2>4.3 PROTOCOLO DE ENLACE E ACESSO AO MEIO (MAC)</h2>
+            <p>A camada de enlace do PROFIBUS é denominada FDL (Fieldbus Data Link). Ela organiza o acesso ao barramento, o endereçamento das estações, a troca de telegramas e a verificação de erros. O sistema combina dois mecanismos: passagem de token entre estações mestres e comunicação mestre-escravo entre o mestre ativo e os dispositivos periféricos.</p>
+
+            <section class="section-h3">
+                <h3>4.3.1 MÉTODO DE ACESSO AO MEIO</h3>
+                <ul>
+                    <li><strong>Token passing entre mestres:</strong> quando existem vários mestres, o direito de transmitir é transferido por um telegrama de token em uma sequência lógica. Somente o mestre que possui o token pode iniciar a comunicação como mestre.</li>
+                    <li><strong>Mestre-escravo:</strong> o mestre ativo consulta seus escravos e recebe as respostas correspondentes. Os escravos não iniciam livremente transmissões de dados de processo; respondem às solicitações do mestre.</li>
+                    <li><strong>Sistema mono-mestre:</strong> há um mestre responsável pelo controle da comunicação com os escravos, simplificando a programação do ciclo do barramento.</li>
+                    <li><strong>Sistema multi-mestre:</strong> dois ou mais mestres compartilham o barramento por meio da passagem de token, respeitando o tempo de posse e as regras de acesso.</li>
+                </ul>
+            </section>
+
+            <section class="section-h3">
+                <h3>4.3.2 ESTRUTURA DO QUADRO E MENSAGEM PROFIBUS DP</h3>
+                <p>As mensagens PROFIBUS são chamadas de telegramas e podem apresentar formatos diferentes conforme o tipo de serviço. Os quadros incluem delimitadores de início, campos de comprimento quando necessários, endereços de destino e origem, controle da função, dados e verificação de integridade. O encerramento utiliza um delimitador específico nos formatos correspondentes.</p>
+                <ul>
+                    <li><strong>SD (Start Delimiter):</strong> identifica o início do telegrama. Existem formatos com diferentes delimitadores, como SD1, SD2, SD3 e SD4.</li>
+                    <li><strong>LE e LEr:</strong> campos de comprimento e de comprimento redundante utilizados nos telegramas de tamanho variável, permitindo conferir a extensão da mensagem.</li>
+                    <li><strong>DA (Destination Address):</strong> indica o endereço da estação de destino.</li>
+                    <li><strong>SA (Source Address):</strong> identifica a estação de origem da mensagem.</li>
+                    <li><strong>FC (Function Code):</strong> contém informações de controle que identificam a função e características do telegrama.</li>
+                    <li><strong>DU (Data Unit):</strong> transporta os dados de processo, diagnóstico, parametrização ou outras informações de usuário.</li>
+                    <li><strong>FCS (Frame Check Sequence):</strong> contém a soma de verificação do telegrama. A transmissão serial também utiliza paridade em cada caractere para auxiliar a detecção de erros.</li>
+                    <li><strong>ED (End Delimiter):</strong> marca o encerramento do telegrama nos formatos que utilizam delimitador final.</li>
+                </ul>
+            </section>
+
+            <section class="section-h3">
+                <h3>4.3.3 TIPOS DE COMUNICAÇÃO E SERVIÇOS</h3>
+                <ul>
+                    <li><strong>DP-V0:</strong> oferece a comunicação cíclica básica entre mestre e escravos, além de funções de diagnóstico.</li>
+                    <li><strong>DP-V1:</strong> adiciona comunicação acíclica para parametrização, monitoramento, alarmes e diagnóstico, paralelamente à troca cíclica de dados.</li>
+                    <li><strong>DP-V2:</strong> acrescenta recursos como comunicação direta entre escravos e modo isócrono, utilizado principalmente em aplicações de acionamentos e controle de movimento.</li>
+                </ul>
+            </section>
+        </section>
+
+        <section class="section-h2">
+            <h2>4.4 PARÂMETROS OPERACIONAIS E DESEMPENHO</h2>
+            <section class="section-h3">
+                <h3>4.4.1 TAXA DE TRANSMISSÃO (BAUD RATE / BIT RATE)</h3>
+                <p>O PROFIBUS DP permite selecionar taxas de transmissão padronizadas entre 9,6 kbit/s e 12 Mbit/s. A taxa escolhida deve ser suportada por todos os dispositivos e componentes do segmento, e influencia diretamente o tempo de ciclo e o comprimento máximo do cabo de cobre.</p>
+                <ul>
+                    <li><strong>Taxas mais baixas:</strong> 9,6 kbit/s, 19,2 kbit/s, 45,45 kbit/s e 93,75 kbit/s podem ser utilizadas em segmentos mais longos, conforme o cabo e o projeto.</li>
+                    <li><strong>Taxas intermediárias:</strong> 187,5 kbit/s, 500 kbit/s e 1,5 Mbit/s permitem equilibrar distância e velocidade em diversas instalações.</li>
+                    <li><strong>Taxas elevadas:</strong> 3 Mbit/s, 6 Mbit/s e 12 Mbit/s são empregadas quando se deseja maior capacidade de comunicação e os comprimentos dos segmentos são menores.</li>
+                </ul>
+            </section>
+
+            <section class="section-h3">
+                <h3>4.4.2 DISTÂNCIA MÁXIMA DOS SEGMENTOS</h3>
+                <p>Para cabo tipo A em cobre, os valores máximos usuais por segmento variam conforme a taxa de transmissão. Os valores abaixo não incluem a ampliação obtida com repetidores ou conversores ópticos:</p>
+                <ul>
+                    <li><strong>9,6 a 93,75 kbit/s:</strong> até 1.200 metros por segmento.</li>
+                    <li><strong>187,5 kbit/s:</strong> até 1.000 metros por segmento.</li>
+                    <li><strong>500 kbit/s:</strong> até 400 metros por segmento.</li>
+                    <li><strong>1,5 Mbit/s:</strong> até 200 metros por segmento.</li>
+                    <li><strong>3 a 12 Mbit/s:</strong> até 100 metros por segmento.</li>
+                </ul>
+                <p>O uso de repetidores permite conectar segmentos e ampliar a extensão total da rede. Para fibra óptica, a distância depende do tipo de fibra e do módulo óptico empregado, podendo alcançar centenas de metros ou quilômetros conforme o equipamento.</p>
+            </section>
+
+            <section class="section-h3">
+                <h3>4.4.3 DETERMINISMO E TEMPO DE CICLO</h3>
+                <p><strong>Classificação:</strong> o PROFIBUS DP possui comunicação cíclica controlada pelo mestre, permitindo comportamento determinístico quando a rede é corretamente dimensionada e configurada.</p>
+                <p><strong>Tempo de ciclo:</strong> depende da taxa de transmissão, quantidade de escravos, tamanho dos dados de entrada e saída, diagnósticos e serviços acíclicos. Portanto, não existe um tempo único garantido para qualquer instalação.</p>
+                <p><strong>Aplicações de movimento:</strong> o DP-V2 pode operar em modo isócrono, sincronizando a atualização de dados em aplicações compatíveis, como acionamentos e servodrives.</p>
+            </section>
+
+            <section class="section-h3">
+                <h3>4.4.4 NÍVEL NA PIRÂMIDE DA AUTOMAÇÃO</h3>
+                <p><strong>Classificação:</strong> atua principalmente nos níveis 1 e 2, conectando dispositivos de campo, módulos de entradas e saídas, acionamentos e controladores.</p>
+                <p><strong>Justificativa:</strong> o PROFIBUS DP realiza a troca de dados entre o controlador e as periferias descentralizadas, apoiando o controle de máquinas, células e processos. Os dados podem ser encaminhados aos níveis de supervisão por meio do controlador.</p>
+            </section>
+        </section>
+    </main>
+
+    <footer>
+        <p>by Arthur Furtado Machado &trade; &copy;</p>
+    </footer>
+
+</body>
+
+</html>

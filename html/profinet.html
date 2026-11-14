@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+    <title>PROFINET | Sistemas de Redes</title>
+</head>
+
+<body>
+    <header>
+        <h1><img class="logo_senai_tamanho" src="../img/logo_senai.jpg" alt="" width="200px"></h1>
+        <nav>
+            <input type="checkbox" id="menu-toggle">
+            <label for="menu-toggle" class="menu-icon">&#9776;</label>
+            <ul class="menu-links">
+                <li><a href="../index.html">Introdução</a></li>
+                <li><a href="./redes_corporativas_locais.html">Redes Corporativas / Locais</a></li>
+                <li><a href="./redes_e_protocolos_industriais.html">Redes e Protocolos Industriais</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1>1. PROFINET (ETHERNET INDUSTRIAL)</h1>
+
+        <section class="section-h2">
+            <h2>1.1 ESTRUTURA FÍSICA E CABEAMENTO</h2>
+            <section class="section-h3">
+                <h3>1.1.1 PROFINET NA AUTOMAÇÃO INDUSTRIAL</h3>
+                <p>O PROFINET (Process Field Network) é um padrão de comunicação Industrial Ethernet utilizado para conectar controladores, dispositivos de entrada e saída, acionamentos, instrumentos de processo, robôs e sistemas de supervisão. Ele permite a troca de dados de processo em tempo real e também oferece serviços de configuração, parametrização, diagnóstico e integração com sistemas de tecnologia da informação.</p>
+                <p>Em uma arquitetura típica, o controlador (PLC, DCS ou PAC) coordena a comunicação com dispositivos de campo e equipamentos de automação. Os dados cíclicos de entrada e saída são utilizados no controle da máquina ou do processo, enquanto as comunicações acíclicas atendem tarefas como leitura de diagnóstico, identificação e configuração dos dispositivos.</p>
+            </section>
+
+            <section class="section-h3">
+                <h3>1.1.2 MEIOS FÍSICOS E CABOS ADOTADOS</h3>
+                <p>O PROFINET utiliza a infraestrutura física da Ethernet IEEE 802.3. As instalações industriais empregam principalmente cabos de cobre com pares trançados e blindagem, mas também podem utilizar fibra óptica e, em aplicações específicas, comunicação sem fio compatível com os requisitos do sistema.</p>
+
+                <section class="section-h4">
+                <h4>1.1.2.1 CABEAMENTO DE COBRE PARA AMBIENTES INDUSTRIAIS</h4>
+                <ul>
+                    <li><strong>Cabo PROFINET Tipo A:</strong> indicado para instalações fixas, nas quais o cabo permanece imóvel após a instalação. É utilizado em calhas, eletrocalhas e ligações permanentes entre painéis e equipamentos.</li>
+                    <li><strong>Cabo PROFINET Tipo B:</strong> adequado a instalações sujeitas a flexões ocasionais, vibração ou movimentação limitada, como trechos próximos a portas de máquinas e partes móveis com deslocamento moderado.</li>
+                    <li><strong>Cabo PROFINET Tipo C:</strong> desenvolvido para aplicações com movimentação contínua, torção ou flexão repetitiva, como esteiras porta-cabos e eixos de robôs, desde que respeitados os raios de curvatura e limites indicados pelo fabricante.</li>
+                    <li><strong>Categorias de cabos:</strong> cabos industriais equivalentes a Cat5e são comuns nas conexões de 100 Mbps. Cabos de maior desempenho, como Cat6 ou superiores, podem ser utilizados quando os equipamentos e o projeto exigirem taxas maiores ou maior margem de desempenho.</li>
+                </ul>
+                <p>A conexão de cobre PROFINET mais comum utiliza dois pares trançados, geralmente com blindagem, para transmissão Fast Ethernet 100BASE-TX em Full-Duplex. Também existem interfaces e cabeamentos com quatro pares para conexões Gigabit Ethernet. A seleção do cabo deve considerar flexibilidade, temperatura, óleo, agentes químicos, vibração e exposição mecânica do ambiente.</p>
+
+                </section>
+                <section class="section-h4">
+                <h4>1.1.2.2 CABEAMENTO POR FIBRA ÓPTICA</h4>
+                <ul>
+                    <li><strong>Fibra multimodo:</strong> utilizada em enlaces internos de máquinas, instalações e prédios industriais, quando a distância e os transceptores disponíveis são compatíveis. Pode utilizar emissores ópticos de menor custo em enlaces de curta e média distância.</li>
+                    <li><strong>Fibra monomodo:</strong> indicada para enlaces de maior alcance, como interligações entre prédios, galpões ou áreas industriais afastadas. O alcance efetivo depende do transceptor, do comprimento de onda, das perdas e do orçamento óptico.</li>
+                    <li><strong>POF e PCF:</strong> fibras plásticas ou de núcleo de vidro com revestimento plástico podem ser utilizadas em determinadas aplicações industriais de curta distância, facilitando o manuseio e a instalação em equipamentos.</li>
+                </ul>
+                <p>A fibra óptica é especialmente útil quando há diferenças de potencial entre áreas, longos percursos ou elevado nível de interferência eletromagnética. O limite de distância não é único para todas as instalações: depende do tipo de fibra, dos conectores, do transceptor e da taxa de transmissão adotada.</p>
+                </section>
+            </section>
+
+            <section class="section-h3">
+                <h3>1.1.3 CONECTORES PADRONIZADOS E IDENTIFICAÇÃO</h3>
+                <section class="section-h4">
+                <h4>1.1.3.1 CONECTORES PARA CABEAMENTO DE COBRE</h4>
+                <ul>
+                    <li><strong>RJ45 industrial:</strong> conector de oito posições utilizado em portas Ethernet de controladores, switches e dispositivos de campo. Existem versões com travamento, proteção mecânica e vedação para ambientes industriais.</li>
+                    <li><strong>M12 codificado D:</strong> conector circular utilizado em diversas conexões Industrial Ethernet de 100 Mbps. Seu formato rosqueado oferece fixação mecânica e maior resistência a vibrações e contaminação, conforme o grau de proteção do conjunto.</li>
+                    <li><strong>M12 codificado X:</strong> utilizado em equipamentos e cabos preparados para Ethernet de maior velocidade, incluindo aplicações Gigabit. A codificação deve ser compatível nas duas extremidades.</li>
+                </ul>
+
+                </section>
+                <section class="section-h4">
+                <h4>1.1.3.2 CONECTORES PARA FIBRA ÓPTICA</h4>
+                <ul>
+                    <li><strong>BFOC/ST:</strong> conector óptico com acoplamento por baioneta, utilizado em algumas interfaces industriais para fibra.</li>
+                    <li><strong>SC e SCRJ:</strong> conectores ópticos presentes em determinados equipamentos e sistemas PROFINET. A escolha deve respeitar a interface do transceptor e o tipo de fibra utilizado.</li>
+                    <li><strong>LC:</strong> conector óptico compacto encontrado em módulos e equipamentos de comunicação por fibra, especialmente em switches e sistemas de distribuição.</li>
+                </ul>
+                </section>
+            </section>
+
+            <section class="section-h3">
+                <h3>1.1.4 TOPOLOGIAS SUPORTADAS NO PROFINET</h3>
+                <section class="section-h4">
+                <h4>1.1.4.1 TOPOLOGIA EM LINHA (DAISY CHAIN)</h4>
+                <p>Na topologia em linha, os dispositivos são conectados sequencialmente. Muitos equipamentos PROFINET possuem duas portas Ethernet e um switch interno, permitindo que o cabo entre em uma porta e saia pela outra em direção ao próximo dispositivo. Essa organização reduz a quantidade de cabos e facilita a montagem de máquinas modulares, mas uma falha em um ponto ou cabo pode interromper a comunicação dos dispositivos posicionados depois da falha.</p>
+
+                </section>
+                <section class="section-h4">
+                <h4>1.1.4.2 TOPOLOGIA EM ESTRELA E ÁRVORE</h4>
+                <p>Na topologia em estrela, os equipamentos se conectam a um switch central. A topologia em árvore combina vários switches e estrelas, permitindo organizar células, máquinas, painéis e áreas de uma planta industrial em níveis hierárquicos. A falha de um switch central pode afetar os equipamentos conectados a ele, por isso o dimensionamento e a redundância devem ser considerados no projeto.</p>
+
+                </section>
+                <section class="section-h4">
+                <h4>1.1.4.3 TOPOLOGIA EM ANEL E REDUNDÂNCIA</h4>
+                <p>O PROFINET suporta topologia em anel por meio de mecanismos de redundância de mídia, como o MRP (Media Redundancy Protocol). O anel permite manter a comunicação por um caminho alternativo quando ocorre uma interrupção no cabo ou em um dos enlaces, desde que os dispositivos participantes sejam compatíveis e estejam configurados corretamente. Para aplicações que exigem redundância planejada de maior desempenho, pode ser utilizada a tecnologia MRPD, conforme o suporte dos equipamentos.</p>
+                </section>
+            </section>
+        </section>
+
+        <section class="section-h2">
+            <h2>1.2 INTERFACE ELÉTRICA E TRANSMISSÃO DE SINAIS</h2>
+            <section class="section-h3">
+                <h3>1.2.1 SINALIZAÇÃO E NÍVEIS NO PROFINET</h3>
+                <p>Como utiliza Ethernet, o PROFINET transmite dados por sinais elétricos diferenciais nos cabos de cobre ou por pulsos de luz nas fibras ópticas. Nas interfaces de cobre, o receptor interpreta a diferença de sinal entre os condutores dos pares trançados, reduzindo a influência de ruídos que atingem os dois fios de forma semelhante. Na fibra, a informação é representada por variações ópticas produzidas por emissores e interpretadas por receptores.</p>
+
+                <section class="section-h4">
+                <h4>1.2.1.1 TRANSMISSÃO ELÉTRICA EM CABOS DE COBRE</h4>
+                <ul>
+                    <li><strong>100BASE-TX:</strong> interface Fast Ethernet comum em PROFINET, com taxa nominal de 100 Mbps e operação Full-Duplex. Utiliza pares trançados para transmissão e recepção simultâneas.</li>
+                    <li><strong>1000BASE-T:</strong> interface Gigabit Ethernet disponível em determinados equipamentos, utilizando quatro pares de cobre e oferecendo taxa nominal de 1 Gbps.</li>
+                    <li><strong>Sinalização diferencial:</strong> o sinal é interpretado a partir da diferença elétrica entre os condutores de cada par, contribuindo para a rejeição de interferências comuns ao par.</li>
+                </ul>
+
+                </section>
+                <section class="section-h4">
+                <h4>1.2.1.2 TRANSMISSÃO ÓPTICA</h4>
+                <p>Nas conexões por fibra óptica, os transceptores convertem os sinais elétricos em sinais luminosos e realizam a conversão inversa na recepção. As fibras são dielétricas, não conduzem corrente elétrica entre os equipamentos e apresentam alta imunidade a interferências eletromagnéticas. O comprimento de onda e a potência óptica dependem do tipo de transceptor e da fibra selecionada.</p>
+                </section>
+            </section>
+
+            <section class="section-h3">
+                <h3>1.2.2 ALIMENTAÇÃO PELO BARRAMENTO E ENERGIA DOS EQUIPAMENTOS</h3>
+                <p>O PROFINET, por si só, não estabelece que a alimentação elétrica dos dispositivos seja fornecida pelo mesmo meio utilizado para transportar os dados. Em instalações industriais, módulos de entrada e saída, sensores, acionamentos e switches normalmente recebem alimentação separada, frequentemente em 24 Vcc, conforme as especificações dos equipamentos.</p>
+                <ul>
+                    <li><strong>Alimentação separada:</strong> é a solução mais comum em painéis e máquinas industriais, utilizando fontes CC e circuitos de distribuição dimensionados para os dispositivos.</li>
+                    <li><strong>PoE (Power over Ethernet):</strong> pode ser empregado quando a porta, o equipamento final e a instalação forem compatíveis com o padrão PoE correspondente. Essa possibilidade pertence à infraestrutura Ethernet e não é uma característica obrigatória do PROFINET.</li>
+                </ul>
+            </section>
+
+            <section class="section-h3">
+                <h3>1.2.3 ISOLAÇÃO E PROTEÇÃO CONTRA RUÍDOS</h3>
+                <section class="section-h4">
+                <h4>1.2.3.1 BLINDAGEM E ATERRAMENTO DOS CABOS</h4>
+                <ul>
+                    <li><strong>Blindagem metálica:</strong> cabos industriais blindados reduzem o acoplamento de interferências eletromagnéticas ao sinal. A blindagem deve manter continuidade através dos conectores e ser instalada conforme as recomendações do fabricante e do projeto de compatibilidade eletromagnética.</li>
+                    <li><strong>Aterramento funcional:</strong> a conexão da blindagem ao sistema de equipotencialização deve ser planejada para evitar diferenças de potencial e correntes indesejadas. A instalação deve seguir o projeto de equipotencialização e compatibilidade eletromagnética do local, as práticas de aterramento industrial e as orientações da PI e do fabricante; aterrar a blindagem sem considerar o projeto pode criar correntes indesejadas ou comprometer a proteção contra interferências.</li>
+                    <li><strong>Separação de circuitos:</strong> os cabos de comunicação devem ser roteados de forma adequada em relação aos cabos de potência, motores, inversores e fontes de ruído, respeitando distâncias e cruzamentos recomendados.</li>
+                </ul>
+
+                </section>
+                <section class="section-h4">
+                <h4>1.2.3.2 IMUNIDADE DA FIBRA ÓPTICA</h4>
+                <p>A fibra óptica não utiliza condutores metálicos para transportar o sinal e, por isso, não é afetada diretamente por campos eletromagnéticos da mesma forma que os cabos de cobre. Também pode reduzir problemas associados a diferenças de potencial entre áreas. Ainda assim, exige proteção mecânica, controle do raio de curvatura, limpeza dos conectores e respeito ao orçamento óptico.</p>
+                </section>
+            </section>
+        </section>
+
+        <section class="section-h2">
+            <h2>1.3 PROTOCOLO DE ENLACE E ACESSO AO MEIO (MAC)</h2>
+            <p>O PROFINET utiliza a infraestrutura Ethernet e acrescenta mecanismos próprios para comunicação industrial. O comportamento do enlace depende do canal utilizado: tarefas de configuração e diagnóstico podem utilizar TCP/IP, enquanto a troca de dados de processo em tempo real utiliza mecanismos que reduzem o processamento adicional das camadas de rede e transporte.</p>
+
+            <section class="section-h3">
+                <h3>1.3.1 MÉTODO DE ACESSO AO MEIO NO PROFINET</h3>
+                <section class="section-h4">
+                <h4>1.3.1.1 COMUTAÇÃO E TRANSMISSÃO FULL-DUPLEX</h4>
+                <p>Nas redes PROFINET modernas, os dispositivos são interligados por switches Ethernet e enlaces ponto a ponto. A operação Full-Duplex permite transmitir e receber simultaneamente em um mesmo enlace. Como não há disputa por um barramento compartilhado em Half-Duplex, o mecanismo histórico CSMA/CD não é utilizado no funcionamento normal desses enlaces comutados.</p>
+
+                </section>
+                <section class="section-h4">
+                <h4>1.3.1.2 CANAIS DE COMUNICAÇÃO: TCP/IP, RT E IRT</h4>
+                <ul>
+                    <li><strong>Comunicação TCP/IP padrão:</strong> utilizada para funções não críticas em tempo, como parametrização, diagnóstico, transferência de dados e integração com sistemas de nível superior. O processamento pelas camadas TCP/IP pode introduzir atrasos variáveis.</li>
+                    <li><strong>PROFINET RT (Real Time):</strong> transporta dados de processo em tempo real, desviando do processamento TCP/IP para reduzir a latência e a variação do tempo de entrega. É utilizado na maioria das aplicações típicas de entradas e saídas distribuídas.</li>
+                    <li><strong>PROFINET IRT (Isochronous Real Time):</strong> acrescenta sincronização e escalonamento do tráfego, sendo indicado para aplicações que exigem ciclos muito curtos e sincronização precisa, como controle de movimento. Depende de suporte de hardware compatível.</li>
+                </ul>
+                </section>
+            </section>
+
+            <section class="section-h3">
+                <h3>1.3.2 ESTRUTURA DO QUADRO E MENSAGEM PROFINET</h3>
+                <p>Os dados PROFINET são transportados em quadros Ethernet. Em uma transmissão PROFINET RT, o quadro utiliza endereços MAC de origem e destino e o campo EtherType 0x8892, que identifica o conteúdo como comunicação PROFINET em tempo real. O campo Frame ID identifica o tipo de quadro ou a relação de comunicação, seguido pelos dados de processo e informações de estado.</p>
+
+                <section class="section-h4">
+                <h4>1.3.2.1 CAMPOS PRINCIPAIS DO QUADRO</h4>
+                <ul>
+                    <li><strong>Endereço MAC de destino:</strong> identifica a interface de rede que deverá receber o quadro.</li>
+                    <li><strong>Endereço MAC de origem:</strong> identifica a interface que transmitiu o quadro.</li>
+                    <li><strong>EtherType (0x8892):</strong> identifica o quadro PROFINET RT para que seja encaminhado ao tratamento correspondente, sem passar pelo processamento IP convencional.</li>
+                    <li><strong>Frame ID:</strong> identifica o tipo de comunicação PROFINET e permite associar o quadro à relação de dados correspondente.</li>
+                    <li><strong>Dados de processo:</strong> transportam informações cíclicas de entradas, saídas ou outros dados associados ao dispositivo.</li>
+                    <li><strong>Status e FCS:</strong> os campos de estado indicam informações sobre a qualidade ou condição da comunicação; o FCS Ethernet utiliza CRC para detectar erros no quadro.</li>
+                </ul>
+
+                </section>
+                <section class="section-h4">
+                <h4>1.3.2.2 COMUNICAÇÃO CÍCLICA E ACÍCLICA</h4>
+                <p>A comunicação cíclica transporta os dados de processo em intervalos configurados, por exemplo, os valores de sensores e os comandos enviados pelo controlador aos módulos de saída. A comunicação acíclica é utilizada para tarefas como configuração, leitura de parâmetros, identificação e diagnóstico. A separação entre esses tipos permite atender tanto à necessidade de atualização contínua do processo quanto às operações de engenharia e manutenção.</p>
+                </section>
+            </section>
+        </section>
+
+        <section class="section-h2">
+            <h2>1.4 PARÂMETROS OPERACIONAIS E DESEMPENHO</h2>
+            <section class="section-h3">
+                <h3>1.4.1 TAXA DE TRANSMISSÃO (BIT RATE / BANDWIDTH)</h3>
+                <p>A taxa de transmissão do PROFINET depende da interface Ethernet dos equipamentos, dos switches e do meio físico utilizado. A taxa nominal representa a capacidade da camada física e não deve ser confundida com a quantidade de dados úteis efetivamente transferida por ciclo.</p>
+                <ul>
+                    <li><strong>100 Mbps:</strong> taxa muito comum em dispositivos PROFINET de campo, especialmente em interfaces 100BASE-TX Full-Duplex.</li>
+                    <li><strong>1 Gbps:</strong> utilizado em determinados controladores, switches e enlaces de backbone para aumentar a capacidade de comunicação entre segmentos.</li>
+                    <li><strong>Taxas superiores:</strong> podem ser utilizadas em equipamentos e infraestruturas compatíveis, mas a velocidade efetiva de cada enlace será limitada pela interface mais lenta do caminho.</li>
+                </ul>
+            </section>
+
+            <section class="section-h3">
+                <h3>1.4.2 DISTÂNCIA MÁXIMA DOS SEGMENTOS</h3>
+                <section class="section-h4">
+                <h4>1.4.2.1 CABEAMENTO DE COBRE</h4>
+                <p>Em conexões Ethernet industriais por cobre, o comprimento usual máximo de um segmento entre dois nós ativos é de 100 metros, considerando o tipo de cabo e a interface Ethernet compatíveis. Para percursos maiores, podem ser instalados switches ou outros equipamentos de regeneração adequados, formando novos segmentos.</p>
+
+                </section>
+                <section class="section-h4">
+                <h4>1.4.2.2 FIBRA ÓPTICA</h4>
+                <p>A distância máxima em fibra óptica depende do tipo de fibra (multimodo, monomodo, POF ou PCF), da taxa de transmissão, do comprimento de onda, do transceptor e da quantidade de conexões e emendas. Enlaces com fibra podem alcançar centenas de metros ou vários quilômetros, conforme o projeto óptico. Portanto, não existe um único limite de distância aplicável a todas as instalações PROFINET.</p>
+                </section>
+            </section>
+
+            <section class="section-h3">
+                <h3>1.4.3 DETERMINISMO E TEMPO DE CICLO</h3>
+                <p><strong>Classificação:</strong> o PROFINET pode oferecer comportamento determinístico para dados de automação quando utiliza os mecanismos de tempo real adequados e uma arquitetura compatível.</p>
+                <ul>
+                    <li><strong>PROFINET RT:</strong> pode atender aplicações de automação com tempos de atualização na faixa de milissegundos. A PI descreve aplicações RT com desempenho determinístico na ordem de 1 a 10 ms, mas esse intervalo é uma referência, não uma garantia para toda instalação; o resultado depende da configuração, da classe de desempenho, do ciclo configurado e dos equipamentos utilizados.</li>
+                    <li><strong>PROFINET IRT:</strong> pode permitir ciclos abaixo de um milissegundo e sincronização com variação de atraso na faixa de microssegundos em arquiteturas e dispositivos compatíveis. Esses valores dependem da configuração e dos equipamentos e não constituem uma garantia universal para qualquer instalação PROFINET.</li>
+                    <li><strong>Limitação:</strong> a comunicação TCP/IP convencional utilizada para parametrização, diagnóstico ou integração não deve ser tratada como determinística para controle de tempo crítico. O desempenho real depende da classe de desempenho, do ciclo configurado, da arquitetura e dos equipamentos utilizados.</li>
+                </ul>
+            </section>
+
+            <section class="section-h3">
+                <h3>1.4.4 NÍVEL NA PIRÂMIDE DA AUTOMAÇÃO</h3>
+                <p><strong>Classificação:</strong> atua principalmente nos níveis 1 e 2, conectando dispositivos de campo, módulos de entrada e saída, acionamentos e controladores. Também pode participar do nível 3 quando transporta dados para sistemas de supervisão e controle da produção.</p>
+                <p><strong>Justificativa:</strong> o PROFINET realiza a comunicação entre CLPs, dispositivos de campo e equipamentos de automação, permitindo o controle de máquinas e processos. Sua integração com sistemas de supervisão amplia o fluxo de informações para níveis superiores da planta.</p>
+            </section>
+        </section>
+    </main>
+
+    <footer>
+        <p>by Arthur Furtado Machado &trade; &copy;</p>
+    </footer>
+
+</body>
+
+</html>

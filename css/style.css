@@ -1,3 +1,10 @@
+:root {
+    --azul-senai: #004A8D;
+    --azul-escuro: #003366;
+    --laranja-senai: #F37021;
+    --laranja-escuro: #D15B17;
+}
+
 /* ===========================================
    1. RESET BÁSICO E CONFIGURAÇÕES GERAIS
 =========================================== */
@@ -30,13 +37,13 @@ body {
    2. ESTRUTURA BASE (Desktop / Padrão)
 =========================================== */
 header {
-    background-color: #004A8D; /* Azul SENAI */
+    background-color: var(--azul-senai);
     color: white;
     padding: 15px 40px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: #003366 5px solid;
+    border-bottom: var(--azul-escuro) 5px solid;
     position: relative;
     z-index: 1000;
 }
@@ -75,10 +82,10 @@ nav {
 .menu-links a {
     text-decoration: none;
     color: #FFFFFF;
-    background-color: #F37021; /* Laranja SENAI */
+    background-color: var(--laranja-senai);
     padding: 10px 16px;
     border-radius: 8px;
-    border: #D15B17 3px solid;
+    border: var(--laranja-escuro) 3px solid;
     font-weight: bold;
     font-size: 0.9rem;
     white-space: nowrap;
@@ -87,13 +94,8 @@ nav {
 }
 
 .menu-links a:hover, .menu-links a:active {
-    background-color: #D15B17;
+    background-color: var(--laranja-escuro);
     transform: scale(0.95);
-}
-
-.centralizar_fonte{
-    display: block;
-    text-align: center;
 }
 
 /* O <main> vira um container transparente que centraliza o conteúdo */
@@ -109,69 +111,42 @@ main {
 
 main h1 {
     text-align: center;
-    color: #004A8D;
+    color: var(--azul-senai);
     font-size: 2.5rem;
     margin-bottom: 30px;
 }
 
-/* Cada <section> vira uma caixa/cartão individual */
-section {
+section,
+.section_diferente,
+.section-h2,
+.section-h3,
+.section-h4 {
+    padding: 35px 30px;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 8px 18px rgba(0, 0, 0, 0.08);
+}
+
+section,
+.section-h2 {
     background-color: #FFFFFF;
-    padding: 25px 30px;
-    margin-bottom: 40px; /* Distância entre uma seção e outra */
-    border-radius: 10px;
-    border: 2px solid #004A8D;
-    box-shadow: 0px 8px 18px rgba(0, 0, 0, 0.08);
+    margin-bottom: 40px;
+    border: 2px solid var(--azul-senai);
 }
 
-/* Cada <section> vira uma caixa/cartão individual */
-.section_diferente {
+.section_diferente,
+.section-h3 {
     background-color: #ebedee;
-    padding: 25px 30px;
-    margin-bottom: 30px; /* Distância entre uma seção e outra */
-    border-radius: 10px;
-    border: 2px solid #004A8D;
-    box-shadow: 0px 8px 18px rgba(0, 0, 0, 0.08);
+    border: 2px solid var(--azul-senai);
 }
 
-/* Cada <section> vira uma caixa/cartão individual */
-.section_diferente_02 {
-    background-color: #d2d2dd;
-    padding: 25px 30px;
-    margin-bottom: 30px; /* Distância entre uma seção e outra */
-    border-radius: 10px;
-    border: 2px solid #3f107c;
-    box-shadow: 0px 8px 18px rgba(0, 0, 0, 0.08);
-}
-
-/* Cada <section> vira uma caixa/cartão individual */
-.section_diferente_product_owner {
-    background-color: #b5e2d1;
-    padding: 25px 30px;
-    margin-bottom: 30px; /* Distância entre uma seção e outra */
-    border-radius: 10px;
-    border: 2px solid #58caa4;
-    box-shadow: 0px 8px 18px rgba(0, 0, 0, 0.08);
-}
-
-/* Cada <section> vira uma caixa/cartão individual */
-.section_diferente_scrum_master {
-    background-color: #8bb3e0;
-    padding: 25px 30px;
-    margin-bottom: 30px; /* Distância entre uma seção e outra */
-    border-radius: 10px;
-    border: 2px solid #0757b3;
-    box-shadow: 0px 8px 18px rgba(0, 0, 0, 0.08);
-}
-
-/* Cada <section> vira uma caixa/cartão individual */
-.section_diferente_developers {
-    background-color: #e9db9c;
-    padding: 25px 30px;
-    margin-bottom: 30px; /* Distância entre uma seção e outra */
-    border-radius: 10px;
-    border: 2px solid #866f06;
-    box-shadow: 0px 8px 18px rgba(0, 0, 0, 0.08);
+.section-h4 {
+    background-color: #f8fafc;
+    border: 1px solid #cbd5e1;
+    box-shadow: none;
+    padding: 28px 22px;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 /* GRELHA DE CARDS */
@@ -184,7 +159,7 @@ section {
 
 .card-item {
     background-color: #FFFFFF;
-    border: 2px solid #004A8D;
+    border: 2px solid var(--azul-senai);
     border-radius: 10px;
     padding: 20px;
     text-decoration: none;
@@ -194,7 +169,7 @@ section {
 }
 
 .card-item h2 {
-    color: #F37021;
+    color: var(--laranja-senai);
     font-size: 1.2rem;
     border-bottom: none;
     margin-bottom: 5px;
@@ -207,7 +182,7 @@ section {
 
 .card-item:hover {
     transform: translateY(-3px);
-    border-color: #F37021;
+    border-color: var(--laranja-senai);
 }
 
 /* ===========================================
@@ -247,44 +222,22 @@ section li:last-child {
 }
 
 /* Remove a margem inferior da última seção */
-section:last-child {
+main > section:last-child {
     margin-bottom: 0;
 }
 
 h2 {
-    color: #F37021;
-    border-bottom: 3px solid #004A8D;
+    color: var(--laranja-senai);
+    border-bottom: 3px solid var(--azul-senai);
     padding-bottom: 5px;
     margin-bottom: 15px;
-}
-
-.frase_espacamento {
-    margin-bottom: 20px;
-}
-
-.frase_espacamento_dois {
-    margin-bottom: 15px;
-}
-
-.h2_diferente {
-    color: #F37021;
-    border-bottom: 3px solid #004A8D;
-    padding-bottom: 5px;
-    margin-bottom: 40px;
 }
 
 h3 {
     color: #2eaacf;
-    border-bottom: 2px solid #004A8D;
+    border-bottom: 2px solid var(--azul-senai);
     padding-bottom: 5px;
     margin-bottom: 15px;
-}
-
-.h3_diferente {
-    color: #2eaacf;
-    border-bottom: 2px solid #004A8D;
-    padding-bottom: 5px;
-    margin-bottom: 40px;
 }
 
 h4 {
@@ -293,28 +246,6 @@ h4 {
     padding-bottom: 5px;
     margin-bottom: 15px;
 }
-
-.h4_product_owner {
-    color: #17632d;
-    border-bottom: 2px solid #114e09;
-    padding-bottom: 5px;
-    margin-bottom: 15px;
-}
-
-.h4_scrum_master {
-    color: #055dd1;
-    border-bottom: 2px solid #0461b9;
-    padding-bottom: 5px;
-    margin-bottom: 15px;
-}
-
-.h4_developers {
-    color: #c97a04;
-    border-bottom: 2px solid #833d05;
-    padding-bottom: 5px;
-    margin-bottom: 15px;
-}
-
 
 table {
     width: 100%;
@@ -343,16 +274,6 @@ th {
     text-align: center;
 }
 
-.td_negrito {
-    font-weight: bold;
-    text-align: center;
-}
-
-.td_centro {
-    text-align: center;
-}
-
-
 tbody tr:nth-child(even) {
     background: #f8fafc;
 }
@@ -362,41 +283,24 @@ tbody tr:hover {
 }
 
 
-video {
-    width: auto;
-    max-width: 100%;
-    height: auto;
-    border-radius: 8px;
-    display: block;
-    margin-top: 15px;
-    border: #004A8D 3px solid;
-    margin-bottom: 15px;
-}
-
-.imagem_um {
-    max-width: 100%;
-    height: auto;
-    border-radius: 8px;
-    display: block;
-    margin: 15px auto 30px auto; /* auto nas laterais = centralizado */
-    border: #004A8D 3px solid;
-}
-
-.imagem_dois {
-    max-width: 100%;
-    height: auto;
-    border-radius: 8px;
-    display: block;
-    margin: 15px auto 30px auto;
-}
-
 .imagem_tres {
     max-width: 100%;
     height: auto;
-    border-radius: 8px;
     display: block;
-    margin: 15px auto 15px auto;
-    border: #004A8D 3px solid;
+    border-radius: 8px;
+    margin: 15px auto;
+    border: var(--azul-senai) 3px solid;
+}
+
+video {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    width: auto;
+    border-radius: 8px;
+    margin-top: 15px;
+    border: var(--azul-senai) 3px solid;
+    margin-bottom: 15px;
 }
 
 .logo_senai_tamanho {
@@ -415,12 +319,8 @@ a {
     color: #1b82c7;
 }
 
-.ajuste_dos_small {
-    font-size: 1.00rem;
-}
-
 footer {
-    background-color: #003366;
+    background-color: var(--azul-escuro);
     color: white;
     text-align: center;
     padding: 20px;
@@ -430,6 +330,47 @@ footer {
 /* ===========================================
    3. MEDIA QUERIES RESPONSIVAS
 =========================================== */
+
+.menu-icon {
+    display: block;
+}
+
+.menu-links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: var(--azul-senai);
+    border-bottom: var(--azul-escuro) 5px solid;
+    flex-direction: column;
+    gap: 0;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-15px);
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+}
+
+.menu-links li {
+    width: 100%;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.menu-links li:last-child {
+    border-bottom: none;
+}
+
+#menu-toggle:checked ~ .menu-links {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.menu-links a {
+    width: 100%;
+    text-align: center;
+    padding: 12px 10px;
+    display: block;
+}
 
 /* -------------------------------------------
    A) PC / MONITORES GRANDES (+1281px)
@@ -443,55 +384,17 @@ footer {
         font-size: 2rem;
     }
 
-    /* Exibe o ícone de três listras */
-    .menu-icon {
-        display: block;
-    }
-
-    /* Menu Suspenso estilo Loja Virtual */
     .menu-links {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background-color: #004A8D;
-        border-bottom: #003366 5px solid;
-        flex-direction: column;
-        gap: 0;
         padding: 20px 45px;
-
-        /* Estado fechado com animação suave */
-        opacity: 0;
-        visibility: hidden;
-        transform: translateY(-15px);
-        transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
         box-shadow: 0px 14px 21px rgba(0,0,0,0.25);
     }
 
-    /* Linhas divisórias entre as opções */
     .menu-links li {
-        width: 100%;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
         padding: 10px 0;
     }
 
-    .menu-links li:last-child {
-        border-bottom: none;
-    }
-
-    /* Estado aberto ao clicar */
-    #menu-toggle:checked ~ .menu-links {
-        opacity: 1;
-        visibility: visible;
-        transform: translateY(0);
-    }
-
     .menu-links a {
-        width: 100%;
-        text-align: center;
-        padding: 12px 10px;
         font-size: 1.25rem;
-        display: block;
     }
 
     main {
@@ -518,55 +421,17 @@ footer {
         font-size: 1.6rem;
     }
 
-    /* Exibe o ícone de três listras */
-    .menu-icon {
-        display: block;
-    }
-
-    /* Menu Suspenso estilo Loja Virtual */
     .menu-links {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background-color: #004A8D;
-        border-bottom: #003366 5px solid;
-        flex-direction: column;
-        gap: 0;
         padding: 15px 35px;
-
-        /* Estado fechado com animação suave */
-        opacity: 0;
-        visibility: hidden;
-        transform: translateY(-15px);
-        transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
         box-shadow: 0px 12px 18px rgba(0,0,0,0.25);
     }
 
-    /* Linhas divisórias entre as opções */
     .menu-links li {
-        width: 100%;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
         padding: 8px 0;
     }
 
-    .menu-links li:last-child {
-        border-bottom: none;
-    }
-
-    /* Estado aberto ao clicar */
-    #menu-toggle:checked ~ .menu-links {
-        opacity: 1;
-        visibility: visible;
-        transform: translateY(0);
-    }
-
     .menu-links a {
-        width: 100%;
-        text-align: center;
-        padding: 12px 10px;
         font-size: 1.15rem;
-        display: block;
     }
 
     main {
@@ -589,55 +454,17 @@ footer {
         padding: 15px 30px;
     }
 
-    /* Exibe o ícone de três listras */
-    .menu-icon {
-        display: block;
-    }
-
-    /* Menu Suspenso estilo Loja Virtual */
     .menu-links {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background-color: #004A8D;
-        border-bottom: #003366 5px solid;
-        flex-direction: column;
-        gap: 0;
         padding: 10px 25px;
-
-        /* Estado fechado com animação suave */
-        opacity: 0;
-        visibility: hidden;
-        transform: translateY(-15px);
-        transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
         box-shadow: 0px 10px 15px rgba(0,0,0,0.25);
     }
 
-    /* Linhas divisórias entre as opções */
     .menu-links li {
-        width: 100%;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
         padding: 6px 0;
     }
 
-    .menu-links li:last-child {
-        border-bottom: none;
-    }
-
-    /* Estado aberto ao clicar */
-    #menu-toggle:checked ~ .menu-links {
-        opacity: 1;
-        visibility: visible;
-        transform: translateY(0);
-    }
-
     .menu-links a {
-        width: 100%;
-        text-align: center;
-        padding: 12px 10px;
         font-size: 1.05rem;
-        display: block;
     }
 
     main {
@@ -649,11 +476,7 @@ footer {
     }
 
     section,
-    .section_diferente,
-    .section_diferente_02,
-    .section_diferente_product_owner,
-    .section_diferente_scrum_master,
-    .section_diferente_developers {
+    .section_diferente {
         min-width: 0;
         padding: 20px 18px;
     }
@@ -687,54 +510,21 @@ footer {
     }
 
     .menu-icon {
-        display: block;
         font-size: 2rem;
     }
 
-    /* Menu Suspenso em lista vertical para toque fácil */
     .menu-links {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background-color: #004A8D;
-        border-bottom: #003366 5px solid;
-        flex-direction: column;
-        gap: 0;
         padding: 5px 15px;
-
-        /* Estado fechado */
-        opacity: 0;
-        visibility: hidden;
-        transform: translateY(-15px);
-        transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
         box-shadow: 0px 8px 12px rgba(0,0,0,0.3);
     }
 
-    /* Linhas divisórias finas estilo loja virtual */
     .menu-links li {
-        width: 100%;
         border-bottom: 1px solid rgba(255, 255, 255, 0.15);
         padding: 4px 0;
     }
 
-    .menu-links li:last-child {
-        border-bottom: none;
-    }
-
-    /* Quando ativado pelo toque no ícone */
-    #menu-toggle:checked ~ .menu-links {
-        opacity: 1;
-        visibility: visible;
-        transform: translateY(0);
-    }
-
     .menu-links a {
-        width: 100%;
-        text-align: center;
-        padding: 12px 10px;
         font-size: 0.95rem;
-        display: block;
     }
 
     main {
@@ -749,27 +539,21 @@ footer {
         font-size: 1.6rem;
         line-height: 1.25;
         margin-bottom: 20px;
-        overflow-wrap: anywhere;
     }
 
     h2 {
         font-size: 1.2rem;
     }
 
-    h2, h3, h4, p, li {
-        overflow-wrap: anywhere;
-    }
-
     section,
     .section_diferente,
-    .section_diferente_02,
-    .section_diferente_product_owner,
-    .section_diferente_scrum_master,
-    .section_diferente_developers {
+    .section-h2,
+    .section-h3,
+    .section-h4 {
         width: 100%;
         max-width: 100%;
         min-width: 0;
-        padding: 14px 12px;
+        padding: 20px 12px;
         margin-bottom: 20px;
         border-radius: 8px;
     }
@@ -803,11 +587,7 @@ footer {
     /* Impede textos e elementos comuns de alargarem os cartões.
        Exclui a estrutura da tabela para não comprimir suas células. */
     section *:not(table):not(thead):not(tbody):not(tr):not(th):not(td),
-    .section_diferente *:not(table):not(thead):not(tbody):not(tr):not(th):not(td),
-    .section_diferente_02 *:not(table):not(thead):not(tbody):not(tr):not(th):not(td),
-    .section_diferente_product_owner *:not(table):not(thead):not(tbody):not(tr):not(th):not(td),
-    .section_diferente_scrum_master *:not(table):not(thead):not(tbody):not(tr):not(th):not(td),
-    .section_diferente_developers *:not(table):not(thead):not(tbody):not(tr):not(th):not(td) {
+    .section_diferente *:not(table):not(thead):not(tbody):not(tr):not(th):not(td) {
         min-width: 0;
         max-width: 100%;
     }
@@ -821,7 +601,6 @@ footer {
         overflow-x: auto;
         overflow-y: hidden;
         font-size: 14px;
-        overflow-x: auto;
     }
 
     th, td {
