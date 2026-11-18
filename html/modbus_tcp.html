@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/style.css">
-    <title>HART | Sistemas de Redes</title>
+    <title>Modbus TCP | Sistemas de Redes</title>
 </head>
 
 <body>
@@ -23,191 +23,132 @@
     </header>
 
     <main>
-        <h1>6. HART (PROTOCOLO E WIRELESSHART)</h1>
+        <h1>3. MODBUS TCP</h1>
 
         <section class="section-h2">
-            <h2>6.1 ESTRUTURA FÍSICA E CABEAMENTO</h2>
+            <h2>3.1 ESTRUTURA FÍSICA E CABEAMENTO</h2>
             <section class="section-h3">
-                <h3>6.1.1 HART NA INSTRUMENTAÇÃO DE PROCESSOS</h3>
-                <p>O HART (Highway Addressable Remote Transducer) é um protocolo de comunicação utilizado em instrumentos inteligentes de campo. Sua característica mais conhecida é permitir a transmissão simultânea de um sinal analógico de 4 a 20 mA e de informações digitais sobre o mesmo par de fios. Assim, a variável principal do processo continua disponível em formato analógico, enquanto dados adicionais podem ser acessados digitalmente.</p>
-                <p>A comunicação digital permite ler variáveis adicionais, estado do instrumento, diagnóstico, identificação e parâmetros de configuração. O protocolo é amplamente utilizado em transmissores e posicionadores de válvulas, além de ser integrado a sistemas de controle e ferramentas de gerenciamento de ativos.</p>
+                <h3>3.1.1 MODBUS TCP EM REDES INDUSTRIAIS E DE SUPERVISÃO</h3>
+                <p>O Modbus TCP é uma tecnologia de comunicação industrial utilizada para trocar dados entre CLPs, IHMs, sistemas SCADA, medidores, sensores inteligentes, gateways e outros equipamentos conectados a redes Ethernet. Sua aplicação deve considerar a infraestrutura física, o comportamento de transmissão, os requisitos de tempo e a integração com os dispositivos e controladores do processo.</p>
+                <p>O Modbus TCP é a aplicação do protocolo Modbus sobre TCP/IP. Diferentemente de uma rede de campo que define cabo, sinal elétrico e topologia próprios, o Modbus TCP utiliza a infraestrutura Ethernet disponível. Por isso, o meio físico, os conectores e as distâncias dependem dos padrões Ethernet e dos equipamentos de rede utilizados (Modbus Organization, 2006, 2012).</p>
             </section>
 
             <section class="section-h3">
-                <h3>6.1.2 HART COM FIO: MEIOS FÍSICOS E CABOS</h3>
+                <h3>3.1.2 MEIOS FÍSICOS E CABOS ADOTADOS</h3>
                 <ul>
-                    <li><strong>Par trançado:</strong> o meio mais comum é o par de fios utilizado no circuito de corrente 4-20 mA. O cabo deve apresentar resistência e capacitância compatíveis com a quantidade de dispositivos, a carga e o comprimento do circuito.</li>
-                    <li><strong>Cabo blindado:</strong> pode ser utilizado em ambientes industriais para reduzir a influência de ruídos eletromagnéticos. A blindagem deve ser conectada conforme o projeto de instrumentação e as recomendações do fabricante.</li>
-                    <li><strong>Circuito de dois fios:</strong> o mesmo par conduz a corrente do sinal 4-20 mA, a comunicação digital FSK e, em transmissores compatíveis, a alimentação do instrumento.</li>
-                    <li><strong>Circuito de quatro fios:</strong> alguns instrumentos recebem alimentação separada, mantendo o par de sinal para a comunicação analógica e digital.</li>
+                    <li><strong>Par trançado de cobre:</strong> é comum utilizar cabos Ethernet Cat 5e ou Cat 6, nas versões UTP ou blindadas (F/UTP, S/FTP), com conectores compatíveis com as portas dos equipamentos. A categoria deve atender à taxa suportada e às condições do ambiente industrial.</li>
+                    <li><strong>Fibra óptica:</strong> pode ser utilizada nos enlaces de backbone, entre prédios, em ambientes com alta interferência ou quando é necessário isolamento galvânico. A conversão pode ocorrer por portas ópticas de switches, módulos SFP ou conversores de mídia.</li>
+                    <li><strong>Infraestrutura industrial:</strong> em máquinas e painéis podem ser necessários cabos robustos, conectores com travamento, proteção contra óleo, umidade, vibração e interferência eletromagnética. Esses requisitos são definidos pelo ambiente e pela camada física Ethernet utilizada.</li>
                 </ul>
             </section>
 
             <section class="section-h3">
-                <h3>6.1.3 WIRELESSHART: MEIO DE TRANSMISSÃO E EQUIPAMENTOS</h3>
-                <p>O WirelessHART é uma extensão sem fio do protocolo HART, padronizada internacionalmente pela IEC 62591. Em vez de utilizar um par de fios para transportar a comunicação, os dispositivos trocam dados por radiofrequência e formam uma rede Mesh de campo. A comunicação entre a rede sem fio e o sistema de controle é realizada por um gateway.</p>
+                <h3>3.1.3 CONECTORES PADRONIZADOS E IDENTIFICAÇÃO</h3>
                 <ul>
-                    <li><strong>Instrumentos WirelessHART:</strong> instrumentos com rádio integrado que transmitem informações de processo e diagnóstico pela rede sem fio.</li>
-                    <li><strong>Adaptadores WirelessHART:</strong> podem conectar instrumentos HART existentes à rede sem fio, evitando a substituição imediata do instrumento de campo.</li>
-                    <li><strong>Gateway:</strong> faz a interface entre a rede WirelessHART e a rede da planta, encaminhando os dados para o sistema host, controlador ou aplicação de gerenciamento.</li>
-                    <li><strong>Gerenciador de rede (Network Manager):</strong> organiza a entrada dos dispositivos, o agendamento das comunicações, as rotas Mesh e a manutenção da rede. Pode estar integrado ao gateway ou a outro equipamento do sistema.</li>
+                    <li><strong>RJ45 (8P8C):</strong> conector mais comum em portas Ethernet de CLPs, IHMs, computadores industriais e switches.</li>
+                    <li><strong>M12:</strong> conector circular industrial utilizado em alguns equipamentos Ethernet para melhorar a robustez mecânica e a proteção ambiental. A codificação e a pinagem devem ser compatíveis com o dispositivo e com a interface Ethernet correspondente.</li>
+                    <li><strong>LC e SC:</strong> conectores utilizados em enlaces de fibra óptica, conforme o tipo de módulo óptico, patch panel e infraestrutura instalada.</li>
                 </ul>
+                <p>O Modbus TCP não determina um conector físico específico. O conector é escolhido pela interface Ethernet do equipamento e pelo projeto de cabeamento da instalação.</p>
             </section>
 
             <section class="section-h3">
-                <h3>6.1.4 CONECTORES PADRONIZADOS E IDENTIFICAÇÃO</h3>
-                <ul>
-                    <li><strong>Bornes de instrumentação:</strong> são usados para conectar os condutores do circuito 4-20 mA/HART aos transmissores, posicionadores e módulos de entrada e saída.</li>
-                    <li><strong>Terminais de teste e comunicação:</strong> pontos de conexão podem permitir a ligação de comunicadores portáteis ou modems HART sem interromper o circuito, respeitando a impedância necessária à comunicação.</li>
-                    <li><strong>Conectores do gateway:</strong> a conexão do gateway à rede de controle pode utilizar Ethernet RJ45, interfaces seriais ou outras conexões definidas pelo fabricante.</li>
-                    <li><strong>WirelessHART:</strong> não possui um conector físico universal para o enlace de rádio. Antenas integradas ou externas e conectores auxiliares dependem do projeto e do modelo do instrumento ou gateway.</li>
-                </ul>
-            </section>
-
-            <section class="section-h3">
-                <h3>6.1.5 TOPOLOGIAS SUPORTADAS</h3>
+                <h3>3.1.4 TOPOLOGIAS SUPORTADAS</h3>
                 <section class="section-h4">
-                    <h4>6.1.5.1 HART COM FIO: PONTO A PONTO E MULTIDROP</h4>
-                    <ul>
-                        <li><strong>Ponto a ponto:</strong> um instrumento é conectado ao sistema por um circuito 4-20 mA. O valor analógico representa a variável principal e a comunicação digital HART ocorre simultaneamente sobre o mesmo par.</li>
-                        <li><strong>Multidrop:</strong> vários instrumentos compartilham um par de comunicação e são identificados por endereços individuais. Nessa configuração, a informação é transmitida digitalmente, e o sinal analógico de corrente deixa de representar individualmente a variável de cada instrumento.</li>
-                    </ul>
+                    <h4>3.1.4.1 ESTRELA E ÁRVORE COM SWITCHES ETHERNET</h4>
+                    <p>A topologia mais comum é a estrela com switches Ethernet. Cada CLP, IHM, servidor ou equipamento de campo é conectado a uma porta do switch. Em instalações maiores, vários switches podem ser interligados em árvore para distribuir as conexões pelos painéis e áreas da fábrica.</p>
                 </section>
-
                 <section class="section-h4">
-                    <h4>6.1.5.2 WIRELESSHART: TOPOLOGIA EM MALHA (MESH)</h4>
-                    <p>Na rede WirelessHART, os instrumentos podem encaminhar mensagens por meio de outros nós até alcançar o gateway. Essa comunicação multissalto permite contornar obstáculos e criar caminhos alternativos. A rede é auto-organizável, e o gerenciador seleciona rotas e horários de comunicação conforme a qualidade dos enlaces e a disponibilidade dos dispositivos.</p>
+                    <h4>3.1.4.2 LINHA, ANEL E REDUNDÂNCIA DE REDE</h4>
+                    <p>Alguns equipamentos oferecem portas Ethernet integradas que permitem ligações em linha ou em cascata. Redes em anel também podem ser construídas por switches que suportem protocolos de redundância Ethernet. Entretanto, o Modbus TCP não define por si só uma topologia em linha ou anel: essas características pertencem à infraestrutura Ethernet e aos mecanismos de redundância adotados.</p>
                 </section>
             </section>
         </section>
 
         <section class="section-h2">
-            <h2>6.2 INTERFACE ELÉTRICA E TRANSMISSÃO DE SINAIS</h2>
+            <h2>3.2 INTERFACE ELÉTRICA E TRANSMISSÃO DE SINAIS</h2>
             <section class="section-h3">
-                <h3>6.2.1 SINALIZAÇÃO DO HART COM FIO</h3>
-                <p>O HART com fio utiliza dois canais de informação simultâneos no mesmo circuito. O primeiro é o sinal analógico de corrente contínua de 4 a 20 mA, que representa a variável principal do processo. O segundo é o sinal digital modulado por FSK (Frequency Shift Keying), sobreposto ao circuito analógico.</p>
+                <h3>3.2.1 SINALIZAÇÃO E NÍVEIS ELÉTRICOS</h3>
+                <p>O Modbus TCP não especifica níveis elétricos próprios. Quando utiliza Ethernet em cobre, a transmissão segue a camada física do padrão Ethernet selecionado, com sinais diferenciais nos pares trançados. Quando utiliza fibra, os dados são transmitidos por pulsos ópticos. Assim, as características elétricas dependem da interface Ethernet do equipamento, e não do protocolo Modbus.</p>
                 <ul>
-                    <li><strong>Sinal analógico 4-20 mA:</strong> a corrente representa a variável medida ou comandada, com a escala definida pelo instrumento e pelo sistema de controle.</li>
-                    <li><strong>Modulação FSK Bell 202:</strong> utiliza duas frequências para representar os bits digitais: 1.200 Hz para o bit lógico 1 e 2.200 Hz para o bit lógico 0.</li>
-                    <li><strong>Taxa digital:</strong> a comunicação HART tradicional opera a 1.200 bit/s. O sinal FSK possui valor médio nulo, permitindo sua sobreposição sem alterar significativamente a leitura analógica de corrente contínua.</li>
+                    <li><strong>Ethernet de cobre:</strong> interfaces 10BASE-T, 100BASE-TX ou 1000BASE-T utilizam sinalização física Ethernet e cabos adequados à velocidade suportada por cada porta.</li>
+                    <li><strong>Fibra óptica:</strong> as interfaces ópticas convertem os dados em sinais de luz. A fibra reduz a influência de interferências eletromagnéticas no trecho óptico e proporciona isolamento elétrico entre as extremidades.</li>
                 </ul>
             </section>
 
             <section class="section-h3">
-                <h3>6.2.2 SINALIZAÇÃO DO WIRELESSHART</h3>
-                <p>O WirelessHART utiliza a camada física de rádio de 2,4 GHz definida com base no IEEE 802.15.4. A transmissão emprega espalhamento espectral por sequência direta (DSSS) e modulação O-QPSK (Offset Quadrature Phase Shift Keying), adequada à comunicação de baixo consumo em redes de sensores.</p>
+                <h3>3.2.2 ALIMENTAÇÃO PELO BARRAMENTO</h3>
+                <p>O Modbus TCP não fornece energia aos dispositivos por meio de seus dados de aplicação. Em geral, CLPs, IHMs, switches e instrumentos utilizam fontes próprias, comumente alimentadas em 24 Vcc nos painéis industriais.</p>
                 <ul>
-                    <li><strong>Faixa de frequência:</strong> 2,4 GHz na faixa ISM (Industrial, Scientific and Medical), compartilhada com outras tecnologias de rádio, conforme as regras regulatórias locais.</li>
-                    <li><strong>Canais:</strong> utiliza múltiplos canais de rádio e técnicas de salto de canal para distribuir as transmissões e reduzir os efeitos de interferências persistentes.</li>
-                    <li><strong>Taxa física nominal:</strong> a camada física IEEE 802.15.4 utilizada pelo WirelessHART oferece 250 kbit/s. A taxa útil da aplicação é inferior e depende do agendamento, do número de saltos e das informações de controle.</li>
+                    <li><strong>PoE:</strong> alguns equipamentos Ethernet podem receber alimentação pelo mesmo cabo de dados por meio de Power over Ethernet, desde que as portas e os dispositivos sejam compatíveis com os padrões IEEE 802.3 correspondentes. Essa possibilidade pertence à infraestrutura Ethernet e não ao protocolo Modbus TCP.</li>
                 </ul>
             </section>
 
             <section class="section-h3">
-                <h3>6.2.3 ALIMENTAÇÃO PELO BARRAMENTO E ENERGIA DOS EQUIPAMENTOS</h3>
+                <h3>3.2.3 ISOLAÇÃO E PROTEÇÃO CONTRA RUÍDOS</h3>
                 <ul>
-                    <li><strong>HART com fio - transmissores de dois fios:</strong> a alimentação do instrumento e o sinal analógico/digital compartilham o mesmo circuito de corrente, desde que o transmissor seja projetado para essa configuração.</li>
-                    <li><strong>HART com fio - instrumentos de quatro fios:</strong> utilizam fonte de alimentação separada e mantêm o circuito de sinal para a comunicação.</li>
-                    <li><strong>WirelessHART:</strong> instrumentos sem fio frequentemente utilizam baterias ou fontes locais. Alguns adaptadores podem obter energia do equipamento ou do circuito associado, conforme o modelo; a comunicação de rádio não fornece alimentação pelo ar.</li>
-                </ul>
-            </section>
-
-            <section class="section-h3">
-                <h3>6.2.4 ISOLAÇÃO E PROTEÇÃO CONTRA RUÍDOS</h3>
-                <ul>
-                    <li><strong>HART com fio:</strong> utilizar cabo de instrumentação adequado, blindagem e aterramento conforme o projeto, verificando a resistência e a capacitância do circuito para não comprometer o sinal FSK.</li>
-                    <li><strong>Resistência de comunicação:</strong> o circuito precisa apresentar impedância suficiente para que o sinal digital HART seja detectado. Em muitas instalações é utilizado um resistor de carga em torno de 250 ohms, desde que a fonte, o transmissor e a entrada analógica permitam essa condição.</li>
-                    <li><strong>Separação e isolação:</strong> barreiras e isoladores podem ser necessários para separar circuitos, reduzir interferências e atender requisitos de áreas classificadas.</li>
-                    <li><strong>WirelessHART:</strong> a robustez da comunicação é aumentada pelo salto de canais, pela diversidade de rotas Mesh, pela sincronização e pela verificação das transmissões.</li>
-                    <li><strong>Segurança digital:</strong> o WirelessHART utiliza mecanismos de autenticação e criptografia para proteger a entrada dos dispositivos e a confidencialidade e integridade das mensagens. Chaves e identificadores da rede devem ser configurados corretamente.</li>
-                </ul>
-                <p>A presença de comunicação HART ou WirelessHART não torna automaticamente um instrumento adequado para área classificada. Nesses locais, é necessário selecionar equipamentos e acessórios com certificação de proteção apropriada à zona, ao grupo de gás ou poeira e à classe de temperatura aplicáveis.</p>
-            </section>
-        </section>
-
-        <section class="section-h2">
-            <h2>6.3 PROTOCOLO DE ENLACE E ACESSO AO MEIO (MAC)</h2>
-            <section class="section-h3">
-                <h3>6.3.1 MÉTODO DE ACESSO AO MEIO NO HART COM FIO</h3>
-                <ul>
-                    <li><strong>Mestre-escravo:</strong> a comunicação tradicional é iniciada por um mestre, que envia uma solicitação ao instrumento. O dispositivo responde ao comando recebido, seguindo o modelo solicitação-resposta.</li>
-                    <li><strong>Mestres primário e secundário:</strong> o protocolo permite a presença de dois mestres no mesmo circuito, como um sistema de controle e um comunicador portátil de manutenção, respeitando as regras de acesso.</li>
-                    <li><strong>Modo Burst:</strong> opcionalmente, o mestre pode configurar o instrumento para transmitir respostas periodicamente, reduzindo a necessidade de uma solicitação individual a cada atualização.</li>
-                </ul>
-            </section>
-
-            <section class="section-h3">
-                <h3>6.3.2 ESTRUTURA DO QUADRO E MENSAGEM HART</h3>
-                <p>As mensagens HART são transmitidas em sequência serial e contêm informações para sincronização, identificação do instrumento, comando e dados. A estrutura varia conforme o formato do endereço e o tipo de mensagem, mas normalmente inclui os seguintes campos:</p>
-                <ul>
-                    <li><strong>Preâmbulo:</strong> sequência de bytes utilizada para sincronizar o receptor e permitir a identificação do início da mensagem.</li>
-                    <li><strong>Start delimiter:</strong> indica o tipo de mensagem e o formato do endereço utilizado.</li>
-                    <li><strong>Endereço:</strong> identifica o instrumento de destino ou a origem da resposta. Pode utilizar formato curto ou longo, conforme o tipo de mensagem.</li>
-                    <li><strong>Command:</strong> identifica a operação solicitada pelo mestre, como leitura de variável, consulta de estado ou alteração de parâmetro.</li>
-                    <li><strong>Byte count:</strong> informa o tamanho da parte de dados e dos campos correspondentes da mensagem.</li>
-                    <li><strong>Status:</strong> presente nas respostas, apresenta informações sobre o estado da comunicação e do dispositivo.</li>
-                    <li><strong>Data:</strong> transporta valores de processo, parâmetros, informações de identificação ou diagnóstico.</li>
-                    <li><strong>Checksum:</strong> permite verificar a integridade da mensagem recebida. A comunicação também utiliza paridade ímpar em cada caractere serial.</li>
-                </ul>
-            </section>
-
-            <section class="section-h3">
-                <h3>6.3.3 MÉTODO DE ACESSO AO MEIO NO WIRELESSHART</h3>
-                <ul>
-                    <li><strong>TDMA (Time Division Multiple Access):</strong> divide o tempo em intervalos organizados, normalmente slots de 10 ms, atribuindo horários específicos para transmissão e recepção dos dispositivos.</li>
-                    <li><strong>Sincronização temporal:</strong> os dispositivos mantêm seus relógios sincronizados com a rede para executar as transmissões nos intervalos programados.</li>
-                    <li><strong>Salto de canais (Channel Hopping):</strong> a frequência utilizada pode mudar entre transmissões, reduzindo a dependência de um único canal e ajudando a contornar interferências.</li>
-                    <li><strong>Mesh e roteamento:</strong> os dispositivos podem encaminhar mensagens por diferentes caminhos até o gateway. O gerenciador de rede organiza as rotas e os horários de transmissão.</li>
-                </ul>
-            </section>
-
-            <section class="section-h3">
-                <h3>6.3.4 ESTRUTURA DO QUADRO E MENSAGEM WIRELESSHART</h3>
-                <p>O WirelessHART utiliza uma estrutura de comunicação em camadas, combinando a sinalização física baseada no IEEE 802.15.4 com os campos de enlace e rede definidos pelo protocolo. De forma geral, a transmissão inclui sincronização física, informações de controle, endereçamento, dados da mensagem e verificação de integridade.</p>
-                <ul>
-                    <li><strong>Preâmbulo e delimitador físico:</strong> auxiliam a sincronização do rádio receptor e a identificação do início do pacote.</li>
-                    <li><strong>Cabeçalho de enlace:</strong> contém informações de controle e identificação necessárias para a entrega do quadro entre dispositivos próximos.</li>
-                    <li><strong>Endereçamento e roteamento:</strong> permitem identificar os dispositivos e encaminhar mensagens por um ou mais saltos até o destino ou gateway.</li>
-                    <li><strong>Dados:</strong> transportam variáveis de processo, comandos, estado do instrumento e informações de gerenciamento da rede.</li>
-                    <li><strong>Verificação e segurança:</strong> mecanismos de integridade e autenticação ajudam a detectar alterações e impedir a aceitação de mensagens não autorizadas.</li>
+                    <li><strong>Blindagem e aterramento:</strong> em ambientes industriais podem ser empregados cabos Ethernet blindados, conectores apropriados e sistemas de aterramento e equipotencialização projetados para controlar interferências e correntes de modo comum.</li>
+                    <li><strong>Instalação:</strong> os cabos de rede devem ser separados dos cabos de potência, especialmente de motores e inversores. Cruzamentos devem ser feitos preferencialmente próximos de 90 graus. A blindagem deve ter continuidade e ligação conforme as normas de cabeamento e os manuais dos equipamentos.</li>
+                    <li><strong>Fibra óptica:</strong> é recomendada quando há alto nível de ruído eletromagnético, grandes distâncias ou diferenças de potencial entre áreas da instalação, pois elimina a condução elétrica entre os pontos do enlace óptico.</li>
+                    <li><strong>Áreas classificadas:</strong> Modbus TCP não fornece segurança intrínseca por definição. A utilização em áreas classificadas exige equipamentos e instalações certificados de acordo com a classificação de risco do local.</li>
                 </ul>
             </section>
         </section>
 
         <section class="section-h2">
-            <h2>6.4 PARÂMETROS OPERACIONAIS E DESEMPENHO</h2>
+            <h2>3.3 PROTOCOLO DE ENLACE E ACESSO AO MEIO (MAC)</h2>
             <section class="section-h3">
-                <h3>6.4.1 TAXA DE TRANSMISSÃO (BIT RATE / BAUD RATE)</h3>
+                <h3>3.3.1 MÉTODO DE ACESSO AO MEIO</h3>
+                <p>O Modbus TCP utiliza a infraestrutura de enlace Ethernet e o transporte TCP/IP. Não possui um método MAC próprio: a coordenação do acesso ao meio é feita pela tecnologia Ethernet utilizada. Em redes com switches e conexões full-duplex, cada dispositivo normalmente possui um enlace ponto a ponto, sem colisões no modo de operação convencional.</p>
                 <ul>
-                    <li><strong>HART com fio:</strong> 1.200 bit/s para o canal digital FSK, em paralelo ao sinal analógico de 4-20 mA.</li>
-                    <li><strong>WirelessHART:</strong> 250 kbit/s de taxa nominal da camada física de rádio. A taxa útil para dados de aplicação é menor devido aos quadros de controle, agendamento, confirmações, segurança e encaminhamento Mesh.</li>
+                    <li><strong>Modelo cliente-servidor:</strong> um cliente Modbus inicia uma conexão TCP e envia solicitações ao servidor, que processa a requisição e devolve uma resposta. O cliente pode ser um sistema SCADA, uma IHM ou um controlador; o servidor pode ser um CLP, medidor ou equipamento de campo.</li>
+                    <li><strong>Porta TCP:</strong> a porta padrão registrada para serviços Modbus TCP é a 502. A conexão TCP fornece entrega ordenada de bytes e mecanismos de retransmissão, mas não garante por si só um prazo determinístico de resposta.</li>
                 </ul>
             </section>
 
             <section class="section-h3">
-                <h3>6.4.2 DISTÂNCIA MÁXIMA E COBERTURA</h3>
-                <section class="section-h4">
-                    <h4>6.4.2.1 HART COM FIO</h4>
-                    <p>A distância máxima depende da resistência, capacitância e configuração do circuito. Como referência técnica, a documentação HART apresenta até aproximadamente 3.048 metros para um par trançado e cerca de 1.524 metros quando há múltiplos pares no cabo. Esses limites devem ser verificados com os dados reais do cabo, da carga e dos equipamentos instalados.</p>
-                </section>
+                <h3>3.3.2 ESTRUTURA DO QUADRO E MENSAGEM</h3>
+                <p>A mensagem Modbus TCP é transportada dentro de um segmento TCP, de um pacote IP e de um quadro Ethernet. A unidade de aplicação (ADU) Modbus TCP é composta pelo cabeçalho MBAP e pela PDU. O cabeçalho MBAP possui sete bytes e auxilia na identificação da transação e no enquadramento das mensagens sobre o fluxo TCP (Modbus Organization, 2006).</p>
+                <ul>
+                    <li><strong>Transaction Identifier:</strong> campo de 2 bytes que identifica a transação solicitada pelo cliente e permite associar a resposta à requisição correspondente.</li>
+                    <li><strong>Protocol Identifier:</strong> campo de 2 bytes, com valor 0 para o protocolo Modbus.</li>
+                    <li><strong>Length:</strong> campo de 2 bytes que informa o número de bytes seguintes ao próprio campo Length: o Unit Identifier (1 byte) e a PDU. Esse comprimento permite identificar o limite da mensagem mesmo quando o fluxo TCP é dividido em vários segmentos.</li>
+                    <li><strong>Unit Identifier:</strong> campo de 1 byte utilizado principalmente para identificar o dispositivo de destino quando há gateways que encaminham solicitações a outros barramentos ou redes.</li>
+                    <li><strong>PDU - Protocol Data Unit:</strong> formada pelo código de função e pelos dados. O código de função define a operação, como leitura de bobinas, leitura de entradas discretas, leitura de registradores ou escrita de valores.</li>
+                    <li><strong>Áreas de dados:</strong> o modelo Modbus organiza informações em bobinas (coils), entradas discretas (discrete inputs), registradores de entrada (input registers) e registradores de retenção (holding registers). Bobinas e entradas discretas representam bits; registradores representam palavras de 16 bits.</li>
+                    <li><strong>Comprimento da ADU:</strong> o tamanho máximo definido para uma ADU Modbus TCP é de 260 bytes, considerando o cabeçalho MBAP de 7 bytes e uma PDU de até 253 bytes (Modbus Organization, 2012).</li>
+                    <li><strong>Verificação de integridade:</strong> o Modbus TCP não utiliza o CRC-16 do quadro Modbus RTU dentro da ADU TCP. A integridade durante o transporte é tratada pelo checksum do TCP e pelo FCS/CRC da camada Ethernet, além dos mecanismos de controle do próprio TCP (Modbus Organization, 2012).</li>
+                </ul>
+            </section>
+        </section>
 
-                <section class="section-h4">
-                    <h4>6.4.2.2 WIRELESSHART</h4>
-                    <p>O alcance por rádio depende da potência, antena, obstáculos, condições de propagação e interferências presentes na área. Como referência de engenharia, pode-se considerar aproximadamente 200 metros entre dispositivos em condições adequadas, mas esse valor não é um limite universal. A rede Mesh amplia a cobertura total por meio de múltiplos saltos entre instrumentos e repetidores até o gateway.</p>
-                </section>
+        <section class="section-h2">
+            <h2>3.4 PARÂMETROS OPERACIONAIS E DESEMPENHO</h2>
+            <section class="section-h3">
+                <h3>3.4.1 TAXA DE TRANSMISSÃO</h3>
+                <p>O Modbus TCP não define uma taxa de transmissão física própria nem uma baud rate. A velocidade depende da interface Ethernet e da infraestrutura de rede utilizada. Em instalações industriais são comuns enlaces de 100 Mbit/s, mas equipamentos compatíveis também podem utilizar 10 Mbit/s ou 1 Gbit/s, conforme suas portas e a arquitetura instalada.</p>
             </section>
 
             <section class="section-h3">
-                <h3>6.4.3 DETERMINISMO E TEMPO DE CICLO</h3>
-                <p><strong>Classificação do HART com fio:</strong> não é determinístico para aplicações de tempo real estrito. A comunicação por solicitação e resposta, somada à taxa digital de 1.200 bit/s, pode tornar previsível a leitura em uma configuração definida, mas não garante ciclos curtos e fixos.</p>
-                <p><strong>Classificação do WirelessHART:</strong> oferece comunicação agendada e mais previsível por utilizar TDMA sincronizado. Essa previsibilidade é condicionada ao intervalo configurado, à quantidade de saltos, às rotas e às condições de rádio; portanto, não equivale a uma garantia universal de tempo real rígido.</p>
-                <p><strong>Aplicação:</strong> as duas tecnologias são voltadas principalmente à instrumentação, ao monitoramento de variáveis, à manutenção e ao diagnóstico de processos. Aplicações críticas de controle rápido exigem uma rede e arquitetura dimensionadas especificamente para esse requisito.</p>
+                <h3>3.4.2 DISTÂNCIA MÁXIMA DOS SEGMENTOS</h3>
+                <ul>
+                    <li><strong>Ethernet sobre par trançado:</strong> em enlaces 100BASE-TX, o limite típico é de 100 m por canal/cabo entre equipamentos ativos, respeitando o padrão de cabeamento e a qualidade da instalação.</li>
+                    <li><strong>Fibra óptica:</strong> a distância depende do tipo de fibra, do transceptor óptico e do orçamento de potência do enlace. Pode ser de centenas de metros ou vários quilômetros, conforme a solução utilizada.</li>
+                    <li><strong>Extensão por switches:</strong> a rede pode ser ampliada por meio de switches e outros equipamentos Ethernet ativos. Cada novo enlace deve respeitar os limites do padrão físico empregado.</li>
+                </ul>
             </section>
 
             <section class="section-h3">
-                <h3>6.4.4 NÍVEL NA PIRÂMIDE DA AUTOMAÇÃO</h3>
-                <p><strong>Classificação:</strong> atua principalmente no nível 1, conectando transmissores, sensores e posicionadores de campo. Por meio dos módulos de entrada/saída e gateways, integra-se ao nível 2 de controle e pode fornecer informações ao nível 3 de supervisão e gerenciamento de ativos.</p>
-                <p><strong>Justificativa:</strong> o HART acrescenta dados digitais de diagnóstico e parametrização aos instrumentos analógicos existentes. O WirelessHART amplia essa capacidade para pontos em que a instalação de cabos é difícil ou economicamente desfavorável, encaminhando os dados ao sistema de controle ou de gestão por meio do gateway.</p>
+                <h3>3.4.3 DETERMINISMO E TEMPO DE CICLO</h3>
+                <p><strong>Classificação:</strong> o Modbus TCP é geralmente classificado como não determinístico para aplicações de tempo real estrito.</p>
+                <p><strong>Justificativa:</strong> embora o TCP garanta a entrega ordenada e confiável dos dados enquanto a conexão estiver operacional, a latência pode variar devido ao processamento do servidor, ao intervalo de consulta do cliente, ao tráfego concorrente, às filas dos switches, às retransmissões e ao comportamento do sistema operacional.</p>
+                <p><strong>Aplicação:</strong> é adequado para supervisão, leitura de instrumentos, parametrização e comandos de controle que toleram tempos de resposta variáveis, mas não é normalmente a escolha principal para sincronização de movimento ou ciclos de controle muito rápidos.</p>
+            </section>
+
+            <section class="section-h3">
+                <h3>3.4.4 NÍVEL NA PIRÂMIDE DA AUTOMAÇÃO</h3>
+                <p><strong>Classificação:</strong> o Modbus TCP é utilizado principalmente na integração entre o nível de controle e o nível de supervisão.</p>
+                <p><strong>Justificativa e aplicação:</strong> pode conectar CLPs, IHMs, SCADA, medidores e gateways, permitindo monitorar estados, ler variáveis de processo e enviar comandos. Também pode servir como caminho de integração com sistemas de gestão e IIoT por meio de gateways, mas sua utilização típica não é o controle de sinais de campo com requisitos de sincronização rígida.</p>
             </section>
         </section>
     </main>
@@ -215,7 +156,6 @@
     <footer>
         <p>by Arthur Furtado Machado &trade; &copy;</p>
     </footer>
-
 </body>
 
 </html>

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/style.css">
-    <title>HART | Sistemas de Redes</title>
+    <title>DeviceNet | Sistemas de Redes</title>
 </head>
 
 <body>
@@ -23,191 +23,136 @@
     </header>
 
     <main>
-        <h1>6. HART (PROTOCOLO E WIRELESSHART)</h1>
+        <h1>1. DEVICENET</h1>
 
         <section class="section-h2">
-            <h2>6.1 ESTRUTURA FÍSICA E CABEAMENTO</h2>
+            <h2>1.1 ESTRUTURA FÍSICA E CABEAMENTO</h2>
             <section class="section-h3">
-                <h3>6.1.1 HART NA INSTRUMENTAÇÃO DE PROCESSOS</h3>
-                <p>O HART (Highway Addressable Remote Transducer) é um protocolo de comunicação utilizado em instrumentos inteligentes de campo. Sua característica mais conhecida é permitir a transmissão simultânea de um sinal analógico de 4 a 20 mA e de informações digitais sobre o mesmo par de fios. Assim, a variável principal do processo continua disponível em formato analógico, enquanto dados adicionais podem ser acessados digitalmente.</p>
-                <p>A comunicação digital permite ler variáveis adicionais, estado do instrumento, diagnóstico, identificação e parâmetros de configuração. O protocolo é amplamente utilizado em transmissores e posicionadores de válvulas, além de ser integrado a sistemas de controle e ferramentas de gerenciamento de ativos.</p>
+                <h3>1.1.1 DEVICENET EM SISTEMAS DE AUTOMAÇÃO INDUSTRIAL</h3>
+                <p>A DeviceNet é uma tecnologia de comunicação industrial utilizada para interligar controladores, módulos de entradas e saídas, sensores, atuadores, partidas de motores, válvulas e outros dispositivos de campo. Sua aplicação deve considerar a infraestrutura física, o comportamento de transmissão, os requisitos de tempo e a integração com os dispositivos e controladores do processo.</p>
+                <p>A tecnologia foi desenvolvida sobre o barramento CAN e utiliza o Common Industrial Protocol (CIP) nas camadas superiores. Essa combinação permite transportar dados de controle, configuração e diagnóstico em uma mesma rede, reduzindo a quantidade de cabeamento individual entre o controlador e os equipamentos de campo (ODVA, 2021).</p>
             </section>
 
             <section class="section-h3">
-                <h3>6.1.2 HART COM FIO: MEIOS FÍSICOS E CABOS</h3>
+                <h3>1.1.2 MEIOS FÍSICOS E CABOS ADOTADOS</h3>
+                <p>A DeviceNet utiliza um cabo industrial próprio, normalmente formado por cinco condutores: um par trançado para comunicação, outro par para alimentação em corrente contínua e um condutor de dreno associado à blindagem. A separação dos pares permite transmitir dados e distribuir energia pelo mesmo conjunto de cabo, sem utilizar os mesmos condutores para as duas funções.</p>
                 <ul>
-                    <li><strong>Par trançado:</strong> o meio mais comum é o par de fios utilizado no circuito de corrente 4-20 mA. O cabo deve apresentar resistência e capacitância compatíveis com a quantidade de dispositivos, a carga e o comprimento do circuito.</li>
-                    <li><strong>Cabo blindado:</strong> pode ser utilizado em ambientes industriais para reduzir a influência de ruídos eletromagnéticos. A blindagem deve ser conectada conforme o projeto de instrumentação e as recomendações do fabricante.</li>
-                    <li><strong>Circuito de dois fios:</strong> o mesmo par conduz a corrente do sinal 4-20 mA, a comunicação digital FSK e, em transmissores compatíveis, a alimentação do instrumento.</li>
-                    <li><strong>Circuito de quatro fios:</strong> alguns instrumentos recebem alimentação separada, mantendo o par de sinal para a comunicação analógica e digital.</li>
+                    <li><strong>Par de comunicação:</strong> os condutores branco (CAN_H) e azul (CAN_L) formam o par diferencial utilizado pelo barramento CAN.</li>
+                    <li><strong>Par de alimentação:</strong> os condutores vermelho (V+) e preto (V-) distribuem, tipicamente, 24 Vcc aos dispositivos. A corrente permitida depende da seção e do tipo de cabo, do comprimento e das condições de instalação.</li>
+                    <li><strong>Blindagem e dreno:</strong> a blindagem metálica e o condutor de dreno ajudam a reduzir interferências eletromagnéticas. O cabo deve ser selecionado conforme o ambiente, a flexibilidade exigida e a corrente dos dispositivos.</li>
+                    <li><strong>Tipos de cabo:</strong> são utilizados cabos redondos grossos (thick), finos (thin) e cabos planos (flat). Os cabos grossos são normalmente aplicados como linha tronco em segmentos mais longos; os finos podem ser usados em ramais e derivações; e os planos permitem derivações por conectores de perfuração de isolamento (ODVA, 2021).</li>
                 </ul>
             </section>
 
             <section class="section-h3">
-                <h3>6.1.3 WIRELESSHART: MEIO DE TRANSMISSÃO E EQUIPAMENTOS</h3>
-                <p>O WirelessHART é uma extensão sem fio do protocolo HART, padronizada internacionalmente pela IEC 62591. Em vez de utilizar um par de fios para transportar a comunicação, os dispositivos trocam dados por radiofrequência e formam uma rede Mesh de campo. A comunicação entre a rede sem fio e o sistema de controle é realizada por um gateway.</p>
+                <h3>1.1.3 CONECTORES PADRONIZADOS E IDENTIFICAÇÃO</h3>
                 <ul>
-                    <li><strong>Instrumentos WirelessHART:</strong> instrumentos com rádio integrado que transmitem informações de processo e diagnóstico pela rede sem fio.</li>
-                    <li><strong>Adaptadores WirelessHART:</strong> podem conectar instrumentos HART existentes à rede sem fio, evitando a substituição imediata do instrumento de campo.</li>
-                    <li><strong>Gateway:</strong> faz a interface entre a rede WirelessHART e a rede da planta, encaminhando os dados para o sistema host, controlador ou aplicação de gerenciamento.</li>
-                    <li><strong>Gerenciador de rede (Network Manager):</strong> organiza a entrada dos dispositivos, o agendamento das comunicações, as rotas Mesh e a manutenção da rede. Pode estar integrado ao gateway ou a outro equipamento do sistema.</li>
+                    <li><strong>Conectores de borne/parafuso:</strong> utilizados em instalações com ligação fixa ou em dispositivos com grau de proteção mais baixo, incluindo soluções IP20.</li>
+                    <li><strong>Conectores Mini e Micro:</strong> conectores circulares industriais pré-moldados, com versões destinadas a ambientes que exigem maior proteção mecânica e contra ingresso de poeira e água, incluindo modelos IP67. A escolha depende da corrente, do tipo de cabo e do equipamento.</li>
+                    <li><strong>Conectores para cabo plano:</strong> utilizados para fazer derivações no cabo flat, frequentemente por contato de deslocamento de isolação (IDC), mantendo a continuidade da linha tronco.</li>
                 </ul>
+                <p>A identificação dos fios deve respeitar a convenção do sistema DeviceNet: branco para CAN_H, azul para CAN_L, vermelho para V+, preto para V- e dreno/blindagem para a referência de proteção. A pinagem e o tipo de conector devem ser conferidos no manual do fabricante (ODVA, 2003).</p>
             </section>
 
             <section class="section-h3">
-                <h3>6.1.4 CONECTORES PADRONIZADOS E IDENTIFICAÇÃO</h3>
-                <ul>
-                    <li><strong>Bornes de instrumentação:</strong> são usados para conectar os condutores do circuito 4-20 mA/HART aos transmissores, posicionadores e módulos de entrada e saída.</li>
-                    <li><strong>Terminais de teste e comunicação:</strong> pontos de conexão podem permitir a ligação de comunicadores portáteis ou modems HART sem interromper o circuito, respeitando a impedância necessária à comunicação.</li>
-                    <li><strong>Conectores do gateway:</strong> a conexão do gateway à rede de controle pode utilizar Ethernet RJ45, interfaces seriais ou outras conexões definidas pelo fabricante.</li>
-                    <li><strong>WirelessHART:</strong> não possui um conector físico universal para o enlace de rádio. Antenas integradas ou externas e conectores auxiliares dependem do projeto e do modelo do instrumento ou gateway.</li>
-                </ul>
-            </section>
-
-            <section class="section-h3">
-                <h3>6.1.5 TOPOLOGIAS SUPORTADAS</h3>
+                <h3>1.1.4 TOPOLOGIAS SUPORTADAS</h3>
                 <section class="section-h4">
-                    <h4>6.1.5.1 HART COM FIO: PONTO A PONTO E MULTIDROP</h4>
+                    <h4>1.1.4.1 TOPOLOGIA TRONCO-DERIVAÇÃO (TRUNKLINE-DROPLINE)</h4>
+                    <p>A topologia característica da DeviceNet é a tronco-derivação. Um cabo principal (tronco) percorre a instalação e recebe derivações (drops) que conectam os nós. As derivações podem ser individuais ou utilizar conectores de múltiplas portas, desde que os limites de comprimento e de corrente sejam respeitados.</p>
                     <ul>
-                        <li><strong>Ponto a ponto:</strong> um instrumento é conectado ao sistema por um circuito 4-20 mA. O valor analógico representa a variável principal e a comunicação digital HART ocorre simultaneamente sobre o mesmo par.</li>
-                        <li><strong>Multidrop:</strong> vários instrumentos compartilham um par de comunicação e são identificados por endereços individuais. Nessa configuração, a informação é transmitida digitalmente, e o sinal analógico de corrente deixa de representar individualmente a variável de cada instrumento.</li>
+                        <li><strong>Terminação do barramento:</strong> devem ser instalados resistores de terminação apropriados nas duas extremidades do tronco, tipicamente de 121 ohms, ligados entre CAN_H e CAN_L. A terminação reduz reflexões e deve ser posicionada nas extremidades elétricas da linha, não em cada ramal.</li>
+                        <li><strong>Limites dos ramais:</strong> cada derivação individual possui comprimento máximo de 6 m. O comprimento acumulado das derivações também é limitado e varia conforme a taxa de transmissão.</li>
+                        <li><strong>Expansão da rede:</strong> a topologia admite derivações e pontos de alimentação distribuídos, mas não deve ser convertida livremente em estrela com ramais longos, pois isso pode comprometer a integridade do sinal (ODVA, 2021).</li>
                     </ul>
                 </section>
-
-                <section class="section-h4">
-                    <h4>6.1.5.2 WIRELESSHART: TOPOLOGIA EM MALHA (MESH)</h4>
-                    <p>Na rede WirelessHART, os instrumentos podem encaminhar mensagens por meio de outros nós até alcançar o gateway. Essa comunicação multissalto permite contornar obstáculos e criar caminhos alternativos. A rede é auto-organizável, e o gerenciador seleciona rotas e horários de comunicação conforme a qualidade dos enlaces e a disponibilidade dos dispositivos.</p>
-                </section>
             </section>
         </section>
 
         <section class="section-h2">
-            <h2>6.2 INTERFACE ELÉTRICA E TRANSMISSÃO DE SINAIS</h2>
+            <h2>1.2 INTERFACE ELÉTRICA E TRANSMISSÃO DE SINAIS</h2>
             <section class="section-h3">
-                <h3>6.2.1 SINALIZAÇÃO DO HART COM FIO</h3>
-                <p>O HART com fio utiliza dois canais de informação simultâneos no mesmo circuito. O primeiro é o sinal analógico de corrente contínua de 4 a 20 mA, que representa a variável principal do processo. O segundo é o sinal digital modulado por FSK (Frequency Shift Keying), sobreposto ao circuito analógico.</p>
+                <h3>1.2.1 SINALIZAÇÃO E NÍVEIS ELÉTRICOS DO BARRAMENTO CAN</h3>
+                <p>A comunicação utiliza sinalização diferencial no par CAN_H/CAN_L. O receptor interpreta a diferença de tensão entre os dois condutores, e não um nível isolado em relação ao terra. Essa característica melhora a rejeição a ruídos que afetam os dois fios de maneira semelhante.</p>
                 <ul>
-                    <li><strong>Sinal analógico 4-20 mA:</strong> a corrente representa a variável medida ou comandada, com a escala definida pelo instrumento e pelo sistema de controle.</li>
-                    <li><strong>Modulação FSK Bell 202:</strong> utiliza duas frequências para representar os bits digitais: 1.200 Hz para o bit lógico 1 e 2.200 Hz para o bit lógico 0.</li>
-                    <li><strong>Taxa digital:</strong> a comunicação HART tradicional opera a 1.200 bit/s. O sinal FSK possui valor médio nulo, permitindo sua sobreposição sem alterar significativamente a leitura analógica de corrente contínua.</li>
+                    <li><strong>Estados lógicos:</strong> o barramento CAN utiliza os estados dominante e recessivo. O estado dominante representa o bit lógico 0 e prevalece sobre o recessivo, associado ao bit lógico 1, quando dois ou mais nós transmitem simultaneamente.</li>
+                    <li><strong>Transmissão diferencial:</strong> a informação é representada pela condição elétrica entre CAN_H e CAN_L. A implementação física e os limites de tensão devem seguir as especificações CAN e o projeto do transceptor de cada equipamento.</li>
+                    <li><strong>Alimentação em corrente contínua:</strong> a alimentação nominal do barramento é normalmente de 24 Vcc e utiliza o par V+/V-, separado do par de dados. Assim, energia e comunicação percorrem o mesmo cabo, mas por condutores distintos. A capacidade de corrente do tronco depende do cabo e pode chegar a 8 A em configurações compatíveis (ODVA, 2021).</li>
                 </ul>
             </section>
 
             <section class="section-h3">
-                <h3>6.2.2 SINALIZAÇÃO DO WIRELESSHART</h3>
-                <p>O WirelessHART utiliza a camada física de rádio de 2,4 GHz definida com base no IEEE 802.15.4. A transmissão emprega espalhamento espectral por sequência direta (DSSS) e modulação O-QPSK (Offset Quadrature Phase Shift Keying), adequada à comunicação de baixo consumo em redes de sensores.</p>
+                <h3>1.2.2 ALIMENTAÇÃO PELO BARRAMENTO</h3>
+                <p>Uma das principais características da DeviceNet é permitir alimentar dispositivos de campo e transmitir dados pelo mesmo cabo. Isso reduz a quantidade de cabos individuais e simplifica a instalação de sensores e atuadores de baixa potência. A fonte de 24 Vcc deve ser dimensionada considerando consumo total, queda de tensão, comprimento do tronco, derivações e limites de corrente do cabo.</p>
                 <ul>
-                    <li><strong>Faixa de frequência:</strong> 2,4 GHz na faixa ISM (Industrial, Scientific and Medical), compartilhada com outras tecnologias de rádio, conforme as regras regulatórias locais.</li>
-                    <li><strong>Canais:</strong> utiliza múltiplos canais de rádio e técnicas de salto de canal para distribuir as transmissões e reduzir os efeitos de interferências persistentes.</li>
-                    <li><strong>Taxa física nominal:</strong> a camada física IEEE 802.15.4 utilizada pelo WirelessHART oferece 250 kbit/s. A taxa útil da aplicação é inferior e depende do agendamento, do número de saltos e das informações de controle.</li>
+                    <li><strong>Alimentação externa:</strong> equipamentos de maior potência, como alguns acionamentos e válvulas, podem utilizar alimentação própria e consumir da DeviceNet apenas a comunicação. A interface física da rede deve manter a isolação exigida em relação aos circuitos internos do dispositivo.</li>
+                    <li><strong>Distribuição de fontes:</strong> pontos de alimentação adicionais podem ser empregados quando previstos no projeto, respeitando as regras de referência, proteção e dimensionamento. Não se deve interligar fontes sem verificar a compatibilidade da instalação.</li>
                 </ul>
             </section>
 
             <section class="section-h3">
-                <h3>6.2.3 ALIMENTAÇÃO PELO BARRAMENTO E ENERGIA DOS EQUIPAMENTOS</h3>
+                <h3>1.2.3 ISOLAÇÃO E PROTEÇÃO CONTRA RUÍDOS</h3>
                 <ul>
-                    <li><strong>HART com fio - transmissores de dois fios:</strong> a alimentação do instrumento e o sinal analógico/digital compartilham o mesmo circuito de corrente, desde que o transmissor seja projetado para essa configuração.</li>
-                    <li><strong>HART com fio - instrumentos de quatro fios:</strong> utilizam fonte de alimentação separada e mantêm o circuito de sinal para a comunicação.</li>
-                    <li><strong>WirelessHART:</strong> instrumentos sem fio frequentemente utilizam baterias ou fontes locais. Alguns adaptadores podem obter energia do equipamento ou do circuito associado, conforme o modelo; a comunicação de rádio não fornece alimentação pelo ar.</li>
-                </ul>
-            </section>
-
-            <section class="section-h3">
-                <h3>6.2.4 ISOLAÇÃO E PROTEÇÃO CONTRA RUÍDOS</h3>
-                <ul>
-                    <li><strong>HART com fio:</strong> utilizar cabo de instrumentação adequado, blindagem e aterramento conforme o projeto, verificando a resistência e a capacitância do circuito para não comprometer o sinal FSK.</li>
-                    <li><strong>Resistência de comunicação:</strong> o circuito precisa apresentar impedância suficiente para que o sinal digital HART seja detectado. Em muitas instalações é utilizado um resistor de carga em torno de 250 ohms, desde que a fonte, o transmissor e a entrada analógica permitam essa condição.</li>
-                    <li><strong>Separação e isolação:</strong> barreiras e isoladores podem ser necessários para separar circuitos, reduzir interferências e atender requisitos de áreas classificadas.</li>
-                    <li><strong>WirelessHART:</strong> a robustez da comunicação é aumentada pelo salto de canais, pela diversidade de rotas Mesh, pela sincronização e pela verificação das transmissões.</li>
-                    <li><strong>Segurança digital:</strong> o WirelessHART utiliza mecanismos de autenticação e criptografia para proteger a entrada dos dispositivos e a confidencialidade e integridade das mensagens. Chaves e identificadores da rede devem ser configurados corretamente.</li>
-                </ul>
-                <p>A presença de comunicação HART ou WirelessHART não torna automaticamente um instrumento adequado para área classificada. Nesses locais, é necessário selecionar equipamentos e acessórios com certificação de proteção apropriada à zona, ao grupo de gás ou poeira e à classe de temperatura aplicáveis.</p>
-            </section>
-        </section>
-
-        <section class="section-h2">
-            <h2>6.3 PROTOCOLO DE ENLACE E ACESSO AO MEIO (MAC)</h2>
-            <section class="section-h3">
-                <h3>6.3.1 MÉTODO DE ACESSO AO MEIO NO HART COM FIO</h3>
-                <ul>
-                    <li><strong>Mestre-escravo:</strong> a comunicação tradicional é iniciada por um mestre, que envia uma solicitação ao instrumento. O dispositivo responde ao comando recebido, seguindo o modelo solicitação-resposta.</li>
-                    <li><strong>Mestres primário e secundário:</strong> o protocolo permite a presença de dois mestres no mesmo circuito, como um sistema de controle e um comunicador portátil de manutenção, respeitando as regras de acesso.</li>
-                    <li><strong>Modo Burst:</strong> opcionalmente, o mestre pode configurar o instrumento para transmitir respostas periodicamente, reduzindo a necessidade de uma solicitação individual a cada atualização.</li>
-                </ul>
-            </section>
-
-            <section class="section-h3">
-                <h3>6.3.2 ESTRUTURA DO QUADRO E MENSAGEM HART</h3>
-                <p>As mensagens HART são transmitidas em sequência serial e contêm informações para sincronização, identificação do instrumento, comando e dados. A estrutura varia conforme o formato do endereço e o tipo de mensagem, mas normalmente inclui os seguintes campos:</p>
-                <ul>
-                    <li><strong>Preâmbulo:</strong> sequência de bytes utilizada para sincronizar o receptor e permitir a identificação do início da mensagem.</li>
-                    <li><strong>Start delimiter:</strong> indica o tipo de mensagem e o formato do endereço utilizado.</li>
-                    <li><strong>Endereço:</strong> identifica o instrumento de destino ou a origem da resposta. Pode utilizar formato curto ou longo, conforme o tipo de mensagem.</li>
-                    <li><strong>Command:</strong> identifica a operação solicitada pelo mestre, como leitura de variável, consulta de estado ou alteração de parâmetro.</li>
-                    <li><strong>Byte count:</strong> informa o tamanho da parte de dados e dos campos correspondentes da mensagem.</li>
-                    <li><strong>Status:</strong> presente nas respostas, apresenta informações sobre o estado da comunicação e do dispositivo.</li>
-                    <li><strong>Data:</strong> transporta valores de processo, parâmetros, informações de identificação ou diagnóstico.</li>
-                    <li><strong>Checksum:</strong> permite verificar a integridade da mensagem recebida. A comunicação também utiliza paridade ímpar em cada caractere serial.</li>
-                </ul>
-            </section>
-
-            <section class="section-h3">
-                <h3>6.3.3 MÉTODO DE ACESSO AO MEIO NO WIRELESSHART</h3>
-                <ul>
-                    <li><strong>TDMA (Time Division Multiple Access):</strong> divide o tempo em intervalos organizados, normalmente slots de 10 ms, atribuindo horários específicos para transmissão e recepção dos dispositivos.</li>
-                    <li><strong>Sincronização temporal:</strong> os dispositivos mantêm seus relógios sincronizados com a rede para executar as transmissões nos intervalos programados.</li>
-                    <li><strong>Salto de canais (Channel Hopping):</strong> a frequência utilizada pode mudar entre transmissões, reduzindo a dependência de um único canal e ajudando a contornar interferências.</li>
-                    <li><strong>Mesh e roteamento:</strong> os dispositivos podem encaminhar mensagens por diferentes caminhos até o gateway. O gerenciador de rede organiza as rotas e os horários de transmissão.</li>
-                </ul>
-            </section>
-
-            <section class="section-h3">
-                <h3>6.3.4 ESTRUTURA DO QUADRO E MENSAGEM WIRELESSHART</h3>
-                <p>O WirelessHART utiliza uma estrutura de comunicação em camadas, combinando a sinalização física baseada no IEEE 802.15.4 com os campos de enlace e rede definidos pelo protocolo. De forma geral, a transmissão inclui sincronização física, informações de controle, endereçamento, dados da mensagem e verificação de integridade.</p>
-                <ul>
-                    <li><strong>Preâmbulo e delimitador físico:</strong> auxiliam a sincronização do rádio receptor e a identificação do início do pacote.</li>
-                    <li><strong>Cabeçalho de enlace:</strong> contém informações de controle e identificação necessárias para a entrega do quadro entre dispositivos próximos.</li>
-                    <li><strong>Endereçamento e roteamento:</strong> permitem identificar os dispositivos e encaminhar mensagens por um ou mais saltos até o destino ou gateway.</li>
-                    <li><strong>Dados:</strong> transportam variáveis de processo, comandos, estado do instrumento e informações de gerenciamento da rede.</li>
-                    <li><strong>Verificação e segurança:</strong> mecanismos de integridade e autenticação ajudam a detectar alterações e impedir a aceitação de mensagens não autorizadas.</li>
+                    <li><strong>Isolação da interface:</strong> a camada física da DeviceNet deve ser isolada opticamente em relação ao restante do dispositivo conforme as recomendações ODVA. Essa separação ajuda a proteger a eletrônica interna e permite compartilhar o barramento com equipamentos que possuem alimentação externa (ODVA, 2021).</li>
+                    <li><strong>Blindagem e aterramento:</strong> a blindagem e o condutor de dreno devem ser instalados e aterrados conforme o manual de cabeamento e o projeto de compatibilidade eletromagnética. A continuidade da blindagem, a referência equipotencial e a prevenção de correntes indesejadas são fundamentais.</li>
+                    <li><strong>Instalação industrial:</strong> o cabo de comunicação deve ser afastado de condutores de potência e de fontes intensas de interferência, com cruzamentos em ângulo próximo de 90 graus quando necessário. Fontes, dispositivos de proteção e derivações devem seguir as orientações dos fabricantes.</li>
+                    <li><strong>Áreas classificadas:</strong> DeviceNet padrão não significa, por si só, que a instalação seja intrinsecamente segura. Em áreas classificadas, são necessários equipamentos, barreiras e métodos de proteção certificados para a zona e o grupo de gás/poeira aplicáveis.</li>
                 </ul>
             </section>
         </section>
 
         <section class="section-h2">
-            <h2>6.4 PARÂMETROS OPERACIONAIS E DESEMPENHO</h2>
+            <h2>1.3 PROTOCOLO DE ENLACE E ACESSO AO MEIO (MAC)</h2>
             <section class="section-h3">
-                <h3>6.4.1 TAXA DE TRANSMISSÃO (BIT RATE / BAUD RATE)</h3>
+                <h3>1.3.1 MÉTODO DE ACESSO AO MEIO</h3>
+                <p>A DeviceNet utiliza a camada de enlace CAN, com detecção de portadora e arbitragem bit a bit não destrutiva. Os nós verificam o estado do barramento antes de transmitir. Se mais de um nó iniciar uma mensagem ao mesmo tempo, os identificadores participam da arbitragem e apenas a mensagem de maior prioridade continua, sem que o quadro vencedor seja corrompido.</p>
                 <ul>
-                    <li><strong>HART com fio:</strong> 1.200 bit/s para o canal digital FSK, em paralelo ao sinal analógico de 4-20 mA.</li>
-                    <li><strong>WirelessHART:</strong> 250 kbit/s de taxa nominal da camada física de rádio. A taxa útil para dados de aplicação é menor devido aos quadros de controle, agendamento, confirmações, segurança e encaminhamento Mesh.</li>
+                    <li><strong>Arbitragem por prioridade:</strong> durante o campo de arbitragem, um nó que transmite um bit recessivo e observa um bit dominante interrompe sua transmissão e passa a receber. Em identificadores CAN padrão de 11 bits, o identificador numericamente menor possui maior prioridade.</li>
+                    <li><strong>Acesso compartilhado:</strong> todos os nós compartilham o mesmo barramento físico. O mecanismo CAN coordena o acesso sem colisões destrutivas, mas a espera de mensagens de prioridade menor depende do tráfego e das prioridades configuradas.</li>
                 </ul>
             </section>
 
             <section class="section-h3">
-                <h3>6.4.2 DISTÂNCIA MÁXIMA E COBERTURA</h3>
-                <section class="section-h4">
-                    <h4>6.4.2.1 HART COM FIO</h4>
-                    <p>A distância máxima depende da resistência, capacitância e configuração do circuito. Como referência técnica, a documentação HART apresenta até aproximadamente 3.048 metros para um par trançado e cerca de 1.524 metros quando há múltiplos pares no cabo. Esses limites devem ser verificados com os dados reais do cabo, da carga e dos equipamentos instalados.</p>
-                </section>
+                <h3>1.3.2 ESTRUTURA DO QUADRO E MENSAGEM</h3>
+                <p>A DeviceNet utiliza principalmente o quadro de dados CAN. A estrutura contém campos de sincronização, arbitragem, controle, dados, verificação de erros e encerramento. O identificador de 11 bits também participa da identificação e da prioridade da mensagem.</p>
+                <ul>
+                    <li><strong>Início e arbitragem:</strong> o quadro começa pelo Start of Frame e contém o campo de arbitragem, com identificador CAN de 11 bits e bit RTR. Esses campos permitem coordenar o acesso e indicar a prioridade.</li>
+                    <li><strong>Controle e dados:</strong> o campo de controle informa o comprimento da carga útil. O campo de dados transporta de 0 a 8 bytes por quadro CAN clássico. Mensagens CIP maiores utilizam fragmentação em vários quadros sucessivos.</li>
+                    <li><strong>Verificação e confirmação:</strong> o quadro inclui CRC de 15 bits, delimitadores, slot de ACK e campo End of Frame. O receptor verifica erros e confirma a recepção; o CAN também possui mecanismos de retransmissão e confinamento de falhas (ODVA, 2021).</li>
+                    <li><strong>Mensagens CIP:</strong> mensagens explícitas são normalmente utilizadas em configuração, diagnóstico e solicitações de leitura/escrita não críticas em tempo. Mensagens implícitas, também chamadas I/O, transportam dados de processo em tempo real e podem operar por consulta, ciclo ou mudança de estado.</li>
+                </ul>
+            </section>
+        </section>
 
-                <section class="section-h4">
-                    <h4>6.4.2.2 WIRELESSHART</h4>
-                    <p>O alcance por rádio depende da potência, antena, obstáculos, condições de propagação e interferências presentes na área. Como referência de engenharia, pode-se considerar aproximadamente 200 metros entre dispositivos em condições adequadas, mas esse valor não é um limite universal. A rede Mesh amplia a cobertura total por meio de múltiplos saltos entre instrumentos e repetidores até o gateway.</p>
-                </section>
+        <section class="section-h2">
+            <h2>1.4 PARÂMETROS OPERACIONAIS E DESEMPENHO</h2>
+            <section class="section-h3">
+                <h3>1.4.1 TAXA DE TRANSMISSÃO</h3>
+                <p>A DeviceNet oferece três taxas padronizadas: 125 kbit/s, 250 kbit/s e 500 kbit/s. A escolha influencia diretamente o comprimento permitido do tronco e das derivações. Taxas maiores permitem maior velocidade de atualização, mas reduzem a distância máxima suportada pelo segmento.</p>
             </section>
 
             <section class="section-h3">
-                <h3>6.4.3 DETERMINISMO E TEMPO DE CICLO</h3>
-                <p><strong>Classificação do HART com fio:</strong> não é determinístico para aplicações de tempo real estrito. A comunicação por solicitação e resposta, somada à taxa digital de 1.200 bit/s, pode tornar previsível a leitura em uma configuração definida, mas não garante ciclos curtos e fixos.</p>
-                <p><strong>Classificação do WirelessHART:</strong> oferece comunicação agendada e mais previsível por utilizar TDMA sincronizado. Essa previsibilidade é condicionada ao intervalo configurado, à quantidade de saltos, às rotas e às condições de rádio; portanto, não equivale a uma garantia universal de tempo real rígido.</p>
-                <p><strong>Aplicação:</strong> as duas tecnologias são voltadas principalmente à instrumentação, ao monitoramento de variáveis, à manutenção e ao diagnóstico de processos. Aplicações críticas de controle rápido exigem uma rede e arquitetura dimensionadas especificamente para esse requisito.</p>
+                <h3>1.4.2 DISTÂNCIA MÁXIMA DOS SEGMENTOS</h3>
+                <p>Os limites dependem do tipo de cabo e da taxa selecionada. Os valores abaixo representam os comprimentos máximos de rede indicados pela ODVA para as configurações de cabo correspondentes (ODVA, 2021):</p>
+                <ul>
+                    <li><strong>Cabo redondo grosso (thick):</strong> 500 m a 125 kbit/s; 250 m a 250 kbit/s; e 100 m a 500 kbit/s.</li>
+                    <li><strong>Cabo redondo fino (thin):</strong> 100 m para 125, 250 e 500 kbit/s.</li>
+                    <li><strong>Cabo plano (flat):</strong> 420 m a 125 kbit/s; 200 m a 250 kbit/s; e 75 m a 500 kbit/s.</li>
+                    <li><strong>Derivações:</strong> comprimento máximo de cada drop de 6 m. O comprimento acumulado máximo é de 156 m a 125 kbit/s, 78 m a 250 kbit/s e 39 m a 500 kbit/s.</li>
+                    <li><strong>Quantidade de nós:</strong> a rede suporta até 64 nós por segmento DeviceNet, considerando os limites de endereçamento e de projeto.</li>
+                </ul>
             </section>
 
             <section class="section-h3">
-                <h3>6.4.4 NÍVEL NA PIRÂMIDE DA AUTOMAÇÃO</h3>
-                <p><strong>Classificação:</strong> atua principalmente no nível 1, conectando transmissores, sensores e posicionadores de campo. Por meio dos módulos de entrada/saída e gateways, integra-se ao nível 2 de controle e pode fornecer informações ao nível 3 de supervisão e gerenciamento de ativos.</p>
-                <p><strong>Justificativa:</strong> o HART acrescenta dados digitais de diagnóstico e parametrização aos instrumentos analógicos existentes. O WirelessHART amplia essa capacidade para pontos em que a instalação de cabos é difícil ou economicamente desfavorável, encaminhando os dados ao sistema de controle ou de gestão por meio do gateway.</p>
+                <h3>1.4.3 DETERMINISMO E TEMPO DE CICLO</h3>
+                <p><strong>Classificação:</strong> a DeviceNet pode ser determinística para a comunicação de I/O consultada em uma configuração definida, desde que a rede seja corretamente dimensionada e configurada.</p>
+                <p><strong>Justificativa:</strong> a DeviceNet pode oferecer comportamento previsível para comunicação de entradas e saídas, desde que a rede seja corretamente dimensionada e configurada. O CAN possui arbitragem por prioridade e a ODVA descreve o modo de I/O consultado como determinístico para uma configuração definida.</p>
+                <p><strong>Tempo de atualização:</strong> não é um valor universal: depende da taxa de bits, quantidade de nós, tamanho das mensagens, prioridade dos identificadores, tipo de conexão e carga total do barramento. Mensagens de prioridade menor podem aguardar enquanto mensagens prioritárias ocupam o meio.</p>
+            </section>
+
+            <section class="section-h3">
+                <h3>1.4.4 NÍVEL NA PIRÂMIDE DA AUTOMAÇÃO</h3>
+                <p><strong>Classificação:</strong> a DeviceNet atua principalmente nos níveis de campo e de controle da pirâmide da automação.</p>
+                <p><strong>Justificativa e aplicação:</strong> é utilizada para conectar sensores, atuadores, módulos de I/O e dispositivos inteligentes a CLPs e controladores. Sua função mais característica é a comunicação distribuída entre o controlador e os equipamentos instalados no chão de fábrica.</p>
             </section>
         </section>
     </main>
@@ -215,7 +160,6 @@
     <footer>
         <p>by Arthur Furtado Machado &trade; &copy;</p>
     </footer>
-
 </body>
 
 </html>

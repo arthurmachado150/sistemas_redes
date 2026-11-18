@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/style.css">
-    <title>HART | Sistemas de Redes</title>
+    <title>CC-Link | Sistemas de Redes</title>
 </head>
 
 <body>
@@ -23,191 +23,207 @@
     </header>
 
     <main>
-        <h1>6. HART (PROTOCOLO E WIRELESSHART)</h1>
+        <h1>1. CC-LINK (CONTROL &amp; COMMUNICATION LINK)</h1>
 
         <section class="section-h2">
-            <h2>6.1 ESTRUTURA FÍSICA E CABEAMENTO</h2>
+            <h2>1.1 ESTRUTURA FÍSICA E CABEAMENTO</h2>
             <section class="section-h3">
-                <h3>6.1.1 HART NA INSTRUMENTAÇÃO DE PROCESSOS</h3>
-                <p>O HART (Highway Addressable Remote Transducer) é um protocolo de comunicação utilizado em instrumentos inteligentes de campo. Sua característica mais conhecida é permitir a transmissão simultânea de um sinal analógico de 4 a 20 mA e de informações digitais sobre o mesmo par de fios. Assim, a variável principal do processo continua disponível em formato analógico, enquanto dados adicionais podem ser acessados digitalmente.</p>
-                <p>A comunicação digital permite ler variáveis adicionais, estado do instrumento, diagnóstico, identificação e parâmetros de configuração. O protocolo é amplamente utilizado em transmissores e posicionadores de válvulas, além de ser integrado a sistemas de controle e ferramentas de gerenciamento de ativos.</p>
+                <h3>1.1.1 CC-LINK EM REDES INDUSTRIAIS</h3>
+                <p>O CC-Link (Control &amp; Communication Link) é uma rede de campo industrial aberta, desenvolvida para a comunicação entre controladores programáveis, módulos de entradas e saídas remotas, inversores de frequência, servoacionamentos, interfaces homem-máquina e outros dispositivos de automação. Sua função é transportar dados de controle e de diagnóstico entre equipamentos distribuídos na máquina ou na linha de produção, reduzindo a quantidade de ligações individuais entre o controlador e cada dispositivo.</p>
+                <p>Na versão clássica, o CC-Link utiliza uma estrutura de barramento serial baseada em RS-485, com uma estação mestre que coordena a comunicação com as estações conectadas. A rede trabalha principalmente com troca cíclica de dados de entrada e saída, podendo também realizar comunicação transitória para troca de mensagens sob demanda, conforme o tipo de estação e os recursos implementados.</p>
+                <p>É importante diferenciar o CC-Link clássico das tecnologias posteriores da mesma família. O CC-Link IE Field e o CC-Link IE TSN utilizam infraestrutura Ethernet industrial e possuem características próprias de velocidade, cabeamento e topologia. Neste relatório, os parâmetros de cabeamento serial, RS-485, taxas de até 10 Mbps e distâncias de até 1.200 metros referem-se ao CC-Link clássico; as variantes Ethernet serão identificadas apenas para comparação.</p>
             </section>
 
             <section class="section-h3">
-                <h3>6.1.2 HART COM FIO: MEIOS FÍSICOS E CABOS</h3>
-                <ul>
-                    <li><strong>Par trançado:</strong> o meio mais comum é o par de fios utilizado no circuito de corrente 4-20 mA. O cabo deve apresentar resistência e capacitância compatíveis com a quantidade de dispositivos, a carga e o comprimento do circuito.</li>
-                    <li><strong>Cabo blindado:</strong> pode ser utilizado em ambientes industriais para reduzir a influência de ruídos eletromagnéticos. A blindagem deve ser conectada conforme o projeto de instrumentação e as recomendações do fabricante.</li>
-                    <li><strong>Circuito de dois fios:</strong> o mesmo par conduz a corrente do sinal 4-20 mA, a comunicação digital FSK e, em transmissores compatíveis, a alimentação do instrumento.</li>
-                    <li><strong>Circuito de quatro fios:</strong> alguns instrumentos recebem alimentação separada, mantendo o par de sinal para a comunicação analógica e digital.</li>
-                </ul>
-            </section>
-
-            <section class="section-h3">
-                <h3>6.1.3 WIRELESSHART: MEIO DE TRANSMISSÃO E EQUIPAMENTOS</h3>
-                <p>O WirelessHART é uma extensão sem fio do protocolo HART, padronizada internacionalmente pela IEC 62591. Em vez de utilizar um par de fios para transportar a comunicação, os dispositivos trocam dados por radiofrequência e formam uma rede Mesh de campo. A comunicação entre a rede sem fio e o sistema de controle é realizada por um gateway.</p>
-                <ul>
-                    <li><strong>Instrumentos WirelessHART:</strong> instrumentos com rádio integrado que transmitem informações de processo e diagnóstico pela rede sem fio.</li>
-                    <li><strong>Adaptadores WirelessHART:</strong> podem conectar instrumentos HART existentes à rede sem fio, evitando a substituição imediata do instrumento de campo.</li>
-                    <li><strong>Gateway:</strong> faz a interface entre a rede WirelessHART e a rede da planta, encaminhando os dados para o sistema host, controlador ou aplicação de gerenciamento.</li>
-                    <li><strong>Gerenciador de rede (Network Manager):</strong> organiza a entrada dos dispositivos, o agendamento das comunicações, as rotas Mesh e a manutenção da rede. Pode estar integrado ao gateway ou a outro equipamento do sistema.</li>
-                </ul>
-            </section>
-
-            <section class="section-h3">
-                <h3>6.1.4 CONECTORES PADRONIZADOS E IDENTIFICAÇÃO</h3>
-                <ul>
-                    <li><strong>Bornes de instrumentação:</strong> são usados para conectar os condutores do circuito 4-20 mA/HART aos transmissores, posicionadores e módulos de entrada e saída.</li>
-                    <li><strong>Terminais de teste e comunicação:</strong> pontos de conexão podem permitir a ligação de comunicadores portáteis ou modems HART sem interromper o circuito, respeitando a impedância necessária à comunicação.</li>
-                    <li><strong>Conectores do gateway:</strong> a conexão do gateway à rede de controle pode utilizar Ethernet RJ45, interfaces seriais ou outras conexões definidas pelo fabricante.</li>
-                    <li><strong>WirelessHART:</strong> não possui um conector físico universal para o enlace de rádio. Antenas integradas ou externas e conectores auxiliares dependem do projeto e do modelo do instrumento ou gateway.</li>
-                </ul>
-            </section>
-
-            <section class="section-h3">
-                <h3>6.1.5 TOPOLOGIAS SUPORTADAS</h3>
+                <h3>1.1.2 MEIO DE TRANSMISSÃO E CABEAMENTO ADOTADO</h3>
                 <section class="section-h4">
-                    <h4>6.1.5.1 HART COM FIO: PONTO A PONTO E MULTIDROP</h4>
+                    <h4>1.1.2.1 CABO DEDICADO CC-LINK</h4>
+                    <p>O CC-Link clássico utiliza um cabo dedicado de três condutores em par trançado, com blindagem metálica. A especificação da versão 1.10 indica condutores de aproximadamente 20 AWG, impedância característica nominal de 110 Ω e construção adequada à transmissão diferencial em ambiente industrial. Não se deve substituir esse cabo livremente por um cabo Ethernet UTP comum, pois a impedância, a capacitância, a atenuação e a construção do cabo influenciam diretamente a qualidade do sinal e o comprimento permitido do segmento.</p>
                     <ul>
-                        <li><strong>Ponto a ponto:</strong> um instrumento é conectado ao sistema por um circuito 4-20 mA. O valor analógico representa a variável principal e a comunicação digital HART ocorre simultaneamente sobre o mesmo par.</li>
-                        <li><strong>Multidrop:</strong> vários instrumentos compartilham um par de comunicação e são identificados por endereços individuais. Nessa configuração, a informação é transmitida digitalmente, e o sinal analógico de corrente deixa de representar individualmente a variável de cada instrumento.</li>
+                        <li><strong>Par de comunicação DA/DB:</strong> conduz os sinais diferenciais de dados entre as estações. A identificação usual do cabo versão 1.10 associa o condutor azul ao terminal DA e o branco ao terminal DB.</li>
+                        <li><strong>Condutor DG:</strong> atua como referência de comunicação entre os equipamentos e é normalmente identificado pela cor amarela no cabo dedicado.</li>
+                        <li><strong>Blindagem (SLD):</strong> envolve os condutores e ajuda a reduzir a influência de interferências eletromagnéticas produzidas por motores, contatores, inversores e cabos de potência próximos.</li>
                     </ul>
                 </section>
-
                 <section class="section-h4">
-                    <h4>6.1.5.2 WIRELESSHART: TOPOLOGIA EM MALHA (MESH)</h4>
-                    <p>Na rede WirelessHART, os instrumentos podem encaminhar mensagens por meio de outros nós até alcançar o gateway. Essa comunicação multissalto permite contornar obstáculos e criar caminhos alternativos. A rede é auto-organizável, e o gerenciador seleciona rotas e horários de comunicação conforme a qualidade dos enlaces e a disponibilidade dos dispositivos.</p>
+                    <h4>1.1.2.2 CONECTORES E TERMINAIS PADRONIZADOS</h4>
+                    <p>Diferentemente de redes Ethernet que normalmente utilizam conectores RJ45, o CC-Link clássico costuma ser conectado por bornes de parafuso ou blocos de terminais presentes nos módulos mestres e remotos. A forma física do conector pode variar conforme o fabricante do equipamento, mas os sinais devem respeitar a identificação funcional da rede:</p>
+                    <ul>
+                        <li><strong>DA (Data A):</strong> terminal de uma das linhas diferenciais de comunicação; no cabo CC-Link versão 1.10, normalmente corresponde ao condutor azul.</li>
+                        <li><strong>DB (Data B):</strong> terminal da outra linha diferencial; normalmente corresponde ao condutor branco.</li>
+                        <li><strong>DG (Data Ground):</strong> referência de comunicação, normalmente ligada ao condutor amarelo.</li>
+                        <li><strong>SLD (Shield):</strong> terminal destinado à conexão da blindagem do cabo. Alguns equipamentos também apresentam um terminal FG (Frame Ground), utilizado para aterramento funcional do equipamento e da instalação.</li>
+                    </ul>
+                    <p>A identificação dos terminais deve ser conferida no manual do módulo utilizado, pois a disposição física, o tipo de borne e as instruções de aterramento podem variar entre fabricantes e modelos.</p>
+                </section>
+                <section class="section-h4">
+                    <h4>1.1.2.3 TERMINAÇÃO E REGRAS DE INSTALAÇÃO</h4>
+                    <p>O barramento deve receber resistores de terminação nas duas extremidades físicas da linha principal. Esses resistores reduzem as reflexões do sinal e ajudam a manter a integridade da comunicação. Para instalações com cabo CC-Link versão 1.10, a especificação de referência utiliza terminação de 110 Ω; outros cabos ou versões podem exigir valores diferentes, por isso a resistência indicada pelo fabricante do cabo e pelo manual do equipamento deve ser respeitada.</p>
+                    <ul>
+                        <li><strong>Posicionamento:</strong> os resistores devem ser instalados somente nas duas extremidades do barramento principal, e não em todas as estações intermediárias.</li>
+                        <li><strong>Continuidade do cabo:</strong> as ligações devem manter a correspondência DA com DA, DB com DB, DG com DG e a continuidade da blindagem, evitando inversões e derivações improvisadas.</li>
+                        <li><strong>Derivações:</strong> ramificações em T podem ser possíveis em configurações específicas e com limites próprios de velocidade, comprimento e quantidade de dispositivos. Elas não devem ser tratadas como autorização para montar qualquer estrela passiva.</li>
+                    </ul>
+                </section>
+            </section>
+
+            <section class="section-h3">
+                <h3>1.1.3 TOPOLOGIAS SUPORTADAS</h3>
+                <section class="section-h4">
+                    <h4>1.1.3.1 TOPOLOGIA EM BARRAMENTO LINEAR (BUS)</h4>
+                    <p>A topologia característica do CC-Link clássico é o barramento linear. O cabo principal percorre a instalação e as estações são conectadas ao longo da linha, com o mestre em uma das posições previstas pelo projeto. Os resistores de terminação ficam nas duas extremidades do segmento. Essa organização reduz a quantidade de cabeamento e permite conectar vários equipamentos ao mesmo meio físico.</p>
+                    <ul>
+                        <li><strong>Vantagem:</strong> a comunicação compartilhada simplifica a ligação entre o controlador e os dispositivos distribuídos, diminuindo a necessidade de cabos individuais para cada sinal de entrada e saída.</li>
+                        <li><strong>Limitação:</strong> uma falha ou interrupção no cabo principal pode afetar a comunicação com várias estações. Por isso, a instalação, a terminação e a proteção mecânica do cabo são pontos importantes para a confiabilidade da rede.</li>
+                    </ul>
+                </section>
+                <section class="section-h4">
+                    <h4>1.1.3.2 DERIVAÇÕES E REPETIDORES</h4>
+                    <p>Alguns projetos permitem derivações em T, repetidores elétricos ou repetidores ópticos para adaptar a rede à disposição física da planta ou ampliar o alcance. Esses recursos dependem de componentes próprios e de regras de instalação específicas. A utilização de derivações pode restringir as taxas de transmissão e os comprimentos admitidos, enquanto repetidores dividem a rede em segmentos e exigem dimensionamento conforme o manual do fabricante.</p>
+                </section>
+                <section class="section-h4">
+                    <h4>1.1.3.3 DIFERENÇA EM RELAÇÃO ÀS TOPOLOGIAS CC-LINK IE</h4>
+                    <p>As variantes CC-Link IE Field e CC-Link IE TSN oferecem topologias Ethernet como linha, estrela, combinações de linha e estrela e anel, conforme a versão e os equipamentos. Elas utilizam cabos Ethernet industriais, como par trançado blindado de categoria 5e ou superior, conectores RJ45 ou M12 e enlaces com distância típica de até 100 metros entre nós em cobre. Essas opções não devem ser atribuídas ao CC-Link clássico, cuja topologia de referência é o barramento serial.</p>
                 </section>
             </section>
         </section>
 
         <section class="section-h2">
-            <h2>6.2 INTERFACE ELÉTRICA E TRANSMISSÃO DE SINAIS</h2>
+            <h2>1.2 INTERFACE ELÉTRICA E TRANSMISSÃO DE SINAIS</h2>
             <section class="section-h3">
-                <h3>6.2.1 SINALIZAÇÃO DO HART COM FIO</h3>
-                <p>O HART com fio utiliza dois canais de informação simultâneos no mesmo circuito. O primeiro é o sinal analógico de corrente contínua de 4 a 20 mA, que representa a variável principal do processo. O segundo é o sinal digital modulado por FSK (Frequency Shift Keying), sobreposto ao circuito analógico.</p>
+                <h3>1.2.1 SINALIZAÇÃO E NÍVEIS ELÉTRICOS</h3>
+                <p>A camada física do CC-Link clássico é compatível com a interface EIA/TIA-485 (RS-485), que utiliza transmissão diferencial por dois condutores de sinal. A informação é representada pela diferença de tensão entre DA e DB, em vez de depender da tensão de um único fio em relação ao terra. Essa característica proporciona maior rejeição a ruídos comuns aos dois condutores, sendo adequada a instalações industriais com interferências eletromagnéticas.</p>
                 <ul>
-                    <li><strong>Sinal analógico 4-20 mA:</strong> a corrente representa a variável medida ou comandada, com a escala definida pelo instrumento e pelo sistema de controle.</li>
-                    <li><strong>Modulação FSK Bell 202:</strong> utiliza duas frequências para representar os bits digitais: 1.200 Hz para o bit lógico 1 e 2.200 Hz para o bit lógico 0.</li>
-                    <li><strong>Taxa digital:</strong> a comunicação HART tradicional opera a 1.200 bit/s. O sinal FSK possui valor médio nulo, permitindo sua sobreposição sem alterar significativamente a leitura analógica de corrente contínua.</li>
+                    <li><strong>Transmissão diferencial:</strong> o transmissor altera a polaridade do sinal entre as linhas DA e DB para representar os estados digitais. O receptor interpreta a diferença entre as duas linhas, o que melhora a imunidade a ruídos induzidos de forma semelhante nos condutores.</li>
+                    <li><strong>Codificação NRZI:</strong> o CC-Link utiliza Non-Return-to-Zero Inverted (NRZI) na codificação da sequência de bits, conforme a especificação do protocolo.</li>
+                    <li><strong>Sincronização:</strong> a comunicação utiliza sincronização por quadro, permitindo que as estações identifiquem os limites das unidades transmitidas e acompanhem o fluxo de dados.</li>
                 </ul>
             </section>
 
             <section class="section-h3">
-                <h3>6.2.2 SINALIZAÇÃO DO WIRELESSHART</h3>
-                <p>O WirelessHART utiliza a camada física de rádio de 2,4 GHz definida com base no IEEE 802.15.4. A transmissão emprega espalhamento espectral por sequência direta (DSSS) e modulação O-QPSK (Offset Quadrature Phase Shift Keying), adequada à comunicação de baixo consumo em redes de sensores.</p>
+                <h3>1.2.2 ALIMENTAÇÃO PELO BARRAMENTO</h3>
+                <p>O CC-Link clássico transporta dados pelo par de comunicação e pela infraestrutura de sinal descrita na especificação, mas não foi concebido como uma rede de alimentação integrada para os dispositivos. Portanto, sensores, módulos remotos, inversores e outros equipamentos normalmente necessitam de alimentação elétrica própria, por fonte CC ou pela alimentação de campo prevista no equipamento.</p>
                 <ul>
-                    <li><strong>Faixa de frequência:</strong> 2,4 GHz na faixa ISM (Industrial, Scientific and Medical), compartilhada com outras tecnologias de rádio, conforme as regras regulatórias locais.</li>
-                    <li><strong>Canais:</strong> utiliza múltiplos canais de rádio e técnicas de salto de canal para distribuir as transmissões e reduzir os efeitos de interferências persistentes.</li>
-                    <li><strong>Taxa física nominal:</strong> a camada física IEEE 802.15.4 utilizada pelo WirelessHART oferece 250 kbit/s. A taxa útil da aplicação é inferior e depende do agendamento, do número de saltos e das informações de controle.</li>
+                    <li><strong>Dados e energia:</strong> não se deve considerar que o cabo de comunicação CC-Link forneça, por padrão, a energia de operação das estações. O condutor DG é uma referência de comunicação, não uma linha de alimentação para os dispositivos.</li>
+                    <li><strong>Alimentação local:</strong> módulos de E/S remotas e equipamentos de campo utilizam fontes ou circuitos de alimentação dimensionados conforme sua tensão, corrente e requisitos de segurança.</li>
                 </ul>
             </section>
 
             <section class="section-h3">
-                <h3>6.2.3 ALIMENTAÇÃO PELO BARRAMENTO E ENERGIA DOS EQUIPAMENTOS</h3>
-                <ul>
-                    <li><strong>HART com fio - transmissores de dois fios:</strong> a alimentação do instrumento e o sinal analógico/digital compartilham o mesmo circuito de corrente, desde que o transmissor seja projetado para essa configuração.</li>
-                    <li><strong>HART com fio - instrumentos de quatro fios:</strong> utilizam fonte de alimentação separada e mantêm o circuito de sinal para a comunicação.</li>
-                    <li><strong>WirelessHART:</strong> instrumentos sem fio frequentemente utilizam baterias ou fontes locais. Alguns adaptadores podem obter energia do equipamento ou do circuito associado, conforme o modelo; a comunicação de rádio não fornece alimentação pelo ar.</li>
-                </ul>
-            </section>
-
-            <section class="section-h3">
-                <h3>6.2.4 ISOLAÇÃO E PROTEÇÃO CONTRA RUÍDOS</h3>
-                <ul>
-                    <li><strong>HART com fio:</strong> utilizar cabo de instrumentação adequado, blindagem e aterramento conforme o projeto, verificando a resistência e a capacitância do circuito para não comprometer o sinal FSK.</li>
-                    <li><strong>Resistência de comunicação:</strong> o circuito precisa apresentar impedância suficiente para que o sinal digital HART seja detectado. Em muitas instalações é utilizado um resistor de carga em torno de 250 ohms, desde que a fonte, o transmissor e a entrada analógica permitam essa condição.</li>
-                    <li><strong>Separação e isolação:</strong> barreiras e isoladores podem ser necessários para separar circuitos, reduzir interferências e atender requisitos de áreas classificadas.</li>
-                    <li><strong>WirelessHART:</strong> a robustez da comunicação é aumentada pelo salto de canais, pela diversidade de rotas Mesh, pela sincronização e pela verificação das transmissões.</li>
-                    <li><strong>Segurança digital:</strong> o WirelessHART utiliza mecanismos de autenticação e criptografia para proteger a entrada dos dispositivos e a confidencialidade e integridade das mensagens. Chaves e identificadores da rede devem ser configurados corretamente.</li>
-                </ul>
-                <p>A presença de comunicação HART ou WirelessHART não torna automaticamente um instrumento adequado para área classificada. Nesses locais, é necessário selecionar equipamentos e acessórios com certificação de proteção apropriada à zona, ao grupo de gás ou poeira e à classe de temperatura aplicáveis.</p>
+                <h3>1.2.3 ISOLAÇÃO E PROTEÇÃO CONTRA RUÍDOS</h3>
+                <section class="section-h4">
+                    <h4>1.2.3.1 BLINDAGEM E ATERRAMENTO</h4>
+                    <p>A blindagem do cabo dedicado ajuda a reduzir o acoplamento de interferências eletromagnéticas provenientes de motores, inversores de frequência, transformadores e circuitos de potência. Ela deve ser conectada aos terminais SLD e/ou FG conforme o diagrama de ligação e as recomendações do fabricante. O aterramento deve fazer parte de um sistema equipotencial adequado, evitando trajetos de corrente indesejados pela blindagem ou diferenças de potencial entre equipamentos.</p>
+                    <ul>
+                        <li><strong>Separação física:</strong> sempre que possível, os cabos de comunicação devem ser instalados separados dos cabos de potência e dos condutores de saída de inversores. Cruzamentos inevitáveis devem ser planejados, preferencialmente em ângulo próximo de 90 graus.</li>
+                        <li><strong>Continuidade da blindagem:</strong> emendas e conexões devem preservar a blindagem e a integridade mecânica do cabo. A interrupção do shield reduz a proteção contra ruídos.</li>
+                        <li><strong>Aterramento funcional:</strong> a conexão entre SLD, FG e a estrutura de aterramento deve seguir o manual do equipamento e o projeto elétrico da instalação; não se deve aplicar uma regra universal sem verificar a arquitetura de aterramento da máquina.</li>
+                    </ul>
+                </section>
+                <section class="section-h4">
+                    <h4>1.2.3.2 TERMINAÇÃO, REFLEXÕES E IMUNIDADE</h4>
+                    <p>O uso de resistores de terminação compatíveis com a impedância característica do cabo reduz reflexões nas extremidades do barramento. Comprimentos excessivos, derivações não previstas, terminações ausentes ou duplicadas e conexões frouxas podem provocar erros de comunicação. A combinação de par trançado, sinalização diferencial, blindagem e terminação correta contribui para a estabilidade da rede, mas não elimina a necessidade de boas práticas de instalação e compatibilidade eletromagnética.</p>
+                </section>
             </section>
         </section>
 
         <section class="section-h2">
-            <h2>6.3 PROTOCOLO DE ENLACE E ACESSO AO MEIO (MAC)</h2>
+            <h2>1.3 PROTOCOLO DE ENLACE E ACESSO AO MEIO (MAC)</h2>
             <section class="section-h3">
-                <h3>6.3.1 MÉTODO DE ACESSO AO MEIO NO HART COM FIO</h3>
-                <ul>
-                    <li><strong>Mestre-escravo:</strong> a comunicação tradicional é iniciada por um mestre, que envia uma solicitação ao instrumento. O dispositivo responde ao comando recebido, seguindo o modelo solicitação-resposta.</li>
-                    <li><strong>Mestres primário e secundário:</strong> o protocolo permite a presença de dois mestres no mesmo circuito, como um sistema de controle e um comunicador portátil de manutenção, respeitando as regras de acesso.</li>
-                    <li><strong>Modo Burst:</strong> opcionalmente, o mestre pode configurar o instrumento para transmitir respostas periodicamente, reduzindo a necessidade de uma solicitação individual a cada atualização.</li>
-                </ul>
+                <h3>1.3.1 MÉTODO DE ACESSO AO MEIO</h3>
+                <section class="section-h4">
+                    <h4>1.3.1.1 SISTEMA MESTRE E ESTAÇÕES REMOTAS</h4>
+                    <p>O CC-Link clássico utiliza um sistema de comunicação do tipo broadcast polling, coordenado por uma estação mestre. O mestre organiza a troca cíclica de dados com as estações da rede, enviando consultas e controlando a sequência de comunicação. As estações remotas respondem de acordo com a posição e as regras definidas pelo protocolo, evitando que vários dispositivos iniciem transmissões independentes ao mesmo tempo.</p>
+                    <ul>
+                        <li><strong>Estação mestre:</strong> coordena o enlace, administra a atualização dos dados cíclicos e supervisiona o estado de comunicação das estações configuradas.</li>
+                        <li><strong>Estações remotas:</strong> podem ser módulos de E/S remotas, dispositivos inteligentes, acionamentos e outros equipamentos compatíveis. Cada estação possui identificação e área de dados definida na configuração da rede.</li>
+                        <li><strong>Acesso controlado:</strong> como a transmissão é coordenada pelo mestre, o CC-Link não utiliza CSMA/CD nem CSMA/CA para disputar o meio. O mecanismo reduz colisões decorrentes de transmissões simultâneas não coordenadas.</li>
+                    </ul>
+                </section>
+                <section class="section-h4">
+                    <h4>1.3.1.2 COMUNICAÇÃO CÍCLICA E TRANSITÓRIA</h4>
+                    <p>A comunicação cíclica atualiza periodicamente as informações de entradas, saídas e registradores compartilhados entre o mestre e as estações. É utilizada para o controle contínuo da máquina, como leitura de sensores, atualização de estados e envio de comandos. A comunicação transitória permite solicitar ou transferir informações adicionais sob demanda, como parâmetros, diagnósticos ou dados específicos de um equipamento, quando esse recurso é suportado pela estação.</p>
+                </section>
             </section>
 
             <section class="section-h3">
-                <h3>6.3.2 ESTRUTURA DO QUADRO E MENSAGEM HART</h3>
-                <p>As mensagens HART são transmitidas em sequência serial e contêm informações para sincronização, identificação do instrumento, comando e dados. A estrutura varia conforme o formato do endereço e o tipo de mensagem, mas normalmente inclui os seguintes campos:</p>
+                <h3>1.3.2 ESTRUTURA DO QUADRO E DA MENSAGEM</h3>
+                <p>A especificação do CC-Link clássico define um formato de transmissão compatível com HDLC, sincronização por quadro e codificação NRZI. A mensagem contém informações de controle e endereçamento necessárias à identificação da estação e da operação, os dados úteis da comunicação e um campo de verificação de erros. A estrutura interna detalhada e os campos específicos dependem da definição do protocolo e do tipo de serviço; por isso, não se deve confundir o quadro CC-Link com um quadro Ethernet ou atribuir a ele endereços IP ou MAC Ethernet.</p>
                 <ul>
-                    <li><strong>Preâmbulo:</strong> sequência de bytes utilizada para sincronizar o receptor e permitir a identificação do início da mensagem.</li>
-                    <li><strong>Start delimiter:</strong> indica o tipo de mensagem e o formato do endereço utilizado.</li>
-                    <li><strong>Endereço:</strong> identifica o instrumento de destino ou a origem da resposta. Pode utilizar formato curto ou longo, conforme o tipo de mensagem.</li>
-                    <li><strong>Command:</strong> identifica a operação solicitada pelo mestre, como leitura de variável, consulta de estado ou alteração de parâmetro.</li>
-                    <li><strong>Byte count:</strong> informa o tamanho da parte de dados e dos campos correspondentes da mensagem.</li>
-                    <li><strong>Status:</strong> presente nas respostas, apresenta informações sobre o estado da comunicação e do dispositivo.</li>
-                    <li><strong>Data:</strong> transporta valores de processo, parâmetros, informações de identificação ou diagnóstico.</li>
-                    <li><strong>Checksum:</strong> permite verificar a integridade da mensagem recebida. A comunicação também utiliza paridade ímpar em cada caractere serial.</li>
+                    <li><strong>Delimitação e sincronização:</strong> a transmissão é organizada em quadros, com mecanismos de sincronização que permitem ao receptor reconhecer o início e o fim da unidade transmitida.</li>
+                    <li><strong>Endereçamento:</strong> a identificação das estações e dos dados de enlace permite ao mestre selecionar os dispositivos envolvidos na troca e associar cada informação à área de memória correspondente.</li>
+                    <li><strong>Payload:</strong> transporta dados de entradas e saídas remotas, registradores, comandos e informações adicionais previstas no serviço de comunicação.</li>
                 </ul>
-            </section>
-
-            <section class="section-h3">
-                <h3>6.3.3 MÉTODO DE ACESSO AO MEIO NO WIRELESSHART</h3>
-                <ul>
-                    <li><strong>TDMA (Time Division Multiple Access):</strong> divide o tempo em intervalos organizados, normalmente slots de 10 ms, atribuindo horários específicos para transmissão e recepção dos dispositivos.</li>
-                    <li><strong>Sincronização temporal:</strong> os dispositivos mantêm seus relógios sincronizados com a rede para executar as transmissões nos intervalos programados.</li>
-                    <li><strong>Salto de canais (Channel Hopping):</strong> a frequência utilizada pode mudar entre transmissões, reduzindo a dependência de um único canal e ajudando a contornar interferências.</li>
-                    <li><strong>Mesh e roteamento:</strong> os dispositivos podem encaminhar mensagens por diferentes caminhos até o gateway. O gerenciador de rede organiza as rotas e os horários de transmissão.</li>
-                </ul>
-            </section>
-
-            <section class="section-h3">
-                <h3>6.3.4 ESTRUTURA DO QUADRO E MENSAGEM WIRELESSHART</h3>
-                <p>O WirelessHART utiliza uma estrutura de comunicação em camadas, combinando a sinalização física baseada no IEEE 802.15.4 com os campos de enlace e rede definidos pelo protocolo. De forma geral, a transmissão inclui sincronização física, informações de controle, endereçamento, dados da mensagem e verificação de integridade.</p>
-                <ul>
-                    <li><strong>Preâmbulo e delimitador físico:</strong> auxiliam a sincronização do rádio receptor e a identificação do início do pacote.</li>
-                    <li><strong>Cabeçalho de enlace:</strong> contém informações de controle e identificação necessárias para a entrega do quadro entre dispositivos próximos.</li>
-                    <li><strong>Endereçamento e roteamento:</strong> permitem identificar os dispositivos e encaminhar mensagens por um ou mais saltos até o destino ou gateway.</li>
-                    <li><strong>Dados:</strong> transportam variáveis de processo, comandos, estado do instrumento e informações de gerenciamento da rede.</li>
-                    <li><strong>Verificação e segurança:</strong> mecanismos de integridade e autenticação ajudam a detectar alterações e impedir a aceitação de mensagens não autorizadas.</li>
-                </ul>
+                <section class="section-h4">
+                    <h4>1.3.2.1 ÁREAS DE DADOS E ENDEREÇAMENTO LÓGICO</h4>
+                    <p>Na comunicação cíclica, o CC-Link utiliza áreas de dados identificadas por códigos próprios. As principais são:</p>
+                    <ul>
+                        <li><strong>RX (Remote Input):</strong> informações de entrada remota em unidades de bit, normalmente transferidas das estações de dispositivo para o mestre.</li>
+                        <li><strong>RY (Remote Output):</strong> informações de saída remota em unidades de bit, normalmente enviadas pelo mestre às estações de dispositivo.</li>
+                        <li><strong>RWr (Remote Register):</strong> registradores remotos de leitura em unidades de palavra, utilizados para informações transmitidas da estação remota para o mestre.</li>
+                        <li><strong>RWw (Remote Register for Writing):</strong> registradores remotos de escrita em unidades de palavra, utilizados para informações enviadas do mestre às estações remotas.</li>
+                    </ul>
+                    <p>A quantidade de pontos disponível depende da versão do CC-Link e da quantidade de estações ocupadas por cada dispositivo. Na versão 1.10, o total máximo informado é de 2.048 pontos RX e 2.048 pontos RY, além de 256 palavras para RWr e 256 palavras para RWw. Na versão 2.00, a capacidade pode chegar a 8.192 pontos para cada área RX e RY e 2.048 palavras para cada área RWr e RWw, com configurações de ciclo estendido.</p>
+                </section>
+                <section class="section-h4">
+                    <h4>1.3.2.2 VERIFICAÇÃO DE ERROS (CRC)</h4>
+                    <p>A integridade dos dados é verificada por redundância cíclica (CRC). Para o CC-Link clássico, a especificação indica CRC-16 com polinômio gerador x¹⁶ + x¹² + x⁵ + 1. O transmissor calcula o valor de verificação a partir dos dados protegidos e o inclui na transmissão. O receptor recalcula o CRC e compara o resultado; quando identifica divergência, a unidade é considerada inválida e os mecanismos de diagnóstico e recuperação previstos no equipamento podem atuar.</p>
+                </section>
             </section>
         </section>
 
         <section class="section-h2">
-            <h2>6.4 PARÂMETROS OPERACIONAIS E DESEMPENHO</h2>
+            <h2>1.4 PARÂMETROS OPERACIONAIS E DESEMPENHO</h2>
             <section class="section-h3">
-                <h3>6.4.1 TAXA DE TRANSMISSÃO (BIT RATE / BAUD RATE)</h3>
+                <h3>1.4.1 TAXA DE TRANSMISSÃO (BAUD RATE / BIT RATE)</h3>
+                <p>O CC-Link clássico trabalha com taxas de transmissão selecionáveis conforme a configuração da rede. A especificação contempla cinco valores: 156 kbps, 625 kbps, 2,5 Mbps, 5 Mbps e 10 Mbps. A velocidade escolhida influencia diretamente o comprimento máximo do cabo, o tempo de atualização dos dados e a capacidade de resposta da rede.</p>
                 <ul>
-                    <li><strong>HART com fio:</strong> 1.200 bit/s para o canal digital FSK, em paralelo ao sinal analógico de 4-20 mA.</li>
-                    <li><strong>WirelessHART:</strong> 250 kbit/s de taxa nominal da camada física de rádio. A taxa útil para dados de aplicação é menor devido aos quadros de controle, agendamento, confirmações, segurança e encaminhamento Mesh.</li>
+                    <li><strong>156 kbps:</strong> prioriza maior alcance físico, sendo adequada a instalações extensas que não exigem a maior taxa de transmissão.</li>
+                    <li><strong>625 kbps e 2,5 Mbps:</strong> oferecem opções intermediárias entre velocidade de comunicação e extensão do barramento.</li>
+                    <li><strong>5 Mbps e 10 Mbps:</strong> favorecem aplicações que exigem maior velocidade de atualização, com limites de distância mais restritos.</li>
                 </ul>
             </section>
 
             <section class="section-h3">
-                <h3>6.4.2 DISTÂNCIA MÁXIMA E COBERTURA</h3>
-                <section class="section-h4">
-                    <h4>6.4.2.1 HART COM FIO</h4>
-                    <p>A distância máxima depende da resistência, capacitância e configuração do circuito. Como referência técnica, a documentação HART apresenta até aproximadamente 3.048 metros para um par trançado e cerca de 1.524 metros quando há múltiplos pares no cabo. Esses limites devem ser verificados com os dados reais do cabo, da carga e dos equipamentos instalados.</p>
-                </section>
-
-                <section class="section-h4">
-                    <h4>6.4.2.2 WIRELESSHART</h4>
-                    <p>O alcance por rádio depende da potência, antena, obstáculos, condições de propagação e interferências presentes na área. Como referência de engenharia, pode-se considerar aproximadamente 200 metros entre dispositivos em condições adequadas, mas esse valor não é um limite universal. A rede Mesh amplia a cobertura total por meio de múltiplos saltos entre instrumentos e repetidores até o gateway.</p>
-                </section>
+                <h3>1.4.2 DISTÂNCIA MÁXIMA DO SEGMENTO</h3>
+                <p>A distância máxima depende da taxa de comunicação e da versão do cabo utilizado. Para cabo dedicado CC-Link versão 1.10, com terminação correspondente, a extensão total de referência é:</p>
+                <ul>
+                    <li><strong>156 kbps:</strong> até 1.200 metros de comprimento total.</li>
+                    <li><strong>625 kbps:</strong> até 900 metros de comprimento total.</li>
+                    <li><strong>2,5 Mbps:</strong> até 400 metros de comprimento total.</li>
+                    <li><strong>5 Mbps:</strong> até 160 metros de comprimento total.</li>
+                    <li><strong>10 Mbps:</strong> até 100 metros de comprimento total, utilizando cabo dedicado CC-Link versão 1.10 e respeitando as condições de instalação especificadas pelo fabricante.</li>
+                </ul>
+                <p>Cabos compatíveis com versões anteriores, como a versão 1.00, podem apresentar limites diferentes de comprimento total e distância entre estações. Assim, os valores da tabela não devem ser aplicados sem verificar a versão do cabo e a documentação dos módulos utilizados.</p>
             </section>
 
             <section class="section-h3">
-                <h3>6.4.3 DETERMINISMO E TEMPO DE CICLO</h3>
-                <p><strong>Classificação do HART com fio:</strong> não é determinístico para aplicações de tempo real estrito. A comunicação por solicitação e resposta, somada à taxa digital de 1.200 bit/s, pode tornar previsível a leitura em uma configuração definida, mas não garante ciclos curtos e fixos.</p>
-                <p><strong>Classificação do WirelessHART:</strong> oferece comunicação agendada e mais previsível por utilizar TDMA sincronizado. Essa previsibilidade é condicionada ao intervalo configurado, à quantidade de saltos, às rotas e às condições de rádio; portanto, não equivale a uma garantia universal de tempo real rígido.</p>
-                <p><strong>Aplicação:</strong> as duas tecnologias são voltadas principalmente à instrumentação, ao monitoramento de variáveis, à manutenção e ao diagnóstico de processos. Aplicações críticas de controle rápido exigem uma rede e arquitetura dimensionadas especificamente para esse requisito.</p>
+                <h3>1.4.3 QUANTIDADE DE ESTAÇÕES E CAPACIDADE DE COMUNICAÇÃO</h3>
+                <p>O CC-Link clássico utiliza numeração de estações de dispositivo de 1 a 64. A quantidade máxima de estações que pode operar simultaneamente depende da versão da rede, do modelo do mestre e do número de estações ocupadas por cada módulo; não se deve presumir que os 64 endereços de dispositivo estejam disponíveis além da estação mestre. Os limites de link points também dependem da configuração.</p>
+                <ul>
+                    <li><strong>Versão 1.10:</strong> oferece até 2.048 pontos de entrada remota RX e 2.048 pontos de saída remota RY, além de 256 palavras para cada uma das áreas de registradores RWr e RWw.</li>
+                    <li><strong>Versão 2.00:</strong> amplia a capacidade para até 8.192 pontos RX e RY e até 2.048 palavras RWr e RWw, com opções de ciclo estendido de 1, 2, 4 ou 8 vezes, conforme os dispositivos e a configuração.</li>
+                </ul>
             </section>
 
             <section class="section-h3">
-                <h3>6.4.4 NÍVEL NA PIRÂMIDE DA AUTOMAÇÃO</h3>
-                <p><strong>Classificação:</strong> atua principalmente no nível 1, conectando transmissores, sensores e posicionadores de campo. Por meio dos módulos de entrada/saída e gateways, integra-se ao nível 2 de controle e pode fornecer informações ao nível 3 de supervisão e gerenciamento de ativos.</p>
-                <p><strong>Justificativa:</strong> o HART acrescenta dados digitais de diagnóstico e parametrização aos instrumentos analógicos existentes. O WirelessHART amplia essa capacidade para pontos em que a instalação de cabos é difícil ou economicamente desfavorável, encaminhando os dados ao sistema de controle ou de gestão por meio do gateway.</p>
+                <h3>1.4.4 DETERMINISMO E TEMPO DE CICLO</h3>
+                <p><strong>Classificação:</strong> O CC-Link clássico é projetado para comunicação cíclica determinística.</p>
+                <p><strong>Justificativa:</strong> Como o acesso ao meio é coordenado pela estação mestre por polling, a sequência de atualização dos dados é organizada e previsível.</p>
+                <p><strong>Aplicação:</strong> característica importante para o controle de entradas e saídas em máquinas e linhas de produção.</p>
+                <p>A CLPA descreve o CC-Link como uma rede com resposta de E/S altamente determinística.</p>
+                <p><strong>Tempo de ciclo:</strong> O link scan time depende da taxa de transmissão, do número de estações e do volume de dados cíclicos. Taxas maiores tendem a reduzir o ciclo, enquanto mais estações ou dados podem ampliá-lo. O valor real deve ser conferido no manual do módulo mestre para a configuração utilizada.</p>
+            </section>
+
+            <section class="section-h3">
+                <h3>1.4.5 NÍVEL NA PIRÂMIDE DA AUTOMAÇÃO</h3>
+                <p><strong>Classificação:</strong> atua principalmente nos níveis de campo e de controle da pirâmide da automação (Níveis 1 e 2).</p>
+                <p><strong>Justificativa:</strong> O CC-Link clássico interliga o controlador programável a módulos de entradas e saídas remotas, sensores e atuadores conectados por módulos de comunicação, inversores de frequência, servoacionamentos e outros dispositivos de campo. Por isso, está diretamente associado à aquisição de sinais e ao envio de comandos no chão de fábrica, além de apoiar a coordenação do controle entre equipamentos. A integração com sistemas de supervisão e gerenciamento ocorre por meio dos controladores e de redes de nível superior, não sendo o foco principal do barramento clássico.</p>
+            </section>
+
+            <section class="section-h3">
+                <h3>1.4.6 EVOLUÇÃO DA FAMÍLIA CC-LINK</h3>
+                <p>A família CC-Link reúne tecnologias que atendem diferentes níveis de desempenho e integração. O CC-Link clássico utiliza RS-485 e cabo dedicado de três condutores; o CC-Link IE Field utiliza Ethernet industrial com comunicação de 1 Gbps, cabos de par trançado blindados e topologias como linha, estrela e anel; e o CC-Link IE TSN acrescenta recursos de Time-Sensitive Networking (TSN), com sincronização e compartilhamento temporal da rede. Essas variantes permitem integrar controle de campo, motion control e tráfego de informação, mas suas características físicas e operacionais são diferentes das do CC-Link clássico.</p>
             </section>
         </section>
     </main>
@@ -215,7 +231,6 @@
     <footer>
         <p>by Arthur Furtado Machado &trade; &copy;</p>
     </footer>
-
 </body>
 
 </html>

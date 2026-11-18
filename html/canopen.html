@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/style.css">
-    <title>HART | Sistemas de Redes</title>
+    <title>CANopen | Sistemas de Redes</title>
 </head>
 
 <body>
@@ -23,191 +23,189 @@
     </header>
 
     <main>
-        <h1>6. HART (PROTOCOLO E WIRELESSHART)</h1>
+        <h1>1. CANOPEN (PROTOCOLO INDUSTRIAL BASEADO EM CAN)</h1>
 
         <section class="section-h2">
-            <h2>6.1 ESTRUTURA FÍSICA E CABEAMENTO</h2>
+            <h2>1.1 ESTRUTURA FÍSICA E CABEAMENTO</h2>
             <section class="section-h3">
-                <h3>6.1.1 HART NA INSTRUMENTAÇÃO DE PROCESSOS</h3>
-                <p>O HART (Highway Addressable Remote Transducer) é um protocolo de comunicação utilizado em instrumentos inteligentes de campo. Sua característica mais conhecida é permitir a transmissão simultânea de um sinal analógico de 4 a 20 mA e de informações digitais sobre o mesmo par de fios. Assim, a variável principal do processo continua disponível em formato analógico, enquanto dados adicionais podem ser acessados digitalmente.</p>
-                <p>A comunicação digital permite ler variáveis adicionais, estado do instrumento, diagnóstico, identificação e parâmetros de configuração. O protocolo é amplamente utilizado em transmissores e posicionadores de válvulas, além de ser integrado a sistemas de controle e ferramentas de gerenciamento de ativos.</p>
+                <h3>1.1.1 CANOPEN EM REDES DE AUTOMAÇÃO INDUSTRIAL</h3>
+                <p>O CANopen é um sistema de comunicação industrial baseado no barramento CAN (Controller Area Network), utilizado para integrar controladores, módulos de entradas e saídas, sensores, acionamentos e outros dispositivos embarcados. Ele acrescenta ao CAN uma camada de aplicação padronizada, com regras para endereçamento lógico, organização dos dados, configuração dos equipamentos e gerenciamento da rede. É comum em máquinas, sistemas de movimentação, equipamentos móveis e aplicações de controle distribuído. [1]</p>
+                <p>A arquitetura CANopen define como os dispositivos disponibilizam parâmetros e informações do processo. Dessa forma, equipamentos de fabricantes diferentes podem ser integrados quando implementam os mesmos perfis e funcionalidades compatíveis. A especificação mais conhecida para CANopen clássico é a CiA 301; CANopen FD é uma evolução separada, baseada em CAN FD e especificada pela CiA 1301. [1]</p>
             </section>
 
             <section class="section-h3">
-                <h3>6.1.2 HART COM FIO: MEIOS FÍSICOS E CABOS</h3>
-                <ul>
-                    <li><strong>Par trançado:</strong> o meio mais comum é o par de fios utilizado no circuito de corrente 4-20 mA. O cabo deve apresentar resistência e capacitância compatíveis com a quantidade de dispositivos, a carga e o comprimento do circuito.</li>
-                    <li><strong>Cabo blindado:</strong> pode ser utilizado em ambientes industriais para reduzir a influência de ruídos eletromagnéticos. A blindagem deve ser conectada conforme o projeto de instrumentação e as recomendações do fabricante.</li>
-                    <li><strong>Circuito de dois fios:</strong> o mesmo par conduz a corrente do sinal 4-20 mA, a comunicação digital FSK e, em transmissores compatíveis, a alimentação do instrumento.</li>
-                    <li><strong>Circuito de quatro fios:</strong> alguns instrumentos recebem alimentação separada, mantendo o par de sinal para a comunicação analógica e digital.</li>
-                </ul>
-            </section>
-
-            <section class="section-h3">
-                <h3>6.1.3 WIRELESSHART: MEIO DE TRANSMISSÃO E EQUIPAMENTOS</h3>
-                <p>O WirelessHART é uma extensão sem fio do protocolo HART, padronizada internacionalmente pela IEC 62591. Em vez de utilizar um par de fios para transportar a comunicação, os dispositivos trocam dados por radiofrequência e formam uma rede Mesh de campo. A comunicação entre a rede sem fio e o sistema de controle é realizada por um gateway.</p>
-                <ul>
-                    <li><strong>Instrumentos WirelessHART:</strong> instrumentos com rádio integrado que transmitem informações de processo e diagnóstico pela rede sem fio.</li>
-                    <li><strong>Adaptadores WirelessHART:</strong> podem conectar instrumentos HART existentes à rede sem fio, evitando a substituição imediata do instrumento de campo.</li>
-                    <li><strong>Gateway:</strong> faz a interface entre a rede WirelessHART e a rede da planta, encaminhando os dados para o sistema host, controlador ou aplicação de gerenciamento.</li>
-                    <li><strong>Gerenciador de rede (Network Manager):</strong> organiza a entrada dos dispositivos, o agendamento das comunicações, as rotas Mesh e a manutenção da rede. Pode estar integrado ao gateway ou a outro equipamento do sistema.</li>
-                </ul>
-            </section>
-
-            <section class="section-h3">
-                <h3>6.1.4 CONECTORES PADRONIZADOS E IDENTIFICAÇÃO</h3>
-                <ul>
-                    <li><strong>Bornes de instrumentação:</strong> são usados para conectar os condutores do circuito 4-20 mA/HART aos transmissores, posicionadores e módulos de entrada e saída.</li>
-                    <li><strong>Terminais de teste e comunicação:</strong> pontos de conexão podem permitir a ligação de comunicadores portáteis ou modems HART sem interromper o circuito, respeitando a impedância necessária à comunicação.</li>
-                    <li><strong>Conectores do gateway:</strong> a conexão do gateway à rede de controle pode utilizar Ethernet RJ45, interfaces seriais ou outras conexões definidas pelo fabricante.</li>
-                    <li><strong>WirelessHART:</strong> não possui um conector físico universal para o enlace de rádio. Antenas integradas ou externas e conectores auxiliares dependem do projeto e do modelo do instrumento ou gateway.</li>
-                </ul>
-            </section>
-
-            <section class="section-h3">
-                <h3>6.1.5 TOPOLOGIAS SUPORTADAS</h3>
+                <h3>1.1.2 MEIOS FÍSICOS E CABOS ADOTADOS</h3>
                 <section class="section-h4">
-                    <h4>6.1.5.1 HART COM FIO: PONTO A PONTO E MULTIDROP</h4>
+                    <h4>1.1.2.1 MEIO FÍSICO (PAR TRANÇADO DIFERENCIAL)</h4>
+                    <p>O CANopen clássico utiliza normalmente a camada física de alta velocidade definida pela ISO 11898-2. O meio mais comum é um cabo de par trançado, no qual os sinais CAN_H e CAN_L são transmitidos de forma diferencial. Em instalações industriais, pode ser utilizado cabo com blindagem, desde que a especificação do fabricante e o projeto de aterramento sejam respeitados. A impedância característica do cabo deve ser compatível com os componentes do barramento. [2]</p>
                     <ul>
-                        <li><strong>Ponto a ponto:</strong> um instrumento é conectado ao sistema por um circuito 4-20 mA. O valor analógico representa a variável principal e a comunicação digital HART ocorre simultaneamente sobre o mesmo par.</li>
-                        <li><strong>Multidrop:</strong> vários instrumentos compartilham um par de comunicação e são identificados por endereços individuais. Nessa configuração, a informação é transmitida digitalmente, e o sinal analógico de corrente deixa de representar individualmente a variável de cada instrumento.</li>
+                        <li><strong>Par de comunicação CAN_H/CAN_L:</strong> conduz os sinais diferenciais utilizados para representar os bits dominantes e recessivos do barramento.</li>
+                        <li><strong>Condutor de referência:</strong> um condutor de referência/terra de comunicação pode acompanhar o par de dados para reduzir diferenças de potencial entre os equipamentos; sua ligação deve seguir as recomendações de instalação e de isolamento do fabricante.</li>
+                        <li><strong>Blindagem (shield):</strong> pode ser empregada em ambientes com motores, inversores e contatores. A blindagem precisa ter continuidade e aterramento planejados, evitando conexões improvisadas que criem correntes indesejadas.</li>
                     </ul>
                 </section>
-
                 <section class="section-h4">
-                    <h4>6.1.5.2 WIRELESSHART: TOPOLOGIA EM MALHA (MESH)</h4>
-                    <p>Na rede WirelessHART, os instrumentos podem encaminhar mensagens por meio de outros nós até alcançar o gateway. Essa comunicação multissalto permite contornar obstáculos e criar caminhos alternativos. A rede é auto-organizável, e o gerenciador seleciona rotas e horários de comunicação conforme a qualidade dos enlaces e a disponibilidade dos dispositivos.</p>
+                    <h4>1.1.2.2 TOPOLOGIA DO BARRAMENTO E TERMINAÇÃO</h4>
+                    <p>A topologia recomendada para CANopen é a de barramento linear: um cabo principal percorre a instalação e cada nó é conectado a ele por derivações curtas (stubs). A formação de grandes ramificações em estrela aumenta as reflexões do sinal e pode comprometer a comunicação, principalmente em taxas elevadas. [2]</p>
+                    <ul>
+                        <li><strong>Resistores de terminação:</strong> em uma rede CAN de alta velocidade, normalmente são instalados resistores de 120 Ω entre CAN_H e CAN_L nas duas extremidades físicas do cabo principal. Não se deve instalar uma terminação em cada nó; somente nas duas pontas do barramento.</li>
+                        <li><strong>Derivações:</strong> devem ser mantidas curtas e distribuídas ao longo do cabo principal. O comprimento admissível diminui conforme a taxa de transmissão aumenta.</li>
+                        <li><strong>Expansão da rede:</strong> o número de nós depende dos transceptores, da carga elétrica total, do cabeamento e das regras de projeto. Repetidores ou bridges apropriados podem ser usados quando a arquitetura exigir a extensão ou o isolamento de segmentos.</li>
+                    </ul>
                 </section>
             </section>
-        </section>
 
-        <section class="section-h2">
-            <h2>6.2 INTERFACE ELÉTRICA E TRANSMISSÃO DE SINAIS</h2>
             <section class="section-h3">
-                <h3>6.2.1 SINALIZAÇÃO DO HART COM FIO</h3>
-                <p>O HART com fio utiliza dois canais de informação simultâneos no mesmo circuito. O primeiro é o sinal analógico de corrente contínua de 4 a 20 mA, que representa a variável principal do processo. O segundo é o sinal digital modulado por FSK (Frequency Shift Keying), sobreposto ao circuito analógico.</p>
+                <h3>1.1.3 CONECTORES PADRONIZADOS E IDENTIFICAÇÃO</h3>
+                <p>O CANopen não depende de um único formato físico de conector para todas as aplicações. As recomendações de pinagem para interfaces CAN são tratadas em documentos da CAN in Automation (CiA), incluindo a CiA 106, que reúne atribuições para diferentes tipos de conectores. A compatibilidade exige conferir o padrão de pinagem do equipamento e do cabo, não apenas o formato mecânico. [3]</p>
                 <ul>
-                    <li><strong>Sinal analógico 4-20 mA:</strong> a corrente representa a variável medida ou comandada, com a escala definida pelo instrumento e pelo sistema de controle.</li>
-                    <li><strong>Modulação FSK Bell 202:</strong> utiliza duas frequências para representar os bits digitais: 1.200 Hz para o bit lógico 1 e 2.200 Hz para o bit lógico 0.</li>
-                    <li><strong>Taxa digital:</strong> a comunicação HART tradicional opera a 1.200 bit/s. O sinal FSK possui valor médio nulo, permitindo sua sobreposição sem alterar significativamente a leitura analógica de corrente contínua.</li>
+                    <li><strong>DE-9 / D-Sub de 9 pinos:</strong> conector bastante encontrado em interfaces CAN e equipamentos de automação. A distribuição dos pinos deve seguir a recomendação adotada pelo fabricante e pela aplicação.</li>
+                    <li><strong>M12 industrial:</strong> conector circular rosqueado utilizado em determinados equipamentos e instalações industriais, com codificação e pinagem próprias para a interface CAN.</li>
+                    <li><strong>Bornes e conectores plugáveis:</strong> alguns controladores e módulos utilizam terminais removíveis para CAN_H, CAN_L, referência e, quando previsto, blindagem ou alimentação auxiliar.</li>
+                    <li><strong>Identificação dos condutores:</strong> os sinais principais são identificados como CAN_H e CAN_L. A posição dos pinos de referência, blindagem e alimentação pode variar entre famílias de conectores e deve ser confirmada na documentação técnica.</li>
                 </ul>
             </section>
 
             <section class="section-h3">
-                <h3>6.2.2 SINALIZAÇÃO DO WIRELESSHART</h3>
-                <p>O WirelessHART utiliza a camada física de rádio de 2,4 GHz definida com base no IEEE 802.15.4. A transmissão emprega espalhamento espectral por sequência direta (DSSS) e modulação O-QPSK (Offset Quadrature Phase Shift Keying), adequada à comunicação de baixo consumo em redes de sensores.</p>
+                <h3>1.1.4 TOPOLOGIAS SUPORTADAS</h3>
+                <p>A topologia física de referência é o barramento linear com terminação nas duas extremidades. Outras configurações podem ser possíveis com repetidores, bridges ou componentes específicos, mas não devem ser tratadas como equivalentes ao barramento linear sem avaliação elétrica.</p>
                 <ul>
-                    <li><strong>Faixa de frequência:</strong> 2,4 GHz na faixa ISM (Industrial, Scientific and Medical), compartilhada com outras tecnologias de rádio, conforme as regras regulatórias locais.</li>
-                    <li><strong>Canais:</strong> utiliza múltiplos canais de rádio e técnicas de salto de canal para distribuir as transmissões e reduzir os efeitos de interferências persistentes.</li>
-                    <li><strong>Taxa física nominal:</strong> a camada física IEEE 802.15.4 utilizada pelo WirelessHART oferece 250 kbit/s. A taxa útil da aplicação é inferior e depende do agendamento, do número de saltos e das informações de controle.</li>
-                </ul>
-            </section>
-
-            <section class="section-h3">
-                <h3>6.2.3 ALIMENTAÇÃO PELO BARRAMENTO E ENERGIA DOS EQUIPAMENTOS</h3>
-                <ul>
-                    <li><strong>HART com fio - transmissores de dois fios:</strong> a alimentação do instrumento e o sinal analógico/digital compartilham o mesmo circuito de corrente, desde que o transmissor seja projetado para essa configuração.</li>
-                    <li><strong>HART com fio - instrumentos de quatro fios:</strong> utilizam fonte de alimentação separada e mantêm o circuito de sinal para a comunicação.</li>
-                    <li><strong>WirelessHART:</strong> instrumentos sem fio frequentemente utilizam baterias ou fontes locais. Alguns adaptadores podem obter energia do equipamento ou do circuito associado, conforme o modelo; a comunicação de rádio não fornece alimentação pelo ar.</li>
-                </ul>
-            </section>
-
-            <section class="section-h3">
-                <h3>6.2.4 ISOLAÇÃO E PROTEÇÃO CONTRA RUÍDOS</h3>
-                <ul>
-                    <li><strong>HART com fio:</strong> utilizar cabo de instrumentação adequado, blindagem e aterramento conforme o projeto, verificando a resistência e a capacitância do circuito para não comprometer o sinal FSK.</li>
-                    <li><strong>Resistência de comunicação:</strong> o circuito precisa apresentar impedância suficiente para que o sinal digital HART seja detectado. Em muitas instalações é utilizado um resistor de carga em torno de 250 ohms, desde que a fonte, o transmissor e a entrada analógica permitam essa condição.</li>
-                    <li><strong>Separação e isolação:</strong> barreiras e isoladores podem ser necessários para separar circuitos, reduzir interferências e atender requisitos de áreas classificadas.</li>
-                    <li><strong>WirelessHART:</strong> a robustez da comunicação é aumentada pelo salto de canais, pela diversidade de rotas Mesh, pela sincronização e pela verificação das transmissões.</li>
-                    <li><strong>Segurança digital:</strong> o WirelessHART utiliza mecanismos de autenticação e criptografia para proteger a entrada dos dispositivos e a confidencialidade e integridade das mensagens. Chaves e identificadores da rede devem ser configurados corretamente.</li>
-                </ul>
-                <p>A presença de comunicação HART ou WirelessHART não torna automaticamente um instrumento adequado para área classificada. Nesses locais, é necessário selecionar equipamentos e acessórios com certificação de proteção apropriada à zona, ao grupo de gás ou poeira e à classe de temperatura aplicáveis.</p>
-            </section>
-        </section>
-
-        <section class="section-h2">
-            <h2>6.3 PROTOCOLO DE ENLACE E ACESSO AO MEIO (MAC)</h2>
-            <section class="section-h3">
-                <h3>6.3.1 MÉTODO DE ACESSO AO MEIO NO HART COM FIO</h3>
-                <ul>
-                    <li><strong>Mestre-escravo:</strong> a comunicação tradicional é iniciada por um mestre, que envia uma solicitação ao instrumento. O dispositivo responde ao comando recebido, seguindo o modelo solicitação-resposta.</li>
-                    <li><strong>Mestres primário e secundário:</strong> o protocolo permite a presença de dois mestres no mesmo circuito, como um sistema de controle e um comunicador portátil de manutenção, respeitando as regras de acesso.</li>
-                    <li><strong>Modo Burst:</strong> opcionalmente, o mestre pode configurar o instrumento para transmitir respostas periodicamente, reduzindo a necessidade de uma solicitação individual a cada atualização.</li>
-                </ul>
-            </section>
-
-            <section class="section-h3">
-                <h3>6.3.2 ESTRUTURA DO QUADRO E MENSAGEM HART</h3>
-                <p>As mensagens HART são transmitidas em sequência serial e contêm informações para sincronização, identificação do instrumento, comando e dados. A estrutura varia conforme o formato do endereço e o tipo de mensagem, mas normalmente inclui os seguintes campos:</p>
-                <ul>
-                    <li><strong>Preâmbulo:</strong> sequência de bytes utilizada para sincronizar o receptor e permitir a identificação do início da mensagem.</li>
-                    <li><strong>Start delimiter:</strong> indica o tipo de mensagem e o formato do endereço utilizado.</li>
-                    <li><strong>Endereço:</strong> identifica o instrumento de destino ou a origem da resposta. Pode utilizar formato curto ou longo, conforme o tipo de mensagem.</li>
-                    <li><strong>Command:</strong> identifica a operação solicitada pelo mestre, como leitura de variável, consulta de estado ou alteração de parâmetro.</li>
-                    <li><strong>Byte count:</strong> informa o tamanho da parte de dados e dos campos correspondentes da mensagem.</li>
-                    <li><strong>Status:</strong> presente nas respostas, apresenta informações sobre o estado da comunicação e do dispositivo.</li>
-                    <li><strong>Data:</strong> transporta valores de processo, parâmetros, informações de identificação ou diagnóstico.</li>
-                    <li><strong>Checksum:</strong> permite verificar a integridade da mensagem recebida. A comunicação também utiliza paridade ímpar em cada caractere serial.</li>
-                </ul>
-            </section>
-
-            <section class="section-h3">
-                <h3>6.3.3 MÉTODO DE ACESSO AO MEIO NO WIRELESSHART</h3>
-                <ul>
-                    <li><strong>TDMA (Time Division Multiple Access):</strong> divide o tempo em intervalos organizados, normalmente slots de 10 ms, atribuindo horários específicos para transmissão e recepção dos dispositivos.</li>
-                    <li><strong>Sincronização temporal:</strong> os dispositivos mantêm seus relógios sincronizados com a rede para executar as transmissões nos intervalos programados.</li>
-                    <li><strong>Salto de canais (Channel Hopping):</strong> a frequência utilizada pode mudar entre transmissões, reduzindo a dependência de um único canal e ajudando a contornar interferências.</li>
-                    <li><strong>Mesh e roteamento:</strong> os dispositivos podem encaminhar mensagens por diferentes caminhos até o gateway. O gerenciador de rede organiza as rotas e os horários de transmissão.</li>
-                </ul>
-            </section>
-
-            <section class="section-h3">
-                <h3>6.3.4 ESTRUTURA DO QUADRO E MENSAGEM WIRELESSHART</h3>
-                <p>O WirelessHART utiliza uma estrutura de comunicação em camadas, combinando a sinalização física baseada no IEEE 802.15.4 com os campos de enlace e rede definidos pelo protocolo. De forma geral, a transmissão inclui sincronização física, informações de controle, endereçamento, dados da mensagem e verificação de integridade.</p>
-                <ul>
-                    <li><strong>Preâmbulo e delimitador físico:</strong> auxiliam a sincronização do rádio receptor e a identificação do início do pacote.</li>
-                    <li><strong>Cabeçalho de enlace:</strong> contém informações de controle e identificação necessárias para a entrega do quadro entre dispositivos próximos.</li>
-                    <li><strong>Endereçamento e roteamento:</strong> permitem identificar os dispositivos e encaminhar mensagens por um ou mais saltos até o destino ou gateway.</li>
-                    <li><strong>Dados:</strong> transportam variáveis de processo, comandos, estado do instrumento e informações de gerenciamento da rede.</li>
-                    <li><strong>Verificação e segurança:</strong> mecanismos de integridade e autenticação ajudam a detectar alterações e impedir a aceitação de mensagens não autorizadas.</li>
+                    <li><strong>Barramento linear (bus):</strong> é a solução preferencial, com um tronco principal e derivações curtas para os dispositivos.</li>
+                    <li><strong>Estrela ou árvore:</strong> ramificações extensas e múltiplos pontos de junção não são recomendados para o CAN de alta velocidade convencional, pois dificultam o controle das reflexões. Uma topologia desse tipo só deve ser empregada com componentes e limites explicitamente previstos no projeto.</li>
+                    <li><strong>Redundância:</strong> a rede CANopen clássica não oferece, por si só, um anel redundante padronizado. A disponibilidade deve ser tratada por arquitetura do equipamento, redes independentes ou soluções adicionais.</li>
                 </ul>
             </section>
         </section>
 
         <section class="section-h2">
-            <h2>6.4 PARÂMETROS OPERACIONAIS E DESEMPENHO</h2>
+            <h2>1.2 INTERFACE ELÉTRICA E TRANSMISSÃO DE SINAIS</h2>
             <section class="section-h3">
-                <h3>6.4.1 TAXA DE TRANSMISSÃO (BIT RATE / BAUD RATE)</h3>
+                <h3>1.2.1 SINALIZAÇÃO E NÍVEIS ELÉTRICOS NO BARRAMENTO CAN</h3>
+                <p>A transmissão ocorre por sinalização diferencial. O transceptor compara a diferença de tensão entre CAN_H e CAN_L, em vez de utilizar apenas a tensão de um condutor em relação ao terra. No estado recessivo, os dois fios apresentam níveis próximos; no estado dominante, CAN_H sobe e CAN_L desce, produzindo uma diferença de tensão reconhecível pelos demais nós. Os valores exatos dependem do transceptor e da camada física ISO 11898-2.</p>
                 <ul>
-                    <li><strong>HART com fio:</strong> 1.200 bit/s para o canal digital FSK, em paralelo ao sinal analógico de 4-20 mA.</li>
-                    <li><strong>WirelessHART:</strong> 250 kbit/s de taxa nominal da camada física de rádio. A taxa útil para dados de aplicação é menor devido aos quadros de controle, agendamento, confirmações, segurança e encaminhamento Mesh.</li>
+                    <li><strong>Bit dominante:</strong> representa o estado lógico que prevalece no barramento quando é transmitido simultaneamente com um bit recessivo. Esse comportamento também permite a arbitragem não destrutiva do CAN.</li>
+                    <li><strong>Bit recessivo:</strong> corresponde ao estado em que o barramento não é forçado para o nível dominante. Um nó que transmite um bit recessivo e observa um bit dominante sabe que outro nó possui prioridade de transmissão.</li>
+                    <li><strong>Codificação NRZ:</strong> o CAN utiliza codificação Non-Return-to-Zero. Para manter a sincronização, aplica-se bit stuffing em sequências longas de bits iguais, conforme as regras do protocolo CAN.</li>
                 </ul>
             </section>
 
             <section class="section-h3">
-                <h3>6.4.2 DISTÂNCIA MÁXIMA E COBERTURA</h3>
-                <section class="section-h4">
-                    <h4>6.4.2.1 HART COM FIO</h4>
-                    <p>A distância máxima depende da resistência, capacitância e configuração do circuito. Como referência técnica, a documentação HART apresenta até aproximadamente 3.048 metros para um par trançado e cerca de 1.524 metros quando há múltiplos pares no cabo. Esses limites devem ser verificados com os dados reais do cabo, da carga e dos equipamentos instalados.</p>
-                </section>
+                <h3>1.2.2 ALIMENTAÇÃO PELO BARRAMENTO</h3>
+                <p>O CANopen não define a alimentação dos sensores, atuadores ou controladores pelo próprio par de comunicação. Em regra, os equipamentos recebem energia por uma infraestrutura separada, frequentemente em 24 Vcc nas instalações industriais. Alguns conectores CAN podem possuir pinos adicionais para alimentação, mas isso não significa que o barramento CAN forneça energia de forma padronizada aos dispositivos. [3]</p>
+                <ul>
+                    <li><strong>Alimentação dos dispositivos:</strong> fontes CC, distribuidores de energia ou circuitos locais alimentam controladores, sensores, módulos e atuadores de acordo com seus requisitos.</li>
+                    <li><strong>Separação entre dados e energia:</strong> CAN_H e CAN_L são dedicados à comunicação. A alimentação, quando conduzida no mesmo conector, utiliza contatos distintos e deve respeitar corrente, proteção e pinagem especificadas pelo fabricante.</li>
+                </ul>
+            </section>
 
+            <section class="section-h3">
+                <h3>1.2.3 ISOLAÇÃO E PROTEÇÃO CONTRA RUÍDOS</h3>
+                <p>A sinalização diferencial torna o CAN mais resistente a ruídos comuns aos dois condutores, mas não elimina a necessidade de instalação correta. Em máquinas industriais, interferências podem ser produzidas por inversores de frequência, motores, contatores, fontes chaveadas e cabos de potência.</p>
+                <ul>
+                    <li><strong>Cabo adequado:</strong> utilizar par trançado compatível com a camada física CAN e, quando necessário, versão blindada adequada ao ambiente.</li>
+                    <li><strong>Aterramento e referência:</strong> seguir o esquema de ligação recomendado pelo fabricante, manter equipotencialização adequada e evitar caminhos de corrente de blindagem não planejados.</li>
+                    <li><strong>Terminação correta:</strong> instalar as terminações nas extremidades do barramento, com valor compatível com a impedância do cabo, reduzindo reflexões que podem ser confundidas com ruído.</li>
+                    <li><strong>Isolação galvânica:</strong> interfaces isoladas podem proteger equipamentos contra diferenças de potencial e transitórios entre segmentos, mas não substituem o dimensionamento correto do cabo, das terminações e do aterramento.</li>
+                </ul>
+            </section>
+        </section>
+
+        <section class="section-h2">
+            <h2>1.3 PROTOCOLO DE ENLACE E ACESSO AO MEIO (MAC)</h2>
+            <section class="section-h3">
+                <h3>1.3.1 MÉTODO DE ACESSO AO MEIO NA REDE CANOPEN</h3>
                 <section class="section-h4">
-                    <h4>6.4.2.2 WIRELESSHART</h4>
-                    <p>O alcance por rádio depende da potência, antena, obstáculos, condições de propagação e interferências presentes na área. Como referência de engenharia, pode-se considerar aproximadamente 200 metros entre dispositivos em condições adequadas, mas esse valor não é um limite universal. A rede Mesh amplia a cobertura total por meio de múltiplos saltos entre instrumentos e repetidores até o gateway.</p>
+                    <h4>1.3.1.1 ARBITRAGEM NÃO DESTRUTIVA DO CAN</h4>
+                    <p>O acesso ao meio é controlado pelo mecanismo de arbitragem bit a bit do CAN. Quando o barramento está livre, mais de um nó pode iniciar a transmissão. Cada transmissor compara o bit que envia com o nível observado no barramento. Se transmitir um bit recessivo e detectar um dominante, interrompe sua transmissão e passa a receber o quadro que possui maior prioridade. Como a arbitragem ocorre no próprio campo de identificador, o quadro vencedor não é corrompido.</p>
+                    <ul>
+                        <li><strong>Prioridade pelo identificador:</strong> no formato básico de 11 bits, identificadores numericamente menores possuem maior prioridade de arbitragem, pois apresentam primeiro a sequência dominante que prevalece sobre os bits recessivos.</li>
+                        <li><strong>Compartilhamento do barramento:</strong> todos os nós observam o tráfego do mesmo meio físico; a arbitragem organiza quem transmite sem exigir que um controlador central autorize cada quadro.</li>
+                    </ul>
+                </section>
+                <section class="section-h4">
+                    <h4>1.3.1.2 GERENCIAMENTO DE REDE E ORGANIZAÇÃO DAS MENSAGENS</h4>
+                    <p>O CANopen acrescenta funções de gerenciamento ao mecanismo de acesso do CAN. O NMT (Network Management) permite controlar estados dos dispositivos, como Inicialização, Pré-operacional, Operacional e Parado. O gerenciamento NMT pode ser centralizado por um nó mestre, mas a troca de dados de processo não depende de uma sequência de consulta mestre-escravo para cada mensagem.</p>
+                    <ul>
+                        <li><strong>COB-ID:</strong> identifica os objetos de comunicação CANopen no barramento e participa da definição de sua prioridade. Em CANopen clássico, os identificadores predefinidos normalmente utilizam o formato CAN de 11 bits.</li>
+                        <li><strong>Comunicação produtor-consumidor:</strong> um dispositivo pode produzir uma mensagem que será recebida por um ou mais nós interessados, de acordo com a configuração dos objetos de comunicação.</li>
+                    </ul>
                 </section>
             </section>
 
             <section class="section-h3">
-                <h3>6.4.3 DETERMINISMO E TEMPO DE CICLO</h3>
-                <p><strong>Classificação do HART com fio:</strong> não é determinístico para aplicações de tempo real estrito. A comunicação por solicitação e resposta, somada à taxa digital de 1.200 bit/s, pode tornar previsível a leitura em uma configuração definida, mas não garante ciclos curtos e fixos.</p>
-                <p><strong>Classificação do WirelessHART:</strong> oferece comunicação agendada e mais previsível por utilizar TDMA sincronizado. Essa previsibilidade é condicionada ao intervalo configurado, à quantidade de saltos, às rotas e às condições de rádio; portanto, não equivale a uma garantia universal de tempo real rígido.</p>
-                <p><strong>Aplicação:</strong> as duas tecnologias são voltadas principalmente à instrumentação, ao monitoramento de variáveis, à manutenção e ao diagnóstico de processos. Aplicações críticas de controle rápido exigem uma rede e arquitetura dimensionadas especificamente para esse requisito.</p>
+                <h3>1.3.2 ESTRUTURA DO QUADRO E MENSAGEM CANOPEN</h3>
+                <p>O CANopen utiliza quadros de dados do protocolo CAN para transportar objetos de comunicação. A estrutura do quadro é definida pela camada de enlace CAN; o significado dos dados transportados é determinado pelas regras de CANopen, incluindo identificadores de objetos de comunicação e o dicionário de objetos.</p>
+                <section class="section-h4">
+                    <h4>1.3.2.1 CAMPOS PRINCIPAIS DO QUADRO CAN CLÁSSICO</h4>
+                    <ul>
+                        <li><strong>SOF (Start of Frame):</strong> bit que marca o início do quadro e permite que os nós iniciem a sincronização da transmissão.</li>
+                        <li><strong>Campo de arbitragem:</strong> contém o identificador CAN e os bits de controle associados. O identificador participa da arbitragem e indica a prioridade do quadro.</li>
+                        <li><strong>Campo de controle e DLC:</strong> apresenta informações de controle e o Data Length Code, que indica a quantidade de bytes no campo de dados.</li>
+                        <li><strong>Campo de dados (Data Field):</strong> transporta o conteúdo da mensagem. No CAN clássico, o campo de dados comporta até 8 bytes por quadro.</li>
+                        <li><strong>CRC (Cyclic Redundancy Check):</strong> permite detectar erros no quadro recebido por meio de uma sequência de verificação calculada pelo transmissor e conferida pelo receptor.</li>
+                        <li><strong>ACK (Acknowledgement):</strong> é utilizado para indicar que pelo menos um nó recebeu o quadro sem detectar erro, conforme as regras do CAN.</li>
+                        <li><strong>EOF (End of Frame):</strong> sequência que indica o encerramento do quadro CAN.</li>
+                    </ul>
+                </section>
+                <section class="section-h4">
+                    <h4>1.3.2.2 OBJETOS DE COMUNICAÇÃO DO CANOPEN</h4>
+                    <p>O CANopen organiza os dados por meio de objetos de comunicação (COBs) e de um dicionário de objetos. O dicionário reúne parâmetros de comunicação e de aplicação, identificados por índice de 16 bits e subíndice quando necessário. Essa organização padroniza a configuração e o acesso às informações internas do dispositivo. [1]</p>
+                    <ul>
+                        <li><strong>PDO (Process Data Object):</strong> transporta dados de processo, como valores de sensores, estados de entradas e comandos de saída. É utilizado para comunicação rápida e pode ser configurado para transmissão síncrona, cíclica, por evento ou mediante solicitação, conforme o perfil e o equipamento.</li>
+                        <li><strong>SDO (Service Data Object):</strong> permite ler e escrever entradas do dicionário de objetos, sendo utilizado principalmente para parametrização, configuração e diagnóstico. O modelo de comunicação é cliente-servidor.</li>
+                        <li><strong>NMT (Network Management):</strong> gerencia os estados de comunicação dos nós e participa da inicialização e do controle operacional da rede.</li>
+                        <li><strong>SYNC e TIME:</strong> o SYNC pode sincronizar ações e transmissões relacionadas ao ciclo da rede; o TIME distribui informações de data e horário quando implementado.</li>
+                        <li><strong>EMCY (Emergency):</strong> comunica condições de erro ou emergência detectadas pelo dispositivo, permitindo que os demais participantes sejam informados rapidamente.</li>
+                        <li><strong>Heartbeat e Node Guarding:</strong> são mecanismos de monitoramento da disponibilidade e do estado dos nós. A utilização depende da configuração e das capacidades implementadas.</li>
+                    </ul>
+                </section>
+                <section class="section-h4">
+                    <h4>1.3.2.3 VERIFICAÇÃO DE ERROS E ESTADOS DE FALHA</h4>
+                    <p>A camada CAN possui mecanismos de detecção de erros, como verificação de CRC, monitoramento de bits, verificação de formato e bit stuffing. Quando identifica uma falha, o controlador pode emitir um quadro de erro e realizar nova tentativa de transmissão, conforme o estado do controlador e as regras do CAN. O mecanismo de confinamento de erros classifica os nós como Error Active, Error Passive ou Bus Off, limitando a participação de um nó que apresenta falhas repetidas.</p>
+                </section>
+            </section>
+        </section>
+
+        <section class="section-h2">
+            <h2>1.4 PARÂMETROS OPERACIONAIS E DESEMPENHO</h2>
+            <section class="section-h3">
+                <h3>1.4.1 TAXA DE TRANSMISSÃO (BIT RATE / BAUD RATE)</h3>
+                <p>No CANopen clássico (CANopen CC), as taxas de transmissão padronizadas vão de 10 kbit/s a 1 Mbit/s. A taxa é configurada para todos os nós de um mesmo segmento e precisa ser compatível com os equipamentos conectados. A velocidade efetiva e a confiabilidade dependem do comprimento do cabo, das derivações, dos transceptores e da qualidade da instalação. [1][2]</p>
+                <section class="section-h4">
+                    <h4>1.4.1.1 TAXAS DE TRANSMISSÃO USUAIS</h4>
+                    <ul>
+                        <li><strong>1 Mbit/s:</strong> utilizado em redes curtas e com requisitos elevados de atualização; a CiA indica comprimento de barramento de referência de 25 m.</li>
+                        <li><strong>500 kbit/s:</strong> permite comprimento de referência de até 100 m, sendo uma taxa comum em máquinas e sistemas compactos.</li>
+                        <li><strong>250 kbit/s:</strong> pode alcançar cerca de 250 m em condições compatíveis com as recomendações de temporização e cabeamento.</li>
+                        <li><strong>125 kbit/s:</strong> pode alcançar cerca de 500 m e é útil quando a extensão do barramento exige reduzir a taxa de transmissão.</li>
+                        <li><strong>50 kbit/s:</strong> pode alcançar cerca de 1.000 m em condições adequadas de instalação.</li>
+                        <li><strong>10 a 20 kbit/s:</strong> são taxas de menor velocidade que podem ser utilizadas em redes extensas. Como referência, 10 kbit/s pode alcançar até 5.000 m e 20 kbit/s até 2.500 m, conforme as condições de cabeamento e temporização.</li>
+                    </ul>
+                    <p>Os valores são referências técnicas para CANopen CC e não devem ser utilizados como garantia automática de alcance. O projeto deve respeitar a tabela completa de temporização, o limite de derivações, as características do cabo e os requisitos de cada transceptor. CANopen FD é uma variante distinta e não deve ser confundida com os limites do CANopen clássico. [2]</p>
+                </section>
             </section>
 
             <section class="section-h3">
-                <h3>6.4.4 NÍVEL NA PIRÂMIDE DA AUTOMAÇÃO</h3>
-                <p><strong>Classificação:</strong> atua principalmente no nível 1, conectando transmissores, sensores e posicionadores de campo. Por meio dos módulos de entrada/saída e gateways, integra-se ao nível 2 de controle e pode fornecer informações ao nível 3 de supervisão e gerenciamento de ativos.</p>
-                <p><strong>Justificativa:</strong> o HART acrescenta dados digitais de diagnóstico e parametrização aos instrumentos analógicos existentes. O WirelessHART amplia essa capacidade para pontos em que a instalação de cabos é difícil ou economicamente desfavorável, encaminhando os dados ao sistema de controle ou de gestão por meio do gateway.</p>
+                <h3>1.4.2 DISTÂNCIA MÁXIMA DO BARRAMENTO</h3>
+                <p>A distância máxima não é fixa: ela diminui à medida que a taxa de transmissão aumenta. A tabela técnica da CiA apresenta, como referências para CANopen CC, aproximadamente 25 m a 1 Mbit/s, 100 m a 500 kbit/s, 250 m a 250 kbit/s, 500 m a 125 kbit/s e 1.000 m a 50 kbit/s. Para taxas menores, o alcance de referência pode chegar a alguns quilômetros. [2]</p>
+                <p>Além do comprimento total, devem ser observados o comprimento individual e acumulado das derivações, a posição das terminações, a impedância do cabo, a queda de tensão e o atraso de propagação. Repetidores ou bridges podem ser necessários para interligar segmentos adicionais, respeitando as limitações da arquitetura.</p>
+            </section>
+
+            <section class="section-h3">
+                <h3>1.4.3 DETERMINISMO E TEMPO DE CICLO</h3>
+                <ul>
+                    <li><strong>Classificação:</strong>CANopen pode oferecer comportamento previsível para aplicações de controle cíclico quando a rede é corretamente dimensionada e configurada, sendo condicionalmente determinístico, mas o tempo de resposta não é automaticamente garantido apenas pelo uso do protocolo.</li>
+                    <li><strong>Justificativa:</strong> a arbitragem por identificador define prioridades e permite calcular tempos de transmissão em função da carga do barramento. Mensagens de maior prioridade podem acessar o meio antes das de menor prioridade. Entretanto, o tempo de ciclo depende da taxa configurada, do número de nós, do volume de mensagens, da prioridade dos COB-IDs, das retransmissões e das falhas de comunicação.</li>
+                    <li><strong>Aplicação:</strong> é apropriado para troca de dados de controle entre controladores, acionamentos e módulos distribuídos, desde que os requisitos de tempo real sejam verificados por análise de carga e projeto da rede.</li>
+                </ul>
+            </section>
+
+            <section class="section-h3">
+                <h3>1.4.4 NÍVEL NA PIRÂMIDE DA AUTOMAÇÃO</h3>
+                <ul>
+                    <li><strong>Classificação:</strong> atua principalmente nos níveis de Sensores e Atuadores (Nível 1) e de Controle (Nível 2) da pirâmide da automação.</li>
+                    <li><strong>Justificativa:</strong> o CANopen conecta dispositivos de campo, módulos de I/O, inversores, servodrives, sensores e controladores. Os dados podem ser encaminhados a sistemas de supervisão por meio de PLCs, gateways ou interfaces de comunicação, mas o CANopen é mais diretamente associado à comunicação de dispositivos e ao controle local da máquina.</li>
+                </ul>
             </section>
         </section>
     </main>
@@ -215,7 +213,6 @@
     <footer>
         <p>by Arthur Furtado Machado &trade; &copy;</p>
     </footer>
-
 </body>
 
 </html>

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/style.css">
-    <title>HART | Sistemas de Redes</title>
+    <title>MQTT | Sistemas de Redes</title>
 </head>
 
 <body>
@@ -23,191 +23,181 @@
     </header>
 
     <main>
-        <h1>6. HART (PROTOCOLO E WIRELESSHART)</h1>
+        <h1>2. MQTT (MESSAGE QUEUING TELEMETRY TRANSPORT)</h1>
 
         <section class="section-h2">
-            <h2>6.1 ESTRUTURA FÍSICA E CABEAMENTO</h2>
+            <h2>2.1 ESTRUTURA FÍSICA E CABEAMENTO</h2>
             <section class="section-h3">
-                <h3>6.1.1 HART NA INSTRUMENTAÇÃO DE PROCESSOS</h3>
-                <p>O HART (Highway Addressable Remote Transducer) é um protocolo de comunicação utilizado em instrumentos inteligentes de campo. Sua característica mais conhecida é permitir a transmissão simultânea de um sinal analógico de 4 a 20 mA e de informações digitais sobre o mesmo par de fios. Assim, a variável principal do processo continua disponível em formato analógico, enquanto dados adicionais podem ser acessados digitalmente.</p>
-                <p>A comunicação digital permite ler variáveis adicionais, estado do instrumento, diagnóstico, identificação e parâmetros de configuração. O protocolo é amplamente utilizado em transmissores e posicionadores de válvulas, além de ser integrado a sistemas de controle e ferramentas de gerenciamento de ativos.</p>
+                <h3>2.1.1 MQTT EM REDES INDUSTRIAIS E SISTEMAS IIOT</h3>
+                <p>MQTT é um protocolo de mensagens da camada de aplicação que utiliza o modelo Publicação/Assinatura (Publish/Subscribe). Um dispositivo ou aplicação publica informações em tópicos, enquanto os clientes interessados assinam esses tópicos para receber as mensagens. Um servidor intermediário chamado broker recebe as publicações e distribui os dados aos assinantes correspondentes. O protocolo foi projetado para ser leve e adequado a ambientes com dispositivos e enlaces que possuem recursos limitados. [4]</p>
+                <p>Na indústria, MQTT é utilizado para transportar dados de máquinas, sensores, gateways e sistemas de supervisão até aplicações de monitoramento, análise de dados, plataformas IIoT e serviços em nuvem. Ele não substitui necessariamente os protocolos de controle em tempo real do chão de fábrica; normalmente complementa as redes industriais ao disponibilizar dados para integração e análise.</p>
             </section>
 
             <section class="section-h3">
-                <h3>6.1.2 HART COM FIO: MEIOS FÍSICOS E CABOS</h3>
+                <h3>2.1.2 MEIOS DE TRANSMISSÃO E INFRAESTRUTURA DE COMUNICAÇÃO</h3>
+                <p>O MQTT não define um cabo ou meio físico próprio. Ele funciona sobre um transporte que ofereça um fluxo ordenado e confiável de bytes; a utilização mais comum é TCP/IP. Assim, a comunicação pode atravessar diferentes meios físicos, como Ethernet em cobre, fibra óptica, Wi-Fi ou redes celulares, desde que exista conectividade IP entre o cliente e o broker. [4]</p>
                 <ul>
-                    <li><strong>Par trançado:</strong> o meio mais comum é o par de fios utilizado no circuito de corrente 4-20 mA. O cabo deve apresentar resistência e capacitância compatíveis com a quantidade de dispositivos, a carga e o comprimento do circuito.</li>
-                    <li><strong>Cabo blindado:</strong> pode ser utilizado em ambientes industriais para reduzir a influência de ruídos eletromagnéticos. A blindagem deve ser conectada conforme o projeto de instrumentação e as recomendações do fabricante.</li>
-                    <li><strong>Circuito de dois fios:</strong> o mesmo par conduz a corrente do sinal 4-20 mA, a comunicação digital FSK e, em transmissores compatíveis, a alimentação do instrumento.</li>
-                    <li><strong>Circuito de quatro fios:</strong> alguns instrumentos recebem alimentação separada, mantendo o par de sinal para a comunicação analógica e digital.</li>
+                    <li><strong>Ethernet em par trançado:</strong> muito utilizada para conectar PLCs, gateways industriais, computadores e servidores a switches da rede local.</li>
+                    <li><strong>Fibra óptica:</strong> pode ser utilizada nos backbones e nos enlaces entre áreas, switches e centros de processamento. A fibra transporta os dados IP, enquanto o MQTT continua operando na camada de aplicação.</li>
+                    <li><strong>Wi-Fi e redes celulares:</strong> permitem a conexão de equipamentos móveis, remotos ou distribuídos quando o projeto necessita de mobilidade ou comunicação fora da infraestrutura cabeada.</li>
+                    <li><strong>Broker local ou em nuvem:</strong> pode ser instalado em um servidor da própria planta, em um gateway de borda (edge) ou em uma plataforma externa. A localização do broker influencia a arquitetura, a latência e a dependência do enlace de comunicação.</li>
                 </ul>
             </section>
 
             <section class="section-h3">
-                <h3>6.1.3 WIRELESSHART: MEIO DE TRANSMISSÃO E EQUIPAMENTOS</h3>
-                <p>O WirelessHART é uma extensão sem fio do protocolo HART, padronizada internacionalmente pela IEC 62591. Em vez de utilizar um par de fios para transportar a comunicação, os dispositivos trocam dados por radiofrequência e formam uma rede Mesh de campo. A comunicação entre a rede sem fio e o sistema de controle é realizada por um gateway.</p>
+                <h3>2.1.3 CONECTORES PADRONIZADOS E IDENTIFICAÇÃO</h3>
+                <p>Como MQTT não estabelece a camada física, também não define conectores próprios. Os conectores utilizados dependem da interface de rede que transporta TCP/IP e do equipamento instalado.</p>
                 <ul>
-                    <li><strong>Instrumentos WirelessHART:</strong> instrumentos com rádio integrado que transmitem informações de processo e diagnóstico pela rede sem fio.</li>
-                    <li><strong>Adaptadores WirelessHART:</strong> podem conectar instrumentos HART existentes à rede sem fio, evitando a substituição imediata do instrumento de campo.</li>
-                    <li><strong>Gateway:</strong> faz a interface entre a rede WirelessHART e a rede da planta, encaminhando os dados para o sistema host, controlador ou aplicação de gerenciamento.</li>
-                    <li><strong>Gerenciador de rede (Network Manager):</strong> organiza a entrada dos dispositivos, o agendamento das comunicações, as rotas Mesh e a manutenção da rede. Pode estar integrado ao gateway ou a outro equipamento do sistema.</li>
+                    <li><strong>RJ45 (8P8C):</strong> utilizado em portas Ethernet de PLCs, gateways, switches, computadores e servidores.</li>
+                    <li><strong>M12 industrial:</strong> pode ser utilizado em equipamentos industriais com Ethernet, especialmente quando se exige conexão mecânica robusta e proteção ambiental. O tipo de codificação deve ser compatível com a interface e a velocidade utilizadas.</li>
+                    <li><strong>LC/SC para fibra óptica:</strong> aparecem em módulos ópticos e equipamentos de rede que interligam segmentos Ethernet por fibra.</li>
+                    <li><strong>Antenas e interfaces sem fio:</strong> Wi-Fi e redes celulares utilizam suas próprias antenas e interfaces de rádio; esses elementos pertencem à tecnologia de acesso e não ao protocolo MQTT.</li>
                 </ul>
             </section>
 
             <section class="section-h3">
-                <h3>6.1.4 CONECTORES PADRONIZADOS E IDENTIFICAÇÃO</h3>
+                <h3>2.1.4 TOPOLOGIAS SUPORTADAS NA INFRAESTRUTURA IP</h3>
+                <p>A topologia física e lógica de uma comunicação MQTT é herdada da rede IP utilizada. O modelo de aplicação é organizado em torno dos clientes e do broker, mas os equipamentos podem estar distribuídos por diferentes switches, roteadores, enlaces sem fio e segmentos de rede.</p>
                 <ul>
-                    <li><strong>Bornes de instrumentação:</strong> são usados para conectar os condutores do circuito 4-20 mA/HART aos transmissores, posicionadores e módulos de entrada e saída.</li>
-                    <li><strong>Terminais de teste e comunicação:</strong> pontos de conexão podem permitir a ligação de comunicadores portáteis ou modems HART sem interromper o circuito, respeitando a impedância necessária à comunicação.</li>
-                    <li><strong>Conectores do gateway:</strong> a conexão do gateway à rede de controle pode utilizar Ethernet RJ45, interfaces seriais ou outras conexões definidas pelo fabricante.</li>
-                    <li><strong>WirelessHART:</strong> não possui um conector físico universal para o enlace de rádio. Antenas integradas ou externas e conectores auxiliares dependem do projeto e do modelo do instrumento ou gateway.</li>
+                    <li><strong>Estrela e árvore:</strong> são comuns em redes Ethernet industriais, nas quais clientes e broker se conectam a switches de acesso e distribuição.</li>
+                    <li><strong>Anel ou malha:</strong> podem existir na infraestrutura IP para aumentar a disponibilidade ou oferecer caminhos alternativos, dependendo dos protocolos de redundância e dos equipamentos utilizados.</li>
+                    <li><strong>Comunicação remota:</strong> clientes podem publicar e receber mensagens por redes roteadas ou pela Internet, desde que o acesso ao broker esteja permitido e protegido por políticas de segurança.</li>
+                </ul>
+            </section>
+        </section>
+
+        <section class="section-h2">
+            <h2>2.2 INTERFACE ELÉTRICA E TRANSMISSÃO DE SINAIS</h2>
+            <section class="section-h3">
+                <h3>2.2.1 SINALIZAÇÃO E NÍVEIS ELÉTRICOS</h3>
+                <p>O MQTT não especifica níveis de tensão, codificação elétrica, modulação óptica ou frequência de rádio. Esses parâmetros pertencem à tecnologia física e de enlace utilizada para estabelecer a conexão IP. Em Ethernet de cobre, por exemplo, a sinalização é definida pelo padrão Ethernet correspondente; em fibra, os dados são transmitidos por pulsos de luz; em Wi-Fi, utilizam-se sinais de radiofrequência.</p>
+                <ul>
+                    <li><strong>Camada física:</strong> define o tipo de sinal, a potência, a codificação e os conectores empregados no enlace.</li>
+                    <li><strong>Camada de transporte:</strong> no uso convencional, o MQTT utiliza TCP, que fornece um fluxo ordenado e confiável entre cliente e broker. A especificação também admite outros transportes que atendam aos requisitos de entrega ordenada e sem perda do fluxo de bytes.</li>
+                    <li><strong>Taxa de símbolos e baud rate:</strong> não são definidos pelo MQTT. Dependem da tecnologia física subjacente e não devem ser atribuídos diretamente ao protocolo de mensagens.</li>
                 </ul>
             </section>
 
             <section class="section-h3">
-                <h3>6.1.5 TOPOLOGIAS SUPORTADAS</h3>
+                <h3>2.2.2 ALIMENTAÇÃO PELO BARRAMENTO</h3>
+                <p>O MQTT não fornece energia elétrica pelo meio de comunicação. Os sensores, controladores, gateways, switches e servidores necessitam de alimentação própria ou de uma solução de energia prevista pela infraestrutura física.</p>
+                <ul>
+                    <li><strong>Alimentação local:</strong> equipamentos industriais normalmente utilizam fontes CC ou fontes integradas, conforme a especificação de cada dispositivo.</li>
+                    <li><strong>PoE:</strong> quando a conexão física utiliza Ethernet compatível, a energia pode ser fornecida por PoE de acordo com padrões IEEE 802.3. Essa alimentação pertence à infraestrutura Ethernet, não ao MQTT.</li>
+                    <li><strong>Equipamentos remotos:</strong> dispositivos conectados por Wi-Fi ou rede celular podem utilizar fontes locais, baterias ou sistemas de energia dedicados.</li>
+                </ul>
+            </section>
+
+            <section class="section-h3">
+                <h3>2.2.3 ISOLAÇÃO E PROTEÇÃO CONTRA RUÍDOS</h3>
+                <p>A imunidade a interferências depende do meio físico escolhido. O MQTT não realiza blindagem nem corrige interferências eletromagnéticas no cabo ou no rádio; ele utiliza os mecanismos da rede e do transporte para manter a comunicação entre os clientes e o broker.</p>
+                <ul>
+                    <li><strong>Em Ethernet de cobre:</strong> utilizar cabeamento industrial adequado, blindagem quando necessária, aterramento planejado, separação de cabos de potência e proteção contra surtos conforme o ambiente.</li>
+                    <li><strong>Em fibra óptica:</strong> o enlace é imune a interferências eletromagnéticas no próprio meio óptico e pode ser vantajoso entre áreas com diferenças de potencial ou elevado ruído elétrico.</li>
+                    <li><strong>Em Wi-Fi ou rede celular:</strong> é necessário considerar interferência de radiofrequência, intensidade do sinal, obstáculos, cobertura e disponibilidade do enlace.</li>
+                    <li><strong>Segurança da comunicação:</strong> TLS pode proteger a conexão por criptografia e autenticação; credenciais, certificados, permissões por tópico e segmentação da rede devem ser configurados. A segurança lógica não substitui a proteção elétrica e física.</li>
+                </ul>
+            </section>
+        </section>
+
+        <section class="section-h2">
+            <h2>2.3 PROTOCOLO DE ENLACE E ACESSO AO MEIO (MAC)</h2>
+            <section class="section-h3">
+                <h3>2.3.1 MÉTODO DE COMUNICAÇÃO PUBLICAÇÃO/ASSINATURA</h3>
                 <section class="section-h4">
-                    <h4>6.1.5.1 HART COM FIO: PONTO A PONTO E MULTIDROP</h4>
+                    <h4>2.3.1.1 FUNCIONAMENTO ENTRE CLIENTES E BROKER</h4>
+                    <p>O MQTT não utiliza um método próprio de acesso ao meio físico nem uma arbitragem de barramento como o CAN. O acesso ao meio é determinado pela rede subjacente, por exemplo, Ethernet com switches ou Wi-Fi com seus mecanismos de contenção. Na camada de aplicação, o MQTT organiza a troca de mensagens por meio do modelo publicação/assinatura.</p>
                     <ul>
-                        <li><strong>Ponto a ponto:</strong> um instrumento é conectado ao sistema por um circuito 4-20 mA. O valor analógico representa a variável principal e a comunicação digital HART ocorre simultaneamente sobre o mesmo par.</li>
-                        <li><strong>Multidrop:</strong> vários instrumentos compartilham um par de comunicação e são identificados por endereços individuais. Nessa configuração, a informação é transmitida digitalmente, e o sinal analógico de corrente deixa de representar individualmente a variável de cada instrumento.</li>
+                        <li><strong>Publisher (publicador):</strong> cliente que envia uma mensagem a um tópico, sem precisar conhecer diretamente todos os destinatários.</li>
+                        <li><strong>Subscriber (assinante):</strong> cliente que registra interesse em um ou mais tópicos e recebe as mensagens que correspondem às suas assinaturas.</li>
+                        <li><strong>Broker:</strong> servidor que aceita conexões, recebe publicações, administra assinaturas e encaminha mensagens aos clientes interessados.</li>
+                        <li><strong>Tópicos (Topics):</strong> nomes hierárquicos que organizam as mensagens, por exemplo, fabrica/linha1/motor1/temperatura. Os filtros de assinatura podem utilizar curingas conforme as regras do MQTT.</li>
                     </ul>
                 </section>
-
                 <section class="section-h4">
-                    <h4>6.1.5.2 WIRELESSHART: TOPOLOGIA EM MALHA (MESH)</h4>
-                    <p>Na rede WirelessHART, os instrumentos podem encaminhar mensagens por meio de outros nós até alcançar o gateway. Essa comunicação multissalto permite contornar obstáculos e criar caminhos alternativos. A rede é auto-organizável, e o gerenciador seleciona rotas e horários de comunicação conforme a qualidade dos enlaces e a disponibilidade dos dispositivos.</p>
+                    <h4>2.3.1.2 NÍVEIS DE QUALIDADE DE SERVIÇO (QOS)</h4>
+                    <p>O MQTT define três níveis de Quality of Service (QoS), que controlam o nível de confirmação da entrega de cada mensagem entre um emissor e um receptor. O nível configurado influencia a quantidade de mensagens de controle, a latência e a possibilidade de duplicidade. [4]</p>
+                    <ul>
+                        <li><strong>QoS 0 — At most once:</strong> a mensagem é enviada sem confirmação e sem retransmissão pelo mecanismo QoS. Pode chegar uma vez ou não chegar.</li>
+                        <li><strong>QoS 1 — At least once:</strong> o protocolo utiliza confirmação de recebimento e pode retransmitir a mensagem até obter a confirmação. Garante entrega pelo menos uma vez, podendo ocorrer duplicidade.</li>
+                        <li><strong>QoS 2 — Exactly once:</strong> utiliza uma troca de pacotes de controle mais extensa para assegurar que a mensagem seja entregue exatamente uma vez dentro do fluxo QoS entre os participantes.</li>
+                        <li><strong>Retained Message e Last Will:</strong> o recurso Retain permite ao broker armazenar a última mensagem retida de um tópico para novos assinantes. O Last Will permite publicar uma mensagem previamente configurada quando a conexão de um cliente termina de forma inesperada.</li>
+                    </ul>
+                </section>
+            </section>
+
+            <section class="section-h3">
+                <h3>2.3.2 ESTRUTURA DO QUADRO E MENSAGEM MQTT</h3>
+                <p>O MQTT transmite pacotes de controle (MQTT Control Packets). Cada pacote possui um cabeçalho fixo e, conforme o tipo, pode conter cabeçalho variável e payload. O conteúdo do payload é definido pela aplicação e pode transportar valores numéricos, texto, JSON, dados binários ou outros formatos. [4]</p>
+                <section class="section-h4">
+                    <h4>2.3.2.1 CAMPOS PRINCIPAIS DOS PACOTES DE CONTROLE</h4>
+                    <ul>
+                        <li><strong>Fixed Header (Cabeçalho Fixo):</strong> presente em todos os pacotes. Identifica o tipo de pacote e inclui flags específicas; também informa o comprimento restante do pacote.</li>
+                        <li><strong>Variable Header (Cabeçalho Variável):</strong> presente em determinados pacotes, com campos que variam conforme a operação. Pode conter identificador de pacote, nome de tópico ou propriedades.</li>
+                        <li><strong>Payload:</strong> presente nos pacotes que transportam dados ou parâmetros de operação. No PUBLISH, contém a mensagem da aplicação publicada no tópico.</li>
+                        <li><strong>Packet Identifier:</strong> campo de identificação utilizado nos fluxos que exigem confirmação, como operações QoS 1 e QoS 2 e pacotes de assinatura.</li>
+                    </ul>
+                </section>
+                <section class="section-h4">
+                    <h4>2.3.2.2 MENSAGEM PUBLISH E TÓPICOS</h4>
+                    <p>O pacote PUBLISH transporta uma mensagem de aplicação do cliente ao broker ou do broker ao cliente. Na mensagem publicada, o cabeçalho variável contém o nome do tópico e, quando necessário, identificador de pacote e propriedades. O payload contém os dados propriamente ditos, cujo formato é definido pelos sistemas que publicam e consomem a informação.</p>
+                    <ul>
+                        <li><strong>Endereço lógico de destino:</strong> o tópico identifica o canal de informação ao qual a mensagem está associada. O broker utiliza as assinaturas dos clientes para determinar quais participantes devem receber a publicação.</li>
+                        <li><strong>Ausência de endereço MAC MQTT:</strong> o MQTT não define endereços MAC de origem e destino. Os endereços IP e MAC são tratados pelas camadas inferiores da rede.</li>
+                    </ul>
+                </section>
+                <section class="section-h4">
+                    <h4>2.3.2.3 CONFIRMAÇÃO E INTEGRIDADE</h4>
+                    <p>As confirmações de entrega dependem do nível QoS. No QoS 0 não há confirmação MQTT; no QoS 1, utiliza-se PUBACK; no QoS 2, ocorre uma sequência de controle que envolve PUBREC, PUBREL e PUBCOMP. A integridade do fluxo de bytes é apoiada pelo transporte e, quando habilitado, pela proteção criptográfica da conexão TLS. O MQTT não define um campo CRC próprio equivalente ao FCS de um quadro Ethernet.</p>
                 </section>
             </section>
         </section>
 
         <section class="section-h2">
-            <h2>6.2 INTERFACE ELÉTRICA E TRANSMISSÃO DE SINAIS</h2>
+            <h2>2.4 PARÂMETROS OPERACIONAIS E DESEMPENHO</h2>
             <section class="section-h3">
-                <h3>6.2.1 SINALIZAÇÃO DO HART COM FIO</h3>
-                <p>O HART com fio utiliza dois canais de informação simultâneos no mesmo circuito. O primeiro é o sinal analógico de corrente contínua de 4 a 20 mA, que representa a variável principal do processo. O segundo é o sinal digital modulado por FSK (Frequency Shift Keying), sobreposto ao circuito analógico.</p>
-                <ul>
-                    <li><strong>Sinal analógico 4-20 mA:</strong> a corrente representa a variável medida ou comandada, com a escala definida pelo instrumento e pelo sistema de controle.</li>
-                    <li><strong>Modulação FSK Bell 202:</strong> utiliza duas frequências para representar os bits digitais: 1.200 Hz para o bit lógico 1 e 2.200 Hz para o bit lógico 0.</li>
-                    <li><strong>Taxa digital:</strong> a comunicação HART tradicional opera a 1.200 bit/s. O sinal FSK possui valor médio nulo, permitindo sua sobreposição sem alterar significativamente a leitura analógica de corrente contínua.</li>
-                </ul>
-            </section>
-
-            <section class="section-h3">
-                <h3>6.2.2 SINALIZAÇÃO DO WIRELESSHART</h3>
-                <p>O WirelessHART utiliza a camada física de rádio de 2,4 GHz definida com base no IEEE 802.15.4. A transmissão emprega espalhamento espectral por sequência direta (DSSS) e modulação O-QPSK (Offset Quadrature Phase Shift Keying), adequada à comunicação de baixo consumo em redes de sensores.</p>
-                <ul>
-                    <li><strong>Faixa de frequência:</strong> 2,4 GHz na faixa ISM (Industrial, Scientific and Medical), compartilhada com outras tecnologias de rádio, conforme as regras regulatórias locais.</li>
-                    <li><strong>Canais:</strong> utiliza múltiplos canais de rádio e técnicas de salto de canal para distribuir as transmissões e reduzir os efeitos de interferências persistentes.</li>
-                    <li><strong>Taxa física nominal:</strong> a camada física IEEE 802.15.4 utilizada pelo WirelessHART oferece 250 kbit/s. A taxa útil da aplicação é inferior e depende do agendamento, do número de saltos e das informações de controle.</li>
-                </ul>
-            </section>
-
-            <section class="section-h3">
-                <h3>6.2.3 ALIMENTAÇÃO PELO BARRAMENTO E ENERGIA DOS EQUIPAMENTOS</h3>
-                <ul>
-                    <li><strong>HART com fio - transmissores de dois fios:</strong> a alimentação do instrumento e o sinal analógico/digital compartilham o mesmo circuito de corrente, desde que o transmissor seja projetado para essa configuração.</li>
-                    <li><strong>HART com fio - instrumentos de quatro fios:</strong> utilizam fonte de alimentação separada e mantêm o circuito de sinal para a comunicação.</li>
-                    <li><strong>WirelessHART:</strong> instrumentos sem fio frequentemente utilizam baterias ou fontes locais. Alguns adaptadores podem obter energia do equipamento ou do circuito associado, conforme o modelo; a comunicação de rádio não fornece alimentação pelo ar.</li>
-                </ul>
-            </section>
-
-            <section class="section-h3">
-                <h3>6.2.4 ISOLAÇÃO E PROTEÇÃO CONTRA RUÍDOS</h3>
-                <ul>
-                    <li><strong>HART com fio:</strong> utilizar cabo de instrumentação adequado, blindagem e aterramento conforme o projeto, verificando a resistência e a capacitância do circuito para não comprometer o sinal FSK.</li>
-                    <li><strong>Resistência de comunicação:</strong> o circuito precisa apresentar impedância suficiente para que o sinal digital HART seja detectado. Em muitas instalações é utilizado um resistor de carga em torno de 250 ohms, desde que a fonte, o transmissor e a entrada analógica permitam essa condição.</li>
-                    <li><strong>Separação e isolação:</strong> barreiras e isoladores podem ser necessários para separar circuitos, reduzir interferências e atender requisitos de áreas classificadas.</li>
-                    <li><strong>WirelessHART:</strong> a robustez da comunicação é aumentada pelo salto de canais, pela diversidade de rotas Mesh, pela sincronização e pela verificação das transmissões.</li>
-                    <li><strong>Segurança digital:</strong> o WirelessHART utiliza mecanismos de autenticação e criptografia para proteger a entrada dos dispositivos e a confidencialidade e integridade das mensagens. Chaves e identificadores da rede devem ser configurados corretamente.</li>
-                </ul>
-                <p>A presença de comunicação HART ou WirelessHART não torna automaticamente um instrumento adequado para área classificada. Nesses locais, é necessário selecionar equipamentos e acessórios com certificação de proteção apropriada à zona, ao grupo de gás ou poeira e à classe de temperatura aplicáveis.</p>
-            </section>
-        </section>
-
-        <section class="section-h2">
-            <h2>6.3 PROTOCOLO DE ENLACE E ACESSO AO MEIO (MAC)</h2>
-            <section class="section-h3">
-                <h3>6.3.1 MÉTODO DE ACESSO AO MEIO NO HART COM FIO</h3>
-                <ul>
-                    <li><strong>Mestre-escravo:</strong> a comunicação tradicional é iniciada por um mestre, que envia uma solicitação ao instrumento. O dispositivo responde ao comando recebido, seguindo o modelo solicitação-resposta.</li>
-                    <li><strong>Mestres primário e secundário:</strong> o protocolo permite a presença de dois mestres no mesmo circuito, como um sistema de controle e um comunicador portátil de manutenção, respeitando as regras de acesso.</li>
-                    <li><strong>Modo Burst:</strong> opcionalmente, o mestre pode configurar o instrumento para transmitir respostas periodicamente, reduzindo a necessidade de uma solicitação individual a cada atualização.</li>
-                </ul>
-            </section>
-
-            <section class="section-h3">
-                <h3>6.3.2 ESTRUTURA DO QUADRO E MENSAGEM HART</h3>
-                <p>As mensagens HART são transmitidas em sequência serial e contêm informações para sincronização, identificação do instrumento, comando e dados. A estrutura varia conforme o formato do endereço e o tipo de mensagem, mas normalmente inclui os seguintes campos:</p>
-                <ul>
-                    <li><strong>Preâmbulo:</strong> sequência de bytes utilizada para sincronizar o receptor e permitir a identificação do início da mensagem.</li>
-                    <li><strong>Start delimiter:</strong> indica o tipo de mensagem e o formato do endereço utilizado.</li>
-                    <li><strong>Endereço:</strong> identifica o instrumento de destino ou a origem da resposta. Pode utilizar formato curto ou longo, conforme o tipo de mensagem.</li>
-                    <li><strong>Command:</strong> identifica a operação solicitada pelo mestre, como leitura de variável, consulta de estado ou alteração de parâmetro.</li>
-                    <li><strong>Byte count:</strong> informa o tamanho da parte de dados e dos campos correspondentes da mensagem.</li>
-                    <li><strong>Status:</strong> presente nas respostas, apresenta informações sobre o estado da comunicação e do dispositivo.</li>
-                    <li><strong>Data:</strong> transporta valores de processo, parâmetros, informações de identificação ou diagnóstico.</li>
-                    <li><strong>Checksum:</strong> permite verificar a integridade da mensagem recebida. A comunicação também utiliza paridade ímpar em cada caractere serial.</li>
-                </ul>
-            </section>
-
-            <section class="section-h3">
-                <h3>6.3.3 MÉTODO DE ACESSO AO MEIO NO WIRELESSHART</h3>
-                <ul>
-                    <li><strong>TDMA (Time Division Multiple Access):</strong> divide o tempo em intervalos organizados, normalmente slots de 10 ms, atribuindo horários específicos para transmissão e recepção dos dispositivos.</li>
-                    <li><strong>Sincronização temporal:</strong> os dispositivos mantêm seus relógios sincronizados com a rede para executar as transmissões nos intervalos programados.</li>
-                    <li><strong>Salto de canais (Channel Hopping):</strong> a frequência utilizada pode mudar entre transmissões, reduzindo a dependência de um único canal e ajudando a contornar interferências.</li>
-                    <li><strong>Mesh e roteamento:</strong> os dispositivos podem encaminhar mensagens por diferentes caminhos até o gateway. O gerenciador de rede organiza as rotas e os horários de transmissão.</li>
-                </ul>
-            </section>
-
-            <section class="section-h3">
-                <h3>6.3.4 ESTRUTURA DO QUADRO E MENSAGEM WIRELESSHART</h3>
-                <p>O WirelessHART utiliza uma estrutura de comunicação em camadas, combinando a sinalização física baseada no IEEE 802.15.4 com os campos de enlace e rede definidos pelo protocolo. De forma geral, a transmissão inclui sincronização física, informações de controle, endereçamento, dados da mensagem e verificação de integridade.</p>
-                <ul>
-                    <li><strong>Preâmbulo e delimitador físico:</strong> auxiliam a sincronização do rádio receptor e a identificação do início do pacote.</li>
-                    <li><strong>Cabeçalho de enlace:</strong> contém informações de controle e identificação necessárias para a entrega do quadro entre dispositivos próximos.</li>
-                    <li><strong>Endereçamento e roteamento:</strong> permitem identificar os dispositivos e encaminhar mensagens por um ou mais saltos até o destino ou gateway.</li>
-                    <li><strong>Dados:</strong> transportam variáveis de processo, comandos, estado do instrumento e informações de gerenciamento da rede.</li>
-                    <li><strong>Verificação e segurança:</strong> mecanismos de integridade e autenticação ajudam a detectar alterações e impedir a aceitação de mensagens não autorizadas.</li>
-                </ul>
-            </section>
-        </section>
-
-        <section class="section-h2">
-            <h2>6.4 PARÂMETROS OPERACIONAIS E DESEMPENHO</h2>
-            <section class="section-h3">
-                <h3>6.4.1 TAXA DE TRANSMISSÃO (BIT RATE / BAUD RATE)</h3>
-                <ul>
-                    <li><strong>HART com fio:</strong> 1.200 bit/s para o canal digital FSK, em paralelo ao sinal analógico de 4-20 mA.</li>
-                    <li><strong>WirelessHART:</strong> 250 kbit/s de taxa nominal da camada física de rádio. A taxa útil para dados de aplicação é menor devido aos quadros de controle, agendamento, confirmações, segurança e encaminhamento Mesh.</li>
-                </ul>
-            </section>
-
-            <section class="section-h3">
-                <h3>6.4.2 DISTÂNCIA MÁXIMA E COBERTURA</h3>
+                <h3>2.4.1 TAXA DE TRANSMISSÃO (BIT RATE / BANDWIDTH)</h3>
+                <p>O MQTT não estabelece uma taxa física fixa em baud ou bits por segundo. A velocidade de transmissão depende da interface de rede, do transporte TCP/IP, da capacidade do broker, do tamanho das mensagens, do número de clientes conectados, da frequência de publicação e do QoS configurado.</p>
                 <section class="section-h4">
-                    <h4>6.4.2.1 HART COM FIO</h4>
-                    <p>A distância máxima depende da resistência, capacitância e configuração do circuito. Como referência técnica, a documentação HART apresenta até aproximadamente 3.048 metros para um par trançado e cerca de 1.524 metros quando há múltiplos pares no cabo. Esses limites devem ser verificados com os dados reais do cabo, da carga e dos equipamentos instalados.</p>
+                    <h4>2.4.1.1 INFLUÊNCIA DA REDE E DO QOS</h4>
+                    <ul>
+                        <li><strong>Largura de banda:</strong> é determinada pelo enlace utilizado, como Ethernet, fibra, Wi-Fi ou rede celular. A capacidade disponível pode ser compartilhada com outros serviços da instalação.</li>
+                        <li><strong>Frequência das publicações:</strong> enviar mensagens com maior frequência aumenta o tráfego e o processamento exigido do broker e dos assinantes.</li>
+                        <li><strong>Tamanho do payload:</strong> mensagens maiores consomem mais banda e podem exigir mais tempo de transmissão, especialmente em enlaces lentos ou congestionados.</li>
+                        <li><strong>QoS:</strong> níveis mais elevados adicionam pacotes de confirmação e etapas de controle. Eles melhoram a garantia de entrega, mas podem aumentar o tráfego e o tempo necessário para concluir a troca.</li>
+                    </ul>
                 </section>
-
                 <section class="section-h4">
-                    <h4>6.4.2.2 WIRELESSHART</h4>
-                    <p>O alcance por rádio depende da potência, antena, obstáculos, condições de propagação e interferências presentes na área. Como referência de engenharia, pode-se considerar aproximadamente 200 metros entre dispositivos em condições adequadas, mas esse valor não é um limite universal. A rede Mesh amplia a cobertura total por meio de múltiplos saltos entre instrumentos e repetidores até o gateway.</p>
+                    <h4>2.4.1.2 PORTAS DE COMUNICAÇÃO E TRANSPORTE</h4>
+                    <ul>
+                        <li><strong>TCP 1883:</strong> porta convencional registrada para comunicação MQTT sem TLS.</li>
+                        <li><strong>TCP 8883:</strong> porta convencional registrada para comunicação MQTT protegida por TLS.</li>
+                        <li><strong>WebSocket:</strong> também pode transportar MQTT em aplicações compatíveis, por exemplo quando a comunicação precisa atravessar ambientes de aplicação web. A porta utilizada depende da configuração do serviço.</li>
+                    </ul>
+                    <p>As portas indicadas são valores convencionais e podem ser alteradas pelo administrador. O MQTT requer um transporte que ofereça fluxo de bytes ordenado e confiável; a especificação cita TCP/IP e também admite outros transportes que atendam a esse requisito. [4]</p>
                 </section>
             </section>
 
             <section class="section-h3">
-                <h3>6.4.3 DETERMINISMO E TEMPO DE CICLO</h3>
-                <p><strong>Classificação do HART com fio:</strong> não é determinístico para aplicações de tempo real estrito. A comunicação por solicitação e resposta, somada à taxa digital de 1.200 bit/s, pode tornar previsível a leitura em uma configuração definida, mas não garante ciclos curtos e fixos.</p>
-                <p><strong>Classificação do WirelessHART:</strong> oferece comunicação agendada e mais previsível por utilizar TDMA sincronizado. Essa previsibilidade é condicionada ao intervalo configurado, à quantidade de saltos, às rotas e às condições de rádio; portanto, não equivale a uma garantia universal de tempo real rígido.</p>
-                <p><strong>Aplicação:</strong> as duas tecnologias são voltadas principalmente à instrumentação, ao monitoramento de variáveis, à manutenção e ao diagnóstico de processos. Aplicações críticas de controle rápido exigem uma rede e arquitetura dimensionadas especificamente para esse requisito.</p>
+                <h3>2.4.2 DISTÂNCIA MÁXIMA DA COMUNICAÇÃO</h3>
+                <p>O MQTT não estabelece distância máxima entre cliente e broker. O alcance depende dos enlaces físicos e da arquitetura IP utilizada: um segmento Ethernet de cobre possui limites próprios, a fibra pode atender distâncias maiores conforme os transceptores e a rede sem fio depende de cobertura, potência, antenas e obstáculos. A comunicação pode atravessar roteadores e redes remotas, desde que exista conectividade até o broker.</p>
             </section>
 
             <section class="section-h3">
-                <h3>6.4.4 NÍVEL NA PIRÂMIDE DA AUTOMAÇÃO</h3>
-                <p><strong>Classificação:</strong> atua principalmente no nível 1, conectando transmissores, sensores e posicionadores de campo. Por meio dos módulos de entrada/saída e gateways, integra-se ao nível 2 de controle e pode fornecer informações ao nível 3 de supervisão e gerenciamento de ativos.</p>
-                <p><strong>Justificativa:</strong> o HART acrescenta dados digitais de diagnóstico e parametrização aos instrumentos analógicos existentes. O WirelessHART amplia essa capacidade para pontos em que a instalação de cabos é difícil ou economicamente desfavorável, encaminhando os dados ao sistema de controle ou de gestão por meio do gateway.</p>
+                <h3>2.4.3 DETERMINISMO E TEMPO DE CICLO</h3>
+                <ul>
+                    <li><strong>Classificação:</strong> o MQTT convencional é considerado não determinístico para controle industrial que exige tempo de ciclo rígido.</li>
+                    <li><strong>Justificativa:</strong> a entrega depende do transporte TCP, do processamento do broker, das filas de mensagens, do QoS, do número de assinantes, do roteamento e da carga da rede. Retransmissões e congestionamento podem alterar a latência e a variação do atraso.</li>
+                    <li><strong>Aplicação recomendada:</strong> é adequado para telemetria, monitoramento, alarmes não críticos, histórico de dados, integração entre sistemas e comunicação IIoT. Não deve substituir uma rede de controle de tempo real sem uma arquitetura específica e validação dos requisitos.</li>
+                </ul>
+            </section>
+
+            <section class="section-h3">
+                <h3>2.4.4 NÍVEL NA PIRÂMIDE DA AUTOMAÇÃO</h3>
+                <ul>
+                    <li><strong>Classificação:</strong> atua principalmente nos níveis de Supervisão (Nível 2), Gerenciamento da Produção (Nível 3) e Integração Corporativa/IIoT (Níveis 4 e 5), conforme a arquitetura adotada.</li>
+                    <li><strong>Justificativa:</strong> o MQTT permite que gateways e sistemas de supervisão compartilhem dados de máquinas com plataformas de análise, servidores, MES, ERP e serviços em nuvem. Os dispositivos de campo podem participar da comunicação por meio de clientes MQTT ou gateways, mas o protocolo é mais comum na integração e no transporte de telemetria do que no acionamento direto de malhas rápidas.</li>
+                </ul>
             </section>
         </section>
     </main>
@@ -215,7 +205,6 @@
     <footer>
         <p>by Arthur Furtado Machado &trade; &copy;</p>
     </footer>
-
 </body>
 
 </html>

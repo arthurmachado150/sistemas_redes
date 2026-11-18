@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/style.css">
-    <title>HART | Sistemas de Redes</title>
+    <title>EtherCAT | Sistemas de Redes</title>
 </head>
 
 <body>
@@ -23,191 +23,134 @@
     </header>
 
     <main>
-        <h1>6. HART (PROTOCOLO E WIRELESSHART)</h1>
+        <h1>2. ETHERCAT</h1>
 
         <section class="section-h2">
-            <h2>6.1 ESTRUTURA FÍSICA E CABEAMENTO</h2>
+            <h2>2.1 ESTRUTURA FÍSICA E CABEAMENTO</h2>
             <section class="section-h3">
-                <h3>6.1.1 HART NA INSTRUMENTAÇÃO DE PROCESSOS</h3>
-                <p>O HART (Highway Addressable Remote Transducer) é um protocolo de comunicação utilizado em instrumentos inteligentes de campo. Sua característica mais conhecida é permitir a transmissão simultânea de um sinal analógico de 4 a 20 mA e de informações digitais sobre o mesmo par de fios. Assim, a variável principal do processo continua disponível em formato analógico, enquanto dados adicionais podem ser acessados digitalmente.</p>
-                <p>A comunicação digital permite ler variáveis adicionais, estado do instrumento, diagnóstico, identificação e parâmetros de configuração. O protocolo é amplamente utilizado em transmissores e posicionadores de válvulas, além de ser integrado a sistemas de controle e ferramentas de gerenciamento de ativos.</p>
+                <h3>2.1.1 ETHERCAT EM SISTEMAS DE CONTROLE EM TEMPO REAL</h3>
+                <p>O EtherCAT é uma tecnologia de comunicação industrial utilizada para interligar controladores, módulos de I/O, inversores, servodrives, sensores, atuadores e sistemas de movimento que exigem comunicação cíclica rápida e sincronizada. Sua aplicação deve considerar a infraestrutura física, o comportamento de transmissão, os requisitos de tempo e a integração com os dispositivos e controladores do processo.</p>
+                <p>A arquitetura possui um dispositivo principal (MainDevice, tradicionalmente chamado de mestre) e um ou mais dispositivos subordinados (SubDevices, tradicionalmente chamados de escravos). Cada SubDevice possui um controlador EtherCAT (ESC) que processa os dados diretamente no hardware à medida que o quadro atravessa o dispositivo (ETG, 2022).</p>
             </section>
 
             <section class="section-h3">
-                <h3>6.1.2 HART COM FIO: MEIOS FÍSICOS E CABOS</h3>
+                <h3>2.1.2 MEIOS FÍSICOS E CABOS ADOTADOS</h3>
                 <ul>
-                    <li><strong>Par trançado:</strong> o meio mais comum é o par de fios utilizado no circuito de corrente 4-20 mA. O cabo deve apresentar resistência e capacitância compatíveis com a quantidade de dispositivos, a carga e o comprimento do circuito.</li>
-                    <li><strong>Cabo blindado:</strong> pode ser utilizado em ambientes industriais para reduzir a influência de ruídos eletromagnéticos. A blindagem deve ser conectada conforme o projeto de instrumentação e as recomendações do fabricante.</li>
-                    <li><strong>Circuito de dois fios:</strong> o mesmo par conduz a corrente do sinal 4-20 mA, a comunicação digital FSK e, em transmissores compatíveis, a alimentação do instrumento.</li>
-                    <li><strong>Circuito de quatro fios:</strong> alguns instrumentos recebem alimentação separada, mantendo o par de sinal para a comunicação analógica e digital.</li>
+                    <li><strong>Ethernet sobre cobre:</strong> a implementação mais comum utiliza 100BASE-TX, a 100 Mbit/s e full-duplex, sobre cabo de par trançado industrial blindado, normalmente categoria Cat 5 ou superior. O canal de cobre pode atingir até 100 m entre dispositivos, conforme as condições normativas do enlace.</li>
+                    <li><strong>Fibra óptica:</strong> versões baseadas em 100BASE-FX podem ser utilizadas em enlaces de fibra, permitindo distâncias de vários quilômetros conforme o tipo de fibra, os transceptores e o orçamento óptico. É uma alternativa para grandes distâncias ou ambientes com forte interferência eletromagnética.</li>
+                    <li><strong>Cabos flexíveis:</strong> em máquinas com movimento, podem ser necessários cabos industriais próprios para esteiras porta-cabos e flexão contínua. A categoria e a construção do cabo devem ser compatíveis com a velocidade, a blindagem e o ciclo mecânico da aplicação.</li>
+                    <li><strong>Backplane:</strong> alguns equipamentos suportam conexões internas de curta distância por interfaces elétricas específicas, como LVDS, que não devem ser confundidas com o cabeamento Ethernet convencional.</li>
                 </ul>
             </section>
 
             <section class="section-h3">
-                <h3>6.1.3 WIRELESSHART: MEIO DE TRANSMISSÃO E EQUIPAMENTOS</h3>
-                <p>O WirelessHART é uma extensão sem fio do protocolo HART, padronizada internacionalmente pela IEC 62591. Em vez de utilizar um par de fios para transportar a comunicação, os dispositivos trocam dados por radiofrequência e formam uma rede Mesh de campo. A comunicação entre a rede sem fio e o sistema de controle é realizada por um gateway.</p>
+                <h3>2.1.3 CONECTORES PADRONIZADOS E IDENTIFICAÇÃO</h3>
                 <ul>
-                    <li><strong>Instrumentos WirelessHART:</strong> instrumentos com rádio integrado que transmitem informações de processo e diagnóstico pela rede sem fio.</li>
-                    <li><strong>Adaptadores WirelessHART:</strong> podem conectar instrumentos HART existentes à rede sem fio, evitando a substituição imediata do instrumento de campo.</li>
-                    <li><strong>Gateway:</strong> faz a interface entre a rede WirelessHART e a rede da planta, encaminhando os dados para o sistema host, controlador ou aplicação de gerenciamento.</li>
-                    <li><strong>Gerenciador de rede (Network Manager):</strong> organiza a entrada dos dispositivos, o agendamento das comunicações, as rotas Mesh e a manutenção da rede. Pode estar integrado ao gateway ou a outro equipamento do sistema.</li>
+                    <li><strong>RJ45:</strong> conector amplamente utilizado em conexões EtherCAT sobre cobre 100BASE-TX, com pinagem Ethernet e versões industriais com proteção mecânica e travamento reforçado.</li>
+                    <li><strong>M12 e M8:</strong> conectores circulares industriais utilizados em equipamentos de campo e máquinas. O código, a quantidade de pinos e a atribuição elétrica devem seguir a especificação do fabricante do equipamento.</li>
+                    <li><strong>Conectores ópticos:</strong> quando a implementação utiliza fibra, os conectores dependem do módulo e da interface óptica selecionada, podendo incluir soluções como LC ou SC.</li>
                 </ul>
+                <p>A seleção do conector deve considerar o grau de proteção requerido, vibração, presença de óleo ou umidade e facilidade de manutenção. Não existe um único formato de conector obrigatório para todos os equipamentos EtherCAT.</p>
             </section>
 
             <section class="section-h3">
-                <h3>6.1.4 CONECTORES PADRONIZADOS E IDENTIFICAÇÃO</h3>
-                <ul>
-                    <li><strong>Bornes de instrumentação:</strong> são usados para conectar os condutores do circuito 4-20 mA/HART aos transmissores, posicionadores e módulos de entrada e saída.</li>
-                    <li><strong>Terminais de teste e comunicação:</strong> pontos de conexão podem permitir a ligação de comunicadores portáteis ou modems HART sem interromper o circuito, respeitando a impedância necessária à comunicação.</li>
-                    <li><strong>Conectores do gateway:</strong> a conexão do gateway à rede de controle pode utilizar Ethernet RJ45, interfaces seriais ou outras conexões definidas pelo fabricante.</li>
-                    <li><strong>WirelessHART:</strong> não possui um conector físico universal para o enlace de rádio. Antenas integradas ou externas e conectores auxiliares dependem do projeto e do modelo do instrumento ou gateway.</li>
-                </ul>
-            </section>
-
-            <section class="section-h3">
-                <h3>6.1.5 TOPOLOGIAS SUPORTADAS</h3>
+                <h3>2.1.4 TOPOLOGIAS SUPORTADAS</h3>
                 <section class="section-h4">
-                    <h4>6.1.5.1 HART COM FIO: PONTO A PONTO E MULTIDROP</h4>
+                    <h4>2.1.4.1 LINHA, ÁRVORE E ESTRELA</h4>
+                    <p>O EtherCAT permite topologias em linha (daisy-chain), árvore e estrela, dependendo da quantidade de portas e da arquitetura dos controladores EtherCAT presentes nos dispositivos. Em muitos equipamentos, uma porta recebe o quadro e outra o encaminha ao próximo nó, reduzindo a necessidade de switches Ethernet externos.</p>
+                </section>
+                <section class="section-h4">
+                    <h4>2.1.4.2 ANEL E REDUNDÂNCIA</h4>
+                    <p>É possível projetar um caminho em anel para redundância quando o MainDevice e os dispositivos envolvidos oferecem suporte à função correspondente. Nesse arranjo, uma interrupção do cabo pode permitir que a comunicação continue pelo caminho alternativo, desde que a configuração e os equipamentos atendam aos requisitos de redundância.</p>
                     <ul>
-                        <li><strong>Ponto a ponto:</strong> um instrumento é conectado ao sistema por um circuito 4-20 mA. O valor analógico representa a variável principal e a comunicação digital HART ocorre simultaneamente sobre o mesmo par.</li>
-                        <li><strong>Multidrop:</strong> vários instrumentos compartilham um par de comunicação e são identificados por endereços individuais. Nessa configuração, a informação é transmitida digitalmente, e o sinal analógico de corrente deixa de representar individualmente a variável de cada instrumento.</li>
+                        <li><strong>Observação sobre switches:</strong> a topologia nativa normalmente utiliza as portas EtherCAT dos próprios dispositivos. Um switch Ethernet convencional não deve ser inserido indiscriminadamente no caminho de um segmento EtherCAT; devem ser utilizados componentes e métodos explicitamente compatíveis com a tecnologia e com a topologia prevista (ETG, 2022).</li>
                     </ul>
                 </section>
-
-                <section class="section-h4">
-                    <h4>6.1.5.2 WIRELESSHART: TOPOLOGIA EM MALHA (MESH)</h4>
-                    <p>Na rede WirelessHART, os instrumentos podem encaminhar mensagens por meio de outros nós até alcançar o gateway. Essa comunicação multissalto permite contornar obstáculos e criar caminhos alternativos. A rede é auto-organizável, e o gerenciador seleciona rotas e horários de comunicação conforme a qualidade dos enlaces e a disponibilidade dos dispositivos.</p>
-                </section>
             </section>
         </section>
 
         <section class="section-h2">
-            <h2>6.2 INTERFACE ELÉTRICA E TRANSMISSÃO DE SINAIS</h2>
+            <h2>2.2 INTERFACE ELÉTRICA E TRANSMISSÃO DE SINAIS</h2>
             <section class="section-h3">
-                <h3>6.2.1 SINALIZAÇÃO DO HART COM FIO</h3>
-                <p>O HART com fio utiliza dois canais de informação simultâneos no mesmo circuito. O primeiro é o sinal analógico de corrente contínua de 4 a 20 mA, que representa a variável principal do processo. O segundo é o sinal digital modulado por FSK (Frequency Shift Keying), sobreposto ao circuito analógico.</p>
+                <h3>2.2.1 SINALIZAÇÃO E NÍVEIS</h3>
+                <p>No meio de cobre, o EtherCAT utiliza a camada física Ethernet 100BASE-TX, com transmissão diferencial pelos pares trançados de dados. A codificação física 100BASE-TX utiliza 4B/5B e sinalização MLT-3. No meio óptico 100BASE-FX, a informação é transmitida por pulsos luminosos. Portanto, não utiliza níveis RS-485 nem o sinal elétrico CAN.</p>
                 <ul>
-                    <li><strong>Sinal analógico 4-20 mA:</strong> a corrente representa a variável medida ou comandada, com a escala definida pelo instrumento e pelo sistema de controle.</li>
-                    <li><strong>Modulação FSK Bell 202:</strong> utiliza duas frequências para representar os bits digitais: 1.200 Hz para o bit lógico 1 e 2.200 Hz para o bit lógico 0.</li>
-                    <li><strong>Taxa digital:</strong> a comunicação HART tradicional opera a 1.200 bit/s. O sinal FSK possui valor médio nulo, permitindo sua sobreposição sem alterar significativamente a leitura analógica de corrente contínua.</li>
+                    <li><strong>Taxa da camada física:</strong> a implementação EtherCAT clássica utiliza Ethernet de 100 Mbit/s full-duplex. A taxa de transmissão do enlace não deve ser confundida com o tempo de ciclo da aplicação.</li>
+                    <li><strong>Processamento no dispositivo:</strong> o ESC reconhece os datagramas e lê ou insere dados enquanto o quadro passa pelo equipamento, reduzindo a necessidade de processamento por software para cada atualização cíclica.</li>
                 </ul>
             </section>
 
             <section class="section-h3">
-                <h3>6.2.2 SINALIZAÇÃO DO WIRELESSHART</h3>
-                <p>O WirelessHART utiliza a camada física de rádio de 2,4 GHz definida com base no IEEE 802.15.4. A transmissão emprega espalhamento espectral por sequência direta (DSSS) e modulação O-QPSK (Offset Quadrature Phase Shift Keying), adequada à comunicação de baixo consumo em redes de sensores.</p>
+                <h3>2.2.2 ALIMENTAÇÃO PELO BARRAMENTO</h3>
+                <p>Na implementação EtherCAT convencional, o cabo de comunicação não fornece automaticamente energia aos dispositivos. A alimentação dos módulos, sensores, atuadores e acionamentos normalmente utiliza fontes e condutores separados, frequentemente em 24 Vcc para circuitos de controle.</p>
                 <ul>
-                    <li><strong>Faixa de frequência:</strong> 2,4 GHz na faixa ISM (Industrial, Scientific and Medical), compartilhada com outras tecnologias de rádio, conforme as regras regulatórias locais.</li>
-                    <li><strong>Canais:</strong> utiliza múltiplos canais de rádio e técnicas de salto de canal para distribuir as transmissões e reduzir os efeitos de interferências persistentes.</li>
-                    <li><strong>Taxa física nominal:</strong> a camada física IEEE 802.15.4 utilizada pelo WirelessHART oferece 250 kbit/s. A taxa útil da aplicação é inferior e depende do agendamento, do número de saltos e das informações de controle.</li>
+                    <li><strong>EtherCAT P:</strong> é uma extensão específica que permite transmitir dados e alimentação pelo mesmo cabo de quatro condutores compatível. A tecnologia prevê dois sistemas de alimentação de 24 V separados e isolados, identificados como US e UP, e exige dispositivos, conectores e cabos compatíveis.</li>
+                    <li><strong>Dimensionamento:</strong> quando EtherCAT P não é utilizado, devem ser previstas fontes independentes e distribuição de energia conforme o consumo e as exigências dos dispositivos. A compatibilidade do cabeamento deve ser confirmada antes de aplicar alimentação no cabo de comunicação.</li>
                 </ul>
             </section>
 
             <section class="section-h3">
-                <h3>6.2.3 ALIMENTAÇÃO PELO BARRAMENTO E ENERGIA DOS EQUIPAMENTOS</h3>
+                <h3>2.2.3 ISOLAÇÃO E PROTEÇÃO CONTRA RUÍDOS</h3>
                 <ul>
-                    <li><strong>HART com fio - transmissores de dois fios:</strong> a alimentação do instrumento e o sinal analógico/digital compartilham o mesmo circuito de corrente, desde que o transmissor seja projetado para essa configuração.</li>
-                    <li><strong>HART com fio - instrumentos de quatro fios:</strong> utilizam fonte de alimentação separada e mantêm o circuito de sinal para a comunicação.</li>
-                    <li><strong>WirelessHART:</strong> instrumentos sem fio frequentemente utilizam baterias ou fontes locais. Alguns adaptadores podem obter energia do equipamento ou do circuito associado, conforme o modelo; a comunicação de rádio não fornece alimentação pelo ar.</li>
-                </ul>
-            </section>
-
-            <section class="section-h3">
-                <h3>6.2.4 ISOLAÇÃO E PROTEÇÃO CONTRA RUÍDOS</h3>
-                <ul>
-                    <li><strong>HART com fio:</strong> utilizar cabo de instrumentação adequado, blindagem e aterramento conforme o projeto, verificando a resistência e a capacitância do circuito para não comprometer o sinal FSK.</li>
-                    <li><strong>Resistência de comunicação:</strong> o circuito precisa apresentar impedância suficiente para que o sinal digital HART seja detectado. Em muitas instalações é utilizado um resistor de carga em torno de 250 ohms, desde que a fonte, o transmissor e a entrada analógica permitam essa condição.</li>
-                    <li><strong>Separação e isolação:</strong> barreiras e isoladores podem ser necessários para separar circuitos, reduzir interferências e atender requisitos de áreas classificadas.</li>
-                    <li><strong>WirelessHART:</strong> a robustez da comunicação é aumentada pelo salto de canais, pela diversidade de rotas Mesh, pela sincronização e pela verificação das transmissões.</li>
-                    <li><strong>Segurança digital:</strong> o WirelessHART utiliza mecanismos de autenticação e criptografia para proteger a entrada dos dispositivos e a confidencialidade e integridade das mensagens. Chaves e identificadores da rede devem ser configurados corretamente.</li>
-                </ul>
-                <p>A presença de comunicação HART ou WirelessHART não torna automaticamente um instrumento adequado para área classificada. Nesses locais, é necessário selecionar equipamentos e acessórios com certificação de proteção apropriada à zona, ao grupo de gás ou poeira e à classe de temperatura aplicáveis.</p>
-            </section>
-        </section>
-
-        <section class="section-h2">
-            <h2>6.3 PROTOCOLO DE ENLACE E ACESSO AO MEIO (MAC)</h2>
-            <section class="section-h3">
-                <h3>6.3.1 MÉTODO DE ACESSO AO MEIO NO HART COM FIO</h3>
-                <ul>
-                    <li><strong>Mestre-escravo:</strong> a comunicação tradicional é iniciada por um mestre, que envia uma solicitação ao instrumento. O dispositivo responde ao comando recebido, seguindo o modelo solicitação-resposta.</li>
-                    <li><strong>Mestres primário e secundário:</strong> o protocolo permite a presença de dois mestres no mesmo circuito, como um sistema de controle e um comunicador portátil de manutenção, respeitando as regras de acesso.</li>
-                    <li><strong>Modo Burst:</strong> opcionalmente, o mestre pode configurar o instrumento para transmitir respostas periodicamente, reduzindo a necessidade de uma solicitação individual a cada atualização.</li>
-                </ul>
-            </section>
-
-            <section class="section-h3">
-                <h3>6.3.2 ESTRUTURA DO QUADRO E MENSAGEM HART</h3>
-                <p>As mensagens HART são transmitidas em sequência serial e contêm informações para sincronização, identificação do instrumento, comando e dados. A estrutura varia conforme o formato do endereço e o tipo de mensagem, mas normalmente inclui os seguintes campos:</p>
-                <ul>
-                    <li><strong>Preâmbulo:</strong> sequência de bytes utilizada para sincronizar o receptor e permitir a identificação do início da mensagem.</li>
-                    <li><strong>Start delimiter:</strong> indica o tipo de mensagem e o formato do endereço utilizado.</li>
-                    <li><strong>Endereço:</strong> identifica o instrumento de destino ou a origem da resposta. Pode utilizar formato curto ou longo, conforme o tipo de mensagem.</li>
-                    <li><strong>Command:</strong> identifica a operação solicitada pelo mestre, como leitura de variável, consulta de estado ou alteração de parâmetro.</li>
-                    <li><strong>Byte count:</strong> informa o tamanho da parte de dados e dos campos correspondentes da mensagem.</li>
-                    <li><strong>Status:</strong> presente nas respostas, apresenta informações sobre o estado da comunicação e do dispositivo.</li>
-                    <li><strong>Data:</strong> transporta valores de processo, parâmetros, informações de identificação ou diagnóstico.</li>
-                    <li><strong>Checksum:</strong> permite verificar a integridade da mensagem recebida. A comunicação também utiliza paridade ímpar em cada caractere serial.</li>
-                </ul>
-            </section>
-
-            <section class="section-h3">
-                <h3>6.3.3 MÉTODO DE ACESSO AO MEIO NO WIRELESSHART</h3>
-                <ul>
-                    <li><strong>TDMA (Time Division Multiple Access):</strong> divide o tempo em intervalos organizados, normalmente slots de 10 ms, atribuindo horários específicos para transmissão e recepção dos dispositivos.</li>
-                    <li><strong>Sincronização temporal:</strong> os dispositivos mantêm seus relógios sincronizados com a rede para executar as transmissões nos intervalos programados.</li>
-                    <li><strong>Salto de canais (Channel Hopping):</strong> a frequência utilizada pode mudar entre transmissões, reduzindo a dependência de um único canal e ajudando a contornar interferências.</li>
-                    <li><strong>Mesh e roteamento:</strong> os dispositivos podem encaminhar mensagens por diferentes caminhos até o gateway. O gerenciador de rede organiza as rotas e os horários de transmissão.</li>
-                </ul>
-            </section>
-
-            <section class="section-h3">
-                <h3>6.3.4 ESTRUTURA DO QUADRO E MENSAGEM WIRELESSHART</h3>
-                <p>O WirelessHART utiliza uma estrutura de comunicação em camadas, combinando a sinalização física baseada no IEEE 802.15.4 com os campos de enlace e rede definidos pelo protocolo. De forma geral, a transmissão inclui sincronização física, informações de controle, endereçamento, dados da mensagem e verificação de integridade.</p>
-                <ul>
-                    <li><strong>Preâmbulo e delimitador físico:</strong> auxiliam a sincronização do rádio receptor e a identificação do início do pacote.</li>
-                    <li><strong>Cabeçalho de enlace:</strong> contém informações de controle e identificação necessárias para a entrega do quadro entre dispositivos próximos.</li>
-                    <li><strong>Endereçamento e roteamento:</strong> permitem identificar os dispositivos e encaminhar mensagens por um ou mais saltos até o destino ou gateway.</li>
-                    <li><strong>Dados:</strong> transportam variáveis de processo, comandos, estado do instrumento e informações de gerenciamento da rede.</li>
-                    <li><strong>Verificação e segurança:</strong> mecanismos de integridade e autenticação ajudam a detectar alterações e impedir a aceitação de mensagens não autorizadas.</li>
+                    <li><strong>Blindagem:</strong> as orientações de instalação EtherCAT recomendam cabos blindados e continuidade elétrica da blindagem ao longo do canal. A conexão da blindagem ao invólucro do equipamento deve seguir as instruções do fabricante e o projeto de compatibilidade eletromagnética (ETG, 2022).</li>
+                    <li><strong>Aterramento e equipotencialização:</strong> os dispositivos devem possuir referência de potencial adequada. A equipotencialização reduz diferenças de potencial e correntes indesejadas pela blindagem. A forma de ligação da blindagem pode variar conforme a construção do equipamento, incluindo conexão direta ou redes internas de acoplamento; deve-se seguir o manual do fabricante.</li>
+                    <li><strong>Separação dos cabos:</strong> cabos de comunicação devem ser instalados afastados de cabos de potência, motores e saídas de inversores. Quando o cruzamento for inevitável, recomenda-se realizá-lo próximo de 90 graus.</li>
+                    <li><strong>Fibra óptica:</strong> em ambientes com interferência eletromagnética elevada, diferença de potencial entre estruturas ou necessidade de maior distância, a fibra fornece isolamento galvânico entre os pontos conectados.</li>
+                    <li><strong>Áreas classificadas:</strong> EtherCAT não torna automaticamente um circuito intrinsecamente seguro. Para instalação em áreas classificadas, os equipamentos e métodos de proteção devem possuir certificação adequada à classificação do local.</li>
                 </ul>
             </section>
         </section>
 
         <section class="section-h2">
-            <h2>6.4 PARÂMETROS OPERACIONAIS E DESEMPENHO</h2>
+            <h2>2.3 PROTOCOLO DE ENLACE E ACESSO AO MEIO (MAC)</h2>
             <section class="section-h3">
-                <h3>6.4.1 TAXA DE TRANSMISSÃO (BIT RATE / BAUD RATE)</h3>
+                <h3>2.3.1 MÉTODO DE ACESSO AO MEIO</h3>
+                <p>O MainDevice organiza a comunicação cíclica e envia quadros Ethernet que percorrem a sequência de SubDevices. Como o enlace é ponto a ponto e full-duplex, os dispositivos não disputam o meio por CSMA/CD. Cada ESC processa os dados destinados a ele enquanto o quadro passa, sem precisar aguardar que o quadro inteiro seja recebido e processado por software.</p>
                 <ul>
-                    <li><strong>HART com fio:</strong> 1.200 bit/s para o canal digital FSK, em paralelo ao sinal analógico de 4-20 mA.</li>
-                    <li><strong>WirelessHART:</strong> 250 kbit/s de taxa nominal da camada física de rádio. A taxa útil para dados de aplicação é menor devido aos quadros de controle, agendamento, confirmações, segurança e encaminhamento Mesh.</li>
+                    <li><strong>Processamento on-the-fly:</strong> cada SubDevice extrai os dados de saída destinados a ele e insere os dados de entrada correspondentes no quadro em trânsito. O processamento é feito pelo hardware ESC, com atraso de passagem muito pequeno e previsível.</li>
+                    <li><strong>Agendamento cíclico:</strong> o MainDevice define a ordem e o intervalo de atualização dos dados de processo. O tráfego de controle, diagnóstico e parametrização pode utilizar mecanismos de comunicação apropriados sem substituir o fluxo cíclico de tempo real.</li>
                 </ul>
             </section>
 
             <section class="section-h3">
-                <h3>6.4.2 DISTÂNCIA MÁXIMA E COBERTURA</h3>
-                <section class="section-h4">
-                    <h4>6.4.2.1 HART COM FIO</h4>
-                    <p>A distância máxima depende da resistência, capacitância e configuração do circuito. Como referência técnica, a documentação HART apresenta até aproximadamente 3.048 metros para um par trançado e cerca de 1.524 metros quando há múltiplos pares no cabo. Esses limites devem ser verificados com os dados reais do cabo, da carga e dos equipamentos instalados.</p>
-                </section>
+                <h3>2.3.2 ESTRUTURA DO QUADRO E MENSAGEM</h3>
+                <p>O EtherCAT utiliza quadros Ethernet padrão, identificados pelo EtherType 0x88A4. Um quadro pode conter um ou mais datagramas EtherCAT, permitindo transportar dados destinados a vários dispositivos em uma mesma transmissão.</p>
+                <ul>
+                    <li><strong>Cabeçalho Ethernet:</strong> contém os endereços MAC de destino e origem e o campo EtherType que identifica o protocolo EtherCAT.</li>
+                    <li><strong>Cabeçalho EtherCAT e datagramas:</strong> o cabeçalho do protocolo identifica o comprimento e as informações de controle do quadro. Cada datagrama contém comando, índice, endereço de memória ou lógico, comprimento, dados e campos de controle.</li>
+                    <li><strong>Working Counter (WKC):</strong> campo de contagem associado ao datagrama, incrementado pelos dispositivos quando a operação endereçada é executada com sucesso. O controlador utiliza o valor esperado para verificar se os dispositivos participantes processaram os dados previstos.</li>
+                    <li><strong>Verificação de erros:</strong> o quadro Ethernet é finalizado pelo FCS, calculado por CRC-32, como nas transmissões Ethernet convencionais. O EtherCAT também verifica os resultados das operações por meio do Working Counter.</li>
+                </ul>
+            </section>
+        </section>
 
-                <section class="section-h4">
-                    <h4>6.4.2.2 WIRELESSHART</h4>
-                    <p>O alcance por rádio depende da potência, antena, obstáculos, condições de propagação e interferências presentes na área. Como referência de engenharia, pode-se considerar aproximadamente 200 metros entre dispositivos em condições adequadas, mas esse valor não é um limite universal. A rede Mesh amplia a cobertura total por meio de múltiplos saltos entre instrumentos e repetidores até o gateway.</p>
-                </section>
+        <section class="section-h2">
+            <h2>2.4 PARÂMETROS OPERACIONAIS E DESEMPENHO</h2>
+            <section class="section-h3">
+                <h3>2.4.1 TAXA DE TRANSMISSÃO</h3>
+                <p>A camada física EtherCAT clássica opera a 100 Mbit/s full-duplex, utilizando 100BASE-TX em cobre ou 100BASE-FX em fibra. Essa taxa representa a velocidade do enlace Ethernet. O desempenho de controle depende também do tamanho dos dados cíclicos, da quantidade de dispositivos, do ciclo configurado e do processamento do controlador.</p>
             </section>
 
             <section class="section-h3">
-                <h3>6.4.3 DETERMINISMO E TEMPO DE CICLO</h3>
-                <p><strong>Classificação do HART com fio:</strong> não é determinístico para aplicações de tempo real estrito. A comunicação por solicitação e resposta, somada à taxa digital de 1.200 bit/s, pode tornar previsível a leitura em uma configuração definida, mas não garante ciclos curtos e fixos.</p>
-                <p><strong>Classificação do WirelessHART:</strong> oferece comunicação agendada e mais previsível por utilizar TDMA sincronizado. Essa previsibilidade é condicionada ao intervalo configurado, à quantidade de saltos, às rotas e às condições de rádio; portanto, não equivale a uma garantia universal de tempo real rígido.</p>
-                <p><strong>Aplicação:</strong> as duas tecnologias são voltadas principalmente à instrumentação, ao monitoramento de variáveis, à manutenção e ao diagnóstico de processos. Aplicações críticas de controle rápido exigem uma rede e arquitetura dimensionadas especificamente para esse requisito.</p>
+                <h3>2.4.2 DISTÂNCIA MÁXIMA DOS SEGMENTOS</h3>
+                <ul>
+                    <li><strong>Cobre 100BASE-TX:</strong> até 100 m por segmento/canal Ethernet, considerando cabeamento e conexões dentro dos limites aplicáveis.</li>
+                    <li><strong>Fibra 100BASE-FX:</strong> distâncias de vários quilômetros podem ser alcançadas, dependendo do tipo de fibra, dos transceptores, dos conectores e do orçamento óptico do enlace.</li>
+                    <li><strong>Comprimento total da rede:</strong> o limite de 100 m aplica-se a cada enlace de cobre entre dispositivos, e não necessariamente à soma de todos os enlaces de uma rede com vários nós. A extensão total depende da topologia e do meio utilizado em cada trecho.</li>
+                </ul>
             </section>
 
             <section class="section-h3">
-                <h3>6.4.4 NÍVEL NA PIRÂMIDE DA AUTOMAÇÃO</h3>
-                <p><strong>Classificação:</strong> atua principalmente no nível 1, conectando transmissores, sensores e posicionadores de campo. Por meio dos módulos de entrada/saída e gateways, integra-se ao nível 2 de controle e pode fornecer informações ao nível 3 de supervisão e gerenciamento de ativos.</p>
-                <p><strong>Justificativa:</strong> o HART acrescenta dados digitais de diagnóstico e parametrização aos instrumentos analógicos existentes. O WirelessHART amplia essa capacidade para pontos em que a instalação de cabos é difícil ou economicamente desfavorável, encaminhando os dados ao sistema de controle ou de gestão por meio do gateway.</p>
+                <h3>2.4.3 DETERMINISMO E TEMPO DE CICLO</h3>
+                <p><strong>Classificação:</strong> o EtherCAT foi desenvolvido para comunicação determinística e aplicações de tempo real, incluindo controle de movimento.</p>
+                <p><strong>Justificativa:</strong> o processamento on-the-fly e a ausência de disputa pelo meio tornam os atrasos de passagem dos dispositivos pequenos e previsíveis. O recurso Distributed Clocks permite sincronizar relógios dos dispositivos com precisão inferior a um microssegundo em instalações adequadas.</p>
+                <p><strong>Tempo de ciclo:</strong> ciclos na faixa de 100 microssegundos ou menores podem ser viáveis em determinadas configurações, mas não constituem uma garantia universal: o tempo real depende do número de nós, quantidade de dados, configuração, controlador e carga de processamento (ETG, 2022).</p>
+            </section>
+
+            <section class="section-h3">
+                <h3>2.4.4 NÍVEL NA PIRÂMIDE DA AUTOMAÇÃO</h3>
+                <p><strong>Classificação:</strong> o EtherCAT atua principalmente nos níveis de campo e de controle.</p>
+                <p><strong>Justificativa e aplicação:</strong> interliga módulos de entradas e saídas, sensores, atuadores, inversores e servodrives ao controlador, sendo especialmente adequado para sincronização de eixos e controle de máquinas com ciclos rápidos. Gateways podem integrar essas informações a sistemas de supervisão e níveis superiores, mas sua aplicação principal está no controle em tempo real.</p>
             </section>
         </section>
     </main>
@@ -215,7 +158,6 @@
     <footer>
         <p>by Arthur Furtado Machado &trade; &copy;</p>
     </footer>
-
 </body>
 
 </html>

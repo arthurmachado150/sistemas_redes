@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/style.css">
-    <title>HART | Sistemas de Redes</title>
+    <title>AS-i | Sistemas de Redes</title>
 </head>
 
 <body>
@@ -23,191 +23,154 @@
     </header>
 
     <main>
-        <h1>6. HART (PROTOCOLO E WIRELESSHART)</h1>
+        <h1>2. AS-I (ACTUATOR SENSOR INTERFACE)</h1>
 
         <section class="section-h2">
-            <h2>6.1 ESTRUTURA FÍSICA E CABEAMENTO</h2>
+            <h2>2.1 ESTRUTURA FÍSICA E CABEAMENTO</h2>
             <section class="section-h3">
-                <h3>6.1.1 HART NA INSTRUMENTAÇÃO DE PROCESSOS</h3>
-                <p>O HART (Highway Addressable Remote Transducer) é um protocolo de comunicação utilizado em instrumentos inteligentes de campo. Sua característica mais conhecida é permitir a transmissão simultânea de um sinal analógico de 4 a 20 mA e de informações digitais sobre o mesmo par de fios. Assim, a variável principal do processo continua disponível em formato analógico, enquanto dados adicionais podem ser acessados digitalmente.</p>
-                <p>A comunicação digital permite ler variáveis adicionais, estado do instrumento, diagnóstico, identificação e parâmetros de configuração. O protocolo é amplamente utilizado em transmissores e posicionadores de válvulas, além de ser integrado a sistemas de controle e ferramentas de gerenciamento de ativos.</p>
+                <h3>2.1.1 AS-I EM REDES INDUSTRIAIS</h3>
+                <p>A AS-Interface (AS-i) é uma rede industrial voltada principalmente à comunicação com sensores, atuadores e módulos de entradas e saídas instalados no nível de campo. Seu objetivo é simplificar a ligação de dispositivos distribuídos, substituindo grande quantidade de cabos individuais por um cabo de dois condutores compartilhado. A tecnologia é utilizada em máquinas, linhas de montagem, transportadores e sistemas que possuem muitos sinais discretos próximos ao processo.</p>
+                <p>A rede é organizada em torno de um mestre AS-i, que realiza a comunicação com os escravos conectados ao cabo. Os escravos podem ser módulos de entradas e saídas, sensores com interface integrada, atuadores e dispositivos específicos. Além da troca de dados digitais, existem perfis que permitem transportar sinais analógicos e informações de diagnóstico. A quantidade de dispositivos e os recursos disponíveis dependem da versão da especificação e do perfil de cada escravo.</p>
             </section>
 
             <section class="section-h3">
-                <h3>6.1.2 HART COM FIO: MEIOS FÍSICOS E CABOS</h3>
-                <ul>
-                    <li><strong>Par trançado:</strong> o meio mais comum é o par de fios utilizado no circuito de corrente 4-20 mA. O cabo deve apresentar resistência e capacitância compatíveis com a quantidade de dispositivos, a carga e o comprimento do circuito.</li>
-                    <li><strong>Cabo blindado:</strong> pode ser utilizado em ambientes industriais para reduzir a influência de ruídos eletromagnéticos. A blindagem deve ser conectada conforme o projeto de instrumentação e as recomendações do fabricante.</li>
-                    <li><strong>Circuito de dois fios:</strong> o mesmo par conduz a corrente do sinal 4-20 mA, a comunicação digital FSK e, em transmissores compatíveis, a alimentação do instrumento.</li>
-                    <li><strong>Circuito de quatro fios:</strong> alguns instrumentos recebem alimentação separada, mantendo o par de sinal para a comunicação analógica e digital.</li>
-                </ul>
-            </section>
-
-            <section class="section-h3">
-                <h3>6.1.3 WIRELESSHART: MEIO DE TRANSMISSÃO E EQUIPAMENTOS</h3>
-                <p>O WirelessHART é uma extensão sem fio do protocolo HART, padronizada internacionalmente pela IEC 62591. Em vez de utilizar um par de fios para transportar a comunicação, os dispositivos trocam dados por radiofrequência e formam uma rede Mesh de campo. A comunicação entre a rede sem fio e o sistema de controle é realizada por um gateway.</p>
-                <ul>
-                    <li><strong>Instrumentos WirelessHART:</strong> instrumentos com rádio integrado que transmitem informações de processo e diagnóstico pela rede sem fio.</li>
-                    <li><strong>Adaptadores WirelessHART:</strong> podem conectar instrumentos HART existentes à rede sem fio, evitando a substituição imediata do instrumento de campo.</li>
-                    <li><strong>Gateway:</strong> faz a interface entre a rede WirelessHART e a rede da planta, encaminhando os dados para o sistema host, controlador ou aplicação de gerenciamento.</li>
-                    <li><strong>Gerenciador de rede (Network Manager):</strong> organiza a entrada dos dispositivos, o agendamento das comunicações, as rotas Mesh e a manutenção da rede. Pode estar integrado ao gateway ou a outro equipamento do sistema.</li>
-                </ul>
-            </section>
-
-            <section class="section-h3">
-                <h3>6.1.4 CONECTORES PADRONIZADOS E IDENTIFICAÇÃO</h3>
-                <ul>
-                    <li><strong>Bornes de instrumentação:</strong> são usados para conectar os condutores do circuito 4-20 mA/HART aos transmissores, posicionadores e módulos de entrada e saída.</li>
-                    <li><strong>Terminais de teste e comunicação:</strong> pontos de conexão podem permitir a ligação de comunicadores portáteis ou modems HART sem interromper o circuito, respeitando a impedância necessária à comunicação.</li>
-                    <li><strong>Conectores do gateway:</strong> a conexão do gateway à rede de controle pode utilizar Ethernet RJ45, interfaces seriais ou outras conexões definidas pelo fabricante.</li>
-                    <li><strong>WirelessHART:</strong> não possui um conector físico universal para o enlace de rádio. Antenas integradas ou externas e conectores auxiliares dependem do projeto e do modelo do instrumento ou gateway.</li>
-                </ul>
-            </section>
-
-            <section class="section-h3">
-                <h3>6.1.5 TOPOLOGIAS SUPORTADAS</h3>
+                <h3>2.1.2 MEIO DE TRANSMISSÃO E CABEAMENTO ADOTADO</h3>
                 <section class="section-h4">
-                    <h4>6.1.5.1 HART COM FIO: PONTO A PONTO E MULTIDROP</h4>
+                    <h4>2.1.2.1 CABO PERFILADO AS-I</h4>
+                    <p>A AS-i utiliza, tradicionalmente, um cabo de dois condutores, não trançado e sem blindagem, com perfil achatado e formato mecânico que facilita a montagem dos módulos por tecnologia de perfuração (piercing). O cabo perfilado, normalmente amarelo, permite que os dispositivos sejam conectados em diferentes pontos sem a necessidade de cortar e descascar os condutores. O formato também ajuda a evitar a inversão de polaridade quando são utilizados módulos e conectores compatíveis.</p>
                     <ul>
-                        <li><strong>Ponto a ponto:</strong> um instrumento é conectado ao sistema por um circuito 4-20 mA. O valor analógico representa a variável principal e a comunicação digital HART ocorre simultaneamente sobre o mesmo par.</li>
-                        <li><strong>Multidrop:</strong> vários instrumentos compartilham um par de comunicação e são identificados por endereços individuais. Nessa configuração, a informação é transmitida digitalmente, e o sinal analógico de corrente deixa de representar individualmente a variável de cada instrumento.</li>
+                        <li><strong>Condutores AS-i+ e AS-i−:</strong> formam o par compartilhado utilizado para transmitir os dados e distribuir a alimentação do barramento aos dispositivos compatíveis.</li>
+                        <li><strong>Cabo amarelo:</strong> é a identificação visual tradicional do cabo de comunicação e alimentação AS-i. A cor não substitui a verificação da polaridade e da identificação dos terminais.</li>
+                        <li><strong>Cabo auxiliar preto:</strong> pode ser empregado para distribuir alimentação adicional, normalmente 24 Vcc, a atuadores ou circuitos que necessitam de corrente maior do que a disponível no barramento AS-i.</li>
                     </ul>
                 </section>
-
                 <section class="section-h4">
-                    <h4>6.1.5.2 WIRELESSHART: TOPOLOGIA EM MALHA (MESH)</h4>
-                    <p>Na rede WirelessHART, os instrumentos podem encaminhar mensagens por meio de outros nós até alcançar o gateway. Essa comunicação multissalto permite contornar obstáculos e criar caminhos alternativos. A rede é auto-organizável, e o gerenciador seleciona rotas e horários de comunicação conforme a qualidade dos enlaces e a disponibilidade dos dispositivos.</p>
+                    <h4>2.1.2.2 CONECTORES E TERMINAIS PADRONIZADOS</h4>
+                    <p>A conexão mais característica da AS-i utiliza módulos com contatos de perfuração que atravessam a isolação do cabo perfilado e estabelecem contato com os dois condutores. Esse método reduz o tempo de instalação e facilita a substituição ou reposicionamento de módulos. Também podem existir bornes de parafuso, conectores circulares M12 e cabos redondos em equipamentos específicos, conforme o fabricante e a aplicação.</p>
+                    <ul>
+                        <li><strong>Contato por perfuração:</strong> realiza a ligação elétrica sem exigir o descascamento manual dos condutores, desde que sejam utilizados o cabo perfilado e os módulos compatíveis.</li>
+                        <li><strong>M12 e conectores de campo:</strong> são utilizados frequentemente para ligar sensores, atuadores e módulos de E/S periféricos. A pinagem deve ser conferida no manual do equipamento.</li>
+                    </ul>
+                    <p>O cabo perfilado possui uma geometria que orienta o posicionamento dos módulos e reduz a possibilidade de ligação invertida. Mesmo assim, a continuidade do cabo, a polaridade e a compatibilidade dos acessórios devem ser verificadas durante a montagem.</p>
+                </section>
+            </section>
+
+            <section class="section-h3">
+                <h3>2.1.3 TOPOLOGIAS SUPORTADAS</h3>
+                <section class="section-h4">
+                    <h4>2.1.3.1 TOPOLOGIA FLEXÍVEL</h4>
+                    <p>A AS-i permite organizar o cabo em linha, estrela, árvore e combinações dessas estruturas, adaptando a instalação ao formato físico da máquina ou da planta. Os dispositivos podem ser conectados em diferentes pontos do percurso, sem exigir que todas as derivações estejam organizadas em uma única linha principal. Essa flexibilidade é uma das características que reduzem o esforço de cabeamento no nível de sensores e atuadores.</p>
+                    <ul>
+                        <li><strong>Terminação:</strong> a AS-i não utiliza os resistores de terminação típicos de barramentos diferenciais como RS-485 ou FOUNDATION H1. A rede segue as regras próprias de cabeamento e alimentação da especificação AS-i.</li>
+                        <li><strong>Extensão:</strong> a extensão padrão de referência é de 100 metros de cabo por segmento. Repetidores, extensores e fontes apropriadas podem ampliar o alcance total, dependendo da arquitetura e das limitações dos equipamentos utilizados.</li>
+                    </ul>
                 </section>
             </section>
         </section>
 
         <section class="section-h2">
-            <h2>6.2 INTERFACE ELÉTRICA E TRANSMISSÃO DE SINAIS</h2>
+            <h2>2.2 INTERFACE ELÉTRICA E TRANSMISSÃO DE SINAIS</h2>
             <section class="section-h3">
-                <h3>6.2.1 SINALIZAÇÃO DO HART COM FIO</h3>
-                <p>O HART com fio utiliza dois canais de informação simultâneos no mesmo circuito. O primeiro é o sinal analógico de corrente contínua de 4 a 20 mA, que representa a variável principal do processo. O segundo é o sinal digital modulado por FSK (Frequency Shift Keying), sobreposto ao circuito analógico.</p>
+                <h3>2.2.1 SINALIZAÇÃO E NÍVEIS ELÉTRICOS</h3>
+                <p>A AS-i combina a alimentação em corrente contínua com a transmissão de dados pelo mesmo par de condutores. Para separar as duas funções, a alimentação utiliza uma componente contínua, enquanto os dados são representados por pulsos de sinal alternado. A transmissão utiliza codificação Manchester e modulação por pulsos alternados (APM — Alternating Pulse Modulation), desenvolvida para permitir comunicação confiável em um cabo não blindado e reduzir a emissão de interferência eletromagnética.</p>
                 <ul>
-                    <li><strong>Sinal analógico 4-20 mA:</strong> a corrente representa a variável medida ou comandada, com a escala definida pelo instrumento e pelo sistema de controle.</li>
-                    <li><strong>Modulação FSK Bell 202:</strong> utiliza duas frequências para representar os bits digitais: 1.200 Hz para o bit lógico 1 e 2.200 Hz para o bit lógico 0.</li>
-                    <li><strong>Taxa digital:</strong> a comunicação HART tradicional opera a 1.200 bit/s. O sinal FSK possui valor médio nulo, permitindo sua sobreposição sem alterar significativamente a leitura analógica de corrente contínua.</li>
+                    <li><strong>Codificação Manchester:</strong> a informação é representada por transições no meio do intervalo de cada bit, facilitando a recuperação da temporização e evitando uma componente contínua associada aos dados.</li>
+                    <li><strong>Modulação APM:</strong> os transmissores geram pulsos de corrente que são convertidos em sinais de tensão detectáveis pelos receptores no barramento. A forma dos pulsos é controlada para reduzir a emissão eletromagnética.</li>
+                </ul>
+                <p>A comunicação possui tempo de bit de aproximadamente 6 microssegundos, o que corresponde a uma taxa bruta de 167 kbit/s. Essa velocidade é adequada à atualização de sinais de sensores e atuadores de campo, embora não tenha a mesma capacidade de transmissão de redes Ethernet industriais.</p>
+            </section>
+
+            <section class="section-h3">
+                <h3>2.2.2 ALIMENTAÇÃO PELO BARRAMENTO</h3>
+                <p>A alimentação é fornecida pelo mesmo cabo de dois condutores utilizado para a comunicação. A fonte AS-i fornece tensão nominal de aproximadamente 30 Vcc, permitindo compensar as quedas de tensão no cabo e nos circuitos internos dos escravos. A faixa de operação efetiva e a tensão mínima disponível no fim do segmento devem ser verificadas conforme a especificação e os manuais dos equipamentos.</p>
+                <ul>
+                    <li><strong>Alimentação integrada:</strong> a eletrônica dos módulos e muitos sensores podem ser alimentados diretamente pelo barramento AS-i, reduzindo a necessidade de conduzir um cabo de alimentação separado até cada ponto.</li>
+                    <li><strong>Alimentação auxiliar:</strong> atuadores, válvulas ou módulos com maior consumo podem exigir uma fonte adicional de 24 Vcc, distribuída por cabo auxiliar separado. Portanto, a presença do cabo AS-i não significa que toda carga de potência possa ser alimentada por ele.</li>
                 </ul>
             </section>
 
             <section class="section-h3">
-                <h3>6.2.2 SINALIZAÇÃO DO WIRELESSHART</h3>
-                <p>O WirelessHART utiliza a camada física de rádio de 2,4 GHz definida com base no IEEE 802.15.4. A transmissão emprega espalhamento espectral por sequência direta (DSSS) e modulação O-QPSK (Offset Quadrature Phase Shift Keying), adequada à comunicação de baixo consumo em redes de sensores.</p>
-                <ul>
-                    <li><strong>Faixa de frequência:</strong> 2,4 GHz na faixa ISM (Industrial, Scientific and Medical), compartilhada com outras tecnologias de rádio, conforme as regras regulatórias locais.</li>
-                    <li><strong>Canais:</strong> utiliza múltiplos canais de rádio e técnicas de salto de canal para distribuir as transmissões e reduzir os efeitos de interferências persistentes.</li>
-                    <li><strong>Taxa física nominal:</strong> a camada física IEEE 802.15.4 utilizada pelo WirelessHART oferece 250 kbit/s. A taxa útil da aplicação é inferior e depende do agendamento, do número de saltos e das informações de controle.</li>
-                </ul>
-            </section>
-
-            <section class="section-h3">
-                <h3>6.2.3 ALIMENTAÇÃO PELO BARRAMENTO E ENERGIA DOS EQUIPAMENTOS</h3>
-                <ul>
-                    <li><strong>HART com fio - transmissores de dois fios:</strong> a alimentação do instrumento e o sinal analógico/digital compartilham o mesmo circuito de corrente, desde que o transmissor seja projetado para essa configuração.</li>
-                    <li><strong>HART com fio - instrumentos de quatro fios:</strong> utilizam fonte de alimentação separada e mantêm o circuito de sinal para a comunicação.</li>
-                    <li><strong>WirelessHART:</strong> instrumentos sem fio frequentemente utilizam baterias ou fontes locais. Alguns adaptadores podem obter energia do equipamento ou do circuito associado, conforme o modelo; a comunicação de rádio não fornece alimentação pelo ar.</li>
-                </ul>
-            </section>
-
-            <section class="section-h3">
-                <h3>6.2.4 ISOLAÇÃO E PROTEÇÃO CONTRA RUÍDOS</h3>
-                <ul>
-                    <li><strong>HART com fio:</strong> utilizar cabo de instrumentação adequado, blindagem e aterramento conforme o projeto, verificando a resistência e a capacitância do circuito para não comprometer o sinal FSK.</li>
-                    <li><strong>Resistência de comunicação:</strong> o circuito precisa apresentar impedância suficiente para que o sinal digital HART seja detectado. Em muitas instalações é utilizado um resistor de carga em torno de 250 ohms, desde que a fonte, o transmissor e a entrada analógica permitam essa condição.</li>
-                    <li><strong>Separação e isolação:</strong> barreiras e isoladores podem ser necessários para separar circuitos, reduzir interferências e atender requisitos de áreas classificadas.</li>
-                    <li><strong>WirelessHART:</strong> a robustez da comunicação é aumentada pelo salto de canais, pela diversidade de rotas Mesh, pela sincronização e pela verificação das transmissões.</li>
-                    <li><strong>Segurança digital:</strong> o WirelessHART utiliza mecanismos de autenticação e criptografia para proteger a entrada dos dispositivos e a confidencialidade e integridade das mensagens. Chaves e identificadores da rede devem ser configurados corretamente.</li>
-                </ul>
-                <p>A presença de comunicação HART ou WirelessHART não torna automaticamente um instrumento adequado para área classificada. Nesses locais, é necessário selecionar equipamentos e acessórios com certificação de proteção apropriada à zona, ao grupo de gás ou poeira e à classe de temperatura aplicáveis.</p>
+                <h3>2.2.3 ISOLAÇÃO E PROTEÇÃO CONTRA RUÍDOS</h3>
+                <section class="section-h4">
+                    <h4>2.2.3.1 IMUNIDADE A INTERFERÊNCIAS</h4>
+                    <p>A AS-i foi projetada para operar com cabo não blindado em ambientes industriais. A combinação entre codificação Manchester, modulação APM e formato dos pulsos reduz a emissão de componentes de alta frequência e permite que a comunicação seja detectada de forma confiável. Essa característica dispensa o uso obrigatório de blindagem no cabo perfilado AS-i, diferentemente de vários barramentos industriais baseados em pares diferenciais.</p>
+                    <p>A ausência de blindagem não significa que a instalação seja imune a qualquer condição de ruído. O cabo deve ser instalado de acordo com as recomendações do fabricante, protegido contra danos mecânicos e organizado de modo a evitar proximidade desnecessária com condutores de potência e fontes intensas de interferência. Fontes AS-i apropriadas também são necessárias para desacoplar os sinais de comunicação da alimentação contínua.</p>
+                </section>
+                <section class="section-h4">
+                    <h4>2.2.3.2 POLARIDADE, PROTEÇÃO E SEGURANÇA</h4>
+                    <p>O perfil mecânico do cabo e os conectores compatíveis ajudam a evitar inversões de polaridade. Os módulos de campo devem ser especificados de acordo com a tensão, a corrente e o grau de proteção exigidos pelo ambiente de instalação. Existem extensões de segurança, como ASIsafe, destinadas à integração de dispositivos de segurança funcional, mas esses recursos dependem de componentes e perfis certificados e não devem ser presumidos em qualquer rede AS-i convencional.</p>
+                </section>
             </section>
         </section>
 
         <section class="section-h2">
-            <h2>6.3 PROTOCOLO DE ENLACE E ACESSO AO MEIO (MAC)</h2>
+            <h2>2.3 PROTOCOLO DE ENLACE E ACESSO AO MEIO (MAC)</h2>
             <section class="section-h3">
-                <h3>6.3.1 MÉTODO DE ACESSO AO MEIO NO HART COM FIO</h3>
-                <ul>
-                    <li><strong>Mestre-escravo:</strong> a comunicação tradicional é iniciada por um mestre, que envia uma solicitação ao instrumento. O dispositivo responde ao comando recebido, seguindo o modelo solicitação-resposta.</li>
-                    <li><strong>Mestres primário e secundário:</strong> o protocolo permite a presença de dois mestres no mesmo circuito, como um sistema de controle e um comunicador portátil de manutenção, respeitando as regras de acesso.</li>
-                    <li><strong>Modo Burst:</strong> opcionalmente, o mestre pode configurar o instrumento para transmitir respostas periodicamente, reduzindo a necessidade de uma solicitação individual a cada atualização.</li>
-                </ul>
+                <h3>2.3.1 MÉTODO DE ACESSO AO MEIO</h3>
+                <section class="section-h4">
+                    <h4>2.3.1.1 SISTEMA MESTRE E ESCRAVOS</h4>
+                    <p>A AS-i utiliza um sistema de acesso do tipo mestre-escravo. O mestre controla toda a comunicação e consulta os escravos sequencialmente, de acordo com a lista de endereços e a configuração da rede. Cada escravo transmite sua resposta quando recebe a chamada correspondente, evitando que vários dispositivos iniciem transmissões simultâneas por iniciativa própria.</p>
+                    <ul>
+                        <li><strong>Mestre AS-i:</strong> inicializa a rede, identifica os escravos, gerencia os endereços, consulta os dispositivos e disponibiliza os dados de entrada e saída ao controlador superior.</li>
+                        <li><strong>Escravos:</strong> respondem às chamadas do mestre com os dados previstos em seus perfis, podendo representar sinais digitais, valores analógicos, parâmetros e diagnósticos.</li>
+                        <li><strong>Acesso controlado:</strong> o protocolo não utiliza CSMA/CD ou CSMA/CA. O mestre determina a sequência e o instante das transmissões, limitando colisões decorrentes de acessos simultâneos não coordenados.</li>
+                    </ul>
+                </section>
+                <section class="section-h4">
+                    <h4>2.3.1.2 COMUNICAÇÃO CÍCLICA E PARAMETRIZAÇÃO</h4>
+                    <p>O mestre realiza consultas cíclicas aos escravos para atualizar os estados das entradas e transferir os comandos de saída. Além da troca de dados cíclicos, o protocolo permite operações de parametrização, endereçamento, identificação e diagnóstico. A programação e o conteúdo de cada mensagem variam conforme o tipo de chamada e o perfil do escravo.</p>
+                </section>
             </section>
 
             <section class="section-h3">
-                <h3>6.3.2 ESTRUTURA DO QUADRO E MENSAGEM HART</h3>
-                <p>As mensagens HART são transmitidas em sequência serial e contêm informações para sincronização, identificação do instrumento, comando e dados. A estrutura varia conforme o formato do endereço e o tipo de mensagem, mas normalmente inclui os seguintes campos:</p>
-                <ul>
-                    <li><strong>Preâmbulo:</strong> sequência de bytes utilizada para sincronizar o receptor e permitir a identificação do início da mensagem.</li>
-                    <li><strong>Start delimiter:</strong> indica o tipo de mensagem e o formato do endereço utilizado.</li>
-                    <li><strong>Endereço:</strong> identifica o instrumento de destino ou a origem da resposta. Pode utilizar formato curto ou longo, conforme o tipo de mensagem.</li>
-                    <li><strong>Command:</strong> identifica a operação solicitada pelo mestre, como leitura de variável, consulta de estado ou alteração de parâmetro.</li>
-                    <li><strong>Byte count:</strong> informa o tamanho da parte de dados e dos campos correspondentes da mensagem.</li>
-                    <li><strong>Status:</strong> presente nas respostas, apresenta informações sobre o estado da comunicação e do dispositivo.</li>
-                    <li><strong>Data:</strong> transporta valores de processo, parâmetros, informações de identificação ou diagnóstico.</li>
-                    <li><strong>Checksum:</strong> permite verificar a integridade da mensagem recebida. A comunicação também utiliza paridade ímpar em cada caractere serial.</li>
-                </ul>
-            </section>
-
-            <section class="section-h3">
-                <h3>6.3.3 MÉTODO DE ACESSO AO MEIO NO WIRELESSHART</h3>
-                <ul>
-                    <li><strong>TDMA (Time Division Multiple Access):</strong> divide o tempo em intervalos organizados, normalmente slots de 10 ms, atribuindo horários específicos para transmissão e recepção dos dispositivos.</li>
-                    <li><strong>Sincronização temporal:</strong> os dispositivos mantêm seus relógios sincronizados com a rede para executar as transmissões nos intervalos programados.</li>
-                    <li><strong>Salto de canais (Channel Hopping):</strong> a frequência utilizada pode mudar entre transmissões, reduzindo a dependência de um único canal e ajudando a contornar interferências.</li>
-                    <li><strong>Mesh e roteamento:</strong> os dispositivos podem encaminhar mensagens por diferentes caminhos até o gateway. O gerenciador de rede organiza as rotas e os horários de transmissão.</li>
-                </ul>
-            </section>
-
-            <section class="section-h3">
-                <h3>6.3.4 ESTRUTURA DO QUADRO E MENSAGEM WIRELESSHART</h3>
-                <p>O WirelessHART utiliza uma estrutura de comunicação em camadas, combinando a sinalização física baseada no IEEE 802.15.4 com os campos de enlace e rede definidos pelo protocolo. De forma geral, a transmissão inclui sincronização física, informações de controle, endereçamento, dados da mensagem e verificação de integridade.</p>
-                <ul>
-                    <li><strong>Preâmbulo e delimitador físico:</strong> auxiliam a sincronização do rádio receptor e a identificação do início do pacote.</li>
-                    <li><strong>Cabeçalho de enlace:</strong> contém informações de controle e identificação necessárias para a entrega do quadro entre dispositivos próximos.</li>
-                    <li><strong>Endereçamento e roteamento:</strong> permitem identificar os dispositivos e encaminhar mensagens por um ou mais saltos até o destino ou gateway.</li>
-                    <li><strong>Dados:</strong> transportam variáveis de processo, comandos, estado do instrumento e informações de gerenciamento da rede.</li>
-                    <li><strong>Verificação e segurança:</strong> mecanismos de integridade e autenticação ajudam a detectar alterações e impedir a aceitação de mensagens não autorizadas.</li>
-                </ul>
+                <h3>2.3.2 ESTRUTURA DO QUADRO E DA MENSAGEM</h3>
+                <section class="section-h4">
+                    <h4>2.3.2.1 CHAMADA DO MESTRE E RESPOSTA DO ESCRAVO</h4>
+                    <p>Na comunicação com um escravo padrão, a chamada do mestre possui campos de início, controle, endereço, informação, paridade e fim. A chamada padrão contém um campo de endereço de 5 bits e um campo de informação de 5 bits, além dos bits de controle e enquadramento. A resposta do escravo contém o bit de início, 4 bits de informação, um bit de paridade e o bit de fim. Outros perfis e extensões podem utilizar estruturas de transferência ampliadas.</p>
+                    <ul>
+                        <li><strong>Bit de início (ST):</strong> marca o começo da chamada do mestre ou da resposta do escravo.</li>
+                        <li><strong>Controle (CB):</strong> indica a natureza da chamada enviada pelo mestre, como troca de dados ou comando.</li>
+                        <li><strong>Endereço:</strong> identifica o escravo que deve responder à consulta do mestre.</li>
+                        <li><strong>Informação:</strong> transporta dados de entrada e saída ou informações relacionadas a parâmetros, comandos e endereçamento, conforme o serviço executado.</li>
+                        <li><strong>Paridade (PB) e bit de fim (EB):</strong> a paridade par permite detectar determinadas alterações na sequência de bits, enquanto o bit de fim delimita a unidade transmitida.</li>
+                    </ul>
+                </section>
+                <section class="section-h4">
+                    <h4>2.3.2.2 VERIFICAÇÃO DE ERROS</h4>
+                    <p>A integridade das mensagens é acompanhada por mecanismos definidos pelo protocolo, incluindo verificação de paridade, codificação e monitoramento dos limites e tempos de resposta. Quando uma mensagem é identificada como inválida ou não recebe a resposta esperada, o mestre pode repetir a chamada e registrar o diagnóstico correspondente. A descrição do quadro padrão utiliza paridade; não se deve atribuir à AS-i um campo CRC genérico sem considerar o perfil e a função da mensagem.</p>
+                </section>
             </section>
         </section>
 
         <section class="section-h2">
-            <h2>6.4 PARÂMETROS OPERACIONAIS E DESEMPENHO</h2>
+            <h2>2.4 PARÂMETROS OPERACIONAIS E DESEMPENHO</h2>
             <section class="section-h3">
-                <h3>6.4.1 TAXA DE TRANSMISSÃO (BIT RATE / BAUD RATE)</h3>
-                <ul>
-                    <li><strong>HART com fio:</strong> 1.200 bit/s para o canal digital FSK, em paralelo ao sinal analógico de 4-20 mA.</li>
-                    <li><strong>WirelessHART:</strong> 250 kbit/s de taxa nominal da camada física de rádio. A taxa útil para dados de aplicação é menor devido aos quadros de controle, agendamento, confirmações, segurança e encaminhamento Mesh.</li>
-                </ul>
+                <h3>2.4.1 TAXA DE TRANSMISSÃO (BAUD RATE / BIT RATE)</h3>
+                <p>A taxa bruta de transmissão da AS-i é de aproximadamente 167 kbit/s. O tempo de bit de 6 microssegundos permite que o mestre consulte os dispositivos de maneira rápida e sequencial. Como parte dos bits transmitidos é utilizada para controle, endereçamento, sincronização e detecção de erros, a quantidade de dados úteis por chamada é menor que a taxa bruta do barramento.</p>
             </section>
 
             <section class="section-h3">
-                <h3>6.4.2 DISTÂNCIA MÁXIMA E COBERTURA</h3>
-                <section class="section-h4">
-                    <h4>6.4.2.1 HART COM FIO</h4>
-                    <p>A distância máxima depende da resistência, capacitância e configuração do circuito. Como referência técnica, a documentação HART apresenta até aproximadamente 3.048 metros para um par trançado e cerca de 1.524 metros quando há múltiplos pares no cabo. Esses limites devem ser verificados com os dados reais do cabo, da carga e dos equipamentos instalados.</p>
-                </section>
-
-                <section class="section-h4">
-                    <h4>6.4.2.2 WIRELESSHART</h4>
-                    <p>O alcance por rádio depende da potência, antena, obstáculos, condições de propagação e interferências presentes na área. Como referência de engenharia, pode-se considerar aproximadamente 200 metros entre dispositivos em condições adequadas, mas esse valor não é um limite universal. A rede Mesh amplia a cobertura total por meio de múltiplos saltos entre instrumentos e repetidores até o gateway.</p>
-                </section>
+                <h3>2.4.2 DISTÂNCIA MÁXIMA DO SEGMENTO</h3>
+                <p>A extensão padrão de referência é de até 100 metros de cabo por segmento, considerando o comprimento total das linhas e derivações instaladas. O alcance pode ser ampliado com repetidores, extensores e fontes adequadas, podendo superar 500 metros em configurações específicas. Os limites exatos dependem da quantidade e do posicionamento dos repetidores, da alimentação, da topologia e das regras de cada componente.</p>
             </section>
 
             <section class="section-h3">
-                <h3>6.4.3 DETERMINISMO E TEMPO DE CICLO</h3>
-                <p><strong>Classificação do HART com fio:</strong> não é determinístico para aplicações de tempo real estrito. A comunicação por solicitação e resposta, somada à taxa digital de 1.200 bit/s, pode tornar previsível a leitura em uma configuração definida, mas não garante ciclos curtos e fixos.</p>
-                <p><strong>Classificação do WirelessHART:</strong> oferece comunicação agendada e mais previsível por utilizar TDMA sincronizado. Essa previsibilidade é condicionada ao intervalo configurado, à quantidade de saltos, às rotas e às condições de rádio; portanto, não equivale a uma garantia universal de tempo real rígido.</p>
-                <p><strong>Aplicação:</strong> as duas tecnologias são voltadas principalmente à instrumentação, ao monitoramento de variáveis, à manutenção e ao diagnóstico de processos. Aplicações críticas de controle rápido exigem uma rede e arquitetura dimensionadas especificamente para esse requisito.</p>
+                <h3>2.4.3 QUANTIDADE DE ESCRAVOS E CAPACIDADE DE COMUNICAÇÃO</h3>
+                <p>Na configuração tradicional, a AS-i admite até 31 escravos com endereçamento padrão. Com endereçamento estendido A/B, introduzido nas versões posteriores da especificação, o total pode chegar a 62 escravos por rede. A especificação 3.0 ampliou também os perfis e os recursos de transferência de dados, incluindo configurações digitais e analógicas mais flexíveis.</p>
+                <p>A quantidade de entradas e saídas depende do perfil de cada escravo. Em configurações compatíveis com a especificação 3.0, existem perfis que permitem até 8 entradas e 8 saídas digitais por escravo A/B, podendo alcançar até 496 entradas e 496 saídas quando todos os dispositivos e perfis usados suportam essa organização. Esses valores representam limites teóricos de configuração e não garantem que qualquer combinação de escravos forneça essa quantidade de pontos.</p>
             </section>
 
             <section class="section-h3">
-                <h3>6.4.4 NÍVEL NA PIRÂMIDE DA AUTOMAÇÃO</h3>
-                <p><strong>Classificação:</strong> atua principalmente no nível 1, conectando transmissores, sensores e posicionadores de campo. Por meio dos módulos de entrada/saída e gateways, integra-se ao nível 2 de controle e pode fornecer informações ao nível 3 de supervisão e gerenciamento de ativos.</p>
-                <p><strong>Justificativa:</strong> o HART acrescenta dados digitais de diagnóstico e parametrização aos instrumentos analógicos existentes. O WirelessHART amplia essa capacidade para pontos em que a instalação de cabos é difícil ou economicamente desfavorável, encaminhando os dados ao sistema de controle ou de gestão por meio do gateway.</p>
+                <h3>2.4.4 DETERMINISMO E TEMPO DE CICLO</h3>
+                <p><strong>Classificação:</strong> a AS-i é determinística para a atualização cíclica de dados, realizada pelo mestre em uma sequência controlada.</p>
+                <p><strong>Justificativa:</strong> A AS-i oferece atualização cíclica previsível porque o mestre consulta os escravos em uma sequência controlada. Em uma rede com 31 escravos padrão, o ciclo máximo de atualização dos dados digitais é de aproximadamente 5 ms. Em uma configuração com 62 escravos A/B, quando os dois escravos compartilham o mesmo endereço básico, a atualização completa pode exigir até 10 ms, pois os dispositivos são consultados em ciclos consecutivos.</p>
+                <p><strong>Variações do tempo de ciclo:</strong> A transmissão de dados analógicos e de informações de perfil pode demandar ciclos adicionais ou tempos de atualização maiores, de acordo com o modo de transferência e a quantidade de canais. Portanto, o tempo de ciclo deve ser verificado para a configuração real da rede e não apenas pelo número máximo de escravos informado na especificação.</p>
+            </section>
+
+            <section class="section-h3">
+                <h3>2.4.5 NÍVEL NA PIRÂMIDE DA AUTOMAÇÃO</h3>
+                <p><strong>Classificação:</strong> a AS-i atua principalmente no Nível 1 da pirâmide da automação, conectando sensores, atuadores e módulos de entradas e saídas no chão de fábrica.</p>
+                <p><strong>Justificativa:</strong> o mestre AS-i transfere os dados ao CLP ou a outro sistema de controle, geralmente por meio de uma interface ou gateway com uma rede industrial de nível superior. A tecnologia é especialmente adequada à concentração de sinais distribuídos e à redução do cabeamento entre dispositivos de campo e painéis de controle.</p>
             </section>
         </section>
     </main>
@@ -215,7 +178,6 @@
     <footer>
         <p>by Arthur Furtado Machado &trade; &copy;</p>
     </footer>
-
 </body>
 
 </html>
