@@ -24,21 +24,21 @@
     </header>
 
     <main>
-        <h1>1. ETHERNET (PADRÃO IEEE 802.3)</h1>
+        <h1>ETHERNET (PADRÃO IEEE 802.3)</h1>
 
         <section class="section-h2">
-            <h2>1.1 ESTRUTURA FÍSICA E CABEAMENTO</h2>
+            <h2>ESTRUTURA FÍSICA E CABEAMENTO</h2>
             <section class="section-h3">
-                <h3>1.1.1 ETHERNET EM REDES CORPORATIVAS E LOCAIS (LAN)</h3>
+                <h3>ETHERNET EM REDES CORPORATIVAS E LOCAIS (LAN)</h3>
                 <p>A Ethernet (IEEE 802.3) em redes corporativas é a espinha dorsal que conecta computadores, servidores, telefones VoIP, pontos de acesso Wi-Fi e sistemas de segurança à rede da empresa. É uma arquitetura focada em alta disponibilidade, gerenciamento de tráfego e escalabilidade.</p>
             </section>
 
             <section class="section-h3">
-                <h3>1.1.2 MEIOS FÍSICOS E CABOS ADOTADOS</h3>
+                <h3>MEIOS FÍSICOS E CABOS ADOTADOS</h3>
                 <p>A infraestrutura é dividida normativamente entre o Cabeamento Horizontal (do rack do andar até as mesas dos usuários) e o Backbone (interligação vertical entre racks de andares diferentes ou salas centrais de servidores).</p>
 
                 <section class="section-h4">
-                <h4>1.1.2.1 CONCEITO GERAL DA REDE LOCAL CORPORATIVA</h4>
+                <h4>CONCEITO GERAL DA REDE LOCAL CORPORATIVA</h4>
                 <ul>
                     <li><strong>Comutação por Switches de Alta Performance:</strong> Diferente de redes domésticas simples, o conceito corporativo gira em torno de switches gerenciáveis de Camada 2 (L2) e Camada 3 (L3). Eles analisam os Quadros Ethernet (FRAMES) em tempo real e entregam o pacote diretamente ao endereço MAC de destino, garantindo que o tráfego de um setor não congestione o outro.</li>
                     <li><strong>Segurança e Segmentação (VLANs):</strong> Embora todos usem a mesma infraestrutura física Ethernet, logicamente a rede é dividida em redes virtuais (VLANs). O conceito de quadro Ethernet permite que switches corporativos adicionem uma "etiqueta" (Tag 802.1Q) para isolar o tráfego da Diretoria, do Financeiro ou da rede de Visitantes.</li>
@@ -48,12 +48,12 @@
 
                 </section>
                 <section class="section-h4">
-                <h4>1.1.2.2 MEIOS FÍSICOS E CABOS ADOTADOS EM EMPRESAS</h4>
+                <h4>MEIOS FÍSICOS E CABOS ADOTADOS EM EMPRESAS</h4>
                 <p>O cabeamento de uma empresa é dividido estritamente em duas frentes estruturadas: o Cabeamento Horizontal (do rack até as mesas) e o Backbone (interligação entre racks e salas de servidores).</p>
 
                 </section>
                 <section class="section-h4">
-                <h4>1.1.2.2.1 CABEAMENTO HORIZONTAL (COBRE PAR TRANÇADO UTP/STP)</h4>
+                <h4>CABEAMENTO HORIZONTAL (COBRE PAR TRANÇADO UTP/STP)</h4>
                 <p>Utilizado para cobrir a distância final até as estações de trabalho. O limite físico normativo é de 100 metros (sendo recomendado 90 metros de cabo rígido na parede e 10 metros de cabos flexíveis/patch cords nas pontas).</p>
                 <ul>
                     <li><strong>UTP (Sem blindagem):</strong> É o padrão absoluto para escritórios comerciais comuns, pois as calhas e canaletas não sofrem com ruídos eletromagnéticos pesados.</li>
@@ -68,7 +68,7 @@
 
                 </section>
                 <section class="section-h4">
-                <h4>1.1.2.2.2 CABEAMENTO DE BACKBONE E SALA DE SERVIDORES (FIBRA ÓPTICA)</h4>
+                <h4>CABEAMENTO DE BACKBONE E SALA DE SERVIDORES (FIBRA ÓPTICA)</h4>
                 <p>Utilizado para conexões que exigem imunidade a ruídos (entre andares ou prédios diferentes) e taxas de transferência massivas de dados.</p>
                 <ul>
                     <li><strong>Fibra Multimodo (MMF - OM3 / OM4 / OM5):</strong> O tipo de fibra mais comum dentro de prédios corporativos. Utiliza lasers de baixo custo para interligar os switches das alas/andares até o switch central da empresa (Core) a velocidades de 10 Gbps, 40 Gbps ou 100 Gbps, cobrindo distâncias de até 400–550 metros.</li>
@@ -77,15 +77,15 @@
 
                 </section>
                 <section class="section-h4">
-                <h4>1.1.2.2.3 CONEXÕES DE ALTÍSSIMA VELOCIDADE (TWINAX / DAC)</h4>
+                <h4>CONEXÕES DE ALTÍSSIMA VELOCIDADE (TWINAX / DAC)</h4>
                 <p><strong>Direct Attach Copper (DAC):</strong> Cabos blindados de cobre de curtíssimo alcance (1 a 7 metros). No ambiente corporativo, eles são restritos ao interior da sala de servidores (CPD) para interligar os servidores de armazenamento (Storages) diretamente ao switch central, oferecendo o desempenho do link de 10G/40G a uma fração do preço da fibra óptica.</p>
                 </section>
             </section>
 
             <section class="section-h3">
-                <h3>1.1.3 CONECTORES PADRONIZADOS E IDENTIFICAÇÃO</h3>
+                <h3>CONECTORES PADRONIZADOS E IDENTIFICAÇÃO</h3>
                 <section class="section-h4">
-                <h4>1.1.3.1 CONECTORES PARA CABEAMENTO HORIZONTAL (COBRE)</h4>
+                <h4>CONECTORES PARA CABEAMENTO HORIZONTAL (COBRE)</h4>
                 <p>Responsáveis por conectar as estações de trabalho (computadores, telefones VoIP, impressoras) aos switches localizados no rack do andar.</p>
                 <ul>
                     <li><strong>RJ45 (8P8C):</strong> O conector soberano das redes locais corporativas. É utilizado tanto na tomada de parede onde o usuário se conecta quanto nos patch panels e switches dentro do rack. Para garantir velocidades de 1 Gbps a 10 Gbps em redes corporativas modernas, utiliza-se o conector RJ45 blindado (FTP/STP) ou comum (UTP) compatível com cabos Cat6 ou Cat6A.</li>
@@ -93,7 +93,7 @@
                 </ul>
                 </section>
                 <section class="section-h4">
-                <h4>1.1.3.2 CONECTORES PARA O BACKBONE E SALAS DE SERVIDORES (FIBRA ÓPTICA)</h4>
+                <h4>CONECTORES PARA O BACKBONE E SALAS DE SERVIDORES (FIBRA ÓPTICA)</h4>
                 <p>Responsáveis por interligar os switches de diferentes andares da empresa (Backbone) ou conectar servidores de alta performance aos switches principais (Core).</p>
                 <ul>
                     <li><strong>LC (Lucent Connector):</strong> O conector óptico mais importante da rede corporativa atual. Por ser compacto (Small Form Factor), ele permite agrupar o dobro de conexões no mesmo espaço que conectores antigos. É o padrão nativo dos módulos transceptores SFP e SFP+ inseridos nos switches corporativos.</li>
@@ -105,21 +105,21 @@
             </section>
 
             <section class="section-h3">
-                <h3>1.1.4 TOPOLOGIAS SUPORTADAS NA ETHERNET CORPORATIVA</h3>
+                <h3>TOPOLOGIAS SUPORTADAS NA ETHERNET CORPORATIVA</h3>
                 <section class="section-h4">
-                <h4>1.1.4.1 TOPOLOGIA EM ESTRELA (STAR) — O PADRÃO ABSOLUTO DA LAN</h4>
+                <h4>TOPOLOGIA EM ESTRELA (STAR) — O PADRÃO ABSOLUTO DA LAN</h4>
                 <p>É a topologia obrigatória e soberana em qualquer rede local corporativa moderna. Cada dispositivo final (computador, telefone IP, impressora) possui uma conexão física exclusiva e dedicada por meio de um cabo de par trançado (com conector RJ45) ou fibra óptica (com conector LC) conectado a um ponto central: o Switch.</p>
                 <p><strong>Vantagem Corporativa:</strong> Isolamento de falhas. Se o cabo de uma estação quebrar ou o conector RJ45 queimar, apenas aquele dispositivo perde o acesso à rede. O restante da empresa continua operando normalmente.</p>
 
                 </section>
                 <section class="section-h4">
-                <h4>1.1.4.2 TOPOLOGIA EM ÁRVORE OU ESTRELA ESTENDIDA (TREE / HIERARCHICAL) — O PADRÃO DO BACKBONE</h4>
+                <h4>TOPOLOGIA EM ÁRVORE OU ESTRELA ESTENDIDA (TREE / HIERARCHICAL) — O PADRÃO DO BACKBONE</h4>
                 <p>Nas empresas, uma única "estrela" não é suficiente para conectar centenas de usuários espalhados por vários andares. Por isso, a Ethernet corporativa adota o conceito de Topologia em Árvore, que nada mais é do que conectar várias estrelas entre si de forma hierárquica.</p>
                 <p><strong>Como funciona na prática:</strong> Os switches de acesso (que ficam nos racks dos andares atendendo os usuários) são conectados por cabos de fibra óptica (Backbone) a um switch central de alta performance chamado Switch Core (geralmente localizado no CPD/sala de servidores principal).</p>
 
                 </section>
                 <section class="section-h4">
-                <h4>1.1.4.3 TOPOLOGIA EM MALHA (MESH) — APLICADA PARA ALTA DISPONIBILIDADE (REDUNDÂNCIA)</h4>
+                <h4>TOPOLOGIA EM MALHA (MESH) — APLICADA PARA ALTA DISPONIBILIDADE (REDUNDÂNCIA)</h4>
                 <p>No ambiente corporativo, se o cabo que interliga o switch de um andar ao switch central quebrar, o andar inteiro fica sem sistema. Para evitar isso, a Ethernet suporta a Topologia em Malha (parcial ou total) na interconexão dos switches principais e servidores de missão crítica.</p>
                 <p><strong>O Desafio Lógico (Loops de Rede):</strong> Se você conectar três switches em triângulo (malha) para ter caminhos redundantes, os quadros Ethernet vão circular infinitamente entre eles, gerando uma "tempestade de broadcast" que derruba a rede inteira.</p>
                 <p><strong>A Solução Corporativa:</strong> A Ethernet resolve isso de forma lógica através de protocolos como o STP (Spanning Tree Protocol - IEEE 802.1D/w/s) ou LACP (Link Aggregation - IEEE 802.3ad). O STP identifica as conexões em malha e bloqueia eletronicamente os caminhos redundantes. Se o link principal cair, o STP reativa o link de reserva em milissegundos de forma automática.</p>
@@ -128,11 +128,11 @@
         </section>
 
         <section class="section-h2">
-            <h2>1.2 INTERFACE ELÉTRICA E TRANSMISSÃO DE SINAIS</h2>
+            <h2>INTERFACE ELÉTRICA E TRANSMISSÃO DE SINAIS</h2>
             <section class="section-h3">
-                <h3>1.2.1 SINALIZAÇÃO E NÍVEIS NA ETHERNET CORPORATIVA</h3>
+                <h3>SINALIZAÇÃO E NÍVEIS NA ETHERNET CORPORATIVA</h3>
                 <section class="section-h4">
-                <h4>1.2.1.1 REDES DE COBRE (PAR TRANÇADO - CAT6 / CAT6A)</h4>
+                <h4>REDES DE COBRE (PAR TRANÇADO - CAT6 / CAT6A)</h4>
                 <p>Nos cabos de cobre, a Ethernet utiliza o conceito de Sinalização Diferencial (MLT-3 e PAM). O sinal não é medido em relação ao "aterramento", mas sim pela diferença de tensão entre os dois fios que formam o par trançado (reduzindo drasticamente a vulnerabilidade a ruídos externos).</p>
                 <ul>
                     <li><strong>Fast Ethernet (100 Mbps - 100BASE-TX):</strong> Utiliza a codificação MLT-3 (Multi-Level Transmit 3). Ela cicla entre três níveis de tensão (+1V, 0V, -1V). Isso reduz a frequência máxima do sinal elétrico, permitindo que a taxa de dados atinja 100 Mbps sem violar limites de interferência eletromagnética.</li>
@@ -142,7 +142,7 @@
 
                 </section>
                 <section class="section-h4">
-                <h4>1.2.1.2 REDES DE FIBRA ÓPTICA (MULTIMODO E MONOMODO)</h4>
+                <h4>REDES DE FIBRA ÓPTICA (MULTIMODO E MONOMODO)</h4>
                 <p>Nas conexões ópticas (transceptores SFP+ com conectores LC), os dados são transmitidos por Pulsos de Luz gerados por emissores de estado sólido.</p>
                 <ul>
                     <li><strong>Fibra Multimodo (OM3/OM4):</strong> Utiliza Lasers VCSEL (Vertical-Cavity Surface-Emitting Laser) que emitem pulsos de luz invisível no comprimento de onda de 850 nm. É um laser de altíssima velocidade e baixo custo, ideal para o ambiente de Data Centers internos corporativos.</li>
@@ -153,17 +153,17 @@
             </section>
 
             <section class="section-h3">
-                <h3>1.2.2 ALIMENTAÇÃO PELO BARRAMENTO (POWER OVER ETHERNET - POE)</h3>
+                <h3>ALIMENTAÇÃO PELO BARRAMENTO (POWER OVER ETHERNET - POE)</h3>
                 <p>Diferente de sistemas que exigem uma infraestrutura de energia elétrica separada (com tomadas convencionais e fontes locais), a Ethernet corporativa moderna aproveita o próprio cabeamento estruturado de par trançado de cobre (Cat6 / Cat6A) para transmitir energia e dados pelo mesmo cabo.</p>
                 <section class="section-h4">
-                <h4>1.2.2.1 O MECANISMO DE FUNCIONAMENTO</h4>
+                <h4>O MECANISMO DE FUNCIONAMENTO</h4>
                 <ul>
                     <li><strong>Dados e Energia Juntos:</strong> Em redes Gigabit Ethernet (1000BASE-T) e superiores, todos os 4 pares do cabo de cobre transportam dados simultaneamente. O PoE injeta energia elétrica contínua (CC) como um sinal de modo comum através dos pares de fios, sem causar interferência nas frequências dos dados digitais de alta velocidade.</li>
                     <li><strong>Segurança e Negociação Ativa:</strong> O processo é inteligente. O switch PoE (conhecido como Power Sourcing Equipment - PSE) não envia energia de forma cega. Quando um dispositivo (como um telefone IP ou câmera) é conectado via conector RJ45, o switch realiza uma assinatura e classificação de baixa tensão para verificar se o aparelho suporta PoE. Se o dispositivo não for compatível, o switch envia apenas dados, evitando a queima de equipamentos tradicionais (como computadores comuns).</li>
                 </ul>
                 </section>
                 <section class="section-h4">
-                <h4>1.2.2.2 CLASSES E PADRÕES OFICIAIS IEEE 802.3</h4>
+                <h4>CLASSES E PADRÕES OFICIAIS IEEE 802.3</h4>
                 <p>A alimentação por barramento na Ethernet evoluiu para suportar potências cada vez maiores, dividindo-se em três padrões corporativos principais:</p>
                 <ul>
                     <li><strong>PoE Clássico (IEEE 802.3af):</strong> Fornece até 15,4W na porta do switch. Ideal para telefones VoIP básicos, câmeras de segurança fixas e sensores de presença.</li>
@@ -174,44 +174,44 @@
             </section>
 
             <section class="section-h3">
-                <h3>1.2.3 ISOLAÇÃO E PROTEÇÃO CONTRA RUÍDOS NA ETHERNET CORPORATIVA</h3>
+                <h3>ISOLAÇÃO E PROTEÇÃO CONTRA RUÍDOS NA ETHERNET CORPORATIVA</h3>
                 <p>O ambiente corporativo exige alta resiliência contra Interferências Eletromagnéticas (EMI) e de Radiofrequência (RFI), geradas por sistemas de ar-condicionado, reatores de iluminação fluorescente e cabos de potência elétrica que compartilham as calhas de cabeamento.</p>
                 <section class="section-h4">
-                <h4>1.2.3.1 ISOLAÇÃO MAGNÉTICA NATIVA (CAMADA FÍSICA)</h4>
+                <h4>ISOLAÇÃO MAGNÉTICA NATIVA (CAMADA FÍSICA)</h4>
                 <p>Antes mesmo de avaliar blindagens externas, a Ethernet possui uma proteção nativa por hardware:</p>
                 <p><strong>Isolação por Transformador (Acoplamento Magnético):</strong> Toda placa de rede Ethernet (computador, switch ou roteador) possui pequenos transformadores de isolação na interface física (PHY) logo atrás do conector RJ45.</p>
                 <p><strong>Função:</strong> Eles garantem uma isolação galvânica de até 1.500 V (conforme a norma IEEE 802.3). Isso protege os circuitos integrados internos contra picos de tensão transientes e diferenças de potencial de terra entre equipamentos distantes.</p>
 
                 </section>
                 <section class="section-h4">
-                <h4>1.2.3.2 ESPECIFICAÇÕES DE BLINDAGEM (SHIELD) E CANCELAMENTO</h4>
+                <h4>ESPECIFICAÇÕES DE BLINDAGEM (SHIELD) E CANCELAMENTO</h4>
                 <p>Para mitigar a EMI (do inglês Electromagnetic Interference - Interferência Eletromagnética) em lances de cabos paralelos à rede elétrica, utilizam-se técnicas de trançamento e blindagem metálica:</p>
                 <p><strong>Casamento de Impedância e Trançamento:</strong> O próprio entrelaçamento dos pares de cobre força com que o ruído captado por um fio seja cancelado pelo outro no receptor (sinalização diferencial).</p>
                 <p><strong>Blindagem de Cobre (F-UTP ou S-FTP):</strong> Quando a atenuação ou o ruído externo são severos (como racks próximos a quadros de energia do prédio), utilizam-se cabos Cat6A F-UTP (folha de alumínio global envolvendo os 4 pares) ou S-FTP (malha trançada global e folhas individuais por par). A blindagem atua como uma Gaiola de Faraday, drenando as correntes induzidas pelo ruído para o sistema de aterramento.</p>
 
                 </section>
                 <section class="section-h4">
-                <h4>1.2.3.3 ATERRAMENTO ESTRUTURADO (NORMA ANSI/TIA-607)</h4>
+                <h4>ATERRAMENTO ESTRUTURADO (NORMA ANSI/TIA-607)</h4>
                 <p>A blindagem de um cabo Ethernet é inútil — e pode funcionar como uma antena piorando o ruído — se não estiver corretamente aterrada.</p>
                 <p><strong>Continuidade Elétrica:</strong> Cabos blindados exigem o uso de conectores RJ45 blindados (com carcaça metálica). Essa carcaça faz contato com a folha de alumínio do cabo.</p>
                 <p><strong>Aterramento em Ponto Único:</strong> Os patch panels do rack corporativo possuem uma barra de aterramento traseira conectada à estrutura metálica do rack, que por sua vez se conecta à Barra de Aterramento Principal de Telecomunicações (TMGB). O aterramento deve ocorrer apenas nas salas de telecomunicações (racks). Os conectores RJ45 na ponta do usuário (mesas) mantêm a blindagem isolada eletricamente do chassi do computador para evitar o fechamento de "laços de terra" (ground loops), que causariam circulação de corrente indesejada pelo cabo de rede.</p>
 
                 </section>
                 <section class="section-h4">
-                <h4>1.2.3.4 IMUNIDADE ABSOLUTA COM FIBRA ÓPTICA</h4>
+                <h4>IMUNIDADE ABSOLUTA COM FIBRA ÓPTICA</h4>
                 <p>A melhor e mais adotada técnica de proteção contra ruídos no backbone corporativo é a substituição do cobre pela Fibra Óptica. Como a transmissão ocorre puramente por pulsos de luz em filamentos de vidro dielétricos, as fibras (OM4 ou OS2) possuem imunidade eletromagnética total (100% de isolação). Elas eliminam qualquer risco de queima por surtos elétricos induzidos por raios entre blocos de edifícios.</p>
                 </section>
             </section>
         </section>
 
         <section class="section-h2">
-            <h2>1.3 PROTOCOLO DE ENLACE E ACESSO AO MEIO (MAC)</h2>
+            <h2>PROTOCOLO DE ENLACE E ACESSO AO MEIO (MAC)</h2>
             <p>O método de acesso ao meio dita a "disciplina de plenário" da rede. Na história da Ethernet, esse mecanismo passou por uma transformação radical: migrou de um sistema de disputa e gerenciamento de danos para um sistema de isolamento total e tráfego direto.</p>
 
             <section class="section-h3">
-                <h3>1.3.1 MÉTODO DE ACESSO AO MEIO NA ETHERNET CORPORATIVA</h3>
+                <h3>MÉTODO DE ACESSO AO MEIO NA ETHERNET CORPORATIVA</h3>
                 <section class="section-h4">
-                <h4>1.3.1.1 O CENÁRIO MODERNO: FULL-DUPLEX (SEM COLISÕES / SEM DISPUTA)</h4>
+                <h4>O CENÁRIO MODERNO: FULL-DUPLEX (SEM COLISÕES / SEM DISPUTA)</h4>
                 <p>Nas redes corporativas atuais, o método de acesso ao meio baseia-se na operação Full-Duplex estabelecida através de Switches Microsegmentados.</p>
                 <ul>
                     <li><strong>Comutação Dedicada:</strong> Quando um computador é conectado ao switch do andar por um cabo Cat6/Cat6A, ele não compartilha esse link físico com mais ninguém. Cria-se um canal de comunicação exclusivo de ponto a ponto.</li>
@@ -221,7 +221,7 @@
 
                 </section>
                 <section class="section-h4">
-                <h4>1.3.1.2 O CENÁRIO DE CONTINGÊNCIA / LEGADO: CSMA/CD</h4>
+                <h4>O CENÁRIO DE CONTINGÊNCIA / LEGADO: CSMA/CD</h4>
                 <p>Embora as redes modernas operem em Full-Duplex, o padrão IEEE 802.3 mantém nativamente em seu código (por questões de retrocompatibilidade histórica) o algoritmo CSMA/CD (Carrier Sense Multiple Access with Collision Detection). Ele só é ativado se a placa de rede for forçada a operar em modo Half-Duplex (onde o cabo só consegue transmitir ou receber por vez, como quando um hub antigo é inserido na rede).</p>
                 <p>O funcionamento do CSMA/CD segue três etapas lógicas automatizadas:</p>
                 <ol>
@@ -233,10 +233,10 @@
             </section>
 
             <section class="section-h3">
-                <h3>1.3.2 ESTRUTURA DO QUADRO E MENSAGEM ETHERNET</h3>
+                <h3>ESTRUTURA DO QUADRO E MENSAGEM ETHERNET</h3>
                 <p>Na camada de Enlace, a Ethernet não envia bytes soltos; ela encapsula os dados provenientes da camada de Rede (como pacotes IPv4 ou IPv6) dentro de uma estrutura rígida de dados. O tamanho total de um quadro Ethernet clássico varia de 64 a 1518 bytes (excluindo os campos de sincronização iniciais).</p>
                 <section class="section-h4">
-                <h4>1.3.2.1 DELIMITADORES DE INÍCIO E FIM (SINCRONIZAÇÃO)</h4>
+                <h4>DELIMITADORES DE INÍCIO E FIM (SINCRONIZAÇÃO)</h4>
                 <ul>
                     <li><strong>Preâmbulo (7 bytes):</strong> Uma sequência alternada de bits 10101010 repetida por 7 bytes. Sua única função é estabilizar e sincronizar o clock elétrico ou óptico do circuito receptor antes que os dados reais cheguem.</li>
                     <li><strong>SFD - Start of Frame Delimiter (1 byte):</strong> É o delimitador oficial de início do quadro. Ele quebra o padrão do preâmbulo terminando com dois bits um seguidos: 10101011. Quando o receptor lê esses dois bits finais, ele sabe que o próximo byte marca o início exato do cabeçalho de rede.</li>
@@ -245,7 +245,7 @@
 
                 </section>
                 <section class="section-h4">
-                <h4>1.3.2.2 ENDEREÇAMENTO DE ORIGEM E DESTINO (CAMADA 2)</h4>
+                <h4>ENDEREÇAMENTO DE ORIGEM E DESTINO (CAMADA 2)</h4>
                 <ul>
                     <li><strong>Endereço MAC de Destino (6 bytes / 48 bits):</strong> Localizado estrategicamente no início do quadro. Isso permite que o switch corporativo leia os primeiros bytes da mensagem e, em frações de microssegundos (técnica de comutação Cut-Through), já determine para qual porta do rack o quadro deve ser despachado, sem precisar ler o restante do arquivo.</li>
                     <li><strong>Endereço MAC de Origem (6 bytes / 48 bits):</strong> Identifica a placa de rede física do dispositivo que gerou a mensagem. O switch utiliza esse campo para alimentar sua tabela de comutação interna (Tabela MAC/CAM), aprendendo de forma dinâmica em qual porta cada computador da empresa está conectado.</li>
@@ -253,18 +253,18 @@
 
                 </section>
                 <section class="section-h4">
-                <h4>1.3.2.3 CAMPO DE TIPO OU TAMANHO (ETHERTYPE)</h4>
+                <h4>CAMPO DE TIPO OU TAMANHO (ETHERTYPE)</h4>
                 <p><strong>EtherType (2 bytes):</strong> Este campo serve para identificar qual protocolo da camada superior gerou os dados de dentro do pacote. Em redes corporativas, o valor mais comum é 0x0800 (indicando que o conteúdo é um pacote IPv4) ou 0x86DD (para pacotes IPv6). Se o valor deste campo for menor que 1536, o padrão 802.3 o interpreta estritamente como o tamanho do pacote em bytes.</p>
 
                 </section>
                 <section class="section-h4">
-                <h4>1.3.2.4 PAYLOAD (DADOS ÚTEIS E O CONCEITO DE PADDING)</h4>
+                <h4>PAYLOAD (DADOS ÚTEIS E O CONCEITO DE PADDING)</h4>
                 <p><strong>Payload (46 a 1500 bytes):</strong> É a carga útil da mensagem, onde trafegam os dados reais do usuário (um pedaço de um e-mail, uma requisição de site ou um pacote de voz VoIP). O tamanho máximo padrão é de 1500 bytes (conhecido como o MTU padrão da Ethernet).</p>
                 <p><strong>O Mecanismo de Padding (Preenchimento):</strong> Por razões de temporização e detecção física de sinais no cabo elétrico, o quadro Ethernet não pode ter menos que 64 bytes totais. Se a aplicação enviar uma mensagem muito curta (como um comando de "OK" de apenas 10 bytes), a subcamada Ethernet adicionará bytes nulos de preenchimento (Padding) automaticamente até que o Payload atinja o mínimo estrito de 46 bytes, garantindo a integridade mecânica do quadro.</p>
 
                 </section>
                 <section class="section-h4">
-                <h4>1.3.2.5 MECANISMO DE CHECAGEM DE ERROS (FCS / CRC)</h4>
+                <h4>MECANISMO DE CHECAGEM DE ERROS (FCS / CRC)</h4>
                 <ul>
                     <li><strong>FCS - Frame Check Sequence (4 bytes):</strong> Localizado na cauda da mensagem, este campo é responsável por garantir que o arquivo não sofreu corrupção por ruído eletromagnético ou atenuação durante o percurso pelo cabo.</li>
                     <li><strong>Algoritmo CRC-32 (Cyclic Redundancy Check - CRC):</strong> A Ethernet utiliza exclusivamente a Redundância Cíclica de 32 bits, rejeitando métodos rudimentares e falhos como a paridade simples (que falha ao detectar erros múltiplos de bits). Antes de transmitir, a placa de origem aplica uma equação polinomial matemática sobre todos os bits do cabeçalho e do payload, gerando um código único de 4 bytes que é gravado no FCS.</li>
@@ -275,13 +275,13 @@
         </section>
 
         <section class="section-h2">
-            <h2>1.4 PARÂMETROS OPERACIONAIS E DESEMPENHO</h2>
+            <h2>PARÂMETROS OPERACIONAIS E DESEMPENHO</h2>
             <section class="section-h3">
-                <h3>1.4.1 TAXA DE TRANSMISSÃO (BANDWIDTH / BIT RATE / BAUD RATE)</h3>
+                <h3>TAXA DE TRANSMISSÃO (BANDWIDTH / BIT RATE / BAUD RATE)</h3>
                 <p>No ambiente de redes locais de computadores, a evolução da velocidade foi massiva. Diferente de sistemas seriais antigos que mediam velocidade em kilobits por segundo (kbps), a Ethernet opera estritamente nas escalas de Megabits por segundo (Mbps) e Gigabits por segundo (Gbps).</p>
 
                 <section class="section-h4">
-                <h4>1.4.1.1 DIFERENCIAÇÃO DOS CONCEITOS TÉCNICOS</h4>
+                <h4>DIFERENCIAÇÃO DOS CONCEITOS TÉCNICOS</h4>
                 <p>Para evitar confusões comuns em projetos de engenharia, a Ethernet define estes três conceitos de forma muito clara:</p>
                 <ul>
                     <li><strong>Largura de Banda Física (Bandwidth / Frequência):</strong> Medida em Megahertz (MHz). É a capacidade física do cabo de suportar frequências eletromagnéticas sem atenuar o sinal. Por exemplo, o cabo Cat6 suporta até 250 MHz e o Cat6A suporta até 500 MHz.</li>
@@ -291,7 +291,7 @@
 
                 </section>
                 <section class="section-h4">
-                <h4>1.4.1.2 VELOCIDADES PADRÃO SUPORTADAS NA LAN CORPORATIVA</h4>
+                <h4>VELOCIDADES PADRÃO SUPORTADAS NA LAN CORPORATIVA</h4>
                 <p>O comitê IEEE 802.3 classifica as velocidades da Ethernet local em quatro grandes gerações comerciais ativas e padronizadas:</p>
                 <ol>
                     <li><strong>Fast Ethernet — 100 Mbps (Padrão IEEE 802.3u)</strong>
@@ -330,9 +330,9 @@
             </section>
 
             <section class="section-h3">
-                <h3>1.4.2 DISTÂNCIA MÁXIMA DOS SEGMENTOS NA LAN CORPORATIVA</h3>
+                <h3>DISTÂNCIA MÁXIMA DOS SEGMENTOS NA LAN CORPORATIVA</h3>
                 <section class="section-h4">
-                <h4>1.4.2.1 CABEAMENTO DE COBRE (PAR TRANÇADO CAT6 / CAT6A)</h4>
+                <h4>CABEAMENTO DE COBRE (PAR TRANÇADO CAT6 / CAT6A)</h4>
                 <p>Para todas as velocidades padrão em redes locais (100 Mbps, 1 Gbps e 10 Gbps), o limite máximo regulamentar para um link de cobre na arquitetura Ethernet é de 100 metros por segmento.</p>
                 <p>As normas de cabeamento estruturado dividem esses 100 metros em duas partes para garantir a manutenção do sistema:</p>
                 <ul>
@@ -343,7 +343,7 @@
 
                 </section>
                 <section class="section-h4">
-                <h4>1.4.2.2 CABEAMENTO DE FIBRA ÓPTICA (BACKBONE E INTERLIGAÇÃO DE RACKS)</h4>
+                <h4>CABEAMENTO DE FIBRA ÓPTICA (BACKBONE E INTERLIGAÇÃO DE RACKS)</h4>
                 <p>Quando a distância de 100 metros do cobre é insuficiente para alcançar outro bloco ou andar da empresa, a Ethernet utiliza fibras ópticas. Aqui, o limite depende se a fibra é Multimodo (curto alcance) ou Monomodo (longo alcance).</p>
                 <ul>
                     <li><strong>Fibra Multimodo (MMF - Categorias OM3 / OM4):</strong> Utilizada internamente em prédios corporativos.
@@ -362,19 +362,19 @@
 
                 </section>
                 <section class="section-h4">
-                <h4>1.4.2.3 CONEXÕES DE CURTÍSSIMO ALCANCE EM RACKS (CABOS DAC TWINAX)</h4>
+                <h4>CONEXÕES DE CURTÍSSIMO ALCANCE EM RACKS (CABOS DAC TWINAX)</h4>
                 <p><strong>Direct Attach Copper (DAC):</strong> Como visto nos capítulos anteriores, esses cabos de cobre blindados de alta performance usados dentro do CPD possuem limites mecânicos severos devido à alta frequência e atenuação. Suas distâncias máximas variam estritamente entre 1 e 7 metros.</p>
                 </section>
             </section>
 
             <section class="section-h3">
-                <h3>1.4.3 DETERMINISMO E TEMPO DE CICLO</h3>
+                <h3>DETERMINISMO E TEMPO DE CICLO</h3>
                 <p><strong>Classificação:</strong> A Ethernet corporativa (Padrão IEEE 802.3) é não-determinística.</p>
                 <p><strong>Justificativa:</strong> A rede não possui garantias de tempo de resposta estrito em tempo real. No cenário legado ou de contingência (Half-Duplex), o acesso ao meio utiliza o algoritmo CSMA/CD, que aplica um tempo de espera aleatório (algoritmo Backoff) após detectar colisões de dados, tornando o tempo de entrega imprevisível. Mesmo no cenário corporativo moderno e Full-Duplex sem colisões, os switches recebem os pacotes e os organizam em filas eletrônicas por meio de buffers de memória. Em momentos de tráfego intenso, essa fila gera atrasos variáveis. A arquitetura corporativa é focada em gerenciamento de tráfego, alta disponibilidade e escalabilidade, e não na entrega rigorosa de pacotes em milissegundos.</p>
             </section>
 
             <section class="section-h3">
-                <h3>1.4.4 NÍVEL NA PIRÂMIDE DA AUTOMAÇÃO</h3>
+                <h3>NÍVEL NA PIRÂMIDE DA AUTOMAÇÃO</h3>
                 <p><strong>Classificação:</strong> Atua na Supervisão, Gerenciamento e Integração IIoT/Nuvem (Níveis 3, 4 e 5 da pirâmide).</p>
                 <p><strong>Justificativa:</strong> O padrão Ethernet corporativo funciona como a "espinha dorsal" tecnológica da empresa, conectando estações de trabalho (computadores), servidores, redes Wi-Fi e telefones IP. Sua topologia conecta usuários em escritórios e interliga os racks dos andares ao switch central (Core) na sala de servidores. Portanto, essa rede não atua na ponta do chão de fábrica controlando sensores e atuadores.</p>
             </section>
