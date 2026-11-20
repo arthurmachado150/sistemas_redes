@@ -23,18 +23,18 @@
     </header>
 
     <main>
-        <h1>3. MODBUS TCP</h1>
+        <h1>MODBUS TCP</h1>
 
         <section class="section-h2">
-            <h2>3.1 ESTRUTURA FÍSICA E CABEAMENTO</h2>
+            <h2>ESTRUTURA FÍSICA E CABEAMENTO</h2>
             <section class="section-h3">
-                <h3>3.1.1 MODBUS TCP EM REDES INDUSTRIAIS E DE SUPERVISÃO</h3>
+                <h3>MODBUS TCP EM REDES INDUSTRIAIS E DE SUPERVISÃO</h3>
                 <p>O Modbus TCP é uma tecnologia de comunicação industrial utilizada para trocar dados entre CLPs, IHMs, sistemas SCADA, medidores, sensores inteligentes, gateways e outros equipamentos conectados a redes Ethernet. Sua aplicação deve considerar a infraestrutura física, o comportamento de transmissão, os requisitos de tempo e a integração com os dispositivos e controladores do processo.</p>
                 <p>O Modbus TCP é a aplicação do protocolo Modbus sobre TCP/IP. Diferentemente de uma rede de campo que define cabo, sinal elétrico e topologia próprios, o Modbus TCP utiliza a infraestrutura Ethernet disponível. Por isso, o meio físico, os conectores e as distâncias dependem dos padrões Ethernet e dos equipamentos de rede utilizados (Modbus Organization, 2006, 2012).</p>
             </section>
 
             <section class="section-h3">
-                <h3>3.1.2 MEIOS FÍSICOS E CABOS ADOTADOS</h3>
+                <h3>MEIOS FÍSICOS E CABOS ADOTADOS</h3>
                 <ul>
                     <li><strong>Par trançado de cobre:</strong> é comum utilizar cabos Ethernet Cat 5e ou Cat 6, nas versões UTP ou blindadas (F/UTP, S/FTP), com conectores compatíveis com as portas dos equipamentos. A categoria deve atender à taxa suportada e às condições do ambiente industrial.</li>
                     <li><strong>Fibra óptica:</strong> pode ser utilizada nos enlaces de backbone, entre prédios, em ambientes com alta interferência ou quando é necessário isolamento galvânico. A conversão pode ocorrer por portas ópticas de switches, módulos SFP ou conversores de mídia.</li>
@@ -43,7 +43,7 @@
             </section>
 
             <section class="section-h3">
-                <h3>3.1.3 CONECTORES PADRONIZADOS E IDENTIFICAÇÃO</h3>
+                <h3>CONECTORES PADRONIZADOS E IDENTIFICAÇÃO</h3>
                 <ul>
                     <li><strong>RJ45 (8P8C):</strong> conector mais comum em portas Ethernet de CLPs, IHMs, computadores industriais e switches.</li>
                     <li><strong>M12:</strong> conector circular industrial utilizado em alguns equipamentos Ethernet para melhorar a robustez mecânica e a proteção ambiental. A codificação e a pinagem devem ser compatíveis com o dispositivo e com a interface Ethernet correspondente.</li>
@@ -53,22 +53,22 @@
             </section>
 
             <section class="section-h3">
-                <h3>3.1.4 TOPOLOGIAS SUPORTADAS</h3>
+                <h3>TOPOLOGIAS SUPORTADAS</h3>
                 <section class="section-h4">
-                    <h4>3.1.4.1 ESTRELA E ÁRVORE COM SWITCHES ETHERNET</h4>
+                    <h4>ESTRELA E ÁRVORE COM SWITCHES ETHERNET</h4>
                     <p>A topologia mais comum é a estrela com switches Ethernet. Cada CLP, IHM, servidor ou equipamento de campo é conectado a uma porta do switch. Em instalações maiores, vários switches podem ser interligados em árvore para distribuir as conexões pelos painéis e áreas da fábrica.</p>
                 </section>
                 <section class="section-h4">
-                    <h4>3.1.4.2 LINHA, ANEL E REDUNDÂNCIA DE REDE</h4>
+                    <h4>LINHA, ANEL E REDUNDÂNCIA DE REDE</h4>
                     <p>Alguns equipamentos oferecem portas Ethernet integradas que permitem ligações em linha ou em cascata. Redes em anel também podem ser construídas por switches que suportem protocolos de redundância Ethernet. Entretanto, o Modbus TCP não define por si só uma topologia em linha ou anel: essas características pertencem à infraestrutura Ethernet e aos mecanismos de redundância adotados.</p>
                 </section>
             </section>
         </section>
 
         <section class="section-h2">
-            <h2>3.2 INTERFACE ELÉTRICA E TRANSMISSÃO DE SINAIS</h2>
+            <h2>INTERFACE ELÉTRICA E TRANSMISSÃO DE SINAIS</h2>
             <section class="section-h3">
-                <h3>3.2.1 SINALIZAÇÃO E NÍVEIS ELÉTRICOS</h3>
+                <h3>SINALIZAÇÃO E NÍVEIS ELÉTRICOS</h3>
                 <p>O Modbus TCP não especifica níveis elétricos próprios. Quando utiliza Ethernet em cobre, a transmissão segue a camada física do padrão Ethernet selecionado, com sinais diferenciais nos pares trançados. Quando utiliza fibra, os dados são transmitidos por pulsos ópticos. Assim, as características elétricas dependem da interface Ethernet do equipamento, e não do protocolo Modbus.</p>
                 <ul>
                     <li><strong>Ethernet de cobre:</strong> interfaces 10BASE-T, 100BASE-TX ou 1000BASE-T utilizam sinalização física Ethernet e cabos adequados à velocidade suportada por cada porta.</li>
@@ -77,7 +77,7 @@
             </section>
 
             <section class="section-h3">
-                <h3>3.2.2 ALIMENTAÇÃO PELO BARRAMENTO</h3>
+                <h3>ALIMENTAÇÃO PELO BARRAMENTO</h3>
                 <p>O Modbus TCP não fornece energia aos dispositivos por meio de seus dados de aplicação. Em geral, CLPs, IHMs, switches e instrumentos utilizam fontes próprias, comumente alimentadas em 24 Vcc nos painéis industriais.</p>
                 <ul>
                     <li><strong>PoE:</strong> alguns equipamentos Ethernet podem receber alimentação pelo mesmo cabo de dados por meio de Power over Ethernet, desde que as portas e os dispositivos sejam compatíveis com os padrões IEEE 802.3 correspondentes. Essa possibilidade pertence à infraestrutura Ethernet e não ao protocolo Modbus TCP.</li>
@@ -85,7 +85,7 @@
             </section>
 
             <section class="section-h3">
-                <h3>3.2.3 ISOLAÇÃO E PROTEÇÃO CONTRA RUÍDOS</h3>
+                <h3>ISOLAÇÃO E PROTEÇÃO CONTRA RUÍDOS</h3>
                 <ul>
                     <li><strong>Blindagem e aterramento:</strong> em ambientes industriais podem ser empregados cabos Ethernet blindados, conectores apropriados e sistemas de aterramento e equipotencialização projetados para controlar interferências e correntes de modo comum.</li>
                     <li><strong>Instalação:</strong> os cabos de rede devem ser separados dos cabos de potência, especialmente de motores e inversores. Cruzamentos devem ser feitos preferencialmente próximos de 90 graus. A blindagem deve ter continuidade e ligação conforme as normas de cabeamento e os manuais dos equipamentos.</li>
@@ -96,9 +96,9 @@
         </section>
 
         <section class="section-h2">
-            <h2>3.3 PROTOCOLO DE ENLACE E ACESSO AO MEIO (MAC)</h2>
+            <h2>PROTOCOLO DE ENLACE E ACESSO AO MEIO (MAC)</h2>
             <section class="section-h3">
-                <h3>3.3.1 MÉTODO DE ACESSO AO MEIO</h3>
+                <h3>MÉTODO DE ACESSO AO MEIO</h3>
                 <p>O Modbus TCP utiliza a infraestrutura de enlace Ethernet e o transporte TCP/IP. Não possui um método MAC próprio: a coordenação do acesso ao meio é feita pela tecnologia Ethernet utilizada. Em redes com switches e conexões full-duplex, cada dispositivo normalmente possui um enlace ponto a ponto, sem colisões no modo de operação convencional.</p>
                 <ul>
                     <li><strong>Modelo cliente-servidor:</strong> um cliente Modbus inicia uma conexão TCP e envia solicitações ao servidor, que processa a requisição e devolve uma resposta. O cliente pode ser um sistema SCADA, uma IHM ou um controlador; o servidor pode ser um CLP, medidor ou equipamento de campo.</li>
@@ -107,7 +107,7 @@
             </section>
 
             <section class="section-h3">
-                <h3>3.3.2 ESTRUTURA DO QUADRO E MENSAGEM</h3>
+                <h3>ESTRUTURA DO QUADRO E MENSAGEM</h3>
                 <p>A mensagem Modbus TCP é transportada dentro de um segmento TCP, de um pacote IP e de um quadro Ethernet. A unidade de aplicação (ADU) Modbus TCP é composta pelo cabeçalho MBAP e pela PDU. O cabeçalho MBAP possui sete bytes e auxilia na identificação da transação e no enquadramento das mensagens sobre o fluxo TCP (Modbus Organization, 2006).</p>
                 <ul>
                     <li><strong>Transaction Identifier:</strong> campo de 2 bytes que identifica a transação solicitada pelo cliente e permite associar a resposta à requisição correspondente.</li>
@@ -123,14 +123,14 @@
         </section>
 
         <section class="section-h2">
-            <h2>3.4 PARÂMETROS OPERACIONAIS E DESEMPENHO</h2>
+            <h2>PARÂMETROS OPERACIONAIS E DESEMPENHO</h2>
             <section class="section-h3">
-                <h3>3.4.1 TAXA DE TRANSMISSÃO</h3>
+                <h3>TAXA DE TRANSMISSÃO</h3>
                 <p>O Modbus TCP não define uma taxa de transmissão física própria nem uma baud rate. A velocidade depende da interface Ethernet e da infraestrutura de rede utilizada. Em instalações industriais são comuns enlaces de 100 Mbit/s, mas equipamentos compatíveis também podem utilizar 10 Mbit/s ou 1 Gbit/s, conforme suas portas e a arquitetura instalada.</p>
             </section>
 
             <section class="section-h3">
-                <h3>3.4.2 DISTÂNCIA MÁXIMA DOS SEGMENTOS</h3>
+                <h3>DISTÂNCIA MÁXIMA DOS SEGMENTOS</h3>
                 <ul>
                     <li><strong>Ethernet sobre par trançado:</strong> em enlaces 100BASE-TX, o limite típico é de 100 m por canal/cabo entre equipamentos ativos, respeitando o padrão de cabeamento e a qualidade da instalação.</li>
                     <li><strong>Fibra óptica:</strong> a distância depende do tipo de fibra, do transceptor óptico e do orçamento de potência do enlace. Pode ser de centenas de metros ou vários quilômetros, conforme a solução utilizada.</li>
@@ -139,14 +139,14 @@
             </section>
 
             <section class="section-h3">
-                <h3>3.4.3 DETERMINISMO E TEMPO DE CICLO</h3>
+                <h3>DETERMINISMO E TEMPO DE CICLO</h3>
                 <p><strong>Classificação:</strong> o Modbus TCP é geralmente classificado como não determinístico para aplicações de tempo real estrito.</p>
                 <p><strong>Justificativa:</strong> embora o TCP garanta a entrega ordenada e confiável dos dados enquanto a conexão estiver operacional, a latência pode variar devido ao processamento do servidor, ao intervalo de consulta do cliente, ao tráfego concorrente, às filas dos switches, às retransmissões e ao comportamento do sistema operacional.</p>
                 <p><strong>Aplicação:</strong> é adequado para supervisão, leitura de instrumentos, parametrização e comandos de controle que toleram tempos de resposta variáveis, mas não é normalmente a escolha principal para sincronização de movimento ou ciclos de controle muito rápidos.</p>
             </section>
 
             <section class="section-h3">
-                <h3>3.4.4 NÍVEL NA PIRÂMIDE DA AUTOMAÇÃO</h3>
+                <h3>NÍVEL NA PIRÂMIDE DA AUTOMAÇÃO</h3>
                 <p><strong>Classificação:</strong> o Modbus TCP é utilizado principalmente na integração entre o nível de controle e o nível de supervisão.</p>
                 <p><strong>Justificativa e aplicação:</strong> pode conectar CLPs, IHMs, SCADA, medidores e gateways, permitindo monitorar estados, ler variáveis de processo e enviar comandos. Também pode servir como caminho de integração com sistemas de gestão e IIoT por meio de gateways, mas sua utilização típica não é o controle de sinais de campo com requisitos de sincronização rígida.</p>
             </section>

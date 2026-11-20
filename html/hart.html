@@ -23,18 +23,18 @@
     </header>
 
     <main>
-        <h1>6. HART (PROTOCOLO E WIRELESSHART)</h1>
+        <h1>HART (PROTOCOLO E WIRELESSHART)</h1>
 
         <section class="section-h2">
-            <h2>6.1 ESTRUTURA FÍSICA E CABEAMENTO</h2>
+            <h2>ESTRUTURA FÍSICA E CABEAMENTO</h2>
             <section class="section-h3">
-                <h3>6.1.1 HART NA INSTRUMENTAÇÃO DE PROCESSOS</h3>
+                <h3>HART NA INSTRUMENTAÇÃO DE PROCESSOS</h3>
                 <p>O HART (Highway Addressable Remote Transducer) é um protocolo de comunicação utilizado em instrumentos inteligentes de campo. Sua característica mais conhecida é permitir a transmissão simultânea de um sinal analógico de 4 a 20 mA e de informações digitais sobre o mesmo par de fios. Assim, a variável principal do processo continua disponível em formato analógico, enquanto dados adicionais podem ser acessados digitalmente.</p>
                 <p>A comunicação digital permite ler variáveis adicionais, estado do instrumento, diagnóstico, identificação e parâmetros de configuração. O protocolo é amplamente utilizado em transmissores e posicionadores de válvulas, além de ser integrado a sistemas de controle e ferramentas de gerenciamento de ativos.</p>
             </section>
 
             <section class="section-h3">
-                <h3>6.1.2 HART COM FIO: MEIOS FÍSICOS E CABOS</h3>
+                <h3>HART COM FIO: MEIOS FÍSICOS E CABOS</h3>
                 <ul>
                     <li><strong>Par trançado:</strong> o meio mais comum é o par de fios utilizado no circuito de corrente 4-20 mA. O cabo deve apresentar resistência e capacitância compatíveis com a quantidade de dispositivos, a carga e o comprimento do circuito.</li>
                     <li><strong>Cabo blindado:</strong> pode ser utilizado em ambientes industriais para reduzir a influência de ruídos eletromagnéticos. A blindagem deve ser conectada conforme o projeto de instrumentação e as recomendações do fabricante.</li>
@@ -44,7 +44,7 @@
             </section>
 
             <section class="section-h3">
-                <h3>6.1.3 WIRELESSHART: MEIO DE TRANSMISSÃO E EQUIPAMENTOS</h3>
+                <h3>WIRELESSHART: MEIO DE TRANSMISSÃO E EQUIPAMENTOS</h3>
                 <p>O WirelessHART é uma extensão sem fio do protocolo HART, padronizada internacionalmente pela IEC 62591. Em vez de utilizar um par de fios para transportar a comunicação, os dispositivos trocam dados por radiofrequência e formam uma rede Mesh de campo. A comunicação entre a rede sem fio e o sistema de controle é realizada por um gateway.</p>
                 <ul>
                     <li><strong>Instrumentos WirelessHART:</strong> instrumentos com rádio integrado que transmitem informações de processo e diagnóstico pela rede sem fio.</li>
@@ -55,7 +55,7 @@
             </section>
 
             <section class="section-h3">
-                <h3>6.1.4 CONECTORES PADRONIZADOS E IDENTIFICAÇÃO</h3>
+                <h3>CONECTORES PADRONIZADOS E IDENTIFICAÇÃO</h3>
                 <ul>
                     <li><strong>Bornes de instrumentação:</strong> são usados para conectar os condutores do circuito 4-20 mA/HART aos transmissores, posicionadores e módulos de entrada e saída.</li>
                     <li><strong>Terminais de teste e comunicação:</strong> pontos de conexão podem permitir a ligação de comunicadores portáteis ou modems HART sem interromper o circuito, respeitando a impedância necessária à comunicação.</li>
@@ -65,9 +65,9 @@
             </section>
 
             <section class="section-h3">
-                <h3>6.1.5 TOPOLOGIAS SUPORTADAS</h3>
+                <h3>TOPOLOGIAS SUPORTADAS</h3>
                 <section class="section-h4">
-                    <h4>6.1.5.1 HART COM FIO: PONTO A PONTO E MULTIDROP</h4>
+                    <h4>HART COM FIO: PONTO A PONTO E MULTIDROP</h4>
                     <ul>
                         <li><strong>Ponto a ponto:</strong> um instrumento é conectado ao sistema por um circuito 4-20 mA. O valor analógico representa a variável principal e a comunicação digital HART ocorre simultaneamente sobre o mesmo par.</li>
                         <li><strong>Multidrop:</strong> vários instrumentos compartilham um par de comunicação e são identificados por endereços individuais. Nessa configuração, a informação é transmitida digitalmente, e o sinal analógico de corrente deixa de representar individualmente a variável de cada instrumento.</li>
@@ -75,16 +75,16 @@
                 </section>
 
                 <section class="section-h4">
-                    <h4>6.1.5.2 WIRELESSHART: TOPOLOGIA EM MALHA (MESH)</h4>
+                    <h4>WIRELESSHART: TOPOLOGIA EM MALHA (MESH)</h4>
                     <p>Na rede WirelessHART, os instrumentos podem encaminhar mensagens por meio de outros nós até alcançar o gateway. Essa comunicação multissalto permite contornar obstáculos e criar caminhos alternativos. A rede é auto-organizável, e o gerenciador seleciona rotas e horários de comunicação conforme a qualidade dos enlaces e a disponibilidade dos dispositivos.</p>
                 </section>
             </section>
         </section>
 
         <section class="section-h2">
-            <h2>6.2 INTERFACE ELÉTRICA E TRANSMISSÃO DE SINAIS</h2>
+            <h2>INTERFACE ELÉTRICA E TRANSMISSÃO DE SINAIS</h2>
             <section class="section-h3">
-                <h3>6.2.1 SINALIZAÇÃO DO HART COM FIO</h3>
+                <h3>SINALIZAÇÃO DO HART COM FIO</h3>
                 <p>O HART com fio utiliza dois canais de informação simultâneos no mesmo circuito. O primeiro é o sinal analógico de corrente contínua de 4 a 20 mA, que representa a variável principal do processo. O segundo é o sinal digital modulado por FSK (Frequency Shift Keying), sobreposto ao circuito analógico.</p>
                 <ul>
                     <li><strong>Sinal analógico 4-20 mA:</strong> a corrente representa a variável medida ou comandada, com a escala definida pelo instrumento e pelo sistema de controle.</li>
@@ -94,7 +94,7 @@
             </section>
 
             <section class="section-h3">
-                <h3>6.2.2 SINALIZAÇÃO DO WIRELESSHART</h3>
+                <h3>SINALIZAÇÃO DO WIRELESSHART</h3>
                 <p>O WirelessHART utiliza a camada física de rádio de 2,4 GHz definida com base no IEEE 802.15.4. A transmissão emprega espalhamento espectral por sequência direta (DSSS) e modulação O-QPSK (Offset Quadrature Phase Shift Keying), adequada à comunicação de baixo consumo em redes de sensores.</p>
                 <ul>
                     <li><strong>Faixa de frequência:</strong> 2,4 GHz na faixa ISM (Industrial, Scientific and Medical), compartilhada com outras tecnologias de rádio, conforme as regras regulatórias locais.</li>
@@ -104,7 +104,7 @@
             </section>
 
             <section class="section-h3">
-                <h3>6.2.3 ALIMENTAÇÃO PELO BARRAMENTO E ENERGIA DOS EQUIPAMENTOS</h3>
+                <h3>ALIMENTAÇÃO PELO BARRAMENTO E ENERGIA DOS EQUIPAMENTOS</h3>
                 <ul>
                     <li><strong>HART com fio - transmissores de dois fios:</strong> a alimentação do instrumento e o sinal analógico/digital compartilham o mesmo circuito de corrente, desde que o transmissor seja projetado para essa configuração.</li>
                     <li><strong>HART com fio - instrumentos de quatro fios:</strong> utilizam fonte de alimentação separada e mantêm o circuito de sinal para a comunicação.</li>
@@ -113,7 +113,7 @@
             </section>
 
             <section class="section-h3">
-                <h3>6.2.4 ISOLAÇÃO E PROTEÇÃO CONTRA RUÍDOS</h3>
+                <h3>ISOLAÇÃO E PROTEÇÃO CONTRA RUÍDOS</h3>
                 <ul>
                     <li><strong>HART com fio:</strong> utilizar cabo de instrumentação adequado, blindagem e aterramento conforme o projeto, verificando a resistência e a capacitância do circuito para não comprometer o sinal FSK.</li>
                     <li><strong>Resistência de comunicação:</strong> o circuito precisa apresentar impedância suficiente para que o sinal digital HART seja detectado. Em muitas instalações é utilizado um resistor de carga em torno de 250 ohms, desde que a fonte, o transmissor e a entrada analógica permitam essa condição.</li>
@@ -126,9 +126,9 @@
         </section>
 
         <section class="section-h2">
-            <h2>6.3 PROTOCOLO DE ENLACE E ACESSO AO MEIO (MAC)</h2>
+            <h2>PROTOCOLO DE ENLACE E ACESSO AO MEIO (MAC)</h2>
             <section class="section-h3">
-                <h3>6.3.1 MÉTODO DE ACESSO AO MEIO NO HART COM FIO</h3>
+                <h3>MÉTODO DE ACESSO AO MEIO NO HART COM FIO</h3>
                 <ul>
                     <li><strong>Mestre-escravo:</strong> a comunicação tradicional é iniciada por um mestre, que envia uma solicitação ao instrumento. O dispositivo responde ao comando recebido, seguindo o modelo solicitação-resposta.</li>
                     <li><strong>Mestres primário e secundário:</strong> o protocolo permite a presença de dois mestres no mesmo circuito, como um sistema de controle e um comunicador portátil de manutenção, respeitando as regras de acesso.</li>
@@ -137,7 +137,7 @@
             </section>
 
             <section class="section-h3">
-                <h3>6.3.2 ESTRUTURA DO QUADRO E MENSAGEM HART</h3>
+                <h3>ESTRUTURA DO QUADRO E MENSAGEM HART</h3>
                 <p>As mensagens HART são transmitidas em sequência serial e contêm informações para sincronização, identificação do instrumento, comando e dados. A estrutura varia conforme o formato do endereço e o tipo de mensagem, mas normalmente inclui os seguintes campos:</p>
                 <ul>
                     <li><strong>Preâmbulo:</strong> sequência de bytes utilizada para sincronizar o receptor e permitir a identificação do início da mensagem.</li>
@@ -152,7 +152,7 @@
             </section>
 
             <section class="section-h3">
-                <h3>6.3.3 MÉTODO DE ACESSO AO MEIO NO WIRELESSHART</h3>
+                <h3>MÉTODO DE ACESSO AO MEIO NO WIRELESSHART</h3>
                 <ul>
                     <li><strong>TDMA (Time Division Multiple Access):</strong> divide o tempo em intervalos organizados, normalmente slots de 10 ms, atribuindo horários específicos para transmissão e recepção dos dispositivos.</li>
                     <li><strong>Sincronização temporal:</strong> os dispositivos mantêm seus relógios sincronizados com a rede para executar as transmissões nos intervalos programados.</li>
@@ -162,7 +162,7 @@
             </section>
 
             <section class="section-h3">
-                <h3>6.3.4 ESTRUTURA DO QUADRO E MENSAGEM WIRELESSHART</h3>
+                <h3>ESTRUTURA DO QUADRO E MENSAGEM WIRELESSHART</h3>
                 <p>O WirelessHART utiliza uma estrutura de comunicação em camadas, combinando a sinalização física baseada no IEEE 802.15.4 com os campos de enlace e rede definidos pelo protocolo. De forma geral, a transmissão inclui sincronização física, informações de controle, endereçamento, dados da mensagem e verificação de integridade.</p>
                 <ul>
                     <li><strong>Preâmbulo e delimitador físico:</strong> auxiliam a sincronização do rádio receptor e a identificação do início do pacote.</li>
@@ -175,9 +175,9 @@
         </section>
 
         <section class="section-h2">
-            <h2>6.4 PARÂMETROS OPERACIONAIS E DESEMPENHO</h2>
+            <h2>PARÂMETROS OPERACIONAIS E DESEMPENHO</h2>
             <section class="section-h3">
-                <h3>6.4.1 TAXA DE TRANSMISSÃO (BIT RATE / BAUD RATE)</h3>
+                <h3>TAXA DE TRANSMISSÃO (BIT RATE / BAUD RATE)</h3>
                 <ul>
                     <li><strong>HART com fio:</strong> 1.200 bit/s para o canal digital FSK, em paralelo ao sinal analógico de 4-20 mA.</li>
                     <li><strong>WirelessHART:</strong> 250 kbit/s de taxa nominal da camada física de rádio. A taxa útil para dados de aplicação é menor devido aos quadros de controle, agendamento, confirmações, segurança e encaminhamento Mesh.</li>
@@ -185,27 +185,27 @@
             </section>
 
             <section class="section-h3">
-                <h3>6.4.2 DISTÂNCIA MÁXIMA E COBERTURA</h3>
+                <h3>DISTÂNCIA MÁXIMA E COBERTURA</h3>
                 <section class="section-h4">
-                    <h4>6.4.2.1 HART COM FIO</h4>
+                    <h4>HART COM FIO</h4>
                     <p>A distância máxima depende da resistência, capacitância e configuração do circuito. Como referência técnica, a documentação HART apresenta até aproximadamente 3.048 metros para um par trançado e cerca de 1.524 metros quando há múltiplos pares no cabo. Esses limites devem ser verificados com os dados reais do cabo, da carga e dos equipamentos instalados.</p>
                 </section>
 
                 <section class="section-h4">
-                    <h4>6.4.2.2 WIRELESSHART</h4>
+                    <h4>WIRELESSHART</h4>
                     <p>O alcance por rádio depende da potência, antena, obstáculos, condições de propagação e interferências presentes na área. Como referência de engenharia, pode-se considerar aproximadamente 200 metros entre dispositivos em condições adequadas, mas esse valor não é um limite universal. A rede Mesh amplia a cobertura total por meio de múltiplos saltos entre instrumentos e repetidores até o gateway.</p>
                 </section>
             </section>
 
             <section class="section-h3">
-                <h3>6.4.3 DETERMINISMO E TEMPO DE CICLO</h3>
+                <h3>DETERMINISMO E TEMPO DE CICLO</h3>
                 <p><strong>Classificação do HART com fio:</strong> não é determinístico para aplicações de tempo real estrito. A comunicação por solicitação e resposta, somada à taxa digital de 1.200 bit/s, pode tornar previsível a leitura em uma configuração definida, mas não garante ciclos curtos e fixos.</p>
                 <p><strong>Classificação do WirelessHART:</strong> oferece comunicação agendada e mais previsível por utilizar TDMA sincronizado. Essa previsibilidade é condicionada ao intervalo configurado, à quantidade de saltos, às rotas e às condições de rádio; portanto, não equivale a uma garantia universal de tempo real rígido.</p>
                 <p><strong>Aplicação:</strong> as duas tecnologias são voltadas principalmente à instrumentação, ao monitoramento de variáveis, à manutenção e ao diagnóstico de processos. Aplicações críticas de controle rápido exigem uma rede e arquitetura dimensionadas especificamente para esse requisito.</p>
             </section>
 
             <section class="section-h3">
-                <h3>6.4.4 NÍVEL NA PIRÂMIDE DA AUTOMAÇÃO</h3>
+                <h3>NÍVEL NA PIRÂMIDE DA AUTOMAÇÃO</h3>
                 <p><strong>Classificação:</strong> atua principalmente no nível 1, conectando transmissores, sensores e posicionadores de campo. Por meio dos módulos de entrada/saída e gateways, integra-se ao nível 2 de controle e pode fornecer informações ao nível 3 de supervisão e gerenciamento de ativos.</p>
                 <p><strong>Justificativa:</strong> o HART acrescenta dados digitais de diagnóstico e parametrização aos instrumentos analógicos existentes. O WirelessHART amplia essa capacidade para pontos em que a instalação de cabos é difícil ou economicamente desfavorável, encaminhando os dados ao sistema de controle ou de gestão por meio do gateway.</p>
             </section>

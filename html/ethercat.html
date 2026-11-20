@@ -23,18 +23,18 @@
     </header>
 
     <main>
-        <h1>2. ETHERCAT</h1>
+        <h1>ETHERCAT</h1>
 
         <section class="section-h2">
-            <h2>2.1 ESTRUTURA FÍSICA E CABEAMENTO</h2>
+            <h2>ESTRUTURA FÍSICA E CABEAMENTO</h2>
             <section class="section-h3">
-                <h3>2.1.1 ETHERCAT EM SISTEMAS DE CONTROLE EM TEMPO REAL</h3>
+                <h3>ETHERCAT EM SISTEMAS DE CONTROLE EM TEMPO REAL</h3>
                 <p>O EtherCAT é uma tecnologia de comunicação industrial utilizada para interligar controladores, módulos de I/O, inversores, servodrives, sensores, atuadores e sistemas de movimento que exigem comunicação cíclica rápida e sincronizada. Sua aplicação deve considerar a infraestrutura física, o comportamento de transmissão, os requisitos de tempo e a integração com os dispositivos e controladores do processo.</p>
                 <p>A arquitetura possui um dispositivo principal (MainDevice, tradicionalmente chamado de mestre) e um ou mais dispositivos subordinados (SubDevices, tradicionalmente chamados de escravos). Cada SubDevice possui um controlador EtherCAT (ESC) que processa os dados diretamente no hardware à medida que o quadro atravessa o dispositivo (ETG, 2022).</p>
             </section>
 
             <section class="section-h3">
-                <h3>2.1.2 MEIOS FÍSICOS E CABOS ADOTADOS</h3>
+                <h3>MEIOS FÍSICOS E CABOS ADOTADOS</h3>
                 <ul>
                     <li><strong>Ethernet sobre cobre:</strong> a implementação mais comum utiliza 100BASE-TX, a 100 Mbit/s e full-duplex, sobre cabo de par trançado industrial blindado, normalmente categoria Cat 5 ou superior. O canal de cobre pode atingir até 100 m entre dispositivos, conforme as condições normativas do enlace.</li>
                     <li><strong>Fibra óptica:</strong> versões baseadas em 100BASE-FX podem ser utilizadas em enlaces de fibra, permitindo distâncias de vários quilômetros conforme o tipo de fibra, os transceptores e o orçamento óptico. É uma alternativa para grandes distâncias ou ambientes com forte interferência eletromagnética.</li>
@@ -44,7 +44,7 @@
             </section>
 
             <section class="section-h3">
-                <h3>2.1.3 CONECTORES PADRONIZADOS E IDENTIFICAÇÃO</h3>
+                <h3>CONECTORES PADRONIZADOS E IDENTIFICAÇÃO</h3>
                 <ul>
                     <li><strong>RJ45:</strong> conector amplamente utilizado em conexões EtherCAT sobre cobre 100BASE-TX, com pinagem Ethernet e versões industriais com proteção mecânica e travamento reforçado.</li>
                     <li><strong>M12 e M8:</strong> conectores circulares industriais utilizados em equipamentos de campo e máquinas. O código, a quantidade de pinos e a atribuição elétrica devem seguir a especificação do fabricante do equipamento.</li>
@@ -54,13 +54,13 @@
             </section>
 
             <section class="section-h3">
-                <h3>2.1.4 TOPOLOGIAS SUPORTADAS</h3>
+                <h3>TOPOLOGIAS SUPORTADAS</h3>
                 <section class="section-h4">
-                    <h4>2.1.4.1 LINHA, ÁRVORE E ESTRELA</h4>
+                    <h4>LINHA, ÁRVORE E ESTRELA</h4>
                     <p>O EtherCAT permite topologias em linha (daisy-chain), árvore e estrela, dependendo da quantidade de portas e da arquitetura dos controladores EtherCAT presentes nos dispositivos. Em muitos equipamentos, uma porta recebe o quadro e outra o encaminha ao próximo nó, reduzindo a necessidade de switches Ethernet externos.</p>
                 </section>
                 <section class="section-h4">
-                    <h4>2.1.4.2 ANEL E REDUNDÂNCIA</h4>
+                    <h4>ANEL E REDUNDÂNCIA</h4>
                     <p>É possível projetar um caminho em anel para redundância quando o MainDevice e os dispositivos envolvidos oferecem suporte à função correspondente. Nesse arranjo, uma interrupção do cabo pode permitir que a comunicação continue pelo caminho alternativo, desde que a configuração e os equipamentos atendam aos requisitos de redundância.</p>
                     <ul>
                         <li><strong>Observação sobre switches:</strong> a topologia nativa normalmente utiliza as portas EtherCAT dos próprios dispositivos. Um switch Ethernet convencional não deve ser inserido indiscriminadamente no caminho de um segmento EtherCAT; devem ser utilizados componentes e métodos explicitamente compatíveis com a tecnologia e com a topologia prevista (ETG, 2022).</li>
@@ -70,9 +70,9 @@
         </section>
 
         <section class="section-h2">
-            <h2>2.2 INTERFACE ELÉTRICA E TRANSMISSÃO DE SINAIS</h2>
+            <h2>INTERFACE ELÉTRICA E TRANSMISSÃO DE SINAIS</h2>
             <section class="section-h3">
-                <h3>2.2.1 SINALIZAÇÃO E NÍVEIS</h3>
+                <h3>SINALIZAÇÃO E NÍVEIS</h3>
                 <p>No meio de cobre, o EtherCAT utiliza a camada física Ethernet 100BASE-TX, com transmissão diferencial pelos pares trançados de dados. A codificação física 100BASE-TX utiliza 4B/5B e sinalização MLT-3. No meio óptico 100BASE-FX, a informação é transmitida por pulsos luminosos. Portanto, não utiliza níveis RS-485 nem o sinal elétrico CAN.</p>
                 <ul>
                     <li><strong>Taxa da camada física:</strong> a implementação EtherCAT clássica utiliza Ethernet de 100 Mbit/s full-duplex. A taxa de transmissão do enlace não deve ser confundida com o tempo de ciclo da aplicação.</li>
@@ -81,7 +81,7 @@
             </section>
 
             <section class="section-h3">
-                <h3>2.2.2 ALIMENTAÇÃO PELO BARRAMENTO</h3>
+                <h3>ALIMENTAÇÃO PELO BARRAMENTO</h3>
                 <p>Na implementação EtherCAT convencional, o cabo de comunicação não fornece automaticamente energia aos dispositivos. A alimentação dos módulos, sensores, atuadores e acionamentos normalmente utiliza fontes e condutores separados, frequentemente em 24 Vcc para circuitos de controle.</p>
                 <ul>
                     <li><strong>EtherCAT P:</strong> é uma extensão específica que permite transmitir dados e alimentação pelo mesmo cabo de quatro condutores compatível. A tecnologia prevê dois sistemas de alimentação de 24 V separados e isolados, identificados como US e UP, e exige dispositivos, conectores e cabos compatíveis.</li>
@@ -90,7 +90,7 @@
             </section>
 
             <section class="section-h3">
-                <h3>2.2.3 ISOLAÇÃO E PROTEÇÃO CONTRA RUÍDOS</h3>
+                <h3>ISOLAÇÃO E PROTEÇÃO CONTRA RUÍDOS</h3>
                 <ul>
                     <li><strong>Blindagem:</strong> as orientações de instalação EtherCAT recomendam cabos blindados e continuidade elétrica da blindagem ao longo do canal. A conexão da blindagem ao invólucro do equipamento deve seguir as instruções do fabricante e o projeto de compatibilidade eletromagnética (ETG, 2022).</li>
                     <li><strong>Aterramento e equipotencialização:</strong> os dispositivos devem possuir referência de potencial adequada. A equipotencialização reduz diferenças de potencial e correntes indesejadas pela blindagem. A forma de ligação da blindagem pode variar conforme a construção do equipamento, incluindo conexão direta ou redes internas de acoplamento; deve-se seguir o manual do fabricante.</li>
@@ -102,9 +102,9 @@
         </section>
 
         <section class="section-h2">
-            <h2>2.3 PROTOCOLO DE ENLACE E ACESSO AO MEIO (MAC)</h2>
+            <h2>PROTOCOLO DE ENLACE E ACESSO AO MEIO (MAC)</h2>
             <section class="section-h3">
-                <h3>2.3.1 MÉTODO DE ACESSO AO MEIO</h3>
+                <h3>MÉTODO DE ACESSO AO MEIO</h3>
                 <p>O MainDevice organiza a comunicação cíclica e envia quadros Ethernet que percorrem a sequência de SubDevices. Como o enlace é ponto a ponto e full-duplex, os dispositivos não disputam o meio por CSMA/CD. Cada ESC processa os dados destinados a ele enquanto o quadro passa, sem precisar aguardar que o quadro inteiro seja recebido e processado por software.</p>
                 <ul>
                     <li><strong>Processamento on-the-fly:</strong> cada SubDevice extrai os dados de saída destinados a ele e insere os dados de entrada correspondentes no quadro em trânsito. O processamento é feito pelo hardware ESC, com atraso de passagem muito pequeno e previsível.</li>
@@ -113,7 +113,7 @@
             </section>
 
             <section class="section-h3">
-                <h3>2.3.2 ESTRUTURA DO QUADRO E MENSAGEM</h3>
+                <h3>ESTRUTURA DO QUADRO E MENSAGEM</h3>
                 <p>O EtherCAT utiliza quadros Ethernet padrão, identificados pelo EtherType 0x88A4. Um quadro pode conter um ou mais datagramas EtherCAT, permitindo transportar dados destinados a vários dispositivos em uma mesma transmissão.</p>
                 <ul>
                     <li><strong>Cabeçalho Ethernet:</strong> contém os endereços MAC de destino e origem e o campo EtherType que identifica o protocolo EtherCAT.</li>
@@ -125,14 +125,14 @@
         </section>
 
         <section class="section-h2">
-            <h2>2.4 PARÂMETROS OPERACIONAIS E DESEMPENHO</h2>
+            <h2>PARÂMETROS OPERACIONAIS E DESEMPENHO</h2>
             <section class="section-h3">
-                <h3>2.4.1 TAXA DE TRANSMISSÃO</h3>
+                <h3>TAXA DE TRANSMISSÃO</h3>
                 <p>A camada física EtherCAT clássica opera a 100 Mbit/s full-duplex, utilizando 100BASE-TX em cobre ou 100BASE-FX em fibra. Essa taxa representa a velocidade do enlace Ethernet. O desempenho de controle depende também do tamanho dos dados cíclicos, da quantidade de dispositivos, do ciclo configurado e do processamento do controlador.</p>
             </section>
 
             <section class="section-h3">
-                <h3>2.4.2 DISTÂNCIA MÁXIMA DOS SEGMENTOS</h3>
+                <h3>DISTÂNCIA MÁXIMA DOS SEGMENTOS</h3>
                 <ul>
                     <li><strong>Cobre 100BASE-TX:</strong> até 100 m por segmento/canal Ethernet, considerando cabeamento e conexões dentro dos limites aplicáveis.</li>
                     <li><strong>Fibra 100BASE-FX:</strong> distâncias de vários quilômetros podem ser alcançadas, dependendo do tipo de fibra, dos transceptores, dos conectores e do orçamento óptico do enlace.</li>
@@ -141,14 +141,14 @@
             </section>
 
             <section class="section-h3">
-                <h3>2.4.3 DETERMINISMO E TEMPO DE CICLO</h3>
+                <h3>DETERMINISMO E TEMPO DE CICLO</h3>
                 <p><strong>Classificação:</strong> o EtherCAT foi desenvolvido para comunicação determinística e aplicações de tempo real, incluindo controle de movimento.</p>
                 <p><strong>Justificativa:</strong> o processamento on-the-fly e a ausência de disputa pelo meio tornam os atrasos de passagem dos dispositivos pequenos e previsíveis. O recurso Distributed Clocks permite sincronizar relógios dos dispositivos com precisão inferior a um microssegundo em instalações adequadas.</p>
                 <p><strong>Tempo de ciclo:</strong> ciclos na faixa de 100 microssegundos ou menores podem ser viáveis em determinadas configurações, mas não constituem uma garantia universal: o tempo real depende do número de nós, quantidade de dados, configuração, controlador e carga de processamento (ETG, 2022).</p>
             </section>
 
             <section class="section-h3">
-                <h3>2.4.4 NÍVEL NA PIRÂMIDE DA AUTOMAÇÃO</h3>
+                <h3>NÍVEL NA PIRÂMIDE DA AUTOMAÇÃO</h3>
                 <p><strong>Classificação:</strong> o EtherCAT atua principalmente nos níveis de campo e de controle.</p>
                 <p><strong>Justificativa e aplicação:</strong> interliga módulos de entradas e saídas, sensores, atuadores, inversores e servodrives ao controlador, sendo especialmente adequado para sincronização de eixos e controle de máquinas com ciclos rápidos. Gateways podem integrar essas informações a sistemas de supervisão e níveis superiores, mas sua aplicação principal está no controle em tempo real.</p>
             </section>

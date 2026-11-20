@@ -23,21 +23,21 @@
     </header>
 
     <main>
-        <h1>1. FOUNDATION FIELDBUS (H1 E HSE)</h1>
+        <h1>FOUNDATION FIELDBUS (H1 E HSE)</h1>
 
         <section class="section-h2">
-            <h2>1.1 ESTRUTURA FÍSICA E CABEAMENTO</h2>
+            <h2>ESTRUTURA FÍSICA E CABEAMENTO</h2>
             <section class="section-h3">
-                <h3>1.1.1 FOUNDATION FIELDBUS EM REDES INDUSTRIAIS</h3>
+                <h3>FOUNDATION FIELDBUS EM REDES INDUSTRIAIS</h3>
                 <p>O FOUNDATION Fieldbus é uma família de comunicação digital, serial e bidirecional desenvolvida principalmente para a automação de processos. Ela permite conectar instrumentos inteligentes, como transmissores de pressão, temperatura e vazão, posicionadores de válvulas, controladores e sistemas de controle distribuído. Além de transportar valores de medição e comandos, a tecnologia permite distribuir funções de controle entre os próprios dispositivos de campo, reduzindo a dependência de conversões individuais de sinais e ampliando a disponibilidade de informações de diagnóstico.</p>
                 <p>A família possui dois perfis principais. O FOUNDATION Fieldbus H1 é a rede de campo de baixa velocidade, operando a 31,25 kbit/s sobre um par de condutores e voltada à comunicação direta com instrumentos. O FOUNDATION Fieldbus HSE (High Speed Ethernet) utiliza Ethernet industrial a 100 Mbit/s e funciona como uma rede de maior capacidade para interligar segmentos H1, controladores, dispositivos de ligação e estações de operação. Assim, H1 e HSE pertencem à mesma família, mas não usam o mesmo meio físico nem os mesmos parâmetros de transmissão.</p>
                 <p>Uma arquitetura comum utiliza vários segmentos H1 próximos ao processo, conectados por dispositivos de ligação (linking devices) a uma rede HSE. Os controladores e sistemas supervisórios podem acessar os dados dessa infraestrutura por meio da rede de maior velocidade. Por esse motivo, os valores de cabeamento, distância e sinalização apresentados a seguir são separados entre H1 e HSE.</p>
             </section>
 
             <section class="section-h3">
-                <h3>1.1.2 MEIO DE TRANSMISSÃO E CABEAMENTO ADOTADO</h3>
+                <h3>MEIO DE TRANSMISSÃO E CABEAMENTO ADOTADO</h3>
                 <section class="section-h4">
-                    <h4>1.1.2.1 CABEAMENTO DO FOUNDATION FIELDBUS H1</h4>
+                    <h4>CABEAMENTO DO FOUNDATION FIELDBUS H1</h4>
                     <p>O H1 utiliza um par de condutores para transmitir simultaneamente os dados digitais e a alimentação dos dispositivos compatíveis. Para novas instalações, o cabo de referência é o Tipo A: par trançado com blindagem individual, seção nominal de aproximadamente 0,8 mm² (18 AWG) e impedância característica de 100 Ω ± 20% na frequência de referência do sistema. A blindagem reduz a influência de interferências eletromagnéticas, enquanto o par trançado ajuda a limitar o acoplamento de ruídos.</p>
                     <ul>
                         <li><strong>Par trançado:</strong> forma o caminho diferencial de comunicação entre os instrumentos e o condicionador de alimentação do barramento.</li>
@@ -46,12 +46,12 @@
                     </ul>
                 </section>
                 <section class="section-h4">
-                    <h4>1.1.2.2 CABEAMENTO DO FOUNDATION FIELDBUS HSE</h4>
+                    <h4>CABEAMENTO DO FOUNDATION FIELDBUS HSE</h4>
                     <p>O HSE utiliza a infraestrutura Ethernet convencional, normalmente com cabo de par trançado balanceado e blindado para uso industrial. Em enlaces de cobre Fast Ethernet 100BASE-TX, a distância usual máxima de um enlace é de até 100 metros entre equipamentos ativos, conforme as regras de Ethernet. Quando a instalação exige maior distância, isolamento galvânico ou maior imunidade a interferências, podem ser utilizados enlaces de fibra óptica multimodo ou monomodo, com limites definidos pelo tipo de fibra e pelos transceptores empregados.</p>
                     <p>Ao contrário do H1, o HSE não utiliza um cabo de barramento de dois fios para levar energia aos dispositivos de campo. Os switches, controladores, computadores e dispositivos de ligação recebem alimentação por circuitos próprios. A utilização de Power over Ethernet não deve ser presumida como requisito do FOUNDATION HSE; somente pode ser adotada quando os equipamentos e o projeto Ethernet oferecerem suporte explícito a esse recurso.</p>
                 </section>
                 <section class="section-h4">
-                    <h4>1.1.2.3 CONECTORES E TERMINAIS PADRONIZADOS</h4>
+                    <h4>CONECTORES E TERMINAIS PADRONIZADOS</h4>
                     <ul>
                         <li><strong>H1:</strong> a conexão é realizada geralmente por bornes de parafuso, blocos de terminais e acopladores de barramento instalados em caixas de junção, fontes condicionadoras e módulos de interface. O par de comunicação e a blindagem devem ser conectados nos terminais indicados pelo fabricante. Não existe um conector único obrigatório para todos os instrumentos H1.</li>
                         <li><strong>HSE em cobre:</strong> utiliza conectores Ethernet, normalmente RJ45, podendo empregar conectores M12 industriais codificados em equipamentos apropriados para ambientes sujeitos a vibração, umidade ou poeira.</li>
@@ -62,9 +62,9 @@
             </section>
 
             <section class="section-h3">
-                <h3>1.1.3 TOPOLOGIAS SUPORTADAS</h3>
+                <h3>TOPOLOGIAS SUPORTADAS</h3>
                 <section class="section-h4">
-                    <h4>1.1.3.1 TOPOLOGIAS DO H1</h4>
+                    <h4>TOPOLOGIAS DO H1</h4>
                     <p>O H1 pode ser organizado em barramento principal com derivações (trunk and spurs), ponto a ponto, árvore, cadeia (daisy chain) ou combinações dessas estruturas. Em instalações de processo, é comum utilizar um cabo principal e derivações curtas até cada instrumento. Essa organização permite distribuir a comunicação e a alimentação ao longo da área de produção, mas exige planejamento do comprimento total, da quantidade de derivações, da queda de tensão e do número de dispositivos.</p>
                     <ul>
                         <li><strong>Terminação:</strong> cada segmento H1 deve possuir exatamente dois terminadores, instalados nas extremidades do tronco principal. O terminador é uma rede RC especificada para o barramento, não apenas um resistor isolado escolhido sem cálculo.</li>
@@ -72,7 +72,7 @@
                     </ul>
                 </section>
                 <section class="section-h4">
-                    <h4>1.1.3.2 TOPOLOGIAS DO HSE</h4>
+                    <h4>TOPOLOGIAS DO HSE</h4>
                     <p>Como utiliza Ethernet, o HSE pode ser implementado com topologias suportadas pelos equipamentos de rede empregados, como estrela, árvore, linha e anel. A topologia em estrela com switches é comum em redes industriais porque facilita a organização dos enlaces e a segmentação da infraestrutura. Anéis e caminhos redundantes podem ser utilizados quando os switches e o projeto implementam os mecanismos de redundância correspondentes.</p>
                     <p>A topologia Ethernet do HSE não deve ser confundida com o barramento H1. O HSE utiliza portas e enlaces Ethernet entre equipamentos ativos; o H1 utiliza o par de condutores compartilhado por instrumentos de um segmento, com terminadores nas extremidades do tronco.</p>
                 </section>
@@ -80,9 +80,9 @@
         </section>
 
         <section class="section-h2">
-            <h2>1.2 INTERFACE ELÉTRICA E TRANSMISSÃO DE SINAIS</h2>
+            <h2>INTERFACE ELÉTRICA E TRANSMISSÃO DE SINAIS</h2>
             <section class="section-h3">
-                <h3>1.2.1 SINALIZAÇÃO E NÍVEIS ELÉTRICOS</h3>
+                <h3>SINALIZAÇÃO E NÍVEIS ELÉTRICOS</h3>
                 <p>No H1, a informação digital é transmitida por sinalização Manchester II a 31,25 kbit/s, sobreposta à tensão contínua presente no par de condutores. A codificação permite recuperar a temporização a partir das transições do próprio sinal. A camada física é definida em conformidade com a família IEC 61158-2, e o circuito de alimentação do barramento deve ser apropriado para não deformar o sinal de comunicação.</p>
                 <ul>
                     <li><strong>Transmissão no H1:</strong> os dados são representados por variações do sinal sobre a alimentação CC. O equipamento receptor interpreta as transições elétricas e recupera a sequência de bits transmitida.</li>
@@ -91,7 +91,7 @@
             </section>
 
             <section class="section-h3">
-                <h3>1.2.2 ALIMENTAÇÃO PELO BARRAMENTO</h3>
+                <h3>ALIMENTAÇÃO PELO BARRAMENTO</h3>
                 <ul>
                     <li><strong>H1:</strong> a alimentação pode compartilhar o mesmo par de fios utilizado para comunicação. Uma fonte própria para FOUNDATION Fieldbus, com condicionamento adequado do sinal, fornece energia ao segmento. Muitos transmissores e posicionadores são alimentados pelo barramento, mas o número de equipamentos depende da corrente consumida por cada dispositivo, da tensão mínima de operação, da queda de tensão no cabo e dos requisitos de segurança da instalação.</li>
                     <li><strong>HSE:</strong> a Ethernet HSE transporta dados, não energia de campo por padrão. Switches, controladores, computadores e dispositivos de ligação precisam de fontes de alimentação adequadas e circuitos separados do enlace de comunicação, salvo quando houver uma implementação PoE explicitamente compatível.</li>
@@ -99,14 +99,14 @@
             </section>
 
             <section class="section-h3">
-                <h3>1.2.3 ISOLAÇÃO E PROTEÇÃO CONTRA RUÍDOS</h3>
+                <h3>ISOLAÇÃO E PROTEÇÃO CONTRA RUÍDOS</h3>
                 <section class="section-h4">
-                    <h4>1.2.3.1 BLINDAGEM E ATERRAMENTO</h4>
+                    <h4>BLINDAGEM E ATERRAMENTO</h4>
                     <p>No H1, a blindagem do cabo deve ser mantida contínua nas emendas e terminações, e sua conexão ao sistema de aterramento deve obedecer ao projeto de equipotencialização da planta e às recomendações do fabricante. O aterramento incorreto pode criar correntes indesejadas na blindagem ou diferenças de potencial entre equipamentos. Os cabos de comunicação devem ser separados dos cabos de potência e, quando houver cruzamentos inevitáveis, estes devem ser planejados para reduzir o acoplamento eletromagnético.</p>
                     <p>No HSE em cobre, recomenda-se utilizar cabos, conectores e switches adequados ao ambiente industrial, observando blindagem, aterramento, proteção mecânica e separação de circuitos de potência. A fibra óptica oferece imunidade a interferências eletromagnéticas no próprio enlace e pode ser útil entre áreas com diferenças de potencial ou exposição elevada a ruído.</p>
                 </section>
                 <section class="section-h4">
-                    <h4>1.2.3.2 ÁREAS CLASSIFICADAS E INTEGRIDADE DO SEGMENTO</h4>
+                    <h4>ÁREAS CLASSIFICADAS E INTEGRIDADE DO SEGMENTO</h4>
                     <p>O H1 pode ser projetado para áreas potencialmente explosivas por meio de soluções aprovadas de proteção, incluindo segurança intrínseca e o conceito FISCO (Fieldbus Intrinsically Safe Concept). Essas instalações exigem fontes, barreiras, acopladores, terminadores e instrumentos certificados e compatíveis entre si. A quantidade de dispositivos e o comprimento permitido podem ser menores do que os valores de uma instalação não intrinsecamente segura.</p>
                     <p>A correta terminação do H1, a impedância adequada do cabo, a continuidade da blindagem e a avaliação da queda de tensão são medidas essenciais para reduzir reflexões, ruídos e falhas de comunicação. No HSE, a integridade depende também da qualidade dos enlaces Ethernet, da configuração dos switches, da proteção contra surtos e da gestão da rede.</p>
                 </section>
@@ -114,11 +114,11 @@
         </section>
 
         <section class="section-h2">
-            <h2>1.3 PROTOCOLO DE ENLACE E ACESSO AO MEIO (MAC)</h2>
+            <h2>PROTOCOLO DE ENLACE E ACESSO AO MEIO (MAC)</h2>
             <section class="section-h3">
-                <h3>1.3.1 MÉTODO DE ACESSO AO MEIO</h3>
+                <h3>MÉTODO DE ACESSO AO MEIO</h3>
                 <section class="section-h4">
-                    <h4>1.3.1.1 H1: LINK ACTIVE SCHEDULER (LAS)</h4>
+                    <h4>H1: LINK ACTIVE SCHEDULER (LAS)</h4>
                     <p>O H1 utiliza um mecanismo de comunicação coordenado por um Link Active Scheduler (LAS), presente em um dispositivo com capacidade de gerenciamento do enlace. O LAS mantém a programação das transmissões cíclicas e determina quando os dispositivos publicam dados que devem ser recebidos pelos assinantes. Esse mecanismo organiza a comunicação de controle em intervalos conhecidos, em vez de permitir que todos os instrumentos transmitam livremente quando desejarem.</p>
                     <ul>
                         <li><strong>Comunicação programada:</strong> o LAS autoriza a publicação de dados cíclicos nos instantes definidos pela programação do segmento. Esse processo sustenta a previsibilidade necessária às malhas de controle distribuídas.</li>
@@ -127,16 +127,16 @@
                     </ul>
                 </section>
                 <section class="section-h4">
-                    <h4>1.3.1.2 HSE: ACESSO ETHERNET</h4>
+                    <h4>HSE: ACESSO ETHERNET</h4>
                     <p>O HSE utiliza o mecanismo de acesso à mídia da Ethernet IEEE 802.3 e os serviços de rede baseados em IP. Em implementações industriais modernas, é comum utilizar switches e enlaces full-duplex, nos quais cada ligação possui um caminho de transmissão e recepção independente e não há disputa por um meio compartilhado como nas antigas redes Ethernet half-duplex. A comunicação entre dispositivos HSE pode utilizar protocolos de transporte como UDP e TCP, de acordo com o serviço e a aplicação.</p>
                     <p>O agendamento determinístico feito pelo LAS no H1 não deve ser atribuído automaticamente ao HSE. Embora o HSE tenha maior largura de banda e possa ser organizado com redundância e switches industriais, a previsibilidade do tráfego depende da arquitetura Ethernet, da carga da rede, dos equipamentos e dos mecanismos de engenharia adotados.</p>
                 </section>
             </section>
 
             <section class="section-h3">
-                <h3>1.3.2 ESTRUTURA DO QUADRO E DA MENSAGEM</h3>
+                <h3>ESTRUTURA DO QUADRO E DA MENSAGEM</h3>
                 <section class="section-h4">
-                    <h4>1.3.2.1 QUADROS DO H1</h4>
+                    <h4>QUADROS DO H1</h4>
                     <p>No H1, a transmissão é organizada em unidades de enlace com mecanismos de sincronização e delimitação, informações de controle e endereçamento, campo de dados e verificação de integridade. Os dados úteis podem representar variáveis de processo, estados discretos, parâmetros, comandos ou informações de diagnóstico. O enquadramento permite que o receptor identifique a estação envolvida e interprete o conteúdo de acordo com o serviço utilizado.</p>
                     <ul>
                         <li><strong>Sincronização e controle:</strong> permitem reconhecer o início da unidade transmitida e interpretar o tipo de operação executada no enlace.</li>
@@ -146,7 +146,7 @@
                     </ul>
                 </section>
                 <section class="section-h4">
-                    <h4>1.3.2.2 QUADROS DO HSE</h4>
+                    <h4>QUADROS DO HSE</h4>
                     <p>Como utiliza Ethernet, o HSE transporta quadros IEEE 802.3, que incluem preâmbulo e delimitador de início, endereços MAC de origem e destino, identificação do tipo ou comprimento, dados e campo FCS (Frame Check Sequence). O FCS utiliza CRC-32 para detectar erros no quadro Ethernet. Quando a comunicação passa por IP, os cabeçalhos de rede e de transporte acrescentam os endereços e informações necessários à entrega dos dados entre aplicações.</p>
                     <p>A presença de endereços MAC e IP no HSE não significa que esses endereços façam parte do endereçamento do barramento H1. Cada perfil utiliza sua própria estrutura de comunicação e deve ser analisado conforme sua camada física e de enlace.</p>
                 </section>
@@ -154,9 +154,9 @@
         </section>
 
         <section class="section-h2">
-            <h2>1.4 PARÂMETROS OPERACIONAIS E DESEMPENHO</h2>
+            <h2>PARÂMETROS OPERACIONAIS E DESEMPENHO</h2>
             <section class="section-h3">
-                <h3>1.4.1 TAXA DE TRANSMISSÃO (BAUD RATE / BIT RATE)</h3>
+                <h3>TAXA DE TRANSMISSÃO (BAUD RATE / BIT RATE)</h3>
                 <ul>
                     <li><strong>FOUNDATION H1:</strong> 31,25 kbit/s. Essa taxa foi projetada para a comunicação com instrumentos de processo, permitindo compartilhar dados e alimentação em um par de fios e atender aplicações de medição e controle distribuído.</li>
                     <li><strong>FOUNDATION HSE:</strong> 100 Mbit/s na implementação Fast Ethernet indicada pela FieldComm Group para conformidade do perfil HSE. Essa velocidade atende à interligação de redes H1, controladores, dispositivos de ligação e sistemas de supervisão.</li>
@@ -164,19 +164,19 @@
             </section>
 
             <section class="section-h3">
-                <h3>1.4.2 DISTÂNCIA MÁXIMA DO SEGMENTO</h3>
+                <h3>DISTÂNCIA MÁXIMA DO SEGMENTO</h3>
                 <p>Para um segmento H1 não intrinsecamente seguro, com cabo Tipo A e atendendo às regras de projeto, a extensão total de referência pode chegar a 1.900 metros. Esse valor corresponde à soma do tronco principal com as derivações contabilizadas pela especificação. A distância efetiva pode ser menor em função do tipo de proteção, da queda de tensão, do número de dispositivos, do comprimento das derivações e das características do cabo.</p>
                 <p>No HSE, um enlace de cobre 100BASE-TX possui distância típica máxima de 100 metros entre equipamentos ativos. A fibra óptica permite enlaces maiores, mas o alcance depende do tipo de fibra, do transceptor, da taxa de dados e do orçamento óptico. Não existe um único limite de distância aplicável a toda rede HSE, pois a rede pode ser composta por vários enlaces Ethernet e switches.</p>
             </section>
 
             <section class="section-h3">
-                <h3>1.4.3 QUANTIDADE DE DISPOSITIVOS E CAPACIDADE DE COMUNICAÇÃO</h3>
+                <h3>QUANTIDADE DE DISPOSITIVOS E CAPACIDADE DE COMUNICAÇÃO</h3>
                 <p>Um segmento H1 pode conectar até 32 dispositivos de campo, considerando o limite físico de referência. A quantidade efetivamente permitida deve ser calculada com base na corrente consumida, na tensão disponível, no comprimento do cabo, nas derivações e nas condições de segurança intrínseca. A utilização de repetidores e pontes permite compor sistemas maiores, desde que respeitados os limites de cada segmento.</p>
                 <p>No HSE, a quantidade de equipamentos depende do plano de endereçamento IP, da capacidade dos switches, da estrutura de redundância e das limitações de cada dispositivo de rede. O número de nós não é definido pelo limite de 32 dispositivos do segmento H1.</p>
             </section>
 
             <section class="section-h3">
-                <h3>1.4.4 DETERMINISMO E TEMPO DE CICLO</h3>
+                <h3>DETERMINISMO E TEMPO DE CICLO</h3>
                 <p><strong>Classificação do H1:</strong> O H1 oferece comunicação cíclica determinística porque o LAS organiza as publicações programadas em intervalos definidos, formando o macrocycle do segmento.</p>
                 <p><strong>Tempo de ciclo:</strong> O tempo de ciclo é determinado na engenharia da rede e depende da quantidade de dispositivos, do volume de dados, das funções de controle distribuídas e do tempo reservado para mensagens não programadas. Guias de engenharia apresentam 1 segundo como valor típico de macrocycle, embora configurações mais rápidas, como 500 ms ou 250 ms, possam ser utilizadas quando o dimensionamento do segmento permitir.</p>
                 <p><strong>Classificação do HSE:</strong> O HSE convencional sobre Ethernet é não determinístico para aplicações de tempo real rígido: apesar de oferecer maior capacidade de transmissão, não garante, por si só, o mesmo agendamento de tempo real do H1.</p>
@@ -184,7 +184,7 @@
             </section>
 
             <section class="section-h3">
-                <h3>1.4.5 NÍVEL NA PIRÂMIDE DA AUTOMAÇÃO</h3>
+                <h3>NÍVEL NA PIRÂMIDE DA AUTOMAÇÃO</h3>
                 <p><strong>Classificação do H1:</strong> O FOUNDATION Fieldbus H1 atua principalmente nos níveis de campo e de controle (Níveis 1 e 2), conectando transmissores, válvulas, posicionadores e outros instrumentos ao sistema de controle.</p>
                 <p><strong>Justificativa:</strong> Como permite executar blocos funcionais nos próprios dispositivos, parte das estratégias de controle pode ser distribuída no campo.</p>
                 <p><strong>Classificação do HSE:</strong> O HSE atua sobretudo como backbone de controle e integração, interligando segmentos H1, controladores, dispositivos de ligação e estações de operação, podendo apoiar a comunicação com sistemas de supervisão.</p>

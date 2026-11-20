@@ -23,22 +23,22 @@
     </header>
 
     <main>
-        <h1>2. ETHERNET/IP (CIP SOBRE ETHERNET)</h1>
+        <h1>ETHERNET/IP (CIP SOBRE ETHERNET)</h1>
 
         <section class="section-h2">
-            <h2>2.1 ESTRUTURA FÍSICA E CABEAMENTO</h2>
+            <h2>ESTRUTURA FÍSICA E CABEAMENTO</h2>
             <section class="section-h3">
-                <h3>2.1.1 ETHERNET/IP NA AUTOMAÇÃO INDUSTRIAL</h3>
+                <h3>ETHERNET/IP NA AUTOMAÇÃO INDUSTRIAL</h3>
                 <p>O Ethernet/IP é uma rede Industrial Ethernet que utiliza a tecnologia Ethernet padrão e o conjunto de protocolos TCP/IP, incorporando o Common Industrial Protocol (CIP) nas camadas superiores. A sigla IP significa Industrial Protocol e não deve ser confundida com o protocolo IP da camada de rede, embora o Ethernet/IP utilize IP para transportar suas mensagens.</p>
                 <p>É empregado na comunicação entre controladores, módulos de entradas e saídas, inversores de frequência, servodrives, robôs, IHMs, sensores inteligentes e sistemas de supervisão. O CIP organiza os dados e serviços de automação em objetos, atributos e comandos, permitindo a interoperabilidade entre equipamentos compatíveis de diferentes fabricantes.</p>
             </section>
 
             <section class="section-h3">
-                <h3>2.1.2 MEIOS FÍSICOS E CABOS ADOTADOS</h3>
+                <h3>MEIOS FÍSICOS E CABOS ADOTADOS</h3>
                 <p>O Ethernet/IP utiliza meios físicos compatíveis com Ethernet IEEE 802.3. As conexões industriais mais comuns utilizam cabos de cobre com pares trançados, mas a arquitetura também pode utilizar fibra óptica e, quando o projeto permitir, enlaces sem fio.</p>
 
                 <section class="section-h4">
-                <h4>2.1.2.1 CABEAMENTO DE COBRE</h4>
+                <h4>CABEAMENTO DE COBRE</h4>
                 <ul>
                     <li><strong>Par trançado Cat5e ou superior:</strong> é recomendado pela ODVA para aplicações industriais. O cabo pode ser blindado (STP/FTP) ou não blindado, conforme o nível de interferência e as especificações do equipamento.</li>
                     <li><strong>Cabos industriais:</strong> podem possuir capa resistente a óleo, umidade, abrasão, vibração e movimentação, sendo adequados para painéis, máquinas e áreas de produção.</li>
@@ -47,15 +47,15 @@
 
                 </section>
                 <section class="section-h4">
-                <h4>2.1.2.2 CABEAMENTO DE FIBRA ÓPTICA</h4>
+                <h4>CABEAMENTO DE FIBRA ÓPTICA</h4>
                 <p>A fibra óptica é utilizada em backbones industriais, interligações entre áreas e percursos com maior distância ou elevada interferência eletromagnética. Podem ser utilizados sistemas multimodo e monomodo, conforme o alcance e os transceptores instalados. A fibra também permite isolar eletricamente segmentos da rede, reduzindo problemas associados a diferenças de potencial.</p>
                 </section>
             </section>
 
             <section class="section-h3">
-                <h3>2.1.3 CONECTORES PADRONIZADOS E IDENTIFICAÇÃO</h3>
+                <h3>CONECTORES PADRONIZADOS E IDENTIFICAÇÃO</h3>
                 <section class="section-h4">
-                <h4>2.1.3.1 CONECTORES PARA COBRE</h4>
+                <h4>CONECTORES PARA COBRE</h4>
                 <ul>
                     <li><strong>RJ45:</strong> conector de oito posições utilizado em switches, controladores, módulos de comunicação e outros equipamentos Ethernet/IP. Em áreas industriais existem versões com trava, vedação e proteção mecânica.</li>
                     <li><strong>M12:</strong> conector circular utilizado em equipamentos industriais, inclusive em versões protegidas contra poeira, umidade e vibração. O tipo de codificação deve corresponder à velocidade e à interface do equipamento.</li>
@@ -64,38 +64,38 @@
 
                 </section>
                 <section class="section-h4">
-                <h4>2.1.3.2 CONECTORES PARA FIBRA ÓPTICA</h4>
+                <h4>CONECTORES PARA FIBRA ÓPTICA</h4>
                 <p><strong>LC, SC, ST e MTRJ:</strong> são exemplos de conectores ópticos utilizados em módulos e equipamentos de rede. O tipo de conector deve ser compatível com o transceptor, com o painel óptico e com a fibra instalada.</p>
                 </section>
             </section>
 
             <section class="section-h3">
-                <h3>2.1.4 TOPOLOGIAS SUPORTADAS NO ETHERNET/IP</h3>
+                <h3>TOPOLOGIAS SUPORTADAS NO ETHERNET/IP</h3>
                 <section class="section-h4">
-                <h4>2.1.4.1 TOPOLOGIA EM ESTRELA</h4>
+                <h4>TOPOLOGIA EM ESTRELA</h4>
                 <p>Na topologia em estrela, cada equipamento estabelece uma conexão ponto a ponto com um switch central ou de distribuição. É uma arquitetura comum em células e máquinas, pois facilita a expansão, a segmentação e a identificação de falhas por porta.</p>
 
                 </section>
                 <section class="section-h4">
-                <h4>2.1.4.2 TOPOLOGIA LINEAR E ÁRVORE</h4>
+                <h4>TOPOLOGIA LINEAR E ÁRVORE</h4>
                 <p>Na topologia linear, os dispositivos com switch incorporado podem ser ligados em sequência, reduzindo a quantidade de cabos e simplificando a distribuição. A topologia em árvore combina segmentos lineares e estrelas, organizando células e áreas da planta por meio de switches de acesso e distribuição.</p>
 
                 </section>
                 <section class="section-h4">
-                <h4>2.1.4.3 TOPOLOGIA EM ANEL (DEVICE LEVEL RING - DLR)</h4>
+                <h4>TOPOLOGIA EM ANEL (DEVICE LEVEL RING - DLR)</h4>
                 <p>O Ethernet/IP suporta anéis de nível de dispositivo por meio do protocolo DLR (Device Level Ring). Os equipamentos compatíveis participam de um anel gerenciado, que permite identificar uma falha e reconfigurar o caminho de comunicação. O DLR é utilizado para aumentar a disponibilidade de redes de máquinas; não se deve fechar um anel Ethernet comum sem um mecanismo de prevenção de loops e redundância apropriado.</p>
                 </section>
             </section>
         </section>
 
         <section class="section-h2">
-            <h2>2.2 INTERFACE ELÉTRICA E TRANSMISSÃO DE SINAIS</h2>
+            <h2>INTERFACE ELÉTRICA E TRANSMISSÃO DE SINAIS</h2>
             <section class="section-h3">
-                <h3>2.2.1 SINALIZAÇÃO E NÍVEIS NO ETHERNET/IP</h3>
+                <h3>SINALIZAÇÃO E NÍVEIS NO ETHERNET/IP</h3>
                 <p>O Ethernet/IP utiliza a sinalização física definida pelas interfaces Ethernet IEEE 802.3. Nos cabos de cobre, a transmissão de bits ocorre por sinais diferenciais nos pares trançados. Na fibra óptica, os dados são transportados por pulsos de luz. A taxa e a codificação exatas dependem da camada física Ethernet implementada pelo equipamento.</p>
 
                 <section class="section-h4">
-                <h4>2.2.1.1 TRANSMISSÃO ELÉTRICA EM COBRE</h4>
+                <h4>TRANSMISSÃO ELÉTRICA EM COBRE</h4>
                 <ul>
                     <li><strong>10BASE-T e 100BASE-TX:</strong> interfaces Ethernet de cobre que operam, respectivamente, a 10 Mbps e 100 Mbps. O 100BASE-TX é amplamente utilizado em dispositivos industriais Ethernet/IP.</li>
                     <li><strong>1000BASE-T:</strong> permite comunicação Gigabit Ethernet por quatro pares de cobre, quando os equipamentos e o cabeamento são compatíveis.</li>
@@ -104,13 +104,13 @@
 
                 </section>
                 <section class="section-h4">
-                <h4>2.2.1.2 TRANSMISSÃO ÓPTICA</h4>
+                <h4>TRANSMISSÃO ÓPTICA</h4>
                 <p>Quando são utilizados transceptores ópticos, os dados são convertidos em sinais luminosos. A fibra multimodo é comum em enlaces de menor alcance, enquanto a fibra monomodo é utilizada para percursos mais longos. A escolha deve considerar a taxa Ethernet, o tipo de transceptor e as perdas do enlace.</p>
                 </section>
             </section>
 
             <section class="section-h3">
-                <h3>2.2.2 ALIMENTAÇÃO PELO BARRAMENTO E ENERGIA DOS EQUIPAMENTOS</h3>
+                <h3>ALIMENTAÇÃO PELO BARRAMENTO E ENERGIA DOS EQUIPAMENTOS</h3>
                 <p>O Ethernet/IP não exige que a alimentação elétrica seja transmitida pelo mesmo cabo utilizado para os dados. Em instalações de automação, controladores, módulos de E/S, sensores e acionamentos normalmente utilizam alimentação local ou fontes industriais, frequentemente em 24 Vcc.</p>
                 <ul>
                     <li><strong>PoE:</strong> pode alimentar determinados dispositivos Ethernet quando as portas e os equipamentos forem compatíveis com o padrão de alimentação correspondente. O PoE é uma função da infraestrutura Ethernet e não uma característica obrigatória do Ethernet/IP.</li>
@@ -119,9 +119,9 @@
             </section>
 
             <section class="section-h3">
-                <h3>2.2.3 ISOLAÇÃO E PROTEÇÃO CONTRA RUÍDOS</h3>
+                <h3>ISOLAÇÃO E PROTEÇÃO CONTRA RUÍDOS</h3>
                 <section class="section-h4">
-                <h4>2.2.3.1 BLINDAGEM E INSTALAÇÃO INDUSTRIAL</h4>
+                <h4>BLINDAGEM E INSTALAÇÃO INDUSTRIAL</h4>
                 <ul>
                     <li><strong>Cabos blindados:</strong> podem reduzir a influência de interferências eletromagnéticas produzidas por motores, inversores e circuitos de potência. A blindagem deve ser terminada e aterrada de acordo com as instruções do fabricante e as normas de instalação aplicáveis.</li>
                     <li><strong>Conectores e invólucros industriais:</strong> conectores selados e dispositivos com grau de proteção adequado ajudam a proteger a rede contra líquidos, poeira e impactos mecânicos.</li>
@@ -130,25 +130,25 @@
 
                 </section>
                 <section class="section-h4">
-                <h4>2.2.3.2 UTILIZAÇÃO DE FIBRA ÓPTICA</h4>
+                <h4>UTILIZAÇÃO DE FIBRA ÓPTICA</h4>
                 <p>A fibra óptica é imune à interferência eletromagnética no meio de transmissão e não estabelece continuidade elétrica entre as extremidades. Por esse motivo, é recomendada em enlaces longos, em áreas com ruído intenso ou quando é necessário isolar eletricamente partes distintas da instalação.</p>
                 </section>
             </section>
         </section>
 
         <section class="section-h2">
-            <h2>2.3 PROTOCOLO DE ENLACE E ACESSO AO MEIO (MAC)</h2>
+            <h2>PROTOCOLO DE ENLACE E ACESSO AO MEIO (MAC)</h2>
             <p>O Ethernet/IP utiliza quadros Ethernet padrão na camada de enlace e o CIP nas camadas superiores. Assim, o controle do acesso ao meio é realizado pela própria tecnologia Ethernet, enquanto os serviços CIP organizam a troca de dados de automação entre os equipamentos.</p>
 
             <section class="section-h3">
-                <h3>2.3.1 MÉTODO DE ACESSO AO MEIO NO ETHERNET/IP</h3>
+                <h3>MÉTODO DE ACESSO AO MEIO NO ETHERNET/IP</h3>
                 <section class="section-h4">
-                <h4>2.3.1.1 ETHERNET COMUTADA E FULL-DUPLEX</h4>
+                <h4>ETHERNET COMUTADA E FULL-DUPLEX</h4>
                 <p>Em instalações modernas, os dispositivos são conectados a switches por enlaces ponto a ponto e operam normalmente em Full-Duplex. Cada enlace permite comunicação simultânea nos dois sentidos, sem a disputa de um barramento compartilhado. O CSMA/CD pertence ao funcionamento histórico da Ethernet Half-Duplex; não é o método de operação dos enlaces comutados Full-Duplex usuais em redes Ethernet/IP atuais.</p>
 
                 </section>
                 <section class="section-h4">
-                <h4>2.3.1.2 COMUNICAÇÃO EXPLÍCITA E IMPLÍCITA</h4>
+                <h4>COMUNICAÇÃO EXPLÍCITA E IMPLÍCITA</h4>
                 <ul>
                     <li><strong>Mensagens explícitas (Explicit Messaging):</strong> utilizam comunicação cliente-servidor, normalmente sobre TCP, para configuração, parametrização, leitura de atributos, diagnóstico e troca de informações sob solicitação.</li>
                     <li><strong>Mensagens implícitas ou de E/S (Implicit I/O):</strong> utilizam conexões configuradas para troca cíclica de dados de controle. Normalmente são transportadas por UDP, podendo utilizar o modelo produtor-consumidor e multicast para distribuir dados a mais de um destino.</li>
@@ -158,11 +158,11 @@
             </section>
 
             <section class="section-h3">
-                <h3>2.3.2 ESTRUTURA DO QUADRO E MENSAGEM ETHERNET/IP</h3>
+                <h3>ESTRUTURA DO QUADRO E MENSAGEM ETHERNET/IP</h3>
                 <p>A mensagem Ethernet/IP é encapsulada em quadros Ethernet e pacotes IP. O quadro contém endereços MAC de origem e destino; o pacote IP identifica os endereços IP; os segmentos TCP ou UDP transportam a comunicação; e o conteúdo Ethernet/IP encapsula as mensagens CIP. Portanto, o formato de enlace é o Ethernet padrão, enquanto os dados de automação são organizados pelo CIP.</p>
 
                 <section class="section-h4">
-                <h4>2.3.2.1 CAMPOS E ELEMENTOS DA COMUNICAÇÃO</h4>
+                <h4>CAMPOS E ELEMENTOS DA COMUNICAÇÃO</h4>
                 <ul>
                     <li><strong>Endereço MAC de destino e origem:</strong> identificam as interfaces Ethernet que participam do envio do quadro.</li>
                     <li><strong>EtherType:</strong> identifica o protocolo transportado no campo de dados Ethernet, como IPv4, utilizado nas comunicações Ethernet/IP usuais.</li>
@@ -174,16 +174,16 @@
 
                 </section>
                 <section class="section-h4">
-                <h4>2.3.2.2 MODELO PRODUTOR-CONSUMIDOR</h4>
+                <h4>MODELO PRODUTOR-CONSUMIDOR</h4>
                 <p>No modelo produtor-consumidor do CIP, um dispositivo produtor disponibiliza dados identificados por uma conexão, e um ou mais consumidores podem receber essas informações. Em determinadas configurações, o uso de multicast evita que o produtor precise transmitir cópias independentes da mesma informação para cada consumidor, tornando a distribuição mais eficiente.</p>
                 </section>
             </section>
         </section>
 
         <section class="section-h2">
-            <h2>2.4 PARÂMETROS OPERACIONAIS E DESEMPENHO</h2>
+            <h2>PARÂMETROS OPERACIONAIS E DESEMPENHO</h2>
             <section class="section-h3">
-                <h3>2.4.1 TAXA DE TRANSMISSÃO (BIT RATE / BANDWIDTH)</h3>
+                <h3>TAXA DE TRANSMISSÃO (BIT RATE / BANDWIDTH)</h3>
                 <p>Como o Ethernet/IP utiliza Ethernet padrão, as taxas dependem das interfaces físicas instaladas. A taxa nominal de cada enlace é definida pelos equipamentos e pelo cabeamento, enquanto o desempenho útil também depende do tamanho das mensagens, da frequência de atualização, do tráfego concorrente e da configuração dos switches.</p>
                 <ul>
                     <li><strong>10 Mbps:</strong> velocidade existente em equipamentos e instalações mais antigos, hoje menos comum em redes industriais novas.</li>
@@ -193,27 +193,27 @@
             </section>
 
             <section class="section-h3">
-                <h3>2.4.2 DISTÂNCIA MÁXIMA DOS SEGMENTOS</h3>
+                <h3>DISTÂNCIA MÁXIMA DOS SEGMENTOS</h3>
                 <section class="section-h4">
-                <h4>2.4.2.1 CABEAMENTO DE COBRE</h4>
+                <h4>CABEAMENTO DE COBRE</h4>
                 <p>Em cabeamento Ethernet de cobre com par trançado, o comprimento usual máximo de um segmento entre equipamentos ativos é de 100 metros, conforme a interface Ethernet e a categoria do cabo. Para percursos maiores, devem ser utilizados switches ou equipamentos adequados para criar novos segmentos.</p>
 
                 </section>
                 <section class="section-h4">
-                <h4>2.4.2.2 FIBRA ÓPTICA</h4>
+                <h4>FIBRA ÓPTICA</h4>
                 <p>Em fibra óptica, o alcance depende do padrão do transceptor, do tipo de fibra (multimodo ou monomodo), do comprimento de onda, da taxa Ethernet, dos conectores e das perdas do enlace. Os enlaces podem atingir centenas de metros ou vários quilômetros, conforme os componentes selecionados.</p>
                 </section>
             </section>
 
             <section class="section-h3">
-                <h3>2.4.3 DETERMINISMO E TEMPO DE CICLO</h3>
+                <h3>DETERMINISMO E TEMPO DE CICLO</h3>
                 <p><strong>Classificação:</strong> o Ethernet/IP oferece comunicação cíclica de dados de controle em tempo real, mas a previsibilidade do tempo de entrega depende do projeto e da configuração da rede. A rede Ethernet padrão não deve ser considerada automaticamente determinística em sentido estrito.</p>
                 <p><strong>Justificativa:</strong> as mensagens implícitas transportadas por UDP permitem atualizações periódicas de entradas e saídas com baixa sobrecarga. Entretanto, congestionamento, atrasos de switches, tráfego concorrente e falhas podem afetar a latência e a variação do tempo de entrega.</p>
                 <p><strong>Recursos de desempenho:</strong> QoS (Quality of Service ou Qualidade de Serviço), segmentação adequada, switches industriais, sincronização CIP Sync e recursos como CIP Motion podem melhorar a previsibilidade e atender aplicações mais exigentes, desde que toda a arquitetura seja compatível e projetada para esse objetivo.</p>
             </section>
 
             <section class="section-h3">
-                <h3>2.4.4 NÍVEL NA PIRÂMIDE DA AUTOMAÇÃO</h3>
+                <h3>NÍVEL NA PIRÂMIDE DA AUTOMAÇÃO</h3>
                 <p><strong>Classificação:</strong> atua principalmente nos níveis 1 e 2, conectando dispositivos de campo, módulos de E/S, acionamentos e controladores. Também pode integrar informações ao nível 3, por meio de sistemas de supervisão, servidores e aplicações de produção.</p>
                 <p><strong>Justificativa:</strong> o Ethernet/IP permite o controle e monitoramento de equipamentos industriais e a comunicação entre controladores. O uso de Ethernet padrão e CIP também facilita a integração entre a automação da planta e sistemas de níveis superiores.</p>
             </section>

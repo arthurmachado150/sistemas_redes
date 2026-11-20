@@ -23,18 +23,18 @@
     </header>
 
     <main>
-        <h1>3. OPC UA (OPEN PLATFORM COMMUNICATIONS UNIFIED ARCHITECTURE)</h1>
+        <h1>OPC UA (OPEN PLATFORM COMMUNICATIONS UNIFIED ARCHITECTURE)</h1>
 
         <section class="section-h2">
-            <h2>3.1 ESTRUTURA FÍSICA E CABEAMENTO</h2>
+            <h2>ESTRUTURA FÍSICA E CABEAMENTO</h2>
             <section class="section-h3">
-                <h3>3.1.1 OPC UA EM REDES DE AUTOMAÇÃO INDUSTRIAL</h3>
+                <h3>OPC UA EM REDES DE AUTOMAÇÃO INDUSTRIAL</h3>
                 <p>OPC UA é uma arquitetura de comunicação industrial independente de plataforma, desenvolvida para permitir a troca segura e interoperável de informações entre equipamentos, controladores, sistemas de supervisão e aplicações corporativas. Além de transportar dados, define modelos de informação que descrevem variáveis, objetos, estados, alarmes, eventos e relações entre elementos de um sistema. [5]</p>
                 <p>O padrão suporta diferentes formas de comunicação. No modelo Cliente/Servidor, um cliente solicita serviços a um servidor; no modelo PubSub, publicadores enviam conjuntos de dados a assinantes por meio de mecanismos de distribuição. Essa flexibilidade permite utilizar OPC UA em diferentes níveis da automação, desde a integração entre controladores e supervisórios até a conexão com sistemas MES, ERP e plataformas IIoT.</p>
             </section>
 
             <section class="section-h3">
-                <h3>3.1.2 MEIOS FÍSICOS E INFRAESTRUTURA DE COMUNICAÇÃO</h3>
+                <h3>MEIOS FÍSICOS E INFRAESTRUTURA DE COMUNICAÇÃO</h3>
                 <p>OPC UA não determina um cabo industrial exclusivo. A camada física depende do mapeamento de transporte implementado. Uma configuração comum utiliza Ethernet sobre TCP/IP, normalmente com par trançado de cobre ou fibra óptica. Também existem mapeamentos de transporte para outras tecnologias, como HTTPS e, no modelo PubSub, UDP, MQTT e AMQP, conforme os perfis suportados pelos dispositivos. [7][8]</p>
                 <ul>
                     <li><strong>Ethernet de cobre:</strong> utilizada para conexões de PLCs, IHMs, servidores, gateways e switches em redes de automação e de supervisão.</li>
@@ -45,7 +45,7 @@
             </section>
 
             <section class="section-h3">
-                <h3>3.1.3 CONECTORES PADRONIZADOS E IDENTIFICAÇÃO</h3>
+                <h3>CONECTORES PADRONIZADOS E IDENTIFICAÇÃO</h3>
                 <p>Como OPC UA é independente do meio físico, não define um conector único. Os conectores são determinados pela interface de rede e pelo equipamento utilizado.</p>
                 <ul>
                     <li><strong>RJ45 (8P8C):</strong> comum em portas Ethernet de PLCs, IHMs, computadores industriais, switches e servidores.</li>
@@ -56,7 +56,7 @@
             </section>
 
             <section class="section-h3">
-                <h3>3.1.4 TOPOLOGIAS SUPORTADAS NA INFRAESTRUTURA</h3>
+                <h3>TOPOLOGIAS SUPORTADAS NA INFRAESTRUTURA</h3>
                 <p>A topologia física é herdada da rede que transporta OPC UA. Em Ethernet, podem ser utilizadas arquiteturas em estrela, árvore, anel ou malha, conforme os switches e os mecanismos de redundância disponíveis. No modelo Cliente/Servidor, a comunicação ocorre entre aplicações identificadas como cliente e servidor; no modelo PubSub, a distribuição ocorre entre publicadores e assinantes.</p>
                 <ul>
                     <li><strong>Estrela e árvore:</strong> são comuns para interligar PLCs, servidores OPC UA, IHMs e sistemas de supervisão por switches de acesso e distribuição.</li>
@@ -67,9 +67,9 @@
         </section>
 
         <section class="section-h2">
-            <h2>3.2 INTERFACE ELÉTRICA E TRANSMISSÃO DE SINAIS</h2>
+            <h2>INTERFACE ELÉTRICA E TRANSMISSÃO DE SINAIS</h2>
             <section class="section-h3">
-                <h3>3.2.1 SINALIZAÇÃO E NÍVEIS NA COMUNICAÇÃO OPC UA</h3>
+                <h3>SINALIZAÇÃO E NÍVEIS NA COMUNICAÇÃO OPC UA</h3>
                 <p>OPC UA não define níveis elétricos ou ópticos próprios, pois esses parâmetros pertencem ao meio de transmissão. Quando utiliza Ethernet de cobre, a sinalização segue o padrão Ethernet correspondente; em fibra óptica, utiliza pulsos de luz; em Wi-Fi, utiliza radiofrequência. O protocolo atua acima dessas camadas, organizando mensagens, serviços e modelos de informação.</p>
                 <ul>
                     <li><strong>OPC UA TCP:</strong> utiliza uma conexão TCP/IP para transportar mensagens OPC UA. O endereço do endpoint normalmente é representado por uma URL com o esquema opc.tcp.</li>
@@ -79,7 +79,7 @@
             </section>
 
             <section class="section-h3">
-                <h3>3.2.2 ALIMENTAÇÃO PELO BARRAMENTO</h3>
+                <h3>ALIMENTAÇÃO PELO BARRAMENTO</h3>
                 <p>OPC UA não fornece alimentação elétrica por meio dos dados transmitidos. PLCs, sensores, servidores, switches e gateways necessitam de fontes de alimentação adequadas ao equipamento.</p>
                 <ul>
                     <li><strong>Alimentação independente:</strong> é a configuração mais comum para controladores, computadores industriais, sensores e servidores.</li>
@@ -89,7 +89,7 @@
             </section>
 
             <section class="section-h3">
-                <h3>3.2.3 ISOLAÇÃO E PROTEÇÃO CONTRA RUÍDOS</h3>
+                <h3>ISOLAÇÃO E PROTEÇÃO CONTRA RUÍDOS</h3>
                 <p>A proteção contra interferências é definida pela infraestrutura física. Em ambientes industriais, devem ser observados o tipo de cabo, a blindagem, o aterramento, a separação entre cabos de potência e comunicação, a proteção contra surtos e a utilização de fibra óptica em enlaces sujeitos a forte interferência eletromagnética.</p>
                 <ul>
                     <li><strong>Cobre Ethernet:</strong> utilizar cabos e conectores adequados ao ambiente industrial, com instalação e aterramento conforme as recomendações do fabricante e as normas aplicáveis.</li>
@@ -101,11 +101,11 @@
         </section>
 
         <section class="section-h2">
-            <h2>3.3 PROTOCOLO DE ENLACE E ACESSO AO MEIO (MAC)</h2>
+            <h2>PROTOCOLO DE ENLACE E ACESSO AO MEIO (MAC)</h2>
             <section class="section-h3">
-                <h3>3.3.1 MODELOS DE COMUNICAÇÃO E ACESSO À REDE</h3>
+                <h3>MODELOS DE COMUNICAÇÃO E ACESSO À REDE</h3>
                 <section class="section-h4">
-                    <h4>3.3.1.1 MODELO CLIENTE/SERVIDOR</h4>
+                    <h4>MODELO CLIENTE/SERVIDOR</h4>
                     <p>No modelo Cliente/Servidor, o servidor OPC UA disponibiliza informações e serviços, enquanto o cliente estabelece uma conexão e envia solicitações. O servidor processa as solicitações e retorna respostas. O cliente pode navegar pelo espaço de endereços, consultar valores, escrever variáveis, chamar métodos e criar assinaturas para receber notificações de mudanças.</p>
                     <ul>
                         <li><strong>Client (cliente):</strong> aplicação que inicia a comunicação e solicita serviços ao servidor, como leitura, escrita, navegação, descoberta e monitoramento.</li>
@@ -114,7 +114,7 @@
                     </ul>
                 </section>
                 <section class="section-h4">
-                    <h4>3.3.1.2 MODELO PUBSUB (PUBLICAÇÃO/ASSINATURA)</h4>
+                    <h4>MODELO PUBSUB (PUBLICAÇÃO/ASSINATURA)</h4>
                     <p>No modelo PubSub, os publicadores produzem mensagens com conjuntos de dados e os assinantes recebem as informações de seu interesse. Os participantes não precisam manter uma relação direta de solicitação e resposta entre si. A distribuição pode utilizar infraestrutura de rede baseada em datagramas, como UDP, ou um broker de mensagens, como MQTT. [8]</p>
                     <ul>
                         <li><strong>Publisher:</strong> origina e transmite mensagens contendo conjuntos de dados definidos pela aplicação.</li>
@@ -123,16 +123,16 @@
                     </ul>
                 </section>
                 <section class="section-h4">
-                    <h4>3.3.1.3 ACESSO AO MEIO E CONTROLE DE TRANSMISSÃO</h4>
+                    <h4>ACESSO AO MEIO E CONTROLE DE TRANSMISSÃO</h4>
                     <p>OPC UA não possui um método MAC próprio para arbitrar o acesso ao meio físico. Quando utiliza Ethernet, Wi-Fi ou outra tecnologia de rede, o acesso ao meio é controlado pelos mecanismos dessa tecnologia. O OPC UA define o modelo de comunicação, os serviços, a representação dos dados e os mapeamentos de transporte utilizados entre as aplicações.</p>
                 </section>
             </section>
 
             <section class="section-h3">
-                <h3>3.3.2 ESTRUTURA DA MENSAGEM E ORGANIZAÇÃO DOS DADOS</h3>
+                <h3>ESTRUTURA DA MENSAGEM E ORGANIZAÇÃO DOS DADOS</h3>
                 <p>A estrutura transmitida depende do mapeamento de transporte e da codificação escolhida. No OPC UA TCP, as mensagens são organizadas em blocos (chunks) com cabeçalhos que identificam o tipo e o tamanho da mensagem, além das informações necessárias ao canal seguro. No PubSub, os dados são organizados em mensagens de rede que podem conter um ou mais conjuntos de dados. [7][8]</p>
                 <section class="section-h4">
-                    <h4>3.3.2.1 MENSAGENS NO MODELO CLIENTE/SERVIDOR</h4>
+                    <h4>MENSAGENS NO MODELO CLIENTE/SERVIDOR</h4>
                     <ul>
                         <li><strong>Message Header:</strong> identifica o tipo da mensagem e informa seu tamanho. Em OPC UA TCP, os tipos incluem mensagens de serviço (MSG), abertura de canal seguro (OPN) e fechamento de canal seguro (CLO).</li>
                         <li><strong>Secure Channel:</strong> associa parâmetros de segurança à comunicação, permitindo proteger as mensagens de acordo com a política e o modo de segurança selecionados.</li>
@@ -141,7 +141,7 @@
                     </ul>
                 </section>
                 <section class="section-h4">
-                    <h4>3.3.2.2 ESPAÇO DE ENDEREÇOS E DADOS</h4>
+                    <h4>ESPAÇO DE ENDEREÇOS E DADOS</h4>
                     <p>Uma característica central do OPC UA é o Address Space (espaço de endereços), no qual as informações são representadas por nós relacionados entre si. Os nós podem representar objetos, variáveis, métodos, tipos e referências. Essa organização permite que aplicações interpretem o significado dos dados, e não apenas recebam bytes sem contexto.</p>
                     <ul>
                         <li><strong>NodeId:</strong> identifica um nó dentro do espaço de endereços, considerando o namespace e o identificador utilizado.</li>
@@ -150,7 +150,7 @@
                     </ul>
                 </section>
                 <section class="section-h4">
-                    <h4>3.3.2.3 MENSAGENS PUBSUB</h4>
+                    <h4>MENSAGENS PUBSUB</h4>
                     <ul>
                         <li><strong>NetworkMessage:</strong> estrutura que transporta as informações de distribuição e os dados publicados, de acordo com o mapeamento selecionado.</li>
                         <li><strong>DataSetMessage:</strong> contém os campos de um conjunto de dados publicado, conforme a configuração do Publisher e do Subscriber.</li>
@@ -160,7 +160,7 @@
             </section>
 
             <section class="section-h3">
-                <h3>3.3.3 VERIFICAÇÃO DE ERROS, INTEGRIDADE E SEGURANÇA</h3>
+                <h3>VERIFICAÇÃO DE ERROS, INTEGRIDADE E SEGURANÇA</h3>
                 <p>A detecção de erros do enlace e do transporte depende da tecnologia utilizada, como CRC/FCS na Ethernet e mecanismos próprios do TCP ou UDP. No nível OPC UA, a integridade e a confidencialidade podem ser protegidas por assinatura e criptografia, conforme o modo e as políticas de segurança configuradas. O uso de certificados permite autenticar aplicações e estabelecer relações de confiança. [6][7]</p>
                 <ul>
                     <li><strong>Certificados de aplicação:</strong> certificados X.509 podem identificar aplicações OPC UA e são verificados de acordo com listas de confiança administradas no sistema.</li>
@@ -172,12 +172,12 @@
         </section>
 
         <section class="section-h2">
-            <h2>3.4 PARÂMETROS OPERACIONAIS E DESEMPENHO</h2>
+            <h2>PARÂMETROS OPERACIONAIS E DESEMPENHO</h2>
             <section class="section-h3">
-                <h3>3.4.1 TAXA DE TRANSMISSÃO (BIT RATE / BANDWIDTH)</h3>
+                <h3>TAXA DE TRANSMISSÃO (BIT RATE / BANDWIDTH)</h3>
                 <p>OPC UA não determina uma taxa de transmissão física única. A capacidade depende do transporte e da interface de rede: Ethernet de 100 Mbit/s, Gigabit Ethernet e enlaces ópticos de maior capacidade são exemplos de infraestruturas que podem transportar mensagens OPC UA. A taxa efetiva também depende do tamanho dos dados, da frequência de atualização, da codificação, do processamento dos clientes e servidores e da carga da rede.</p>
                 <section class="section-h4">
-                    <h4>3.4.1.1 FATORES QUE INFLUENCIAM O DESEMPENHO</h4>
+                    <h4>FATORES QUE INFLUENCIAM O DESEMPENHO</h4>
                     <ul>
                         <li><strong>Transporte utilizado:</strong> TCP, HTTPS, UDP, MQTT e AMQP possuem características distintas de conexão, confirmação, ordenação e distribuição.</li>
                         <li><strong>Tamanho e frequência dos dados:</strong> a quantidade de variáveis, os intervalos de publicação, as assinaturas e o tamanho das mensagens influenciam a largura de banda e a carga de processamento.</li>
@@ -186,7 +186,7 @@
                     </ul>
                 </section>
                 <section class="section-h4">
-                    <h4>3.4.1.2 PERFIS DE TRANSPORTE E PORTAS</h4>
+                    <h4>PERFIS DE TRANSPORTE E PORTAS</h4>
                     <ul>
                         <li><strong>OPC UA TCP:</strong> utiliza endereços no formato opc.tcp://. A porta 4840 é um endereço bem conhecido utilizado em configurações padrão de descoberta e pode ser adotada por servidores, mas as portas dos endpoints podem ser configuradas.</li>
                         <li><strong>OPC UA HTTPS:</strong> utiliza transporte HTTPS, normalmente associado à porta 443 quando esse serviço é disponibilizado por configuração padrão do servidor.</li>
@@ -196,12 +196,12 @@
             </section>
 
             <section class="section-h3">
-                <h3>3.4.2 DISTÂNCIA MÁXIMA DOS ENLACES</h3>
+                <h3>DISTÂNCIA MÁXIMA DOS ENLACES</h3>
                 <p>O OPC UA não estabelece um limite único de distância. O comprimento máximo depende da infraestrutura física e do transporte. Quando utiliza Ethernet de cobre, aplicam-se os limites do padrão Ethernet e do cabeamento instalado; quando utiliza fibra óptica, o alcance depende do tipo de fibra e dos transceptores; em redes sem fio, depende da cobertura de rádio. A utilização de roteadores permite comunicação entre redes distantes, desde que o roteamento e as políticas de segurança estejam adequados.</p>
             </section>
 
             <section class="section-h3">
-                <h3>3.4.3 DETERMINISMO E TEMPO DE CICLO</h3>
+                <h3>DETERMINISMO E TEMPO DE CICLO</h3>
                 <ul>
                     <li><strong>Classificação:</strong> o OPC UA convencional no modelo Cliente/Servidor sobre TCP/IP não deve ser considerado, isoladamente, uma rede determinística de tempo real rígido.</li>
                     <li><strong>Justificativa:</strong> o tempo de resposta depende do transporte, do processamento do servidor e do cliente, das filas de comunicação, da carga da rede e dos intervalos de publicação. Em redes Ethernet convencionais, o congestionamento e os atrasos de processamento podem causar variações de latência.</li>
@@ -210,7 +210,7 @@
             </section>
 
             <section class="section-h3">
-                <h3>3.4.4 NÍVEL NA PIRÂMIDE DA AUTOMAÇÃO</h3>
+                <h3>NÍVEL NA PIRÂMIDE DA AUTOMAÇÃO</h3>
                 <ul>
                     <li><strong>Classificação:</strong> atua principalmente nos níveis de Controle e Supervisão (Níveis 2 e 3), podendo integrar os níveis de Gerenciamento da Produção e Corporativo/IIoT (Níveis 4 e 5). Com tecnologias específicas, como OPC UA FX, pode estender a interoperabilidade em direção ao nível de campo.</li>
                     <li><strong>Justificativa:</strong> OPC UA conecta controladores, servidores, sistemas SCADA, MES, ERP e plataformas de análise. Seu modelo de informação facilita compartilhar dados com significado e estrutura entre fabricantes e aplicações diferentes. A utilização em dispositivos de campo e aplicações de tempo real depende dos perfis e recursos implementados.</li>

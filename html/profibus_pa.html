@@ -23,20 +23,20 @@
     </header>
 
     <main>
-        <h1>5. PROFIBUS PA (PROCESS AUTOMATION)</h1>
+        <h1>PROFIBUS PA (PROCESS AUTOMATION)</h1>
 
         <section class="section-h2">
-            <h2>5.1 ESTRUTURA FÍSICA E CABEAMENTO</h2>
+            <h2>ESTRUTURA FÍSICA E CABEAMENTO</h2>
             <section class="section-h3">
-                <h3>5.1.1 PROFIBUS PA NA AUTOMAÇÃO DE PROCESSOS</h3>
+                <h3>PROFIBUS PA NA AUTOMAÇÃO DE PROCESSOS</h3>
                 <p>O PROFIBUS PA (Process Automation) é uma versão do PROFIBUS direcionada à automação de processos contínuos, conectando instrumentos de campo, como transmissores de pressão, temperatura, vazão e nível, posicionadores de válvulas e outros dispositivos inteligentes.</p>
                 <p>O PA utiliza o mesmo protocolo de comunicação PROFIBUS, mas emprega uma camada física diferente da utilizada pelo PROFIBUS DP. Enquanto o DP utiliza principalmente RS-485 em taxas mais elevadas, o PA utiliza a tecnologia MBP (Manchester Coded Bus Powered), padronizada na IEC 61158-2, que permite transmitir dados e fornecer alimentação elétrica pelo mesmo par de fios.</p>
             </section>
 
             <section class="section-h3">
-                <h3>5.1.2 MEIOS FÍSICOS E CABOS ADOTADOS</h3>
+                <h3>MEIOS FÍSICOS E CABOS ADOTADOS</h3>
                 <section class="section-h4">
-                    <h4>5.1.2.1 CABEAMENTO DE PAR TRANÇADO BLINDADO</h4>
+                    <h4>CABEAMENTO DE PAR TRANÇADO BLINDADO</h4>
                     <ul>
                         <li><strong>Par trançado:</strong> a comunicação utiliza dois condutores, normalmente em cabo específico para barramento de campo, com características elétricas adequadas à transmissão MBP.</li>
                         <li><strong>Blindagem:</strong> o cabo possui blindagem para reduzir a interferência eletromagnética e manter a qualidade do sinal em instalações industriais.</li>
@@ -48,7 +48,7 @@
             </section>
 
             <section class="section-h3">
-                <h3>5.1.3 CONECTORES PADRONIZADOS E IDENTIFICAÇÃO</h3>
+                <h3>CONECTORES PADRONIZADOS E IDENTIFICAÇÃO</h3>
                 <ul>
                     <li><strong>Bornes e terminais de campo:</strong> são amplamente utilizados para conectar o par do barramento aos instrumentos, caixas de junção e distribuidores.</li>
                     <li><strong>Conectores de barramento:</strong> blocos de conexão, conectores em T e distribuidores permitem organizar o tronco e as derivações, respeitando polaridade e especificações do fabricante.</li>
@@ -58,23 +58,23 @@
             </section>
 
             <section class="section-h3">
-                <h3>5.1.4 TOPOLOGIAS SUPORTADAS NO PROFIBUS PA</h3>
+                <h3>TOPOLOGIAS SUPORTADAS NO PROFIBUS PA</h3>
                 <section class="section-h4">
-                    <h4>5.1.4.1 TOPOLOGIA EM BARRAMENTO COM DERIVAÇÕES</h4>
+                    <h4>TOPOLOGIA EM BARRAMENTO COM DERIVAÇÕES</h4>
                     <p>A configuração mais comum utiliza um tronco principal com derivações para os instrumentos. Essa organização permite distribuir alimentação e comunicação ao longo da área de processo, mantendo os instrumentos ligados ao mesmo segmento físico.</p>
                 </section>
 
                 <section class="section-h4">
-                    <h4>5.1.4.2 TOPOLOGIA EM ÁRVORE E ESTRELA</h4>
+                    <h4>TOPOLOGIA EM ÁRVORE E ESTRELA</h4>
                     <p>Com caixas de junção, distribuidores e acopladores apropriados, o segmento pode ser organizado em estruturas de árvore ou estrela. O comprimento de cada derivação e a quantidade de dispositivos devem respeitar os limites do projeto, do condicionador de alimentação e das barreiras utilizadas.</p>
                 </section>
             </section>
         </section>
 
         <section class="section-h2">
-            <h2>5.2 INTERFACE ELÉTRICA E TRANSMISSÃO DE SINAIS</h2>
+            <h2>INTERFACE ELÉTRICA E TRANSMISSÃO DE SINAIS</h2>
             <section class="section-h3">
-                <h3>5.2.1 SINALIZAÇÃO MBP (MANCHESTER CODED BUS POWERED)</h3>
+                <h3>SINALIZAÇÃO MBP (MANCHESTER CODED BUS POWERED)</h3>
                 <p>A interface PROFIBUS PA utiliza a tecnologia MBP, baseada na camada física de barramento definida pela IEC 61158-2. A comunicação opera a 31,25 kbit/s e utiliza codificação Manchester, com o sinal digital modulado sobre a alimentação contínua presente no par do barramento.</p>
                 <ul>
                     <li><strong>Codificação Manchester:</strong> representa os bits por transições de sinal dentro de cada intervalo de bit, permitindo recuperar a temporização da comunicação.</li>
@@ -84,7 +84,7 @@
             </section>
 
             <section class="section-h3">
-                <h3>5.2.2 ALIMENTAÇÃO PELO BARRAMENTO</h3>
+                <h3>ALIMENTAÇÃO PELO BARRAMENTO</h3>
                 <p>Uma característica central do PROFIBUS PA é transportar dados e energia pelo mesmo par de fios. Os instrumentos compatíveis podem retirar do barramento a energia necessária para alimentar sua eletrônica, reduzindo a necessidade de fontes individuais junto a cada dispositivo.</p>
                 <ul>
                     <li><strong>Fonte/condicionador de alimentação:</strong> injeta a tensão contínua no segmento e deve ser compatível com a comunicação MBP, evitando que o circuito de alimentação desvie ou distorça o sinal.</li>
@@ -94,7 +94,7 @@
             </section>
 
             <section class="section-h3">
-                <h3>5.2.3 ISOLAÇÃO E PROTEÇÃO CONTRA RUÍDOS</h3>
+                <h3>ISOLAÇÃO E PROTEÇÃO CONTRA RUÍDOS</h3>
                 <ul>
                     <li><strong>Cabo blindado:</strong> reduz a influência de interferências eletromagnéticas provenientes de motores, inversores, contatores e cabos de potência.</li>
                     <li><strong>Aterramento da blindagem:</strong> deve ser projetado conforme as orientações do fabricante, as normas aplicáveis e a estratégia de equipotencialização da planta.</li>
@@ -107,11 +107,11 @@
         </section>
 
         <section class="section-h2">
-            <h2>5.3 PROTOCOLO DE ENLACE E ACESSO AO MEIO (MAC)</h2>
+            <h2>PROTOCOLO DE ENLACE E ACESSO AO MEIO (MAC)</h2>
             <p>O PROFIBUS PA utiliza o protocolo de enlace FDL do PROFIBUS. A diferença em relação ao DP está principalmente na camada física MBP e na taxa de transmissão fixa. A comunicação é coordenada por mestres, que iniciam as transações e recebem as respostas dos instrumentos conectados ao segmento.</p>
 
             <section class="section-h3">
-                <h3>5.3.1 MÉTODO DE ACESSO AO MEIO</h3>
+                <h3>MÉTODO DE ACESSO AO MEIO</h3>
                 <ul>
                     <li><strong>Mestre-escravo:</strong> o mestre da rede de controle consulta os instrumentos PA e organiza a troca de informações. Os dispositivos de campo respondem às solicitações recebidas.</li>
                     <li><strong>Integração com PROFIBUS DP:</strong> o acoplador DP/PA adapta a camada física entre o segmento RS-485 e o segmento MBP. O controlador pode acessar os instrumentos PA como dispositivos da arquitetura PROFIBUS.</li>
@@ -121,7 +121,7 @@
             </section>
 
             <section class="section-h3">
-                <h3>5.3.2 ESTRUTURA DO QUADRO E MENSAGEM PROFIBUS PA</h3>
+                <h3>ESTRUTURA DO QUADRO E MENSAGEM PROFIBUS PA</h3>
                 <p>Como o PROFIBUS PA mantém o protocolo de enlace PROFIBUS, os telegramas utilizam a estrutura FDL, com delimitadores, endereçamento, controle, dados e verificação de integridade. A codificação e a transmissão física desses dados ocorrem pelo meio MBP a 31,25 kbit/s.</p>
                 <ul>
                     <li><strong>Delimitador de início:</strong> identifica o formato do telegrama e permite ao receptor reconhecer o início da mensagem.</li>
@@ -134,9 +134,9 @@
         </section>
 
         <section class="section-h2">
-            <h2>5.4 PARÂMETROS OPERACIONAIS E DESEMPENHO</h2>
+            <h2>PARÂMETROS OPERACIONAIS E DESEMPENHO</h2>
             <section class="section-h3">
-                <h3>5.4.1 TAXA DE TRANSMISSÃO (BIT RATE / BAUD RATE)</h3>
+                <h3>TAXA DE TRANSMISSÃO (BIT RATE / BAUD RATE)</h3>
                 <ul>
                     <li><strong>Taxa nominal:</strong> 31,25 kbit/s, fixa para a camada física PROFIBUS PA MBP.</li>
                     <li><strong>Tipo de aplicação:</strong> a velocidade é adequada à instrumentação de processo, na qual variáveis como pressão, temperatura, vazão e nível normalmente não exigem a mesma taxa de atualização de acionamentos de movimento rápido.</li>
@@ -144,7 +144,7 @@
             </section>
 
             <section class="section-h3">
-                <h3>5.4.2 DISTÂNCIA MÁXIMA DOS SEGMENTOS</h3>
+                <h3>DISTÂNCIA MÁXIMA DOS SEGMENTOS</h3>
                 <p>O comprimento máximo depende do tipo de alimentação, do número de dispositivos, da quantidade e do comprimento das derivações e das exigências de segurança da área. Como referência de projeto, a diretriz PI apresenta os seguintes limites para o segmento:</p>
                 <ul>
                     <li><strong>Conceito de tronco de alta potência, em áreas não classificadas ou aplicações compatíveis:</strong> até 1.900 metros de comprimento total, com derivações individuais limitadas conforme a quantidade de nós.</li>
@@ -154,14 +154,14 @@
             </section>
 
             <section class="section-h3">
-                <h3>5.4.3 DETERMINISMO E TEMPO DE CICLO</h3>
+                <h3>DETERMINISMO E TEMPO DE CICLO</h3>
                 <p><strong>Classificação:</strong> o PROFIBUS PA é determinístico de forma condicionada: o mestre controla a comunicação e os ciclos podem ser previsíveis quando a rede está corretamente dimensionada e configurada. Isso não significa que exista um tempo de ciclo universal garantido.</p>
                 <p><strong>Tempo de atualização:</strong> é condicionado pela taxa fixa de 31,25 kbit/s, quantidade de instrumentos, tamanho dos dados e serviços acíclicos executados no barramento.</p>
                 <p><strong>Aplicação:</strong> é indicado para monitoramento e controle de processos contínuos, mas não é destinado a aplicações de movimento que exigem ciclos extremamente curtos. Nesses casos, o PROFIBUS DP com recursos compatíveis é mais apropriado.</p>
             </section>
 
             <section class="section-h3">
-                <h3>5.4.4 NÍVEL NA PIRÂMIDE DA AUTOMAÇÃO</h3>
+                <h3>NÍVEL NA PIRÂMIDE DA AUTOMAÇÃO</h3>
                 <p><strong>Classificação:</strong> atua principalmente no nível 1, conectando instrumentos de campo, e integra-se ao nível 2 por meio de controladores e sistemas de controle de processo.</p>
                 <p><strong>Justificativa:</strong> o PROFIBUS PA liga transmissores e posicionadores ao sistema de controle, fornecendo variáveis de processo, estados, alarmes e parâmetros. As informações podem ser encaminhadas aos sistemas de supervisão e gerenciamento.</p>
             </section>

@@ -23,20 +23,20 @@
     </header>
 
     <main>
-        <h1>1. CANOPEN (PROTOCOLO INDUSTRIAL BASEADO EM CAN)</h1>
+        <h1>CANOPEN (PROTOCOLO INDUSTRIAL BASEADO EM CAN)</h1>
 
         <section class="section-h2">
-            <h2>1.1 ESTRUTURA FÍSICA E CABEAMENTO</h2>
+            <h2>ESTRUTURA FÍSICA E CABEAMENTO</h2>
             <section class="section-h3">
-                <h3>1.1.1 CANOPEN EM REDES DE AUTOMAÇÃO INDUSTRIAL</h3>
+                <h3>CANOPEN EM REDES DE AUTOMAÇÃO INDUSTRIAL</h3>
                 <p>O CANopen é um sistema de comunicação industrial baseado no barramento CAN (Controller Area Network), utilizado para integrar controladores, módulos de entradas e saídas, sensores, acionamentos e outros dispositivos embarcados. Ele acrescenta ao CAN uma camada de aplicação padronizada, com regras para endereçamento lógico, organização dos dados, configuração dos equipamentos e gerenciamento da rede. É comum em máquinas, sistemas de movimentação, equipamentos móveis e aplicações de controle distribuído. [1]</p>
                 <p>A arquitetura CANopen define como os dispositivos disponibilizam parâmetros e informações do processo. Dessa forma, equipamentos de fabricantes diferentes podem ser integrados quando implementam os mesmos perfis e funcionalidades compatíveis. A especificação mais conhecida para CANopen clássico é a CiA 301; CANopen FD é uma evolução separada, baseada em CAN FD e especificada pela CiA 1301. [1]</p>
             </section>
 
             <section class="section-h3">
-                <h3>1.1.2 MEIOS FÍSICOS E CABOS ADOTADOS</h3>
+                <h3>MEIOS FÍSICOS E CABOS ADOTADOS</h3>
                 <section class="section-h4">
-                    <h4>1.1.2.1 MEIO FÍSICO (PAR TRANÇADO DIFERENCIAL)</h4>
+                    <h4>MEIO FÍSICO (PAR TRANÇADO DIFERENCIAL)</h4>
                     <p>O CANopen clássico utiliza normalmente a camada física de alta velocidade definida pela ISO 11898-2. O meio mais comum é um cabo de par trançado, no qual os sinais CAN_H e CAN_L são transmitidos de forma diferencial. Em instalações industriais, pode ser utilizado cabo com blindagem, desde que a especificação do fabricante e o projeto de aterramento sejam respeitados. A impedância característica do cabo deve ser compatível com os componentes do barramento. [2]</p>
                     <ul>
                         <li><strong>Par de comunicação CAN_H/CAN_L:</strong> conduz os sinais diferenciais utilizados para representar os bits dominantes e recessivos do barramento.</li>
@@ -45,7 +45,7 @@
                     </ul>
                 </section>
                 <section class="section-h4">
-                    <h4>1.1.2.2 TOPOLOGIA DO BARRAMENTO E TERMINAÇÃO</h4>
+                    <h4>TOPOLOGIA DO BARRAMENTO E TERMINAÇÃO</h4>
                     <p>A topologia recomendada para CANopen é a de barramento linear: um cabo principal percorre a instalação e cada nó é conectado a ele por derivações curtas (stubs). A formação de grandes ramificações em estrela aumenta as reflexões do sinal e pode comprometer a comunicação, principalmente em taxas elevadas. [2]</p>
                     <ul>
                         <li><strong>Resistores de terminação:</strong> em uma rede CAN de alta velocidade, normalmente são instalados resistores de 120 Ω entre CAN_H e CAN_L nas duas extremidades físicas do cabo principal. Não se deve instalar uma terminação em cada nó; somente nas duas pontas do barramento.</li>
@@ -56,7 +56,7 @@
             </section>
 
             <section class="section-h3">
-                <h3>1.1.3 CONECTORES PADRONIZADOS E IDENTIFICAÇÃO</h3>
+                <h3>CONECTORES PADRONIZADOS E IDENTIFICAÇÃO</h3>
                 <p>O CANopen não depende de um único formato físico de conector para todas as aplicações. As recomendações de pinagem para interfaces CAN são tratadas em documentos da CAN in Automation (CiA), incluindo a CiA 106, que reúne atribuições para diferentes tipos de conectores. A compatibilidade exige conferir o padrão de pinagem do equipamento e do cabo, não apenas o formato mecânico. [3]</p>
                 <ul>
                     <li><strong>DE-9 / D-Sub de 9 pinos:</strong> conector bastante encontrado em interfaces CAN e equipamentos de automação. A distribuição dos pinos deve seguir a recomendação adotada pelo fabricante e pela aplicação.</li>
@@ -67,7 +67,7 @@
             </section>
 
             <section class="section-h3">
-                <h3>1.1.4 TOPOLOGIAS SUPORTADAS</h3>
+                <h3>TOPOLOGIAS SUPORTADAS</h3>
                 <p>A topologia física de referência é o barramento linear com terminação nas duas extremidades. Outras configurações podem ser possíveis com repetidores, bridges ou componentes específicos, mas não devem ser tratadas como equivalentes ao barramento linear sem avaliação elétrica.</p>
                 <ul>
                     <li><strong>Barramento linear (bus):</strong> é a solução preferencial, com um tronco principal e derivações curtas para os dispositivos.</li>
@@ -78,9 +78,9 @@
         </section>
 
         <section class="section-h2">
-            <h2>1.2 INTERFACE ELÉTRICA E TRANSMISSÃO DE SINAIS</h2>
+            <h2>INTERFACE ELÉTRICA E TRANSMISSÃO DE SINAIS</h2>
             <section class="section-h3">
-                <h3>1.2.1 SINALIZAÇÃO E NÍVEIS ELÉTRICOS NO BARRAMENTO CAN</h3>
+                <h3>SINALIZAÇÃO E NÍVEIS ELÉTRICOS NO BARRAMENTO CAN</h3>
                 <p>A transmissão ocorre por sinalização diferencial. O transceptor compara a diferença de tensão entre CAN_H e CAN_L, em vez de utilizar apenas a tensão de um condutor em relação ao terra. No estado recessivo, os dois fios apresentam níveis próximos; no estado dominante, CAN_H sobe e CAN_L desce, produzindo uma diferença de tensão reconhecível pelos demais nós. Os valores exatos dependem do transceptor e da camada física ISO 11898-2.</p>
                 <ul>
                     <li><strong>Bit dominante:</strong> representa o estado lógico que prevalece no barramento quando é transmitido simultaneamente com um bit recessivo. Esse comportamento também permite a arbitragem não destrutiva do CAN.</li>
@@ -90,7 +90,7 @@
             </section>
 
             <section class="section-h3">
-                <h3>1.2.2 ALIMENTAÇÃO PELO BARRAMENTO</h3>
+                <h3>ALIMENTAÇÃO PELO BARRAMENTO</h3>
                 <p>O CANopen não define a alimentação dos sensores, atuadores ou controladores pelo próprio par de comunicação. Em regra, os equipamentos recebem energia por uma infraestrutura separada, frequentemente em 24 Vcc nas instalações industriais. Alguns conectores CAN podem possuir pinos adicionais para alimentação, mas isso não significa que o barramento CAN forneça energia de forma padronizada aos dispositivos. [3]</p>
                 <ul>
                     <li><strong>Alimentação dos dispositivos:</strong> fontes CC, distribuidores de energia ou circuitos locais alimentam controladores, sensores, módulos e atuadores de acordo com seus requisitos.</li>
@@ -99,7 +99,7 @@
             </section>
 
             <section class="section-h3">
-                <h3>1.2.3 ISOLAÇÃO E PROTEÇÃO CONTRA RUÍDOS</h3>
+                <h3>ISOLAÇÃO E PROTEÇÃO CONTRA RUÍDOS</h3>
                 <p>A sinalização diferencial torna o CAN mais resistente a ruídos comuns aos dois condutores, mas não elimina a necessidade de instalação correta. Em máquinas industriais, interferências podem ser produzidas por inversores de frequência, motores, contatores, fontes chaveadas e cabos de potência.</p>
                 <ul>
                     <li><strong>Cabo adequado:</strong> utilizar par trançado compatível com a camada física CAN e, quando necessário, versão blindada adequada ao ambiente.</li>
@@ -111,11 +111,11 @@
         </section>
 
         <section class="section-h2">
-            <h2>1.3 PROTOCOLO DE ENLACE E ACESSO AO MEIO (MAC)</h2>
+            <h2>PROTOCOLO DE ENLACE E ACESSO AO MEIO (MAC)</h2>
             <section class="section-h3">
-                <h3>1.3.1 MÉTODO DE ACESSO AO MEIO NA REDE CANOPEN</h3>
+                <h3>MÉTODO DE ACESSO AO MEIO NA REDE CANOPEN</h3>
                 <section class="section-h4">
-                    <h4>1.3.1.1 ARBITRAGEM NÃO DESTRUTIVA DO CAN</h4>
+                    <h4>ARBITRAGEM NÃO DESTRUTIVA DO CAN</h4>
                     <p>O acesso ao meio é controlado pelo mecanismo de arbitragem bit a bit do CAN. Quando o barramento está livre, mais de um nó pode iniciar a transmissão. Cada transmissor compara o bit que envia com o nível observado no barramento. Se transmitir um bit recessivo e detectar um dominante, interrompe sua transmissão e passa a receber o quadro que possui maior prioridade. Como a arbitragem ocorre no próprio campo de identificador, o quadro vencedor não é corrompido.</p>
                     <ul>
                         <li><strong>Prioridade pelo identificador:</strong> no formato básico de 11 bits, identificadores numericamente menores possuem maior prioridade de arbitragem, pois apresentam primeiro a sequência dominante que prevalece sobre os bits recessivos.</li>
@@ -123,7 +123,7 @@
                     </ul>
                 </section>
                 <section class="section-h4">
-                    <h4>1.3.1.2 GERENCIAMENTO DE REDE E ORGANIZAÇÃO DAS MENSAGENS</h4>
+                    <h4>GERENCIAMENTO DE REDE E ORGANIZAÇÃO DAS MENSAGENS</h4>
                     <p>O CANopen acrescenta funções de gerenciamento ao mecanismo de acesso do CAN. O NMT (Network Management) permite controlar estados dos dispositivos, como Inicialização, Pré-operacional, Operacional e Parado. O gerenciamento NMT pode ser centralizado por um nó mestre, mas a troca de dados de processo não depende de uma sequência de consulta mestre-escravo para cada mensagem.</p>
                     <ul>
                         <li><strong>COB-ID:</strong> identifica os objetos de comunicação CANopen no barramento e participa da definição de sua prioridade. Em CANopen clássico, os identificadores predefinidos normalmente utilizam o formato CAN de 11 bits.</li>
@@ -133,10 +133,10 @@
             </section>
 
             <section class="section-h3">
-                <h3>1.3.2 ESTRUTURA DO QUADRO E MENSAGEM CANOPEN</h3>
+                <h3>ESTRUTURA DO QUADRO E MENSAGEM CANOPEN</h3>
                 <p>O CANopen utiliza quadros de dados do protocolo CAN para transportar objetos de comunicação. A estrutura do quadro é definida pela camada de enlace CAN; o significado dos dados transportados é determinado pelas regras de CANopen, incluindo identificadores de objetos de comunicação e o dicionário de objetos.</p>
                 <section class="section-h4">
-                    <h4>1.3.2.1 CAMPOS PRINCIPAIS DO QUADRO CAN CLÁSSICO</h4>
+                    <h4>CAMPOS PRINCIPAIS DO QUADRO CAN CLÁSSICO</h4>
                     <ul>
                         <li><strong>SOF (Start of Frame):</strong> bit que marca o início do quadro e permite que os nós iniciem a sincronização da transmissão.</li>
                         <li><strong>Campo de arbitragem:</strong> contém o identificador CAN e os bits de controle associados. O identificador participa da arbitragem e indica a prioridade do quadro.</li>
@@ -148,7 +148,7 @@
                     </ul>
                 </section>
                 <section class="section-h4">
-                    <h4>1.3.2.2 OBJETOS DE COMUNICAÇÃO DO CANOPEN</h4>
+                    <h4>OBJETOS DE COMUNICAÇÃO DO CANOPEN</h4>
                     <p>O CANopen organiza os dados por meio de objetos de comunicação (COBs) e de um dicionário de objetos. O dicionário reúne parâmetros de comunicação e de aplicação, identificados por índice de 16 bits e subíndice quando necessário. Essa organização padroniza a configuração e o acesso às informações internas do dispositivo. [1]</p>
                     <ul>
                         <li><strong>PDO (Process Data Object):</strong> transporta dados de processo, como valores de sensores, estados de entradas e comandos de saída. É utilizado para comunicação rápida e pode ser configurado para transmissão síncrona, cíclica, por evento ou mediante solicitação, conforme o perfil e o equipamento.</li>
@@ -160,19 +160,19 @@
                     </ul>
                 </section>
                 <section class="section-h4">
-                    <h4>1.3.2.3 VERIFICAÇÃO DE ERROS E ESTADOS DE FALHA</h4>
+                    <h4>VERIFICAÇÃO DE ERROS E ESTADOS DE FALHA</h4>
                     <p>A camada CAN possui mecanismos de detecção de erros, como verificação de CRC, monitoramento de bits, verificação de formato e bit stuffing. Quando identifica uma falha, o controlador pode emitir um quadro de erro e realizar nova tentativa de transmissão, conforme o estado do controlador e as regras do CAN. O mecanismo de confinamento de erros classifica os nós como Error Active, Error Passive ou Bus Off, limitando a participação de um nó que apresenta falhas repetidas.</p>
                 </section>
             </section>
         </section>
 
         <section class="section-h2">
-            <h2>1.4 PARÂMETROS OPERACIONAIS E DESEMPENHO</h2>
+            <h2>PARÂMETROS OPERACIONAIS E DESEMPENHO</h2>
             <section class="section-h3">
-                <h3>1.4.1 TAXA DE TRANSMISSÃO (BIT RATE / BAUD RATE)</h3>
+                <h3>TAXA DE TRANSMISSÃO (BIT RATE / BAUD RATE)</h3>
                 <p>No CANopen clássico (CANopen CC), as taxas de transmissão padronizadas vão de 10 kbit/s a 1 Mbit/s. A taxa é configurada para todos os nós de um mesmo segmento e precisa ser compatível com os equipamentos conectados. A velocidade efetiva e a confiabilidade dependem do comprimento do cabo, das derivações, dos transceptores e da qualidade da instalação. [1][2]</p>
                 <section class="section-h4">
-                    <h4>1.4.1.1 TAXAS DE TRANSMISSÃO USUAIS</h4>
+                    <h4>TAXAS DE TRANSMISSÃO USUAIS</h4>
                     <ul>
                         <li><strong>1 Mbit/s:</strong> utilizado em redes curtas e com requisitos elevados de atualização; a CiA indica comprimento de barramento de referência de 25 m.</li>
                         <li><strong>500 kbit/s:</strong> permite comprimento de referência de até 100 m, sendo uma taxa comum em máquinas e sistemas compactos.</li>
@@ -186,13 +186,13 @@
             </section>
 
             <section class="section-h3">
-                <h3>1.4.2 DISTÂNCIA MÁXIMA DO BARRAMENTO</h3>
+                <h3>DISTÂNCIA MÁXIMA DO BARRAMENTO</h3>
                 <p>A distância máxima não é fixa: ela diminui à medida que a taxa de transmissão aumenta. A tabela técnica da CiA apresenta, como referências para CANopen CC, aproximadamente 25 m a 1 Mbit/s, 100 m a 500 kbit/s, 250 m a 250 kbit/s, 500 m a 125 kbit/s e 1.000 m a 50 kbit/s. Para taxas menores, o alcance de referência pode chegar a alguns quilômetros. [2]</p>
                 <p>Além do comprimento total, devem ser observados o comprimento individual e acumulado das derivações, a posição das terminações, a impedância do cabo, a queda de tensão e o atraso de propagação. Repetidores ou bridges podem ser necessários para interligar segmentos adicionais, respeitando as limitações da arquitetura.</p>
             </section>
 
             <section class="section-h3">
-                <h3>1.4.3 DETERMINISMO E TEMPO DE CICLO</h3>
+                <h3>DETERMINISMO E TEMPO DE CICLO</h3>
                 <ul>
                     <li><strong>Classificação:</strong>CANopen pode oferecer comportamento previsível para aplicações de controle cíclico quando a rede é corretamente dimensionada e configurada, sendo condicionalmente determinístico, mas o tempo de resposta não é automaticamente garantido apenas pelo uso do protocolo.</li>
                     <li><strong>Justificativa:</strong> a arbitragem por identificador define prioridades e permite calcular tempos de transmissão em função da carga do barramento. Mensagens de maior prioridade podem acessar o meio antes das de menor prioridade. Entretanto, o tempo de ciclo depende da taxa configurada, do número de nós, do volume de mensagens, da prioridade dos COB-IDs, das retransmissões e das falhas de comunicação.</li>
@@ -201,7 +201,7 @@
             </section>
 
             <section class="section-h3">
-                <h3>1.4.4 NÍVEL NA PIRÂMIDE DA AUTOMAÇÃO</h3>
+                <h3>NÍVEL NA PIRÂMIDE DA AUTOMAÇÃO</h3>
                 <ul>
                     <li><strong>Classificação:</strong> atua principalmente nos níveis de Sensores e Atuadores (Nível 1) e de Controle (Nível 2) da pirâmide da automação.</li>
                     <li><strong>Justificativa:</strong> o CANopen conecta dispositivos de campo, módulos de I/O, inversores, servodrives, sensores e controladores. Os dados podem ser encaminhados a sistemas de supervisão por meio de PLCs, gateways ou interfaces de comunicação, mas o CANopen é mais diretamente associado à comunicação de dispositivos e ao controle local da máquina.</li>

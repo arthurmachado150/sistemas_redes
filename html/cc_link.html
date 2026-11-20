@@ -23,21 +23,21 @@
     </header>
 
     <main>
-        <h1>1. CC-LINK (CONTROL &amp; COMMUNICATION LINK)</h1>
+        <h1>CC-LINK (CONTROL &amp; COMMUNICATION LINK)</h1>
 
         <section class="section-h2">
-            <h2>1.1 ESTRUTURA FÍSICA E CABEAMENTO</h2>
+            <h2>ESTRUTURA FÍSICA E CABEAMENTO</h2>
             <section class="section-h3">
-                <h3>1.1.1 CC-LINK EM REDES INDUSTRIAIS</h3>
+                <h3>CC-LINK EM REDES INDUSTRIAIS</h3>
                 <p>O CC-Link (Control &amp; Communication Link) é uma rede de campo industrial aberta, desenvolvida para a comunicação entre controladores programáveis, módulos de entradas e saídas remotas, inversores de frequência, servoacionamentos, interfaces homem-máquina e outros dispositivos de automação. Sua função é transportar dados de controle e de diagnóstico entre equipamentos distribuídos na máquina ou na linha de produção, reduzindo a quantidade de ligações individuais entre o controlador e cada dispositivo.</p>
                 <p>Na versão clássica, o CC-Link utiliza uma estrutura de barramento serial baseada em RS-485, com uma estação mestre que coordena a comunicação com as estações conectadas. A rede trabalha principalmente com troca cíclica de dados de entrada e saída, podendo também realizar comunicação transitória para troca de mensagens sob demanda, conforme o tipo de estação e os recursos implementados.</p>
                 <p>É importante diferenciar o CC-Link clássico das tecnologias posteriores da mesma família. O CC-Link IE Field e o CC-Link IE TSN utilizam infraestrutura Ethernet industrial e possuem características próprias de velocidade, cabeamento e topologia. Neste relatório, os parâmetros de cabeamento serial, RS-485, taxas de até 10 Mbps e distâncias de até 1.200 metros referem-se ao CC-Link clássico; as variantes Ethernet serão identificadas apenas para comparação.</p>
             </section>
 
             <section class="section-h3">
-                <h3>1.1.2 MEIO DE TRANSMISSÃO E CABEAMENTO ADOTADO</h3>
+                <h3>MEIO DE TRANSMISSÃO E CABEAMENTO ADOTADO</h3>
                 <section class="section-h4">
-                    <h4>1.1.2.1 CABO DEDICADO CC-LINK</h4>
+                    <h4>CABO DEDICADO CC-LINK</h4>
                     <p>O CC-Link clássico utiliza um cabo dedicado de três condutores em par trançado, com blindagem metálica. A especificação da versão 1.10 indica condutores de aproximadamente 20 AWG, impedância característica nominal de 110 Ω e construção adequada à transmissão diferencial em ambiente industrial. Não se deve substituir esse cabo livremente por um cabo Ethernet UTP comum, pois a impedância, a capacitância, a atenuação e a construção do cabo influenciam diretamente a qualidade do sinal e o comprimento permitido do segmento.</p>
                     <ul>
                         <li><strong>Par de comunicação DA/DB:</strong> conduz os sinais diferenciais de dados entre as estações. A identificação usual do cabo versão 1.10 associa o condutor azul ao terminal DA e o branco ao terminal DB.</li>
@@ -46,7 +46,7 @@
                     </ul>
                 </section>
                 <section class="section-h4">
-                    <h4>1.1.2.2 CONECTORES E TERMINAIS PADRONIZADOS</h4>
+                    <h4>CONECTORES E TERMINAIS PADRONIZADOS</h4>
                     <p>Diferentemente de redes Ethernet que normalmente utilizam conectores RJ45, o CC-Link clássico costuma ser conectado por bornes de parafuso ou blocos de terminais presentes nos módulos mestres e remotos. A forma física do conector pode variar conforme o fabricante do equipamento, mas os sinais devem respeitar a identificação funcional da rede:</p>
                     <ul>
                         <li><strong>DA (Data A):</strong> terminal de uma das linhas diferenciais de comunicação; no cabo CC-Link versão 1.10, normalmente corresponde ao condutor azul.</li>
@@ -57,7 +57,7 @@
                     <p>A identificação dos terminais deve ser conferida no manual do módulo utilizado, pois a disposição física, o tipo de borne e as instruções de aterramento podem variar entre fabricantes e modelos.</p>
                 </section>
                 <section class="section-h4">
-                    <h4>1.1.2.3 TERMINAÇÃO E REGRAS DE INSTALAÇÃO</h4>
+                    <h4>TERMINAÇÃO E REGRAS DE INSTALAÇÃO</h4>
                     <p>O barramento deve receber resistores de terminação nas duas extremidades físicas da linha principal. Esses resistores reduzem as reflexões do sinal e ajudam a manter a integridade da comunicação. Para instalações com cabo CC-Link versão 1.10, a especificação de referência utiliza terminação de 110 Ω; outros cabos ou versões podem exigir valores diferentes, por isso a resistência indicada pelo fabricante do cabo e pelo manual do equipamento deve ser respeitada.</p>
                     <ul>
                         <li><strong>Posicionamento:</strong> os resistores devem ser instalados somente nas duas extremidades do barramento principal, e não em todas as estações intermediárias.</li>
@@ -68,9 +68,9 @@
             </section>
 
             <section class="section-h3">
-                <h3>1.1.3 TOPOLOGIAS SUPORTADAS</h3>
+                <h3>TOPOLOGIAS SUPORTADAS</h3>
                 <section class="section-h4">
-                    <h4>1.1.3.1 TOPOLOGIA EM BARRAMENTO LINEAR (BUS)</h4>
+                    <h4>TOPOLOGIA EM BARRAMENTO LINEAR (BUS)</h4>
                     <p>A topologia característica do CC-Link clássico é o barramento linear. O cabo principal percorre a instalação e as estações são conectadas ao longo da linha, com o mestre em uma das posições previstas pelo projeto. Os resistores de terminação ficam nas duas extremidades do segmento. Essa organização reduz a quantidade de cabeamento e permite conectar vários equipamentos ao mesmo meio físico.</p>
                     <ul>
                         <li><strong>Vantagem:</strong> a comunicação compartilhada simplifica a ligação entre o controlador e os dispositivos distribuídos, diminuindo a necessidade de cabos individuais para cada sinal de entrada e saída.</li>
@@ -78,20 +78,20 @@
                     </ul>
                 </section>
                 <section class="section-h4">
-                    <h4>1.1.3.2 DERIVAÇÕES E REPETIDORES</h4>
+                    <h4>DERIVAÇÕES E REPETIDORES</h4>
                     <p>Alguns projetos permitem derivações em T, repetidores elétricos ou repetidores ópticos para adaptar a rede à disposição física da planta ou ampliar o alcance. Esses recursos dependem de componentes próprios e de regras de instalação específicas. A utilização de derivações pode restringir as taxas de transmissão e os comprimentos admitidos, enquanto repetidores dividem a rede em segmentos e exigem dimensionamento conforme o manual do fabricante.</p>
                 </section>
                 <section class="section-h4">
-                    <h4>1.1.3.3 DIFERENÇA EM RELAÇÃO ÀS TOPOLOGIAS CC-LINK IE</h4>
+                    <h4>DIFERENÇA EM RELAÇÃO ÀS TOPOLOGIAS CC-LINK IE</h4>
                     <p>As variantes CC-Link IE Field e CC-Link IE TSN oferecem topologias Ethernet como linha, estrela, combinações de linha e estrela e anel, conforme a versão e os equipamentos. Elas utilizam cabos Ethernet industriais, como par trançado blindado de categoria 5e ou superior, conectores RJ45 ou M12 e enlaces com distância típica de até 100 metros entre nós em cobre. Essas opções não devem ser atribuídas ao CC-Link clássico, cuja topologia de referência é o barramento serial.</p>
                 </section>
             </section>
         </section>
 
         <section class="section-h2">
-            <h2>1.2 INTERFACE ELÉTRICA E TRANSMISSÃO DE SINAIS</h2>
+            <h2>INTERFACE ELÉTRICA E TRANSMISSÃO DE SINAIS</h2>
             <section class="section-h3">
-                <h3>1.2.1 SINALIZAÇÃO E NÍVEIS ELÉTRICOS</h3>
+                <h3>SINALIZAÇÃO E NÍVEIS ELÉTRICOS</h3>
                 <p>A camada física do CC-Link clássico é compatível com a interface EIA/TIA-485 (RS-485), que utiliza transmissão diferencial por dois condutores de sinal. A informação é representada pela diferença de tensão entre DA e DB, em vez de depender da tensão de um único fio em relação ao terra. Essa característica proporciona maior rejeição a ruídos comuns aos dois condutores, sendo adequada a instalações industriais com interferências eletromagnéticas.</p>
                 <ul>
                     <li><strong>Transmissão diferencial:</strong> o transmissor altera a polaridade do sinal entre as linhas DA e DB para representar os estados digitais. O receptor interpreta a diferença entre as duas linhas, o que melhora a imunidade a ruídos induzidos de forma semelhante nos condutores.</li>
@@ -101,7 +101,7 @@
             </section>
 
             <section class="section-h3">
-                <h3>1.2.2 ALIMENTAÇÃO PELO BARRAMENTO</h3>
+                <h3>ALIMENTAÇÃO PELO BARRAMENTO</h3>
                 <p>O CC-Link clássico transporta dados pelo par de comunicação e pela infraestrutura de sinal descrita na especificação, mas não foi concebido como uma rede de alimentação integrada para os dispositivos. Portanto, sensores, módulos remotos, inversores e outros equipamentos normalmente necessitam de alimentação elétrica própria, por fonte CC ou pela alimentação de campo prevista no equipamento.</p>
                 <ul>
                     <li><strong>Dados e energia:</strong> não se deve considerar que o cabo de comunicação CC-Link forneça, por padrão, a energia de operação das estações. O condutor DG é uma referência de comunicação, não uma linha de alimentação para os dispositivos.</li>
@@ -110,9 +110,9 @@
             </section>
 
             <section class="section-h3">
-                <h3>1.2.3 ISOLAÇÃO E PROTEÇÃO CONTRA RUÍDOS</h3>
+                <h3>ISOLAÇÃO E PROTEÇÃO CONTRA RUÍDOS</h3>
                 <section class="section-h4">
-                    <h4>1.2.3.1 BLINDAGEM E ATERRAMENTO</h4>
+                    <h4>BLINDAGEM E ATERRAMENTO</h4>
                     <p>A blindagem do cabo dedicado ajuda a reduzir o acoplamento de interferências eletromagnéticas provenientes de motores, inversores de frequência, transformadores e circuitos de potência. Ela deve ser conectada aos terminais SLD e/ou FG conforme o diagrama de ligação e as recomendações do fabricante. O aterramento deve fazer parte de um sistema equipotencial adequado, evitando trajetos de corrente indesejados pela blindagem ou diferenças de potencial entre equipamentos.</p>
                     <ul>
                         <li><strong>Separação física:</strong> sempre que possível, os cabos de comunicação devem ser instalados separados dos cabos de potência e dos condutores de saída de inversores. Cruzamentos inevitáveis devem ser planejados, preferencialmente em ângulo próximo de 90 graus.</li>
@@ -121,18 +121,18 @@
                     </ul>
                 </section>
                 <section class="section-h4">
-                    <h4>1.2.3.2 TERMINAÇÃO, REFLEXÕES E IMUNIDADE</h4>
+                    <h4>TERMINAÇÃO, REFLEXÕES E IMUNIDADE</h4>
                     <p>O uso de resistores de terminação compatíveis com a impedância característica do cabo reduz reflexões nas extremidades do barramento. Comprimentos excessivos, derivações não previstas, terminações ausentes ou duplicadas e conexões frouxas podem provocar erros de comunicação. A combinação de par trançado, sinalização diferencial, blindagem e terminação correta contribui para a estabilidade da rede, mas não elimina a necessidade de boas práticas de instalação e compatibilidade eletromagnética.</p>
                 </section>
             </section>
         </section>
 
         <section class="section-h2">
-            <h2>1.3 PROTOCOLO DE ENLACE E ACESSO AO MEIO (MAC)</h2>
+            <h2>PROTOCOLO DE ENLACE E ACESSO AO MEIO (MAC)</h2>
             <section class="section-h3">
-                <h3>1.3.1 MÉTODO DE ACESSO AO MEIO</h3>
+                <h3>MÉTODO DE ACESSO AO MEIO</h3>
                 <section class="section-h4">
-                    <h4>1.3.1.1 SISTEMA MESTRE E ESTAÇÕES REMOTAS</h4>
+                    <h4>SISTEMA MESTRE E ESTAÇÕES REMOTAS</h4>
                     <p>O CC-Link clássico utiliza um sistema de comunicação do tipo broadcast polling, coordenado por uma estação mestre. O mestre organiza a troca cíclica de dados com as estações da rede, enviando consultas e controlando a sequência de comunicação. As estações remotas respondem de acordo com a posição e as regras definidas pelo protocolo, evitando que vários dispositivos iniciem transmissões independentes ao mesmo tempo.</p>
                     <ul>
                         <li><strong>Estação mestre:</strong> coordena o enlace, administra a atualização dos dados cíclicos e supervisiona o estado de comunicação das estações configuradas.</li>
@@ -141,13 +141,13 @@
                     </ul>
                 </section>
                 <section class="section-h4">
-                    <h4>1.3.1.2 COMUNICAÇÃO CÍCLICA E TRANSITÓRIA</h4>
+                    <h4>COMUNICAÇÃO CÍCLICA E TRANSITÓRIA</h4>
                     <p>A comunicação cíclica atualiza periodicamente as informações de entradas, saídas e registradores compartilhados entre o mestre e as estações. É utilizada para o controle contínuo da máquina, como leitura de sensores, atualização de estados e envio de comandos. A comunicação transitória permite solicitar ou transferir informações adicionais sob demanda, como parâmetros, diagnósticos ou dados específicos de um equipamento, quando esse recurso é suportado pela estação.</p>
                 </section>
             </section>
 
             <section class="section-h3">
-                <h3>1.3.2 ESTRUTURA DO QUADRO E DA MENSAGEM</h3>
+                <h3>ESTRUTURA DO QUADRO E DA MENSAGEM</h3>
                 <p>A especificação do CC-Link clássico define um formato de transmissão compatível com HDLC, sincronização por quadro e codificação NRZI. A mensagem contém informações de controle e endereçamento necessárias à identificação da estação e da operação, os dados úteis da comunicação e um campo de verificação de erros. A estrutura interna detalhada e os campos específicos dependem da definição do protocolo e do tipo de serviço; por isso, não se deve confundir o quadro CC-Link com um quadro Ethernet ou atribuir a ele endereços IP ou MAC Ethernet.</p>
                 <ul>
                     <li><strong>Delimitação e sincronização:</strong> a transmissão é organizada em quadros, com mecanismos de sincronização que permitem ao receptor reconhecer o início e o fim da unidade transmitida.</li>
@@ -155,7 +155,7 @@
                     <li><strong>Payload:</strong> transporta dados de entradas e saídas remotas, registradores, comandos e informações adicionais previstas no serviço de comunicação.</li>
                 </ul>
                 <section class="section-h4">
-                    <h4>1.3.2.1 ÁREAS DE DADOS E ENDEREÇAMENTO LÓGICO</h4>
+                    <h4>ÁREAS DE DADOS E ENDEREÇAMENTO LÓGICO</h4>
                     <p>Na comunicação cíclica, o CC-Link utiliza áreas de dados identificadas por códigos próprios. As principais são:</p>
                     <ul>
                         <li><strong>RX (Remote Input):</strong> informações de entrada remota em unidades de bit, normalmente transferidas das estações de dispositivo para o mestre.</li>
@@ -166,16 +166,16 @@
                     <p>A quantidade de pontos disponível depende da versão do CC-Link e da quantidade de estações ocupadas por cada dispositivo. Na versão 1.10, o total máximo informado é de 2.048 pontos RX e 2.048 pontos RY, além de 256 palavras para RWr e 256 palavras para RWw. Na versão 2.00, a capacidade pode chegar a 8.192 pontos para cada área RX e RY e 2.048 palavras para cada área RWr e RWw, com configurações de ciclo estendido.</p>
                 </section>
                 <section class="section-h4">
-                    <h4>1.3.2.2 VERIFICAÇÃO DE ERROS (CRC)</h4>
+                    <h4>VERIFICAÇÃO DE ERROS (CRC)</h4>
                     <p>A integridade dos dados é verificada por redundância cíclica (CRC). Para o CC-Link clássico, a especificação indica CRC-16 com polinômio gerador x¹⁶ + x¹² + x⁵ + 1. O transmissor calcula o valor de verificação a partir dos dados protegidos e o inclui na transmissão. O receptor recalcula o CRC e compara o resultado; quando identifica divergência, a unidade é considerada inválida e os mecanismos de diagnóstico e recuperação previstos no equipamento podem atuar.</p>
                 </section>
             </section>
         </section>
 
         <section class="section-h2">
-            <h2>1.4 PARÂMETROS OPERACIONAIS E DESEMPENHO</h2>
+            <h2>PARÂMETROS OPERACIONAIS E DESEMPENHO</h2>
             <section class="section-h3">
-                <h3>1.4.1 TAXA DE TRANSMISSÃO (BAUD RATE / BIT RATE)</h3>
+                <h3>TAXA DE TRANSMISSÃO (BAUD RATE / BIT RATE)</h3>
                 <p>O CC-Link clássico trabalha com taxas de transmissão selecionáveis conforme a configuração da rede. A especificação contempla cinco valores: 156 kbps, 625 kbps, 2,5 Mbps, 5 Mbps e 10 Mbps. A velocidade escolhida influencia diretamente o comprimento máximo do cabo, o tempo de atualização dos dados e a capacidade de resposta da rede.</p>
                 <ul>
                     <li><strong>156 kbps:</strong> prioriza maior alcance físico, sendo adequada a instalações extensas que não exigem a maior taxa de transmissão.</li>
@@ -185,7 +185,7 @@
             </section>
 
             <section class="section-h3">
-                <h3>1.4.2 DISTÂNCIA MÁXIMA DO SEGMENTO</h3>
+                <h3>DISTÂNCIA MÁXIMA DO SEGMENTO</h3>
                 <p>A distância máxima depende da taxa de comunicação e da versão do cabo utilizado. Para cabo dedicado CC-Link versão 1.10, com terminação correspondente, a extensão total de referência é:</p>
                 <ul>
                     <li><strong>156 kbps:</strong> até 1.200 metros de comprimento total.</li>
@@ -198,7 +198,7 @@
             </section>
 
             <section class="section-h3">
-                <h3>1.4.3 QUANTIDADE DE ESTAÇÕES E CAPACIDADE DE COMUNICAÇÃO</h3>
+                <h3>QUANTIDADE DE ESTAÇÕES E CAPACIDADE DE COMUNICAÇÃO</h3>
                 <p>O CC-Link clássico utiliza numeração de estações de dispositivo de 1 a 64. A quantidade máxima de estações que pode operar simultaneamente depende da versão da rede, do modelo do mestre e do número de estações ocupadas por cada módulo; não se deve presumir que os 64 endereços de dispositivo estejam disponíveis além da estação mestre. Os limites de link points também dependem da configuração.</p>
                 <ul>
                     <li><strong>Versão 1.10:</strong> oferece até 2.048 pontos de entrada remota RX e 2.048 pontos de saída remota RY, além de 256 palavras para cada uma das áreas de registradores RWr e RWw.</li>
@@ -207,7 +207,7 @@
             </section>
 
             <section class="section-h3">
-                <h3>1.4.4 DETERMINISMO E TEMPO DE CICLO</h3>
+                <h3>DETERMINISMO E TEMPO DE CICLO</h3>
                 <p><strong>Classificação:</strong> O CC-Link clássico é projetado para comunicação cíclica determinística.</p>
                 <p><strong>Justificativa:</strong> Como o acesso ao meio é coordenado pela estação mestre por polling, a sequência de atualização dos dados é organizada e previsível.</p>
                 <p><strong>Aplicação:</strong> característica importante para o controle de entradas e saídas em máquinas e linhas de produção.</p>
@@ -216,13 +216,13 @@
             </section>
 
             <section class="section-h3">
-                <h3>1.4.5 NÍVEL NA PIRÂMIDE DA AUTOMAÇÃO</h3>
+                <h3>NÍVEL NA PIRÂMIDE DA AUTOMAÇÃO</h3>
                 <p><strong>Classificação:</strong> atua principalmente nos níveis de campo e de controle da pirâmide da automação (Níveis 1 e 2).</p>
                 <p><strong>Justificativa:</strong> O CC-Link clássico interliga o controlador programável a módulos de entradas e saídas remotas, sensores e atuadores conectados por módulos de comunicação, inversores de frequência, servoacionamentos e outros dispositivos de campo. Por isso, está diretamente associado à aquisição de sinais e ao envio de comandos no chão de fábrica, além de apoiar a coordenação do controle entre equipamentos. A integração com sistemas de supervisão e gerenciamento ocorre por meio dos controladores e de redes de nível superior, não sendo o foco principal do barramento clássico.</p>
             </section>
 
             <section class="section-h3">
-                <h3>1.4.6 EVOLUÇÃO DA FAMÍLIA CC-LINK</h3>
+                <h3>EVOLUÇÃO DA FAMÍLIA CC-LINK</h3>
                 <p>A família CC-Link reúne tecnologias que atendem diferentes níveis de desempenho e integração. O CC-Link clássico utiliza RS-485 e cabo dedicado de três condutores; o CC-Link IE Field utiliza Ethernet industrial com comunicação de 1 Gbps, cabos de par trançado blindados e topologias como linha, estrela e anel; e o CC-Link IE TSN acrescenta recursos de Time-Sensitive Networking (TSN), com sincronização e compartilhamento temporal da rede. Essas variantes permitem integrar controle de campo, motion control e tráfego de informação, mas suas características físicas e operacionais são diferentes das do CC-Link clássico.</p>
             </section>
         </section>

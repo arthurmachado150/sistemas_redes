@@ -23,18 +23,18 @@
     </header>
 
     <main>
-        <h1>2. MQTT (MESSAGE QUEUING TELEMETRY TRANSPORT)</h1>
+        <h1>MQTT (MESSAGE QUEUING TELEMETRY TRANSPORT)</h1>
 
         <section class="section-h2">
-            <h2>2.1 ESTRUTURA FÍSICA E CABEAMENTO</h2>
+            <h2>ESTRUTURA FÍSICA E CABEAMENTO</h2>
             <section class="section-h3">
-                <h3>2.1.1 MQTT EM REDES INDUSTRIAIS E SISTEMAS IIOT</h3>
+                <h3>MQTT EM REDES INDUSTRIAIS E SISTEMAS IIOT</h3>
                 <p>MQTT é um protocolo de mensagens da camada de aplicação que utiliza o modelo Publicação/Assinatura (Publish/Subscribe). Um dispositivo ou aplicação publica informações em tópicos, enquanto os clientes interessados assinam esses tópicos para receber as mensagens. Um servidor intermediário chamado broker recebe as publicações e distribui os dados aos assinantes correspondentes. O protocolo foi projetado para ser leve e adequado a ambientes com dispositivos e enlaces que possuem recursos limitados. [4]</p>
                 <p>Na indústria, MQTT é utilizado para transportar dados de máquinas, sensores, gateways e sistemas de supervisão até aplicações de monitoramento, análise de dados, plataformas IIoT e serviços em nuvem. Ele não substitui necessariamente os protocolos de controle em tempo real do chão de fábrica; normalmente complementa as redes industriais ao disponibilizar dados para integração e análise.</p>
             </section>
 
             <section class="section-h3">
-                <h3>2.1.2 MEIOS DE TRANSMISSÃO E INFRAESTRUTURA DE COMUNICAÇÃO</h3>
+                <h3>MEIOS DE TRANSMISSÃO E INFRAESTRUTURA DE COMUNICAÇÃO</h3>
                 <p>O MQTT não define um cabo ou meio físico próprio. Ele funciona sobre um transporte que ofereça um fluxo ordenado e confiável de bytes; a utilização mais comum é TCP/IP. Assim, a comunicação pode atravessar diferentes meios físicos, como Ethernet em cobre, fibra óptica, Wi-Fi ou redes celulares, desde que exista conectividade IP entre o cliente e o broker. [4]</p>
                 <ul>
                     <li><strong>Ethernet em par trançado:</strong> muito utilizada para conectar PLCs, gateways industriais, computadores e servidores a switches da rede local.</li>
@@ -45,7 +45,7 @@
             </section>
 
             <section class="section-h3">
-                <h3>2.1.3 CONECTORES PADRONIZADOS E IDENTIFICAÇÃO</h3>
+                <h3>CONECTORES PADRONIZADOS E IDENTIFICAÇÃO</h3>
                 <p>Como MQTT não estabelece a camada física, também não define conectores próprios. Os conectores utilizados dependem da interface de rede que transporta TCP/IP e do equipamento instalado.</p>
                 <ul>
                     <li><strong>RJ45 (8P8C):</strong> utilizado em portas Ethernet de PLCs, gateways, switches, computadores e servidores.</li>
@@ -56,7 +56,7 @@
             </section>
 
             <section class="section-h3">
-                <h3>2.1.4 TOPOLOGIAS SUPORTADAS NA INFRAESTRUTURA IP</h3>
+                <h3>TOPOLOGIAS SUPORTADAS NA INFRAESTRUTURA IP</h3>
                 <p>A topologia física e lógica de uma comunicação MQTT é herdada da rede IP utilizada. O modelo de aplicação é organizado em torno dos clientes e do broker, mas os equipamentos podem estar distribuídos por diferentes switches, roteadores, enlaces sem fio e segmentos de rede.</p>
                 <ul>
                     <li><strong>Estrela e árvore:</strong> são comuns em redes Ethernet industriais, nas quais clientes e broker se conectam a switches de acesso e distribuição.</li>
@@ -67,9 +67,9 @@
         </section>
 
         <section class="section-h2">
-            <h2>2.2 INTERFACE ELÉTRICA E TRANSMISSÃO DE SINAIS</h2>
+            <h2>INTERFACE ELÉTRICA E TRANSMISSÃO DE SINAIS</h2>
             <section class="section-h3">
-                <h3>2.2.1 SINALIZAÇÃO E NÍVEIS ELÉTRICOS</h3>
+                <h3>SINALIZAÇÃO E NÍVEIS ELÉTRICOS</h3>
                 <p>O MQTT não especifica níveis de tensão, codificação elétrica, modulação óptica ou frequência de rádio. Esses parâmetros pertencem à tecnologia física e de enlace utilizada para estabelecer a conexão IP. Em Ethernet de cobre, por exemplo, a sinalização é definida pelo padrão Ethernet correspondente; em fibra, os dados são transmitidos por pulsos de luz; em Wi-Fi, utilizam-se sinais de radiofrequência.</p>
                 <ul>
                     <li><strong>Camada física:</strong> define o tipo de sinal, a potência, a codificação e os conectores empregados no enlace.</li>
@@ -79,7 +79,7 @@
             </section>
 
             <section class="section-h3">
-                <h3>2.2.2 ALIMENTAÇÃO PELO BARRAMENTO</h3>
+                <h3>ALIMENTAÇÃO PELO BARRAMENTO</h3>
                 <p>O MQTT não fornece energia elétrica pelo meio de comunicação. Os sensores, controladores, gateways, switches e servidores necessitam de alimentação própria ou de uma solução de energia prevista pela infraestrutura física.</p>
                 <ul>
                     <li><strong>Alimentação local:</strong> equipamentos industriais normalmente utilizam fontes CC ou fontes integradas, conforme a especificação de cada dispositivo.</li>
@@ -89,7 +89,7 @@
             </section>
 
             <section class="section-h3">
-                <h3>2.2.3 ISOLAÇÃO E PROTEÇÃO CONTRA RUÍDOS</h3>
+                <h3>ISOLAÇÃO E PROTEÇÃO CONTRA RUÍDOS</h3>
                 <p>A imunidade a interferências depende do meio físico escolhido. O MQTT não realiza blindagem nem corrige interferências eletromagnéticas no cabo ou no rádio; ele utiliza os mecanismos da rede e do transporte para manter a comunicação entre os clientes e o broker.</p>
                 <ul>
                     <li><strong>Em Ethernet de cobre:</strong> utilizar cabeamento industrial adequado, blindagem quando necessária, aterramento planejado, separação de cabos de potência e proteção contra surtos conforme o ambiente.</li>
@@ -101,11 +101,11 @@
         </section>
 
         <section class="section-h2">
-            <h2>2.3 PROTOCOLO DE ENLACE E ACESSO AO MEIO (MAC)</h2>
+            <h2>PROTOCOLO DE ENLACE E ACESSO AO MEIO (MAC)</h2>
             <section class="section-h3">
-                <h3>2.3.1 MÉTODO DE COMUNICAÇÃO PUBLICAÇÃO/ASSINATURA</h3>
+                <h3>MÉTODO DE COMUNICAÇÃO PUBLICAÇÃO/ASSINATURA</h3>
                 <section class="section-h4">
-                    <h4>2.3.1.1 FUNCIONAMENTO ENTRE CLIENTES E BROKER</h4>
+                    <h4>FUNCIONAMENTO ENTRE CLIENTES E BROKER</h4>
                     <p>O MQTT não utiliza um método próprio de acesso ao meio físico nem uma arbitragem de barramento como o CAN. O acesso ao meio é determinado pela rede subjacente, por exemplo, Ethernet com switches ou Wi-Fi com seus mecanismos de contenção. Na camada de aplicação, o MQTT organiza a troca de mensagens por meio do modelo publicação/assinatura.</p>
                     <ul>
                         <li><strong>Publisher (publicador):</strong> cliente que envia uma mensagem a um tópico, sem precisar conhecer diretamente todos os destinatários.</li>
@@ -115,7 +115,7 @@
                     </ul>
                 </section>
                 <section class="section-h4">
-                    <h4>2.3.1.2 NÍVEIS DE QUALIDADE DE SERVIÇO (QOS)</h4>
+                    <h4>NÍVEIS DE QUALIDADE DE SERVIÇO (QOS)</h4>
                     <p>O MQTT define três níveis de Quality of Service (QoS), que controlam o nível de confirmação da entrega de cada mensagem entre um emissor e um receptor. O nível configurado influencia a quantidade de mensagens de controle, a latência e a possibilidade de duplicidade. [4]</p>
                     <ul>
                         <li><strong>QoS 0 — At most once:</strong> a mensagem é enviada sem confirmação e sem retransmissão pelo mecanismo QoS. Pode chegar uma vez ou não chegar.</li>
@@ -127,10 +127,10 @@
             </section>
 
             <section class="section-h3">
-                <h3>2.3.2 ESTRUTURA DO QUADRO E MENSAGEM MQTT</h3>
+                <h3>ESTRUTURA DO QUADRO E MENSAGEM MQTT</h3>
                 <p>O MQTT transmite pacotes de controle (MQTT Control Packets). Cada pacote possui um cabeçalho fixo e, conforme o tipo, pode conter cabeçalho variável e payload. O conteúdo do payload é definido pela aplicação e pode transportar valores numéricos, texto, JSON, dados binários ou outros formatos. [4]</p>
                 <section class="section-h4">
-                    <h4>2.3.2.1 CAMPOS PRINCIPAIS DOS PACOTES DE CONTROLE</h4>
+                    <h4>CAMPOS PRINCIPAIS DOS PACOTES DE CONTROLE</h4>
                     <ul>
                         <li><strong>Fixed Header (Cabeçalho Fixo):</strong> presente em todos os pacotes. Identifica o tipo de pacote e inclui flags específicas; também informa o comprimento restante do pacote.</li>
                         <li><strong>Variable Header (Cabeçalho Variável):</strong> presente em determinados pacotes, com campos que variam conforme a operação. Pode conter identificador de pacote, nome de tópico ou propriedades.</li>
@@ -139,7 +139,7 @@
                     </ul>
                 </section>
                 <section class="section-h4">
-                    <h4>2.3.2.2 MENSAGEM PUBLISH E TÓPICOS</h4>
+                    <h4>MENSAGEM PUBLISH E TÓPICOS</h4>
                     <p>O pacote PUBLISH transporta uma mensagem de aplicação do cliente ao broker ou do broker ao cliente. Na mensagem publicada, o cabeçalho variável contém o nome do tópico e, quando necessário, identificador de pacote e propriedades. O payload contém os dados propriamente ditos, cujo formato é definido pelos sistemas que publicam e consomem a informação.</p>
                     <ul>
                         <li><strong>Endereço lógico de destino:</strong> o tópico identifica o canal de informação ao qual a mensagem está associada. O broker utiliza as assinaturas dos clientes para determinar quais participantes devem receber a publicação.</li>
@@ -147,19 +147,19 @@
                     </ul>
                 </section>
                 <section class="section-h4">
-                    <h4>2.3.2.3 CONFIRMAÇÃO E INTEGRIDADE</h4>
+                    <h4>CONFIRMAÇÃO E INTEGRIDADE</h4>
                     <p>As confirmações de entrega dependem do nível QoS. No QoS 0 não há confirmação MQTT; no QoS 1, utiliza-se PUBACK; no QoS 2, ocorre uma sequência de controle que envolve PUBREC, PUBREL e PUBCOMP. A integridade do fluxo de bytes é apoiada pelo transporte e, quando habilitado, pela proteção criptográfica da conexão TLS. O MQTT não define um campo CRC próprio equivalente ao FCS de um quadro Ethernet.</p>
                 </section>
             </section>
         </section>
 
         <section class="section-h2">
-            <h2>2.4 PARÂMETROS OPERACIONAIS E DESEMPENHO</h2>
+            <h2>PARÂMETROS OPERACIONAIS E DESEMPENHO</h2>
             <section class="section-h3">
-                <h3>2.4.1 TAXA DE TRANSMISSÃO (BIT RATE / BANDWIDTH)</h3>
+                <h3>TAXA DE TRANSMISSÃO (BIT RATE / BANDWIDTH)</h3>
                 <p>O MQTT não estabelece uma taxa física fixa em baud ou bits por segundo. A velocidade de transmissão depende da interface de rede, do transporte TCP/IP, da capacidade do broker, do tamanho das mensagens, do número de clientes conectados, da frequência de publicação e do QoS configurado.</p>
                 <section class="section-h4">
-                    <h4>2.4.1.1 INFLUÊNCIA DA REDE E DO QOS</h4>
+                    <h4>INFLUÊNCIA DA REDE E DO QOS</h4>
                     <ul>
                         <li><strong>Largura de banda:</strong> é determinada pelo enlace utilizado, como Ethernet, fibra, Wi-Fi ou rede celular. A capacidade disponível pode ser compartilhada com outros serviços da instalação.</li>
                         <li><strong>Frequência das publicações:</strong> enviar mensagens com maior frequência aumenta o tráfego e o processamento exigido do broker e dos assinantes.</li>
@@ -168,7 +168,7 @@
                     </ul>
                 </section>
                 <section class="section-h4">
-                    <h4>2.4.1.2 PORTAS DE COMUNICAÇÃO E TRANSPORTE</h4>
+                    <h4>PORTAS DE COMUNICAÇÃO E TRANSPORTE</h4>
                     <ul>
                         <li><strong>TCP 1883:</strong> porta convencional registrada para comunicação MQTT sem TLS.</li>
                         <li><strong>TCP 8883:</strong> porta convencional registrada para comunicação MQTT protegida por TLS.</li>
@@ -179,12 +179,12 @@
             </section>
 
             <section class="section-h3">
-                <h3>2.4.2 DISTÂNCIA MÁXIMA DA COMUNICAÇÃO</h3>
+                <h3>DISTÂNCIA MÁXIMA DA COMUNICAÇÃO</h3>
                 <p>O MQTT não estabelece distância máxima entre cliente e broker. O alcance depende dos enlaces físicos e da arquitetura IP utilizada: um segmento Ethernet de cobre possui limites próprios, a fibra pode atender distâncias maiores conforme os transceptores e a rede sem fio depende de cobertura, potência, antenas e obstáculos. A comunicação pode atravessar roteadores e redes remotas, desde que exista conectividade até o broker.</p>
             </section>
 
             <section class="section-h3">
-                <h3>2.4.3 DETERMINISMO E TEMPO DE CICLO</h3>
+                <h3>DETERMINISMO E TEMPO DE CICLO</h3>
                 <ul>
                     <li><strong>Classificação:</strong> o MQTT convencional é considerado não determinístico para controle industrial que exige tempo de ciclo rígido.</li>
                     <li><strong>Justificativa:</strong> a entrega depende do transporte TCP, do processamento do broker, das filas de mensagens, do QoS, do número de assinantes, do roteamento e da carga da rede. Retransmissões e congestionamento podem alterar a latência e a variação do atraso.</li>
@@ -193,7 +193,7 @@
             </section>
 
             <section class="section-h3">
-                <h3>2.4.4 NÍVEL NA PIRÂMIDE DA AUTOMAÇÃO</h3>
+                <h3>NÍVEL NA PIRÂMIDE DA AUTOMAÇÃO</h3>
                 <ul>
                     <li><strong>Classificação:</strong> atua principalmente nos níveis de Supervisão (Nível 2), Gerenciamento da Produção (Nível 3) e Integração Corporativa/IIoT (Níveis 4 e 5), conforme a arquitetura adotada.</li>
                     <li><strong>Justificativa:</strong> o MQTT permite que gateways e sistemas de supervisão compartilhem dados de máquinas com plataformas de análise, servidores, MES, ERP e serviços em nuvem. Os dispositivos de campo podem participar da comunicação por meio de clientes MQTT ou gateways, mas o protocolo é mais comum na integração e no transporte de telemetria do que no acionamento direto de malhas rápidas.</li>
