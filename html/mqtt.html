@@ -31,6 +31,7 @@
                 <h3>MQTT EM REDES INDUSTRIAIS E SISTEMAS IIOT</h3>
                 <p>MQTT é um protocolo de mensagens da camada de aplicação que utiliza o modelo Publicação/Assinatura (Publish/Subscribe). Um dispositivo ou aplicação publica informações em tópicos, enquanto os clientes interessados assinam esses tópicos para receber as mensagens. Um servidor intermediário chamado broker recebe as publicações e distribui os dados aos assinantes correspondentes. O protocolo foi projetado para ser leve e adequado a ambientes com dispositivos e enlaces que possuem recursos limitados. [4]</p>
                 <p>Na indústria, MQTT é utilizado para transportar dados de máquinas, sensores, gateways e sistemas de supervisão até aplicações de monitoramento, análise de dados, plataformas IIoT e serviços em nuvem. Ele não substitui necessariamente os protocolos de controle em tempo real do chão de fábrica; normalmente complementa as redes industriais ao disponibilizar dados para integração e análise.</p>
+                <img class="imagem_tres" src="../img/mqtt_broker.jpg" alt="Servidor broker para troca de mensagens MQTT">
             </section>
 
             <section class="section-h3">
@@ -58,6 +59,7 @@
             <section class="section-h3">
                 <h3>TOPOLOGIAS SUPORTADAS NA INFRAESTRUTURA IP</h3>
                 <p>A topologia física e lógica de uma comunicação MQTT é herdada da rede IP utilizada. O modelo de aplicação é organizado em torno dos clientes e do broker, mas os equipamentos podem estar distribuídos por diferentes switches, roteadores, enlaces sem fio e segmentos de rede.</p>
+                <img class="imagem_tres" src="../img/mqtt_arquitetura.jpg" alt="Diagrama de comunicação entre clientes e broker MQTT">
                 <ul>
                     <li><strong>Estrela e árvore:</strong> são comuns em redes Ethernet industriais, nas quais clientes e broker se conectam a switches de acesso e distribuição.</li>
                     <li><strong>Anel ou malha:</strong> podem existir na infraestrutura IP para aumentar a disponibilidade ou oferecer caminhos alternativos, dependendo dos protocolos de redundância e dos equipamentos utilizados.</li>

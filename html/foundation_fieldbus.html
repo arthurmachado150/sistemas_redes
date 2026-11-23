@@ -63,6 +63,7 @@
 
             <section class="section-h3">
                 <h3>TOPOLOGIAS SUPORTADAS</h3>
+                <img class="imagem_tres" src="../img/foundation_fieldbus_h1_hse_arquitetura_comunicacao.jpg" alt="Arquitetura e topologias de comunicação entre segmentos H1 e a rede HSE">
                 <section class="section-h4">
                     <h4>TOPOLOGIAS DO H1</h4>
                     <p>O H1 pode ser organizado em barramento principal com derivações (trunk and spurs), ponto a ponto, árvore, cadeia (daisy chain) ou combinações dessas estruturas. Em instalações de processo, é comum utilizar um cabo principal e derivações curtas até cada instrumento. Essa organização permite distribuir a comunicação e a alimentação ao longo da área de produção, mas exige planejamento do comprimento total, da quantidade de derivações, da queda de tensão e do número de dispositivos.</p>
@@ -70,11 +71,13 @@
                         <li><strong>Terminação:</strong> cada segmento H1 deve possuir exatamente dois terminadores, instalados nas extremidades do tronco principal. O terminador é uma rede RC especificada para o barramento, não apenas um resistor isolado escolhido sem cálculo.</li>
                         <li><strong>Derivações:</strong> o comprimento permitido de cada spur depende da quantidade de derivações existentes no segmento. Derivações longas ou numerosas podem prejudicar a integridade do sinal e precisam ser verificadas no projeto.</li>
                     </ul>
+                    <img class="imagem_tres" src="../img/foundation_fieldbus_h1_fontes_de_alimentacao.jpg" alt="Módulos utilizados na alimentação e comunicação de segmentos FOUNDATION Fieldbus H1">
                 </section>
                 <section class="section-h4">
                     <h4>TOPOLOGIAS DO HSE</h4>
                     <p>Como utiliza Ethernet, o HSE pode ser implementado com topologias suportadas pelos equipamentos de rede empregados, como estrela, árvore, linha e anel. A topologia em estrela com switches é comum em redes industriais porque facilita a organização dos enlaces e a segmentação da infraestrutura. Anéis e caminhos redundantes podem ser utilizados quando os switches e o projeto implementam os mecanismos de redundância correspondentes.</p>
                     <p>A topologia Ethernet do HSE não deve ser confundida com o barramento H1. O HSE utiliza portas e enlaces Ethernet entre equipamentos ativos; o H1 utiliza o par de condutores compartilhado por instrumentos de um segmento, com terminadores nas extremidades do tronco.</p>
+                    <img class="imagem_tres" src="../img/foundation_fieldbus_hse_equipamento_comunicacao.jpg" alt="Dispositivo de comunicação FOUNDATION Fieldbus HSE">
                 </section>
             </section>
         </section>

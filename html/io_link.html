@@ -31,6 +31,7 @@
                 <h3>IO-LINK EM REDES INDUSTRIAIS</h3>
                 <p>IO-Link é uma tecnologia padronizada de comunicação digital ponto a ponto para sensores e atuadores, definida pela IEC 61131-9. Diferentemente de redes de campo que compartilham um barramento entre vários dispositivos, cada porta IO-Link de um mestre comunica-se diretamente com um único dispositivo. Por esse motivo, IO-Link não é classificado como um fieldbus, mas como uma evolução inteligente da conexão convencional de sensores e atuadores.</p>
                 <p>A tecnologia permite trocar dados de processo, parametrizar dispositivos, receber diagnósticos e identificar informações como fabricante, modelo e número de série. Um mestre IO-Link pode possuir várias portas e se comunicar com o controlador por uma rede industrial de nível superior, como PROFINET, EtherNet/IP, EtherCAT ou outra interface compatível. A integração depende do modelo do mestre e da rede utilizada no sistema de automação.</p>
+                <img class="imagem_tres" src="../img/io_link_mestre.jpg" alt="Mestre IO-Link com portas para conexão de dispositivos">
             </section>
 
             <section class="section-h3">
@@ -63,6 +64,7 @@
                 <section class="section-h4">
                     <h4>TOPOLOGIA PONTO A PONTO</h4>
                     <p>A topologia básica do IO-Link é ponto a ponto: um dispositivo é conectado a uma porta específica do mestre. Não existe uma linha compartilhada na qual vários sensores respondem ao mesmo endereço físico. A quantidade de dispositivos conectados ao conjunto depende do número de portas disponíveis nos mestres instalados e da arquitetura de comunicação utilizada entre o mestre e o CLP.</p>
+                    <img class="imagem_tres" src="../img/io_link_arquitetura_comunicacao.jpg" alt="Diagrama da comunicação entre o mestre IO-Link, sensores e controlador">
                     <ul>
                         <li><strong>Porta do mestre:</strong> cada porta estabelece uma ligação individual com um sensor ou atuador IO-Link.</li>
                         <li><strong>Múltiplas portas:</strong> um mestre pode reunir várias ligações ponto a ponto em um único equipamento, simplificando o cabeamento entre o campo e o painel de automação.</li>
