@@ -29,14 +29,14 @@
             <h2>ESTRUTURA FÍSICA E CABEAMENTO</h2>
             <section class="section-h3">
                 <h3>OPC UA EM REDES DE AUTOMAÇÃO INDUSTRIAL</h3>
-                <p>OPC UA é uma arquitetura de comunicação industrial independente de plataforma, desenvolvida para permitir a troca segura e interoperável de informações entre equipamentos, controladores, sistemas de supervisão e aplicações corporativas. Além de transportar dados, define modelos de informação que descrevem variáveis, objetos, estados, alarmes, eventos e relações entre elementos de um sistema. [5]</p>
+                <p>OPC UA é uma arquitetura de comunicação industrial independente de plataforma, desenvolvida para permitir a troca segura e interoperável de informações entre equipamentos, controladores, sistemas de supervisão e aplicações corporativas. Além de transportar dados, define modelos de informação que descrevem variáveis, objetos, estados, alarmes, eventos e relações entre elementos de um sistema.</p>
                 <p>O padrão suporta diferentes formas de comunicação. No modelo Cliente/Servidor, um cliente solicita serviços a um servidor; no modelo PubSub, publicadores enviam conjuntos de dados a assinantes por meio de mecanismos de distribuição. Essa flexibilidade permite utilizar OPC UA em diferentes níveis da automação, desde a integração entre controladores e supervisórios até a conexão com sistemas MES, ERP e plataformas IIoT.</p>
                 <img class="imagem_tres" src="../img/opc_ua_cliente_servidor.jpg" alt="Comunicação entre cliente e servidor OPC UA">
             </section>
 
             <section class="section-h3">
                 <h3>MEIOS FÍSICOS E INFRAESTRUTURA DE COMUNICAÇÃO</h3>
-                <p>OPC UA não determina um cabo industrial exclusivo. A camada física depende do mapeamento de transporte implementado. Uma configuração comum utiliza Ethernet sobre TCP/IP, normalmente com par trançado de cobre ou fibra óptica. Também existem mapeamentos de transporte para outras tecnologias, como HTTPS e, no modelo PubSub, UDP, MQTT e AMQP, conforme os perfis suportados pelos dispositivos. [7][8]</p>
+                <p>OPC UA não determina um cabo industrial exclusivo. A camada física depende do mapeamento de transporte implementado. Uma configuração comum utiliza Ethernet sobre TCP/IP, normalmente com par trançado de cobre ou fibra óptica. Também existem mapeamentos de transporte para outras tecnologias, como HTTPS e, no modelo PubSub, UDP, MQTT e AMQP, conforme os perfis suportados pelos dispositivos.</p>
                 <ul>
                     <li><strong>Ethernet de cobre:</strong> utilizada para conexões de PLCs, IHMs, servidores, gateways e switches em redes de automação e de supervisão.</li>
                     <li><strong>Fibra óptica:</strong> adequada para backbones, interligação entre prédios ou áreas com ruído eletromagnético elevado, desde que os equipamentos possuam interfaces ópticas compatíveis.</li>
@@ -76,7 +76,7 @@
                 <ul>
                     <li><strong>OPC UA TCP:</strong> utiliza uma conexão TCP/IP para transportar mensagens OPC UA. O endereço do endpoint normalmente é representado por uma URL com o esquema opc.tcp.</li>
                     <li><strong>OPC UA HTTPS:</strong> pode transportar comunicação OPC UA por HTTPS, conforme os perfis e as implementações compatíveis.</li>
-                    <li><strong>OPC UA PubSub:</strong> pode utilizar transportes como UDP ou MQTT, entre outros mapeamentos especificados. A escolha determina como as mensagens são encaminhadas pela rede. [7][8]</li>
+                    <li><strong>OPC UA PubSub:</strong> pode utilizar transportes como UDP ou MQTT, entre outros mapeamentos especificados. A escolha determina como as mensagens são encaminhadas pela rede.</li>
                 </ul>
             </section>
 
@@ -96,7 +96,7 @@
                 <ul>
                     <li><strong>Cobre Ethernet:</strong> utilizar cabos e conectores adequados ao ambiente industrial, com instalação e aterramento conforme as recomendações do fabricante e as normas aplicáveis.</li>
                     <li><strong>Fibra óptica:</strong> oferece imunidade a interferências eletromagnéticas no próprio enlace óptico e evita a condução de diferenças de potencial entre pontos conectados exclusivamente por fibra.</li>
-                    <li><strong>Segurança lógica:</strong> OPC UA oferece mecanismos para autenticação de aplicações e usuários, assinatura, criptografia e gerenciamento de certificados. A proteção depende da seleção e configuração adequadas dos mecanismos de segurança. [6]</li>
+                    <li><strong>Segurança lógica:</strong> OPC UA oferece mecanismos para autenticação de aplicações e usuários, assinatura, criptografia e gerenciamento de certificados. A proteção depende da seleção e configuração adequadas dos mecanismos de segurança.</li>
                     <li><strong>Segmentação da rede:</strong> VLANs, firewalls, listas de controle de acesso e separação entre redes de controle e redes corporativas ajudam a limitar o acesso aos servidores e endpoints OPC UA.</li>
                 </ul>
             </section>
@@ -117,7 +117,7 @@
                 </section>
                 <section class="section-h4">
                     <h4>MODELO PUBSUB (PUBLICAÇÃO/ASSINATURA)</h4>
-                    <p>No modelo PubSub, os publicadores produzem mensagens com conjuntos de dados e os assinantes recebem as informações de seu interesse. Os participantes não precisam manter uma relação direta de solicitação e resposta entre si. A distribuição pode utilizar infraestrutura de rede baseada em datagramas, como UDP, ou um broker de mensagens, como MQTT. [8]</p>
+                    <p>No modelo PubSub, os publicadores produzem mensagens com conjuntos de dados e os assinantes recebem as informações de seu interesse. Os participantes não precisam manter uma relação direta de solicitação e resposta entre si. A distribuição pode utilizar infraestrutura de rede baseada em datagramas, como UDP, ou um broker de mensagens, como MQTT.</p>
                     <ul>
                         <li><strong>Publisher:</strong> origina e transmite mensagens contendo conjuntos de dados definidos pela aplicação.</li>
                         <li><strong>Subscriber:</strong> recebe e interpreta os conjuntos de dados que correspondem à sua configuração.</li>
@@ -132,7 +132,7 @@
 
             <section class="section-h3">
                 <h3>ESTRUTURA DA MENSAGEM E ORGANIZAÇÃO DOS DADOS</h3>
-                <p>A estrutura transmitida depende do mapeamento de transporte e da codificação escolhida. No OPC UA TCP, as mensagens são organizadas em blocos (chunks) com cabeçalhos que identificam o tipo e o tamanho da mensagem, além das informações necessárias ao canal seguro. No PubSub, os dados são organizados em mensagens de rede que podem conter um ou mais conjuntos de dados. [7][8]</p>
+                <p>A estrutura transmitida depende do mapeamento de transporte e da codificação escolhida. No OPC UA TCP, as mensagens são organizadas em blocos (chunks) com cabeçalhos que identificam o tipo e o tamanho da mensagem, além das informações necessárias ao canal seguro. No PubSub, os dados são organizados em mensagens de rede que podem conter um ou mais conjuntos de dados.</p>
                 <section class="section-h4">
                     <h4>MENSAGENS NO MODELO CLIENTE/SERVIDOR</h4>
                     <ul>
@@ -163,7 +163,7 @@
 
             <section class="section-h3">
                 <h3>VERIFICAÇÃO DE ERROS, INTEGRIDADE E SEGURANÇA</h3>
-                <p>A detecção de erros do enlace e do transporte depende da tecnologia utilizada, como CRC/FCS na Ethernet e mecanismos próprios do TCP ou UDP. No nível OPC UA, a integridade e a confidencialidade podem ser protegidas por assinatura e criptografia, conforme o modo e as políticas de segurança configuradas. O uso de certificados permite autenticar aplicações e estabelecer relações de confiança. [6][7]</p>
+                <p>A detecção de erros do enlace e do transporte depende da tecnologia utilizada, como CRC/FCS na Ethernet e mecanismos próprios do TCP ou UDP. No nível OPC UA, a integridade e a confidencialidade podem ser protegidas por assinatura e criptografia, conforme o modo e as políticas de segurança configuradas. O uso de certificados permite autenticar aplicações e estabelecer relações de confiança.</p>
                 <ul>
                     <li><strong>Certificados de aplicação:</strong> certificados X.509 podem identificar aplicações OPC UA e são verificados de acordo com listas de confiança administradas no sistema.</li>
                     <li><strong>Autenticação de usuário:</strong> pode utilizar credenciais e tokens aceitos pela implementação, conforme a política de segurança e os serviços habilitados.</li>
@@ -192,7 +192,7 @@
                     <ul>
                         <li><strong>OPC UA TCP:</strong> utiliza endereços no formato opc.tcp://. A porta 4840 é um endereço bem conhecido utilizado em configurações padrão de descoberta e pode ser adotada por servidores, mas as portas dos endpoints podem ser configuradas.</li>
                         <li><strong>OPC UA HTTPS:</strong> utiliza transporte HTTPS, normalmente associado à porta 443 quando esse serviço é disponibilizado por configuração padrão do servidor.</li>
-                        <li><strong>OPC UA PubSub:</strong> pode utilizar UDP ou transporte baseado em broker, como MQTT. As portas e endereços são definidos conforme o transporte e a configuração do sistema. [7][8]</li>
+                        <li><strong>OPC UA PubSub:</strong> pode utilizar UDP ou transporte baseado em broker, como MQTT. As portas e endereços são definidos conforme o transporte e a configuração do sistema.</li>
                     </ul>
                 </section>
             </section>
@@ -207,7 +207,7 @@
                 <ul>
                     <li><strong>Classificação:</strong> o OPC UA convencional no modelo Cliente/Servidor sobre TCP/IP não deve ser considerado, isoladamente, uma rede determinística de tempo real rígido.</li>
                     <li><strong>Justificativa:</strong> o tempo de resposta depende do transporte, do processamento do servidor e do cliente, das filas de comunicação, da carga da rede e dos intervalos de publicação. Em redes Ethernet convencionais, o congestionamento e os atrasos de processamento podem causar variações de latência.</li>
-                    <li><strong>Recursos para tempo real:</strong> a arquitetura OPC UA PubSub pode ser combinada com mecanismos de qualidade de serviço da rede, como TSN, e com especificações da família OPC UA FX. Isso permite desenvolver comunicação industrial com requisitos temporais mais rigorosos, desde que os perfis, os dispositivos e a infraestrutura sejam compatíveis e configurados para esse objetivo. [8]</li>
+                    <li><strong>Recursos para tempo real:</strong> a arquitetura OPC UA PubSub pode ser combinada com mecanismos de qualidade de serviço da rede, como TSN, e com especificações da família OPC UA FX. Isso permite desenvolver comunicação industrial com requisitos temporais mais rigorosos, desde que os perfis, os dispositivos e a infraestrutura sejam compatíveis e configurados para esse objetivo.</li>
                 </ul>
             </section>
 

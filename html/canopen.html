@@ -29,8 +29,8 @@
             <h2>ESTRUTURA FÍSICA E CABEAMENTO</h2>
             <section class="section-h3">
                 <h3>CANOPEN EM REDES DE AUTOMAÇÃO INDUSTRIAL</h3>
-                <p>O CANopen é um sistema de comunicação industrial baseado no barramento CAN (Controller Area Network), utilizado para integrar controladores, módulos de entradas e saídas, sensores, acionamentos e outros dispositivos embarcados. Ele acrescenta ao CAN uma camada de aplicação padronizada, com regras para endereçamento lógico, organização dos dados, configuração dos equipamentos e gerenciamento da rede. É comum em máquinas, sistemas de movimentação, equipamentos móveis e aplicações de controle distribuído. [1]</p>
-                <p>A arquitetura CANopen define como os dispositivos disponibilizam parâmetros e informações do processo. Dessa forma, equipamentos de fabricantes diferentes podem ser integrados quando implementam os mesmos perfis e funcionalidades compatíveis. A especificação mais conhecida para CANopen clássico é a CiA 301; CANopen FD é uma evolução separada, baseada em CAN FD e especificada pela CiA 1301. [1]</p>
+                <p>O CANopen é um sistema de comunicação industrial baseado no barramento CAN (Controller Area Network), utilizado para integrar controladores, módulos de entradas e saídas, sensores, acionamentos e outros dispositivos embarcados. Ele acrescenta ao CAN uma camada de aplicação padronizada, com regras para endereçamento lógico, organização dos dados, configuração dos equipamentos e gerenciamento da rede. É comum em máquinas, sistemas de movimentação, equipamentos móveis e aplicações de controle distribuído.</p>
+                <p>A arquitetura CANopen define como os dispositivos disponibilizam parâmetros e informações do processo. Dessa forma, equipamentos de fabricantes diferentes podem ser integrados quando implementam os mesmos perfis e funcionalidades compatíveis. A especificação mais conhecida para CANopen clássico é a CiA 301; CANopen FD é uma evolução separada, baseada em CAN FD e especificada pela CiA 1301.</p>
                 <img class="imagem_tres" src="../img/canopen_acoplador.jpg" alt="Acoplador de rede CANopen">
             </section>
 
@@ -38,7 +38,7 @@
                 <h3>MEIOS FÍSICOS E CABOS ADOTADOS</h3>
                 <section class="section-h4">
                     <h4>MEIO FÍSICO (PAR TRANÇADO DIFERENCIAL)</h4>
-                    <p>O CANopen clássico utiliza normalmente a camada física de alta velocidade definida pela ISO 11898-2. O meio mais comum é um cabo de par trançado, no qual os sinais CAN_H e CAN_L são transmitidos de forma diferencial. Em instalações industriais, pode ser utilizado cabo com blindagem, desde que a especificação do fabricante e o projeto de aterramento sejam respeitados. A impedância característica do cabo deve ser compatível com os componentes do barramento. [2]</p>
+                    <p>O CANopen clássico utiliza normalmente a camada física de alta velocidade definida pela ISO 11898-2. O meio mais comum é um cabo de par trançado, no qual os sinais CAN_H e CAN_L são transmitidos de forma diferencial. Em instalações industriais, pode ser utilizado cabo com blindagem, desde que a especificação do fabricante e o projeto de aterramento sejam respeitados. A impedância característica do cabo deve ser compatível com os componentes do barramento.</p>
                     <ul>
                         <li><strong>Par de comunicação CAN_H/CAN_L:</strong> conduz os sinais diferenciais utilizados para representar os bits dominantes e recessivos do barramento.</li>
                         <li><strong>Condutor de referência:</strong> um condutor de referência/terra de comunicação pode acompanhar o par de dados para reduzir diferenças de potencial entre os equipamentos; sua ligação deve seguir as recomendações de instalação e de isolamento do fabricante.</li>
@@ -47,7 +47,7 @@
                 </section>
                 <section class="section-h4">
                     <h4>TOPOLOGIA DO BARRAMENTO E TERMINAÇÃO</h4>
-                    <p>A topologia recomendada para CANopen é a de barramento linear: um cabo principal percorre a instalação e cada nó é conectado a ele por derivações curtas (stubs). A formação de grandes ramificações em estrela aumenta as reflexões do sinal e pode comprometer a comunicação, principalmente em taxas elevadas. [2]</p>
+                    <p>A topologia recomendada para CANopen é a de barramento linear: um cabo principal percorre a instalação e cada nó é conectado a ele por derivações curtas (stubs). A formação de grandes ramificações em estrela aumenta as reflexões do sinal e pode comprometer a comunicação, principalmente em taxas elevadas.</p>
                     <ul>
                         <li><strong>Resistores de terminação:</strong> em uma rede CAN de alta velocidade, normalmente são instalados resistores de 120 Ω entre CAN_H e CAN_L nas duas extremidades físicas do cabo principal. Não se deve instalar uma terminação em cada nó; somente nas duas pontas do barramento.</li>
                         <li><strong>Derivações:</strong> devem ser mantidas curtas e distribuídas ao longo do cabo principal. O comprimento admissível diminui conforme a taxa de transmissão aumenta.</li>
@@ -58,7 +58,7 @@
 
             <section class="section-h3">
                 <h3>CONECTORES PADRONIZADOS E IDENTIFICAÇÃO</h3>
-                <p>O CANopen não depende de um único formato físico de conector para todas as aplicações. As recomendações de pinagem para interfaces CAN são tratadas em documentos da CAN in Automation (CiA), incluindo a CiA 106, que reúne atribuições para diferentes tipos de conectores. A compatibilidade exige conferir o padrão de pinagem do equipamento e do cabo, não apenas o formato mecânico. [3]</p>
+                <p>O CANopen não depende de um único formato físico de conector para todas as aplicações. As recomendações de pinagem para interfaces CAN são tratadas em documentos da CAN in Automation (CiA), incluindo a CiA 106, que reúne atribuições para diferentes tipos de conectores. A compatibilidade exige conferir o padrão de pinagem do equipamento e do cabo, não apenas o formato mecânico.</p>
                 <ul>
                     <li><strong>DE-9 / D-Sub de 9 pinos:</strong> conector bastante encontrado em interfaces CAN e equipamentos de automação. A distribuição dos pinos deve seguir a recomendação adotada pelo fabricante e pela aplicação.</li>
                     <li><strong>M12 industrial:</strong> conector circular rosqueado utilizado em determinados equipamentos e instalações industriais, com codificação e pinagem próprias para a interface CAN.</li>
@@ -93,7 +93,7 @@
 
             <section class="section-h3">
                 <h3>ALIMENTAÇÃO PELO BARRAMENTO</h3>
-                <p>O CANopen não define a alimentação dos sensores, atuadores ou controladores pelo próprio par de comunicação. Em regra, os equipamentos recebem energia por uma infraestrutura separada, frequentemente em 24 Vcc nas instalações industriais. Alguns conectores CAN podem possuir pinos adicionais para alimentação, mas isso não significa que o barramento CAN forneça energia de forma padronizada aos dispositivos. [3]</p>
+                <p>O CANopen não define a alimentação dos sensores, atuadores ou controladores pelo próprio par de comunicação. Em regra, os equipamentos recebem energia por uma infraestrutura separada, frequentemente em 24 Vcc nas instalações industriais. Alguns conectores CAN podem possuir pinos adicionais para alimentação, mas isso não significa que o barramento CAN forneça energia de forma padronizada aos dispositivos.</p>
                 <ul>
                     <li><strong>Alimentação dos dispositivos:</strong> fontes CC, distribuidores de energia ou circuitos locais alimentam controladores, sensores, módulos e atuadores de acordo com seus requisitos.</li>
                     <li><strong>Separação entre dados e energia:</strong> CAN_H e CAN_L são dedicados à comunicação. A alimentação, quando conduzida no mesmo conector, utiliza contatos distintos e deve respeitar corrente, proteção e pinagem especificadas pelo fabricante.</li>
@@ -151,7 +151,7 @@
                 </section>
                 <section class="section-h4">
                     <h4>OBJETOS DE COMUNICAÇÃO DO CANOPEN</h4>
-                    <p>O CANopen organiza os dados por meio de objetos de comunicação (COBs) e de um dicionário de objetos. O dicionário reúne parâmetros de comunicação e de aplicação, identificados por índice de 16 bits e subíndice quando necessário. Essa organização padroniza a configuração e o acesso às informações internas do dispositivo. [1]</p>
+                    <p>O CANopen organiza os dados por meio de objetos de comunicação (COBs) e de um dicionário de objetos. O dicionário reúne parâmetros de comunicação e de aplicação, identificados por índice de 16 bits e subíndice quando necessário. Essa organização padroniza a configuração e o acesso às informações internas do dispositivo.</p>
                     <ul>
                         <li><strong>PDO (Process Data Object):</strong> transporta dados de processo, como valores de sensores, estados de entradas e comandos de saída. É utilizado para comunicação rápida e pode ser configurado para transmissão síncrona, cíclica, por evento ou mediante solicitação, conforme o perfil e o equipamento.</li>
                         <li><strong>SDO (Service Data Object):</strong> permite ler e escrever entradas do dicionário de objetos, sendo utilizado principalmente para parametrização, configuração e diagnóstico. O modelo de comunicação é cliente-servidor.</li>
@@ -172,7 +172,7 @@
             <h2>PARÂMETROS OPERACIONAIS E DESEMPENHO</h2>
             <section class="section-h3">
                 <h3>TAXA DE TRANSMISSÃO (BIT RATE / BAUD RATE)</h3>
-                <p>No CANopen clássico (CANopen CC), as taxas de transmissão padronizadas vão de 10 kbit/s a 1 Mbit/s. A taxa é configurada para todos os nós de um mesmo segmento e precisa ser compatível com os equipamentos conectados. A velocidade efetiva e a confiabilidade dependem do comprimento do cabo, das derivações, dos transceptores e da qualidade da instalação. [1][2]</p>
+                <p>No CANopen clássico (CANopen CC), as taxas de transmissão padronizadas vão de 10 kbit/s a 1 Mbit/s. A taxa é configurada para todos os nós de um mesmo segmento e precisa ser compatível com os equipamentos conectados. A velocidade efetiva e a confiabilidade dependem do comprimento do cabo, das derivações, dos transceptores e da qualidade da instalação.</p>
                 <section class="section-h4">
                     <h4>TAXAS DE TRANSMISSÃO USUAIS</h4>
                     <ul>
@@ -183,13 +183,13 @@
                         <li><strong>50 kbit/s:</strong> pode alcançar cerca de 1.000 m em condições adequadas de instalação.</li>
                         <li><strong>10 a 20 kbit/s:</strong> são taxas de menor velocidade que podem ser utilizadas em redes extensas. Como referência, 10 kbit/s pode alcançar até 5.000 m e 20 kbit/s até 2.500 m, conforme as condições de cabeamento e temporização.</li>
                     </ul>
-                    <p>Os valores são referências técnicas para CANopen CC e não devem ser utilizados como garantia automática de alcance. O projeto deve respeitar a tabela completa de temporização, o limite de derivações, as características do cabo e os requisitos de cada transceptor. CANopen FD é uma variante distinta e não deve ser confundida com os limites do CANopen clássico. [2]</p>
+                    <p>Os valores são referências técnicas para CANopen CC e não devem ser utilizados como garantia automática de alcance. O projeto deve respeitar a tabela completa de temporização, o limite de derivações, as características do cabo e os requisitos de cada transceptor. CANopen FD é uma variante distinta e não deve ser confundida com os limites do CANopen clássico.</p>
                 </section>
             </section>
 
             <section class="section-h3">
                 <h3>DISTÂNCIA MÁXIMA DO BARRAMENTO</h3>
-                <p>A distância máxima não é fixa: ela diminui à medida que a taxa de transmissão aumenta. A tabela técnica da CiA apresenta, como referências para CANopen CC, aproximadamente 25 m a 1 Mbit/s, 100 m a 500 kbit/s, 250 m a 250 kbit/s, 500 m a 125 kbit/s e 1.000 m a 50 kbit/s. Para taxas menores, o alcance de referência pode chegar a alguns quilômetros. [2]</p>
+                <p>A distância máxima não é fixa: ela diminui à medida que a taxa de transmissão aumenta. A tabela técnica da CiA apresenta, como referências para CANopen CC, aproximadamente 25 m a 1 Mbit/s, 100 m a 500 kbit/s, 250 m a 250 kbit/s, 500 m a 125 kbit/s e 1.000 m a 50 kbit/s. Para taxas menores, o alcance de referência pode chegar a alguns quilômetros.</p>
                 <p>Além do comprimento total, devem ser observados o comprimento individual e acumulado das derivações, a posição das terminações, a impedância do cabo, a queda de tensão e o atraso de propagação. Repetidores ou bridges podem ser necessários para interligar segmentos adicionais, respeitando as limitações da arquitetura.</p>
             </section>
 

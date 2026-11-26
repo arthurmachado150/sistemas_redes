@@ -29,14 +29,14 @@
             <h2>ESTRUTURA FÍSICA E CABEAMENTO</h2>
             <section class="section-h3">
                 <h3>MQTT EM REDES INDUSTRIAIS E SISTEMAS IIOT</h3>
-                <p>MQTT é um protocolo de mensagens da camada de aplicação que utiliza o modelo Publicação/Assinatura (Publish/Subscribe). Um dispositivo ou aplicação publica informações em tópicos, enquanto os clientes interessados assinam esses tópicos para receber as mensagens. Um servidor intermediário chamado broker recebe as publicações e distribui os dados aos assinantes correspondentes. O protocolo foi projetado para ser leve e adequado a ambientes com dispositivos e enlaces que possuem recursos limitados. [4]</p>
+                <p>MQTT é um protocolo de mensagens da camada de aplicação que utiliza o modelo Publicação/Assinatura (Publish/Subscribe). Um dispositivo ou aplicação publica informações em tópicos, enquanto os clientes interessados assinam esses tópicos para receber as mensagens. Um servidor intermediário chamado broker recebe as publicações e distribui os dados aos assinantes correspondentes. O protocolo foi projetado para ser leve e adequado a ambientes com dispositivos e enlaces que possuem recursos limitados.</p>
                 <p>Na indústria, MQTT é utilizado para transportar dados de máquinas, sensores, gateways e sistemas de supervisão até aplicações de monitoramento, análise de dados, plataformas IIoT e serviços em nuvem. Ele não substitui necessariamente os protocolos de controle em tempo real do chão de fábrica; normalmente complementa as redes industriais ao disponibilizar dados para integração e análise.</p>
                 <img class="imagem_tres" src="../img/mqtt_broker.jpg" alt="Servidor broker para troca de mensagens MQTT">
             </section>
 
             <section class="section-h3">
                 <h3>MEIOS DE TRANSMISSÃO E INFRAESTRUTURA DE COMUNICAÇÃO</h3>
-                <p>O MQTT não define um cabo ou meio físico próprio. Ele funciona sobre um transporte que ofereça um fluxo ordenado e confiável de bytes; a utilização mais comum é TCP/IP. Assim, a comunicação pode atravessar diferentes meios físicos, como Ethernet em cobre, fibra óptica, Wi-Fi ou redes celulares, desde que exista conectividade IP entre o cliente e o broker. [4]</p>
+                <p>O MQTT não define um cabo ou meio físico próprio. Ele funciona sobre um transporte que ofereça um fluxo ordenado e confiável de bytes; a utilização mais comum é TCP/IP. Assim, a comunicação pode atravessar diferentes meios físicos, como Ethernet em cobre, fibra óptica, Wi-Fi ou redes celulares, desde que exista conectividade IP entre o cliente e o broker.</p>
                 <ul>
                     <li><strong>Ethernet em par trançado:</strong> muito utilizada para conectar PLCs, gateways industriais, computadores e servidores a switches da rede local.</li>
                     <li><strong>Fibra óptica:</strong> pode ser utilizada nos backbones e nos enlaces entre áreas, switches e centros de processamento. A fibra transporta os dados IP, enquanto o MQTT continua operando na camada de aplicação.</li>
@@ -118,7 +118,7 @@
                 </section>
                 <section class="section-h4">
                     <h4>NÍVEIS DE QUALIDADE DE SERVIÇO (QOS)</h4>
-                    <p>O MQTT define três níveis de Quality of Service (QoS), que controlam o nível de confirmação da entrega de cada mensagem entre um emissor e um receptor. O nível configurado influencia a quantidade de mensagens de controle, a latência e a possibilidade de duplicidade. [4]</p>
+                    <p>O MQTT define três níveis de Quality of Service (QoS), que controlam o nível de confirmação da entrega de cada mensagem entre um emissor e um receptor. O nível configurado influencia a quantidade de mensagens de controle, a latência e a possibilidade de duplicidade.</p>
                     <ul>
                         <li><strong>QoS 0 — At most once:</strong> a mensagem é enviada sem confirmação e sem retransmissão pelo mecanismo QoS. Pode chegar uma vez ou não chegar.</li>
                         <li><strong>QoS 1 — At least once:</strong> o protocolo utiliza confirmação de recebimento e pode retransmitir a mensagem até obter a confirmação. Garante entrega pelo menos uma vez, podendo ocorrer duplicidade.</li>
@@ -130,7 +130,7 @@
 
             <section class="section-h3">
                 <h3>ESTRUTURA DO QUADRO E MENSAGEM MQTT</h3>
-                <p>O MQTT transmite pacotes de controle (MQTT Control Packets). Cada pacote possui um cabeçalho fixo e, conforme o tipo, pode conter cabeçalho variável e payload. O conteúdo do payload é definido pela aplicação e pode transportar valores numéricos, texto, JSON, dados binários ou outros formatos. [4]</p>
+                <p>O MQTT transmite pacotes de controle (MQTT Control Packets). Cada pacote possui um cabeçalho fixo e, conforme o tipo, pode conter cabeçalho variável e payload. O conteúdo do payload é definido pela aplicação e pode transportar valores numéricos, texto, JSON, dados binários ou outros formatos.</p>
                 <section class="section-h4">
                     <h4>CAMPOS PRINCIPAIS DOS PACOTES DE CONTROLE</h4>
                     <ul>
@@ -176,7 +176,7 @@
                         <li><strong>TCP 8883:</strong> porta convencional registrada para comunicação MQTT protegida por TLS.</li>
                         <li><strong>WebSocket:</strong> também pode transportar MQTT em aplicações compatíveis, por exemplo quando a comunicação precisa atravessar ambientes de aplicação web. A porta utilizada depende da configuração do serviço.</li>
                     </ul>
-                    <p>As portas indicadas são valores convencionais e podem ser alteradas pelo administrador. O MQTT requer um transporte que ofereça fluxo de bytes ordenado e confiável; a especificação cita TCP/IP e também admite outros transportes que atendam a esse requisito. [4]</p>
+                    <p>As portas indicadas são valores convencionais e podem ser alteradas pelo administrador. O MQTT requer um transporte que ofereça fluxo de bytes ordenado e confiável; a especificação cita TCP/IP e também admite outros transportes que atendam a esse requisito.</p>
                 </section>
             </section>
 
