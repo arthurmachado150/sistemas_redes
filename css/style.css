@@ -228,7 +228,7 @@ h4 {
 
 h2 {
     color: var(--laranja-senai);
-    border-bottom: 3px solid var(--azul-senai);
+    border-bottom: 3px solid var(--laranja-escuro);
 }
 
 h3 {
@@ -239,6 +239,66 @@ h3 {
 h4 {
     color: #43b1b9;
     border-bottom: 2px solid #00718d;
+}
+
+select, input, button, .resultado{
+    
+    border-radius: 6px;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+    margin-top: 15;
+    font-size: 16px;
+    font-weight: bold;
+    color: #000000;
+    background-color: #ffffff;
+    transition: 0.3s ease, 0.3s ease;
+    margin-bottom: 15px;
+    text-align: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+select{
+    padding: 10px 12px;
+    border: 1px solid #82c0b1;
+    border-bottom: 5px solid #82c0b1;
+}
+
+option{
+    font-size: 16px;
+    font-weight: bold;
+    color: #134937;
+    background-color: #aeeede;
+    text-align: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+input{
+    padding: 10px 12px;
+    border: 1px solid #6ab0cc;
+    border-bottom: 5px solid #6ab0cc;
+    transition: 0.3s ease, 0.3s ease;
+}
+
+button{
+    padding: 10px 20px;
+    border: 1px solid #5789e6;
+    border-bottom: 5px solid #5789e6;
+    transition: #a58dd1 0.3s ease, #8d97d1 0.3s ease;
+    margin-bottom: 15px;
+}
+
+.resultado {
+    padding: 10px 50px;
+    max-width: 100%;
+    border: 1px solid #82c0b1;
+    border-bottom: 5px solid #82c0b1;
+    white-space: normal;
+    overflow-wrap: anywhere;
+    word-break: break-all;
 }
 
 /* 2.7 TABELAS */
